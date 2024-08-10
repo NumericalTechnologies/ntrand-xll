@@ -1,0 +1,47 @@
+---
+title: 概要
+sidebar_position: 1
+---
+
+# 概要
+
+## NtRand – 乱数生成Excel アドイン関数
+
+Numerical Technologies Random Generator for Excel (**NtRand**) とは、モンテカルロ法に用いる[標準正規乱数](/glossary/#local_normal_Gaussian) などを、Microsoft Excel から使える関数アドインとして実装したソフトウェアです。 NtRand はシミュレーション分野で注目を集めている超長周期と高次元均等分布を特徴とする[Mersenne Twister アルゴリズム](/glossary/#local_Mersenne_Twister)による[疑似乱数](/glossary/#local_pseudo-random)を使用しています。 また多変量モンテカルロにおいては[対称変量法 (antithetic)](/glossary/#local_antitheticvariant) や [2次サンプリング (quadratic resampling)](/glossary/#local_quadraticresampling) などの精度改善手法を採用しています。詳しくは、[「モーメントマッチングってどんな効果があるの？」](/faq/#local_EnhancementofMonteCarlo)をご覧ください。
+
+## なぜNtRand?
+
+リスク管理で使われるVaRなどの計算においては、大規模なモンテカルロシミュレーションがしばしば必要となります。 そうした際、システム組込みの乱数では十分な精度を確保できません。 物理乱数 を使う解決方法もありますが、追試で重要な再現性がない上に特殊なハードウェアが必要であるため、実用性に乏しいものです。Mersenne Twister は、そんな場合の現実的なソリューションを与えてくれる方法の一つであり、弊社のリスク管理システムPortfolioBrowser® / CreditBrowser® の中でも大規模に使用しております。
+
+## 特徴
+
+NtRand は非常に高速かつ高機能です。数十次元程度であれば実用レベルのモンテカルロVaR (Value at Risk) システムや、デリバティブのプライシングモデルを、パソコン上のExcel を使って構築可能です。 すなわち、大方の比較的小規模なVaR 管理ならばNtRand を用いれば実現できるはずです。デリバティブのプライシングやリスク管理の研究、高額なシステムの企画・発注の前の叩き台、あるいは論文ネタとして、ぜひご活用ください。
+
+- 超長周期（周期 $2^{19937}-1$ ）と高次元均等性（623次元）という目を見張る高品質な**[疑似乱数](/overview/#local_Pseudo-random)**生成を実現（[Mersenns Twiser 法](/glossary/#local_Mersenne_Twister)）。Mersenne Twister 法の詳しい説明は[Mersenne Twister ホームページ](http://www.math.sci.hiroshima-u.ac.~m-mat/MT/emt.html)へどうぞ。
+- **Excel のアドイン**として提供されているため、導入はとっても簡単。Excel のメニューから登録したらすぐに使えます。
+- **簡単操作**による多変量相関正規乱数生成。**モンテカルロ法による VaR**（Value at Risk）の計算に力を発揮します。
+- **乱数生成アルゴリズム選択**の自由性。一様乱数は[Mersenns Twiser 法](/glossary/#local_Mersenne_Twister)の他にも簡便で広く使われている**Numerical Recipes ran2()** 法が選択可能。さらに正規乱生成は[Box-Muller 法](/overview/#local_Box-Muller)と[Moro の方法](/glossary/#local_Inversefunctionmethod)が選べます。
+- **モーメントマッチング法** によってモンテカルロシミュレーションにおける収束性が劇的に改善。[対称変量法](/glossary/#local_antitheticvariant) と [2次サンプリング法](/glossary/#local_quadraticresampling)を自由に組み合わせて使用可能。詳しくは[こちら](/glossary/#local_EnhancementofMonteCarlo)へ。
+- 利用範囲の広い**17種の確率分布**の乱数生成とそれを利用するための有用性の高いユーティリティ関数を完全実装。下の表で対応関数を確認してください。
+
+|                                             | 乱数 | 分布関数 | 逆関数 | Mom(\*). | パラメータ推定 | 平均 | 標準偏差 | 歪度 | 尖度 |
+| ------------------------------------------- | ---- | -------- | ------ | -------- | -------------- | ---- | -------- | ---- | ---- |
+| [一様](/uniform-distribution/)              | ✅   | ❌       | ❌     | ❌       | ❌             | ❌   | ❌       | ❌   | ❌   |
+| [ベータ](/beta-distribution/)               | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [カイ分布](/chi-distribution/)              | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
+| [カイ2乗分布](/chi-square-distribution/)    | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
+| [F 分布](/f-distribution/)                  | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
+| [ガンマ分布](/gamma-distribution/)          | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [ガンベル](/gumbel-type-i-distribution/)    | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [ジョンソン SU](/johnson-su-distribution/)  | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [ロジスティック](/logistic-distribution/)   | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [対数正規](/log-normal-distribution/)       | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [標準正規](/normal-distribution-single/)    | ✅   | ✅       | ✅     | ❌       | ❌             | ❌   | ❌       | ❌   | ❌   |
+| [ポアソン](/poisson-distribution/)          | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
+| [t 分布](/t-distribution/)                  | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
+| [三角](/triangular-distribution/)           | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [切断正規](/truncated-normal-distribution/) | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [ワイブル](/weibull-distribution/)          | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [多変量正規](/normal-distribution-multi/)   | ✅   | ✅       | ❌     | ❌       | ❌             | ❌   | ❌       | ❌   | ❌   |
+
+(\*) Mom. は各分布の「平均」、「標準偏差」、「歪度」、「尖度」を一度に求める関数。
