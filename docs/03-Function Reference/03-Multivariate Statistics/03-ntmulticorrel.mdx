@@ -1,0 +1,151 @@
+---
+title: NTMULTICORREL
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTMULTICORREL
+
+Returns mean vector, standard deviation vector and correlation matrix
+
+## Syntax
+
+```excel
+NTMULTICORREL(
+    data_set,
+    calc_mean,
+    calc_stdev
+)
+```
+
+### Parameters
+
+- **_Data set_** is a set of series of variables.
+- **_Calc mean_** is a logical value that determines means of each variables are computed or not.
+- **_Calc stdev_** is a logical value that determines standard deviations of each variables are computed or not.
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.07", readOnly: true },
+        { value: "0.312", readOnly: true },
+        { value: "0.137", readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: "-0.05", readOnly: true },
+        { value: "-0.271", readOnly: true },
+        { value: "-0.077", readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: "-0.0123", readOnly: true },
+        { value: "0.312", readOnly: true },
+        { value: "0.0175", readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: "0.0323", readOnly: true },
+        { value: "-0.272", readOnly: true },
+        { value: "0.043", readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: "0.205", readOnly: true },
+        { value: "0.307", readOnly: true },
+        { value: "-0.0018", readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: "-0.185", readOnly: true },
+        { value: "-0.267", readOnly: true },
+        { value: "0.062", readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: "-0.331", readOnly: true },
+        { value: "-0.187", readOnly: true },
+        { value: "0.112", readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: "0.351", readOnly: true },
+        { value: "0.227", readOnly: true },
+        { value: "-0.051", readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: "0.061", readOnly: true },
+        { value: "-0.026", readOnly: true },
+        { value: "-0.068", readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: "-0.041", readOnly: true },
+        { value: "0.066", readOnly: true },
+        { value: "0.128", readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        { value: "", readOnly: true, className: "orange-cell" },
+        { value: "", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTMULTICORREL(A2:C11,TRUE,TRUE)", readOnly: true },
+        { value: "", readOnly: true },
+        { value: "", readOnly: true },
+        {
+          value:
+            "Mean vector (A13:C13), standard deviation vector (A14:C14) and correlation matrix (A15:C17)",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A13:C17 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+- [Download sample excel sheet](https://www.ntrand.com/files/NtRand3.zip "Downloading Sample")
+
+## See also
+
+- [NTCOR2COV](https://www.ntrand.com/ntcor2cov/)
+- [NTCOV2COR](https://www.ntrand.com/ntcov2cor/)
+- [NTMULTICOVARP](https://www.ntrand.com/ntmulticovarp/)
+- [Why I always see the same result even if I input formula into multiple cell?](https://www.ntrand.com/faq/#local_CtrlShiftEnter)

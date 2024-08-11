@@ -1,0 +1,161 @@
+---
+title: NTCOV2COR
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTCOV2COR
+
+Converts covariance matrix to standard deviation vector and correlation matrix
+
+## Syntax
+
+```excel
+NTCOV2COR(
+    covariance_matrix,
+    calc_stdev_vector
+)
+```
+
+### Parameters
+
+- **_Covariance matrix_** is a covariance matrix.
+- **_Calc stdev vector_** is a logical value that determines standard deviations of each variables are computed or not.
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "2.1", readOnly: true },
+        { value: "-0.65", readOnly: true },
+        { value: "cov. matrix", readOnly: true },
+      ],
+      [
+        { value: "2.1", readOnly: true },
+        { value: "0.59", readOnly: true },
+        { value: "1.2", readOnly: true },
+        { value: "cov. matrix", readOnly: true },
+      ],
+      [
+        { value: "-0.65", readOnly: true },
+        { value: "1.2", readOnly: true },
+        { value: "1.1", readOnly: true },
+        { value: "cov. matrix", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        { value: "", readOnly: true, className: "orange-cell" },
+        { value: "", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTCOV2COR(A2:C4,FALSE)", readOnly: true },
+        { value: "", readOnly: true },
+        { value: "", readOnly: true },
+        {
+          value: "Correlation matrix for the terms above (3 x 3 array)",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A6:C8 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+Example2. standard deviation vector and correlation matrix
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "2.1", readOnly: true },
+        { value: "-0.65", readOnly: true },
+        { value: "cov. matrix", readOnly: true },
+      ],
+      [
+        { value: "2.1", readOnly: true },
+        { value: "0.59", readOnly: true },
+        { value: "1.2", readOnly: true },
+        { value: "cov. matrix", readOnly: true },
+      ],
+      [
+        { value: "-0.65", readOnly: true },
+        { value: "1.2", readOnly: true },
+        { value: "1.1", readOnly: true },
+        { value: "cov. matrix", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        { value: "", readOnly: true, className: "orange-cell" },
+        { value: "", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTCOV2COR(A2:C4,TRUE)", readOnly: true },
+        { value: "", readOnly: true },
+        { value: "", readOnly: true },
+        {
+          value:
+            "Standard deviation vector (A6:C6) and correlation matrix (A7:C9) for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A6:C9 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+- [Download sample excel sheet](https://www.ntrand.com/files/NtRand3.zip "Downloading Sample")
+
+## See also
+
+- [NTCOR2COV](https://www.ntrand.com/ntcor2cov/)
+- [NTMULTICORREL](https://www.ntrand.com/ntmulticorrel/)
+- [NTMULTICOVARP](https://www.ntrand.com/ntmulticovarp/)
+- [Why I always see the same result even if I input formula into multiple cell?](https://www.ntrand.com/faq/#local_CtrlShiftEnter)
