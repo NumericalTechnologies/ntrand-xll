@@ -1,0 +1,99 @@
+---
+title: NTBETAMEAN
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTBETAMEAN
+
+Returns [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation) of a specified beta distribution.
+
+## Syntax
+
+```excel
+NTBETAMEAN(
+    Alpha,
+    Beta
+)
+```
+
+### Parameters
+
+- **_Alpha_** is a parameter of the distribution $\alpha(>0)$.
+- **_Beta_** is a parameter of the distribution $\beta(>0)$.
+
+## Remarks
+
+The [mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as:
+
+$$
+\frac{\alpha}{\alpha+\beta}
+$$
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTBETAMEAN(A2,A3)", readOnly: true },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## See also
+
+- [NTRANDBETA](https://www.ntrand.com/ntrandbeta/)
+- [NTBETADIST](https://www.ntrand.com/ntbetadist/)
+- [NTBETAINV](https://www.ntrand.com/ntbetainv/)
+- [NTBETAKURT](https://www.ntrand.com/ntbetakurt/)
+- [NTBETAMOM](https://www.ntrand.com/ntbetamom/)
+- [NTBETAPARAM](https://www.ntrand.com/ntbetaparam/)
+- [NTBETASKEW](https://www.ntrand.com/ntbetaskew/)
+- [NTBETASTDEV](https://www.ntrand.com/ntbetastdev/)
+- [Beta distribution](https://www.ntrand.com/beta-distribution/)
