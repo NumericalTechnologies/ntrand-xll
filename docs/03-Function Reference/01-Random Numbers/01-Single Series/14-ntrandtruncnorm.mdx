@@ -1,0 +1,130 @@
+---
+title: NTRANDTRUNCNORM
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTRANDTRUNCNORM
+
+Returns truncated normal pseudo random number(s) based on [Mersenne Twister Algorithm](https://www.ntrand.com/glossary/#local_Mersenne_Twister) which has long period ($2^{19937}-1$), high order of equidistribution (623 dimensions).
+
+## Syntax
+
+```excel
+NTRANDTRUNCNORM(
+  Size,
+  Min,
+  Max,
+  Mu,
+  Sigma,
+  Algorithm,
+  Random seed1,
+  Random seed2
+)
+```
+
+### Parameters
+
+- **_Size_** is # of random numbers (Positive integer).
+- **_Min_** is a lower limit of a support of the distribution $a$.
+- **_Max_** is a upper limit of a support of the distribution $b$.
+- **_Mu_** is a parameter the distribution $\mu$.
+- **_Sigma_** is a parameter the distribution $\sigma;(>0)$.
+- **_Algorithm_** is a integer value that determines a method to generate uniform random number.
+  - 0: Mersenne Twister(2002)
+  - 1: Mersenne Twister(1998)
+  - 2: Numerical Recipes\
+    ran2()
+- **_Random seed1_** is 1st. random seed.
+- **_Random seed2_** is 2nd. random seed.
+
+## Remarks
+
+- Parameters a and b must hold following relation: a < b
+- The distribution has bounded support [a, b] (a < b)
+
+## Example
+
+![](./../../../assets/functions/histogram/histogramTruncNorm.jpg)
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: "lower limit of support", readOnly: true },
+      ],
+      [
+        { value: 4, readOnly: true },
+        { value: "upper limit of support", readOnly: true },
+      ],
+      [
+        { value: 3, readOnly: true },
+        { value: "Value of parameter Mu", readOnly: true },
+      ],
+      [
+        { value: 0.9, readOnly: true },
+        { value: "Value of parameter Sigma", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTRANDTRUNCNORM(100,A2,A3,A4,A5,0)", readOnly: true },
+        {
+          value:
+            "100 truncated normal deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A7:A106 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+- [Download sample excel sheet](https://www.ntrand.com/files/NtRand1.zip "Downloading Sample")
+- [See tutorial video](https://www.ntrand.com/files/SingleRandom_Demo.swf)
+
+## See also
+
+- [NTTRUNCNORMDIST](https://www.ntrand.com/nttruncnormdist/)
+- [NTTRUNCNORMINV](https://www.ntrand.com/nttruncnorminv/)
+- [NTTRUNCNORMKURT](https://www.ntrand.com/nttruncnormkurt/)
+- [NTTRUNCNORMMEAN](https://www.ntrand.com/nttruncnormmean/)
+- [NTTRUNCNORMMOM](https://www.ntrand.com/nttruncnormmom/)
+- [NTTRUNCNORMPARAM](https://www.ntrand.com/nttruncnormparam/)
+- [NTTRUNCNORMSKEW](https://www.ntrand.com/nttruncnormskew/)
+- [NTTRUNCNORMSTDEV](https://www.ntrand.com/nttruncnormstdev/)
+- [Truncated normal distribution](https://www.ntrand.com/truncated-normal-distribution/)
+- [Choice of the random number generator algorithm](https://www.ntrand.com/glossary/#local_Choiceoftherandomnumber)
+- [Why I always see the same result even if I input formula into multiple cell?](https://www.ntrand.com/faq/#local_CtrlShiftEnter)
