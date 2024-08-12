@@ -1,0 +1,96 @@
+---
+title: NTGAMMAMOM
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTGAMMAMOM
+
+Returns mean, standard deviation, skewness and kurtosis of a specified gamma distribution.
+
+## Syntax
+
+```excel
+NTGAMMAMOM(
+    Alpha,
+    Beta
+)
+```
+
+### Parameters
+
+- **_Alpha_** is a parameter of the distribution $\alpha(>0)$.
+- **_Beta_** is a parameter of the distribution $\beta(>0)$.
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 8, readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: 2, readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTGAMMAMOM(A2,A3)", readOnly: true },
+        {
+          value:
+            "Mean, Standard deviation, Skewness and Kurtosis for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A5:A8 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+- [Download sample excel sheet](https://www.ntrand.com/files/NtRand2.zip "Downloading Sample")
+
+## See also
+
+- [NTRANDGAMMA](https://www.ntrand.com/ntrandgamma/)
+- [NTGAMMADIST](https://www.ntrand.com/ntgammadist/)
+- [NTGAMMAKURT](https://www.ntrand.com/ntgammakurt/)
+- [NTGAMMAMEAN](https://www.ntrand.com/ntgammamean/)
+- [NTGAMMAPARAM](https://www.ntrand.com/ntgammaparam/)
+- [NTGAMMASKEW](https://www.ntrand.com/ntgammaskew/)
+- [NTGAMMASTDEV](https://www.ntrand.com/ntgammastdev/)
+- [Gamma distribution](https://www.ntrand.com/gamma-distribution/)
+- [Why I always see the same result even if I input formula into multiple cell?](https://www.ntrand.com/faq/#local_CtrlShiftEnter)

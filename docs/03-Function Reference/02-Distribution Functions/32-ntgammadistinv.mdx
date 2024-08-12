@@ -1,0 +1,106 @@
+---
+title: NTGAMMADISTINV
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTGAMMADISTINV
+
+Returns the inverse of the cumulative distribution function for a specified gamma distribution.
+
+## Syntax
+
+```excel
+NTGAMMADISTINV(
+    prob,
+    Alpha,
+    Beta
+)
+```
+
+### Parameters
+
+- **_prob_** is a probability corresponding to the normal distribution $(0<prob<1)$.
+- **_Alpha_** is a parameter of the distribution $\alpha(>0)$.
+- **_Beta_** is a parameter of the distribution ![\beta;(>0)](https://s0.wp.com/latex.php?latex=%5Cbeta%5C%3B%28%3E0%29&bg=T&fg=000000&s=0 "\\beta;(>0)").
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        {
+          value: "Probability associated with the gamma distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2.3", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTGAMMADISTINV(A2,A3,A4)",
+          readOnly: true,
+        },
+        {
+          value:
+            "Inverse of the cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- [Download sample excel sheet](https://www.ntrand.com/files/NtRand2.zip "Downloading Sample")
+
+## See also
+
+- [NTRANDGAMMA](https://www.ntrand.com/ntrandgamma/)
+- [NTGAMMADIST](https://www.ntrand.com/ntgammadist/)
+- [NTGAMMAKURT](https://www.ntrand.com/ntgammakurt/)
+- [NTGAMMAMEAN](https://www.ntrand.com/ntgammamean/)
+- [NTGAMMAMOM](https://www.ntrand.com/ntgammamom/)
+- [NTGAMMAPARAM](https://www.ntrand.com/ntgammaparam/)
+- [NTGAMMASKEW](https://www.ntrand.com/ntgammaskew/)
+- [NTGAMMASTDEV](https://www.ntrand.com/ntgammastdev/)
+- [gamma distribution](https://www.ntrand.com/gamma-distribution/)

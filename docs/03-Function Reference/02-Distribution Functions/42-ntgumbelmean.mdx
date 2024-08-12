@@ -1,0 +1,101 @@
+---
+title: NTGUMBELMEAN
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTGUMBELMEAN
+
+Returns mean of a specified Gumbel distribution.
+
+## Syntax
+
+```excel
+NTGUMBELMEAN(
+    Alpha,
+    Beta
+)
+```
+
+### Parameters
+
+- **_Alpha_** is a parameter of the distribution $\alpha$.
+- **_Beta_** is a parameter of the distribution $\beta(>0)$.
+
+## Remarks
+
+The [mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as:
+
+$$
+\alpha+\gamma\beta=\alpha+0.57721566490153\beta
+$$
+
+, where $\gamma$ is [Euler's constant](https://www.ntrand.com/glossary/#local_EulerConstant).
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet\
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: 2, readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTGUMBELMEAN(A2,A3)", readOnly: true },
+        {
+          value: "Mean of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## See also
+
+- [NTRANDGUMBEL](https://www.ntrand.com/ntrandgumbel/)
+- [NTGUMBELDIST](https://www.ntrand.com/ntgumbeldist/)
+- [NTGUMBELINV](https://www.ntrand.com/ntgumbelinv/)
+- [NTGUMBELKURT](https://www.ntrand.com/ntgumbelkurt/)
+- [NTGUMBELMOM](https://www.ntrand.com/ntgumbelmom/)
+- [NTGUMBELPARAM](https://www.ntrand.com/ntgumbelparam/)
+- [NTGUMBELSKEW](https://www.ntrand.com/ntgumbelskew/)
+- [NTGUMBELSTDEV](https://www.ntrand.com/ntgumbelstdev/)
+- [Gumbel (Type I) distribution](https://www.ntrand.com/gumbel-type-i-distribution/)

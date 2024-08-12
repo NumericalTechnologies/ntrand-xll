@@ -1,0 +1,103 @@
+---
+title: NTJOHNSONSUKURT
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTJOHNSONSUKURT
+
+Returns kurtosis of a specified Johnson SU distribution.
+
+## Syntax
+
+```excel
+NTJOHNSONSUKURT(
+    Gamma,
+    Delta,
+    Lambda,
+    Xi
+)
+```
+
+### Parameters
+
+- **_Gamma_** is a parameter of the distribution $\gamma$.
+- **_Delta_** is a parameter of the distribution $\delta(>0)$.
+- **_Lambda_** is a parameter of the distribution $\lambda(>0)$.
+- **_Xi_** is a parameter of the distribution $\xi$.
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet\
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.8", readOnly: true },
+        { value: "Value of parameter Gamma", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Delta", readOnly: true },
+      ],
+      [
+        { value: "2.5", readOnly: true },
+        { value: "Value of parameter Lambda", readOnly: true },
+      ],
+      [
+        { value: "1.2", readOnly: true },
+        { value: "Value of parameter Xi", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTJOHNSONSUKURT(A2,A3,A4,A5)", readOnly: true },
+        {
+          value: "Kurtosis of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## See also
+
+- [NTRANDJOHNSONSU](https://www.ntrand.com/ntrandjohnsonsu/)
+- [NTJOHNSONSUDIST](https://www.ntrand.com/ntjohnsonsudist/)
+- [NTJOHNSONSUINV](https://www.ntrand.com/ntjohnsonsuinv/)
+- [NTJOHNSONSUMEAN](https://www.ntrand.com/ntjohnsonsumean/)
+- [NTJOHNSONSUMOM](https://www.ntrand.com/ntjohnsonsumom/)
+- [NTJOHNSONSUPARAM](https://www.ntrand.com/ntjohnsonsuparam/)
+- [NTJOHNSONSUSKEW](https://www.ntrand.com/ntjohnsonsuskew/)
+- [NTJOHNSONSUSTDEV](https://www.ntrand.com/ntjohnsonsustdev/)
+- [Johnson SU distribution](https://www.ntrand.com/johnson-su-distribution/)

@@ -1,0 +1,92 @@
+---
+title: NTGAMMASKEW
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTGAMMASKEW
+
+Returns [skewness](https://www.ntrand.com/glossary/#local_skewness) of a specified gamma distribution.
+
+## Syntax
+
+```excel
+NTGAMMASKEW(
+    Alpha
+)
+```
+
+### Parameters
+
+- **_Alpha_** is a parameter of the distribution $\alpha(>0)$.
+
+## Remarks
+
+The [skewness](https://www.ntrand.com/glossary/#local_skewness) of the distribution is given as:
+
+$$
+\frac{2}{\sqrt{\alpha}}
+$$
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 4, readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "yellow-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "yellow-cell",
+        },
+      ],
+      [
+        { value: "=NTGAMMASKEW(A2)", readOnly: true },
+        {
+          value: "Skewness of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## See also
+
+- [NTRANDGAMMA](https://www.ntrand.com/ntrandgamma/)
+- [NTGAMMADIST](https://www.ntrand.com/ntgammadist/)
+- [NTGAMMAKURT](https://www.ntrand.com/ntgammakurt/)
+- [NTGAMMAMEAN](https://www.ntrand.com/ntgammamean/)
+- [NTGAMMAMOM](https://www.ntrand.com/ntgammamom/)
+- [NTGAMMAPARAM](https://www.ntrand.com/ntgammaparam/)
+- [NTGAMMASTDEV](https://www.ntrand.com/ntgammastdev/)
+- [Gamma distribution](https://www.ntrand.com/gamma-distribution/)
