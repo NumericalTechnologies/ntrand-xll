@@ -1,50 +1,46 @@
 ---
-title: NTBETADIST
+title: NTCHISQDIST
 ---
 
 import DataGridMdx from "@site/src/components/DataGridMdx";
 
-# NTBETADIST
+# NTCHISQDIST
 
-Returns the beta distribution for the specified parameters.
+Returns the chi square distribution for the specified parameters.
 
 ## Syntax
 
 ```excel
-NTBETADIST(
+NTCHISQDIST(
     x,
-    Alpha,
-    Beta,
+    N,
     Cumulative
 )
 ```
 
 ### Parameters
 
-- **_x_** is the value for which you want the distribution ($0\leq x\leq 1$).
-- **_Alpha_** is a parameter of the distribution $\alpha(>0)$.
-- **_Beta_** is a parameter of the distribution $\beta(>0)$.
-- **_Cumulative_** is a logical value that determines the form of the function. If cumulative is TRUE, NTBETADIST returns the cumulative distribution function; if FALSE, it returns the probability density function.
+- **_x_** is the value for which you want the distribution ($x\geq 0$).
+- **_N_** is a parameter of the distribution ![N](https://s0.wp.com/latex.php?latex=N&bg=T&fg=000000&s=0 "N") (Positive integer).
+- **_Cumulative_** is a logical value that determines the form of the function. If cumulative is TRUE, NTCHISQDIST returns the cumulative distribution function; if FALSE, it returns the probability density function.
 
 ## Remarks
 
 - [Probability density function](https://www.ntrand.com/glossary/#local_probability) is given as:
 
 $$
-  f(x)=\frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}
+  f(x)=\frac{1}{2^{\frac{N}{2}}\Gamma\left(\frac{N}{2}\right)}\exp\left(-\frac{x}{2}\right)x^{\frac{N}{2}-1}
 $$
 
-, where $B(\cdot,;\cdot)$ is [beta function](https://www.ntrand.com/glossary/#local_Beta).
+, where $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
 
 - [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) is given as:
 
 $$
-  F(x)=I_{x}(\alpha,;\beta)
+  F(x)=\frac{\Gamma_{\frac{x}{2}}\left(\frac{N}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
 $$
 
-, where $I_x(\cdot,;\cdot)$ is [regualarized incomplete beta function](https://www.ntrand.com/glossary/#local_Regularized_incomplete_beta).
-
-- When the argument Cumulative=TRUE, this function returns same result as Excel function "BETADIST" does.
+, where $\Gamma_{x}(\cdot)$ is [incomplete gamma function](https://www.ntrand.com/glossary/#local_incomplete_gamma).
 
 ## Example
 
@@ -76,16 +72,12 @@ $$
         { value: "Description", readOnly: true, className: "orange-cell" },
       ],
       [
-        { value: "0.5", readOnly: true },
+        { value: "2", readOnly: true },
         { value: "Value for which you want the distribution", readOnly: true },
       ],
       [
-        { value: "8", readOnly: true },
-        { value: "Value of parameter Alpha", readOnly: true },
-      ],
-      [
-        { value: "2", readOnly: true },
-        { value: "Value of parameter Beta", readOnly: true },
+        { value: "9", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
       ],
       [
         { value: "Formula", readOnly: true, className: "orange-cell" },
@@ -96,14 +88,14 @@ $$
         },
       ],
       [
-        { value: "=NTBETADIST(A2,A3,A4,TRUE)", readOnly: true },
+        { value: "=NTCHISQDIST(A2,A3,TRUE)", readOnly: true },
         {
           value: "Cumulative distribution function for the terms above",
           readOnly: true,
         },
       ],
       [
-        { value: "=NTBETADIST(A2,A3,A4,FALSE)", readOnly: true },
+        { value: "=NTCHISQDIST(A2,A3,FALSE)", readOnly: true },
         {
           value: "Probability density function for the terms above",
           readOnly: true,
@@ -117,12 +109,10 @@ $$
 
 ## See also
 
-- [NTRANDBETA](https://www.ntrand.com/ntrandbeta/)
-- [NTBETAINV](https://www.ntrand.com/ntbetainv/)
-- [NTBETAKURT](https://www.ntrand.com/ntbetakurt/)
-- [NTBETAMEAN](https://www.ntrand.com/ntbetamean/)
-- [NTBETAMOM](https://www.ntrand.com/ntbetamom/)
-- [NTBETAPARAM](https://www.ntrand.com/ntbetaparam/)
-- [NTBETASKEW](https://www.ntrand.com/ntbetaskew/)
-- [NTBETASTDEV](https://www.ntrand.com/ntbetastdev/)
-- [Beta distribution](https://www.ntrand.com/beta-distribution/)
+- [NTRANDCHISQ](https://www.ntrand.com/ntrandchisq/)
+- [NTCHISQKURT](https://www.ntrand.com/ntchisqkurt/)
+- [NTCHISQMEAN](https://www.ntrand.com/ntchisqmean/)
+- [NTCHISQMOM](https://www.ntrand.com/ntchisqmom/)
+- [NTCHISQSKEW](https://www.ntrand.com/ntchisqskew/)
+- [NTCHISQSTDEV](https://www.ntrand.com/ntchisqstdev/)
+- [Chi square distribution](https://www.ntrand.com/chi-square-distribution/)

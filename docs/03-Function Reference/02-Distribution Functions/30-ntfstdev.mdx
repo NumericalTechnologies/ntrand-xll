@@ -1,33 +1,33 @@
 ---
-title: NTBETASKEW
+title: NTFSTDEV
 ---
 
 import DataGridMdx from "@site/src/components/DataGridMdx";
 
-# NTBETASKEW
+# NTFSTDEV
 
-Returns [skewness](https://www.ntrand.com/glossary/#local_skewness) of a specified beta distribution.
+Returns [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation) of a specified F distribution.
 
 ## Syntax
 
 ```excel
-NTBETASKEW(
-    Alpha,
-    Beta
+NTFSTDEV(
+    N1,
+    N2
 )
 ```
 
 ### Parameters
 
-- **_Alpha_** is a parameter of the distribution $\alpha(>0)$.
-- **_Beta_** is a parameter of the distribution $\beta(>0)$.
+- **_N1_** is a parameter of the distribution $N_1$ (Positive integer).
+- **_N2_** is a parameter of the distribution $N_2(>4)$.
 
 ## Remarks
 
-The [skewness](https://www.ntrand.com/glossary/#local_skewness) of the distribution is given as:
+The [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation) of the distribution is given as:
 
 $$
-\frac{2(\beta-\alpha)\sqrt{\alpha+\beta+1}}{(\alpha+\beta+2)\sqrt{\alpha\beta}}
+\left(\frac{2N_2^2(N_1+N_2-2)}{N_1(N_2-2)^2(N_2-4)}\right)^{1/2}
 $$
 
 ## Example
@@ -60,12 +60,12 @@ $$
         { value: "Description", readOnly: true, className: "orange-cell" },
       ],
       [
-        { value: "8", readOnly: true },
-        { value: "Value of parameter Alpha", readOnly: true },
+        { value: "4", readOnly: true },
+        { value: "Value of parameter N1", readOnly: true },
       ],
       [
-        { value: "2", readOnly: true },
-        { value: "Value of parameter Beta", readOnly: true },
+        { value: "30", readOnly: true },
+        { value: "Value of parameter N2", readOnly: true },
       ],
       [
         { value: "Formula", readOnly: true, className: "orange-cell" },
@@ -76,11 +76,8 @@ $$
         },
       ],
       [
-        { value: "=NTBETASKEW(A2,A3)", readOnly: true },
-        {
-          value: "Skewness of the distribution for the terms above",
-          readOnly: true,
-        },
+        { value: "=NTFSTDEV(A2,A3)", readOnly: true },
+        { value: "Standard deviation of the distribution for the terms above" },
       ],
     ],
   }}
@@ -88,12 +85,10 @@ $$
 
 ## See also
 
-- [NTRANDBETA](https://www.ntrand.com/ntrandbeta/)
-- [NTBETADIST](https://www.ntrand.com/ntbetadist/)
-- [NTBETAINV](https://www.ntrand.com/ntbetainv/)
-- [NTBETAKURT](https://www.ntrand.com/ntbetakurt/)
-- [NTBETAMEAN](https://www.ntrand.com/ntbetamean/)
-- [NTBETAMOM](https://www.ntrand.com/ntbetamom/)
-- [NTBETAPARAM](https://www.ntrand.com/ntbetaparam/)
-- [NTBETASTDEV](https://www.ntrand.com/ntbetastdev/)
-- [Beta distribution](https://www.ntrand.com/beta-distribution/)
+- [NTRANDF](https://www.ntrand.com/ntrandf/)
+- [NTFDIST](https://www.ntrand.com/ntfdist/)
+- [NTFKURT](https://www.ntrand.com/ntfkurt/)
+- [NTFMEAN](https://www.ntrand.com/ntfmean/)
+- [NTFMOM](https://www.ntrand.com/ntfmom/)
+- [NTFSKEW](https://www.ntrand.com/ntfskew/)
+- [F distribution](https://www.ntrand.com/f-distribution/)

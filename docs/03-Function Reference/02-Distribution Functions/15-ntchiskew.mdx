@@ -1,34 +1,38 @@
 ---
-title: NTBETASKEW
+title: NTCHISKEW
 ---
 
 import DataGridMdx from "@site/src/components/DataGridMdx";
 
-# NTBETASKEW
+# NTCHISKEW
 
-Returns [skewness](https://www.ntrand.com/glossary/#local_skewness) of a specified beta distribution.
+Returns [skewness](https://www.ntrand.com/glossary/#local_skewness) of a specified chi distribution.
 
 ## Syntax
 
 ```excel
-NTBETASKEW(
-    Alpha,
-    Beta
+NTCHISKEW(
+    N
 )
 ```
 
 ### Parameters
 
-- **_Alpha_** is a parameter of the distribution $\alpha(>0)$.
-- **_Beta_** is a parameter of the distribution $\beta(>0)$.
+- **_N_** is a parameter of the distribution $N$ (Positive integer).
 
 ## Remarks
 
 The [skewness](https://www.ntrand.com/glossary/#local_skewness) of the distribution is given as:
 
 $$
-\frac{2(\beta-\alpha)\sqrt{\alpha+\beta+1}}{(\alpha+\beta+2)\sqrt{\alpha\beta}}
+\frac{\mu(3)-3\mu(2)\mu(1)+2\mu^3(1)}{\sigma^3}
 $$
+
+$$
+\mu(r)=\frac{2^{\frac{r}{2}}\Gamma\left(\frac{N+r}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
+$$
+
+, where $\sigma$ is [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation) and $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
 
 ## Example
 
@@ -61,11 +65,7 @@ $$
       ],
       [
         { value: "8", readOnly: true },
-        { value: "Value of parameter Alpha", readOnly: true },
-      ],
-      [
-        { value: "2", readOnly: true },
-        { value: "Value of parameter Beta", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
       ],
       [
         { value: "Formula", readOnly: true, className: "orange-cell" },
@@ -76,7 +76,7 @@ $$
         },
       ],
       [
-        { value: "=NTBETASKEW(A2,A3)", readOnly: true },
+        { value: "=NTCHISKEW(A2)", readOnly: true },
         {
           value: "Skewness of the distribution for the terms above",
           readOnly: true,
@@ -88,12 +88,10 @@ $$
 
 ## See also
 
-- [NTRANDBETA](https://www.ntrand.com/ntrandbeta/)
-- [NTBETADIST](https://www.ntrand.com/ntbetadist/)
-- [NTBETAINV](https://www.ntrand.com/ntbetainv/)
-- [NTBETAKURT](https://www.ntrand.com/ntbetakurt/)
-- [NTBETAMEAN](https://www.ntrand.com/ntbetamean/)
-- [NTBETAMOM](https://www.ntrand.com/ntbetamom/)
-- [NTBETAPARAM](https://www.ntrand.com/ntbetaparam/)
-- [NTBETASTDEV](https://www.ntrand.com/ntbetastdev/)
-- [Beta distribution](https://www.ntrand.com/beta-distribution/)
+- [NTRANDCHI](https://www.ntrand.com/ntrandchi/)
+- [NTCHIDIST](https://www.ntrand.com/ntchidist/)
+- [NTCHIKURT](https://www.ntrand.com/ntchikurt/)
+- [NTCHIMEAN](https://www.ntrand.com/ntchimean/)
+- [NTCHIMOM](https://www.ntrand.com/ntchimom/)
+- [NTCHISTDEV](https://www.ntrand.com/ntchistdev/)
+- [Chi distribution](https://www.ntrand.com/chi-distribution/)

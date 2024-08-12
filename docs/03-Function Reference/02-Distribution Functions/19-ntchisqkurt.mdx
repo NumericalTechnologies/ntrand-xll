@@ -1,33 +1,31 @@
 ---
-title: NTBETASKEW
+title: NTCHISQKURT
 ---
 
 import DataGridMdx from "@site/src/components/DataGridMdx";
 
-# NTBETASKEW
+# NTCHISQKURT
 
-Returns [skewness](https://www.ntrand.com/glossary/#local_skewness) of a specified beta distribution.
+Returns [kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of a specified chi square distribution.
 
 ## Syntax
 
 ```excel
-NTBETASKEW(
-    Alpha,
-    Beta
+NTCHISQKURT(
+    N
 )
 ```
 
 ### Parameters
 
-- **_Alpha_** is a parameter of the distribution $\alpha(>0)$.
-- **_Beta_** is a parameter of the distribution $\beta(>0)$.
+- **_N_** is a parameter of the distribution $N$ (Positive integer).
 
 ## Remarks
 
-The [skewness](https://www.ntrand.com/glossary/#local_skewness) of the distribution is given as:
+The [kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as:
 
 $$
-\frac{2(\beta-\alpha)\sqrt{\alpha+\beta+1}}{(\alpha+\beta+2)\sqrt{\alpha\beta}}
+\frac{12}{N}
 $$
 
 ## Example
@@ -60,12 +58,8 @@ $$
         { value: "Description", readOnly: true, className: "orange-cell" },
       ],
       [
-        { value: "8", readOnly: true },
-        { value: "Value of parameter Alpha", readOnly: true },
-      ],
-      [
-        { value: "2", readOnly: true },
-        { value: "Value of parameter Beta", readOnly: true },
+        { value: "9", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
       ],
       [
         { value: "Formula", readOnly: true, className: "orange-cell" },
@@ -76,9 +70,9 @@ $$
         },
       ],
       [
-        { value: "=NTBETASKEW(A2,A3)", readOnly: true },
+        { value: "=NTCHISQKURT(A2)", readOnly: true },
         {
-          value: "Skewness of the distribution for the terms above",
+          value: "Kurtosis of the distribution for the terms above",
           readOnly: true,
         },
       ],
@@ -88,12 +82,10 @@ $$
 
 ## See also
 
-- [NTRANDBETA](https://www.ntrand.com/ntrandbeta/)
-- [NTBETADIST](https://www.ntrand.com/ntbetadist/)
-- [NTBETAINV](https://www.ntrand.com/ntbetainv/)
-- [NTBETAKURT](https://www.ntrand.com/ntbetakurt/)
-- [NTBETAMEAN](https://www.ntrand.com/ntbetamean/)
-- [NTBETAMOM](https://www.ntrand.com/ntbetamom/)
-- [NTBETAPARAM](https://www.ntrand.com/ntbetaparam/)
-- [NTBETASTDEV](https://www.ntrand.com/ntbetastdev/)
-- [Beta distribution](https://www.ntrand.com/beta-distribution/)
+- [NTRANDCHISQ](https://www.ntrand.com/ntrandchisq/)
+- [NTCHISQDIST](https://www.ntrand.com/ntchisqdist/)
+- [NTCHISQMEAN](https://www.ntrand.com/ntchisqmean/)
+- [NTCHISQMOM](https://www.ntrand.com/ntchisqmom/)
+- [NTCHISQSKEW](https://www.ntrand.com/ntchisqskew/)
+- [NTCHISQSTDEV](https://www.ntrand.com/ntchisqstdev/)
+- [Chi square distribution](https://www.ntrand.com/chi-square-distribution/)

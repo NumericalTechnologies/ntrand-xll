@@ -1,0 +1,105 @@
+---
+title: NTFDISTINV
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTFDISTINV
+
+Returns the inverse of the cumulative distribution function for a specified F distribution.
+
+## Syntax
+
+```excel
+NTFDISTINV(
+    prob,
+    N1,
+    N2
+)
+```
+
+### Parameters
+
+- **_prob_** is a probability corresponding to the normal distribution $(0<prob<1)$.
+- **_N1_** is a parameter of the distribution $N_1$ (Positive integer).
+- **_N2_** is a parameter of the distribution $N_2$ (Positive integer).
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        {
+          value: "Probability associated with the F distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter N1", readOnly: true },
+      ],
+      [
+        { value: "30", readOnly: true },
+        { value: "Value of parameter N2", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTFDISTINV(A2,A3,A4)",
+          readOnly: true,
+        },
+        {
+          value:
+            "Inverse of the cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- [Download sample excel sheet](https://www.ntrand.com/files/NtRand2.zip "Downloading Sample")
+
+## See also
+
+- [NTRANDF](https://www.ntrand.com/ntrandf/)
+- [NTFDIST](https://www.ntrand.com/ntfdist/)
+- [NTFKURT](https://www.ntrand.com/ntfkurt/)
+- [NTFMEAN](https://www.ntrand.com/ntfmean/)
+- [NTFMOM](https://www.ntrand.com/ntfmom/)
+- [NTFSKEW](https://www.ntrand.com/ntfskew/)
+- [NTFSTDEV](https://www.ntrand.com/ntfstdev/)
+- [F distribution](https://www.ntrand.com/f-distribution/)

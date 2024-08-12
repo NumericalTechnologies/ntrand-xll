@@ -1,34 +1,24 @@
 ---
-title: NTBETASKEW
+title: NTCHISQMOM
 ---
 
 import DataGridMdx from "@site/src/components/DataGridMdx";
 
-# NTBETASKEW
+# NTCHISQMOM
 
-Returns [skewness](https://www.ntrand.com/glossary/#local_skewness) of a specified beta distribution.
+Returns mean, standard deviation, skewness and kurtosis of a specified chisq distribution.
 
 ## Syntax
 
 ```excel
-NTBETASKEW(
-    Alpha,
-    Beta
+NTCHISQMOM(
+    N
 )
 ```
 
 ### Parameters
 
-- **_Alpha_** is a parameter of the distribution $\alpha(>0)$.
-- **_Beta_** is a parameter of the distribution $\beta(>0)$.
-
-## Remarks
-
-The [skewness](https://www.ntrand.com/glossary/#local_skewness) of the distribution is given as:
-
-$$
-\frac{2(\beta-\alpha)\sqrt{\alpha+\beta+1}}{(\alpha+\beta+2)\sqrt{\alpha\beta}}
-$$
+- **_N_** is a parameter of the distribution $N$ (Positive integer).
 
 ## Example
 
@@ -60,12 +50,8 @@ $$
         { value: "Description", readOnly: true, className: "orange-cell" },
       ],
       [
-        { value: "8", readOnly: true },
-        { value: "Value of parameter Alpha", readOnly: true },
-      ],
-      [
-        { value: "2", readOnly: true },
-        { value: "Value of parameter Beta", readOnly: true },
+        { value: "9", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
       ],
       [
         { value: "Formula", readOnly: true, className: "orange-cell" },
@@ -76,9 +62,10 @@ $$
         },
       ],
       [
-        { value: "=NTBETASKEW(A2,A3)", readOnly: true },
+        { value: "=NTCHISQMOM(A2)", readOnly: true },
         {
-          value: "Skewness of the distribution for the terms above",
+          value:
+            "Mean, Standard deviation, Skewness and Kurtosis for the terms above",
           readOnly: true,
         },
       ],
@@ -86,14 +73,17 @@ $$
   }}
 />
 
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A5:A8 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+- [Download sample excel sheet](https://www.ntrand.com/files/NtRand2.zip "Downloading Sample")
+
 ## See also
 
-- [NTRANDBETA](https://www.ntrand.com/ntrandbeta/)
-- [NTBETADIST](https://www.ntrand.com/ntbetadist/)
-- [NTBETAINV](https://www.ntrand.com/ntbetainv/)
-- [NTBETAKURT](https://www.ntrand.com/ntbetakurt/)
-- [NTBETAMEAN](https://www.ntrand.com/ntbetamean/)
-- [NTBETAMOM](https://www.ntrand.com/ntbetamom/)
-- [NTBETAPARAM](https://www.ntrand.com/ntbetaparam/)
-- [NTBETASTDEV](https://www.ntrand.com/ntbetastdev/)
-- [Beta distribution](https://www.ntrand.com/beta-distribution/)
+- [NTRANDCHISQ](https://www.ntrand.com/ntrandchisq/)
+- [NTCHISQDIST](https://www.ntrand.com/ntchisqdist/)
+- [NTCHISQKURT](https://www.ntrand.com/ntchisqkurt/)
+- [NTCHISQMEAN](https://www.ntrand.com/ntchisqmean/)
+- [NTCHISQSKEW](https://www.ntrand.com/ntchisqskew/)
+- [NTCHISQSTDEV](https://www.ntrand.com/ntchisqstdev/)
+- [Chi square distribution](https://www.ntrand.com/chi-square-distribution/)
+- [Why I always see the same result even if I input formula into multiple cell?](https://www.ntrand.com/faq/#local_CtrlShiftEnter)

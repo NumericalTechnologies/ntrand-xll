@@ -1,50 +1,48 @@
 ---
-title: NTBETADIST
+title: NTCHIDIST
 ---
 
 import DataGridMdx from "@site/src/components/DataGridMdx";
 
-# NTBETADIST
+# NTCHIDIST
 
-Returns the beta distribution for the specified parameters.
+Returns the f distribution for the specified parameters.
 
 ## Syntax
 
 ```excel
-NTBETADIST(
+NTFDIST(
     x,
-    Alpha,
-    Beta,
+    N1,
+    N2,
     Cumulative
 )
 ```
 
 ### Parameters
 
-- **_x_** is the value for which you want the distribution ($0\leq x\leq 1$).
-- **_Alpha_** is a parameter of the distribution $\alpha(>0)$.
-- **_Beta_** is a parameter of the distribution $\beta(>0)$.
-- **_Cumulative_** is a logical value that determines the form of the function. If cumulative is TRUE, NTBETADIST returns the cumulative distribution function; if FALSE, it returns the probability density function.
+- **_x_** is the value for which you want the distribution ($x\geq 0$).
+- **_N1_** is a parameter of the distribution $N_1$ (Positive integer).
+- **_N2_** is a parameter of the distribution $N_2$ (Positive integer).
+- **_Cumulative_** is a logical value that determines the form of the function. If cumulative is TRUE, NTFDIST returns the cumulative distribution function; if FALSE, it returns the probability density function.
 
 ## Remarks
 
 - [Probability density function](https://www.ntrand.com/glossary/#local_probability) is given as:
 
 $$
-  f(x)=\frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}
+  f(x)=\frac{\Gamma\left(\frac{N_1+N_2}{2}\right)\left(\frac{N_1}{N_2}\right)^\frac{N_1}{2}x^{\frac{N_1}{2}-1}}{\Gamma\left(\frac{N_1}{2}\right)\Gamma\left(\frac{N_2}{2}\right)\left(1+\frac{N_1}{N_2}x\right)^{\frac{N_1+N_2}{2}}}
 $$
 
-, where $B(\cdot,;\cdot)$ is [beta function](https://www.ntrand.com/glossary/#local_Beta).
+, where $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
 
 - [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) is given as:
 
-$$
-  F(x)=I_{x}(\alpha,;\beta)
-$$
+  $$
+  F(x)=I_\gamma\left(\frac{N_1}{2},\frac{N_2}{2}\right)
+  $$
 
-, where $I_x(\cdot,;\cdot)$ is [regualarized incomplete beta function](https://www.ntrand.com/glossary/#local_Regularized_incomplete_beta).
-
-- When the argument Cumulative=TRUE, this function returns same result as Excel function "BETADIST" does.
+  , where $\gamma=\frac{N_1x}{N_2+N_1x}$ and $I_{x}(\cdot,\cdot)$ is [regularized incomplete beta function](https://www.ntrand.com/glossary/#local_regularized_incomplete_beta).
 
 ## Example
 
@@ -76,16 +74,16 @@ $$
         { value: "Description", readOnly: true, className: "orange-cell" },
       ],
       [
-        { value: "0.5", readOnly: true },
+        { value: "5", readOnly: true },
         { value: "Value for which you want the distribution", readOnly: true },
       ],
       [
-        { value: "8", readOnly: true },
-        { value: "Value of parameter Alpha", readOnly: true },
+        { value: "4", readOnly: true },
+        { value: "Value of parameter N1", readOnly: true },
       ],
       [
-        { value: "2", readOnly: true },
-        { value: "Value of parameter Beta", readOnly: true },
+        { value: "30", readOnly: true },
+        { value: "Value of parameter N2", readOnly: true },
       ],
       [
         { value: "Formula", readOnly: true, className: "orange-cell" },
@@ -96,14 +94,14 @@ $$
         },
       ],
       [
-        { value: "=NTBETADIST(A2,A3,A4,TRUE)", readOnly: true },
+        { value: "=NTFDIST(A2,A3,A4,TRUE)", readOnly: true },
         {
           value: "Cumulative distribution function for the terms above",
           readOnly: true,
         },
       ],
       [
-        { value: "=NTBETADIST(A2,A3,A4,FALSE)", readOnly: true },
+        { value: "=NTFDIST(A2,A3,A4,FALSE)", readOnly: true },
         {
           value: "Probability density function for the terms above",
           readOnly: true,
@@ -117,12 +115,10 @@ $$
 
 ## See also
 
-- [NTRANDBETA](https://www.ntrand.com/ntrandbeta/)
-- [NTBETAINV](https://www.ntrand.com/ntbetainv/)
-- [NTBETAKURT](https://www.ntrand.com/ntbetakurt/)
-- [NTBETAMEAN](https://www.ntrand.com/ntbetamean/)
-- [NTBETAMOM](https://www.ntrand.com/ntbetamom/)
-- [NTBETAPARAM](https://www.ntrand.com/ntbetaparam/)
-- [NTBETASKEW](https://www.ntrand.com/ntbetaskew/)
-- [NTBETASTDEV](https://www.ntrand.com/ntbetastdev/)
-- [Beta distribution](https://www.ntrand.com/beta-distribution/)
+- [NTRANDF](https://www.ntrand.com/ntrandf/)
+- [NTFKURT](https://www.ntrand.com/ntfkurt/)
+- [NTFMEAN](https://www.ntrand.com/ntfmean/)
+- [NTFMOM](https://www.ntrand.com/ntfmom/)
+- [NTFSKEW](https://www.ntrand.com/ntfskew/)
+- [NTFSTDEV](https://www.ntrand.com/ntfstdev/)
+- [f distribution](https://www.ntrand.com/f-distribution/)
