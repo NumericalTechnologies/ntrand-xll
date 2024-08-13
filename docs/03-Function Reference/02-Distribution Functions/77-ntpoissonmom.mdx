@@ -1,0 +1,89 @@
+---
+title: NTPOISSONMOM
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTPOISSONMOM
+
+Returns mean, standard deviation, skewness and kurtosis of a specified Poisson distribution.
+
+## Syntax
+
+```excel
+NTPOISSONMOM(
+    Mean
+)
+```
+
+### Parameters
+
+- **_Mean_** is the arithmetic mean of the distribution.
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet\
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Arithmetic mean of the distribution", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTPOISSONMOM(A2)", readOnly: true },
+        {
+          value:
+            "Mean, Standard deviation, Skewness and Kurtosis of the distribuion for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A4:A7 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+- [Download sample excel sheet](https://www.ntrand.com/files/NtRand2.zip "Downloading Sample")
+
+## See also
+
+- [NTRANDPOISSON](https://www.ntrand.com/ntrandpoisson/)
+- [NTPOISSONDIST](https://www.ntrand.com/ntpoissondist/)
+- [NTPOISSONKURT](https://www.ntrand.com/ntpoissonkurt/)
+- [NTPOISSONMEAN](https://www.ntrand.com/ntpoissonmean/)
+- [NTPOISSONSKEW](https://www.ntrand.com/ntpoissonskew/)
+- [NTPOISSONSTDEV](https://www.ntrand.com/ntpoissonstdev/)
+- [Poisson distribution](https://www.ntrand.com/poisson-distribution/)
+- [Why I always see the same result even if I input formula into multiple cell?](https://www.ntrand.com/faq/#local_CtrlShiftEnter)

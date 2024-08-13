@@ -1,0 +1,91 @@
+---
+title: NTPOISSONSKEW
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTPOISSONSKEW
+
+Returns skewness of a specified Poisson distribution.
+
+## Syntax
+
+```excel
+NTPOISSONSKEW(
+    Mean
+)
+```
+
+### Parameters
+
+- **_Mean_** is the arithmetic mean of the distribution (Positive value).
+
+## Remarks
+
+The [skewness](https://www.ntrand.com/glossary/#local_skewness) of the distribution is given as:
+
+$$
+\frac{1}{\sqrt{\textit{Mean}}}
+$$
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet\
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Arithmetic mean of the distribution", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTPOISSONSKEW(A2)", readOnly: true },
+        {
+          value: "Skewness of the distribuion for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## See also
+
+- [NTRANDPOISSON](https://www.ntrand.com/ntrandpoisson/)
+- [NTPOISSONDIST](https://www.ntrand.com/ntpoissondist/)
+- [NTPOISSONKURT](https://www.ntrand.com/ntpoissonkurt/)
+- [NTPOISSONMEAN](https://www.ntrand.com/ntpoissonmean/)
+- [NTPOISSONMOM](https://www.ntrand.com/ntpoissonmom/)
+- [NTPOISSONSTDEV](https://www.ntrand.com/ntpoissonstdev/)
+- [Poisson distribution](https://www.ntrand.com/poisson-distribution/)

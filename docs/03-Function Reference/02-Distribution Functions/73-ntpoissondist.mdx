@@ -1,0 +1,104 @@
+---
+title: NTPOISSONDIST
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTPOISSONDIST
+
+Returns the Poisson distribution for the specified parameters.
+
+## Syntax
+
+```excel
+NTPOISSONDIST(
+    k,
+    Mean,
+    Cumulative
+)
+```
+
+### Parameters
+
+- **_k_** is the value for which you want the distribution $k(\geq 0)$ (Integer).
+- **_Mean_** is a parameter of the distribution $\nu$.
+- **_Cumulative_** is a logical value that determines the form of the function. If cumulative is TRUE, NTPOISSONDIST returns the cumulative distribution function; if FALSE, it returns the probability mass function.
+
+## Remarks
+
+- This function is same as Excel function "POISSON".
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet\
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "3", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "5", readOnly: true },
+        { value: "Value of parameter Mean", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTPOISSONDIST(A2,A3,TRUE)", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=NTPOISSONDIST(A2,A3,FALSE)", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- [Download sample excel sheet](https://www.ntrand.com/files/NtRand2.zip "Downloading Sample")
+
+## See also
+
+- [NTRANDPOISSON](https://www.ntrand.com/ntrandpoisson/)
+- [NTPOISSONKURT](https://www.ntrand.com/ntpoissonkurt/)
+- [NTPOISSONMEAN](https://www.ntrand.com/ntpoissonmean/)
+- [NTPOISSONMOM](https://www.ntrand.com/ntpoissonmom/)
+- [NTPOISSONSKEW](https://www.ntrand.com/ntpoissonskew/)
+- [NTPOISSONSTDEV](https://www.ntrand.com/ntpoissonstdev/)
+- [Poisson distribution](https://www.ntrand.com/poisson-distribution/)
