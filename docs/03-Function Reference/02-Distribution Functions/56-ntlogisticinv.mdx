@@ -1,28 +1,28 @@
 ---
-title: NTGAMMADISTINV
+title: NTLOGISTICINV
 ---
 
 import DataGridMdx from "@site/src/components/DataGridMdx";
 
-# NTGAMMADISTINV
+# NTLOGISTICINV
 
-Returns the inverse of the cumulative distribution function for a specified gamma distribution.
+Returns the inverse of the cumulative distribution function for a specified logistic distribution.
 
 ## Syntax
 
 ```excel
-NTGAMMADISTINV(
+NTLOGISTICINV(
     prob,
-    Alpha,
-    Beta
+    M,
+    B
 )
 ```
 
 ### Parameters
 
 - **_prob_** is a probability corresponding to the normal distribution $(0<prob<1)$.
-- **_Alpha_** is a parameter of the distribution $\alpha(>0)$.
-- **_Beta_** is a parameter of the distribution $\beta(>0)$.
+- **_M_** is a parameter of the distribution $m$.
+- **_B_** is a parameter of the distribution $b(>0)$.
 
 ## Example
 
@@ -54,19 +54,19 @@ NTGAMMADISTINV(
         { value: "Description", readOnly: true, className: "orange-cell" },
       ],
       [
-        { value: "0.5", readOnly: true },
+        { value: "1.5", readOnly: true },
         {
-          value: "Probability associated with the gamma distribution",
+          value: "Probability associated with the log normal distribution",
           readOnly: true,
         },
       ],
       [
-        { value: "4", readOnly: true },
-        { value: "Value of parameter Alpha", readOnly: true },
+        { value: "-5.7", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
       ],
       [
-        { value: "2.3", readOnly: true },
-        { value: "Value of parameter Beta", readOnly: true },
+        { value: "11", readOnly: true },
+        { value: "Value of parameter B", readOnly: true },
       ],
       [
         { value: "Formula", readOnly: true, className: "orange-cell" },
@@ -77,10 +77,7 @@ NTGAMMADISTINV(
         },
       ],
       [
-        {
-          value: "=NTGAMMADISTINV(A2,A3,A4)",
-          readOnly: true,
-        },
+        { value: "=NTLOGISTICINV(A2,A3,A4)", readOnly: true },
         {
           value:
             "Inverse of the cumulative distribution function for the terms above",
@@ -95,12 +92,13 @@ NTGAMMADISTINV(
 
 ## See also
 
-- [NTRANDGAMMA](https://www.ntrand.com/ntrandgamma/)
-- [NTGAMMADIST](https://www.ntrand.com/ntgammadist/)
-- [NTGAMMAKURT](https://www.ntrand.com/ntgammakurt/)
-- [NTGAMMAMEAN](https://www.ntrand.com/ntgammamean/)
-- [NTGAMMAMOM](https://www.ntrand.com/ntgammamom/)
-- [NTGAMMAPARAM](https://www.ntrand.com/ntgammaparam/)
-- [NTGAMMASKEW](https://www.ntrand.com/ntgammaskew/)
-- [NTGAMMASTDEV](https://www.ntrand.com/ntgammastdev/)
-- [gamma distribution](https://www.ntrand.com/gamma-distribution/)
+- [NTRANDLOGISTIC](https://www.ntrand.com/ntrandlogistic/)
+- [NTLOGISTICDIST](https://www.ntrand.com/ntlogisticdist/)
+- [NTLOGISTICINV](https://www.ntrand.com/ntlogisticinv/)
+- [NTLOGISTICKURT](https://www.ntrand.com/ntlogistickurt/)
+- [NTLOGISTICMEAN](https://www.ntrand.com/ntlogisticmean/)
+- [NTLOGISTICMOM](https://www.ntrand.com/ntlogisticmom/)
+- [NTLOGISTICPARAM](https://www.ntrand.com/ntlogisticparam/)
+- [NTLOGISTICSKEW](https://www.ntrand.com/ntlogisticskew/)
+- [NTLOGISTICSTDEV](https://www.ntrand.com/ntlogisticstdev/)
+- [Logisitic distribution](https://www.ntrand.com/logistic-distribution/)

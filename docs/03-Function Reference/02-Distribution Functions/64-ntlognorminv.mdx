@@ -1,32 +1,32 @@
 ---
-title: NTGAMMADISTINV
+title: NTLOGNORMINV
 ---
 
 import DataGridMdx from "@site/src/components/DataGridMdx";
 
-# NTGAMMADISTINV
+# NTLOGNORMINV
 
-Returns the inverse of the cumulative distribution function for a specified gamma distribution.
+Returns the inverse of the cumulative distribution function for a specified log normal distribution.
 
 ## Syntax
 
 ```excel
-NTGAMMADISTINV(
+NTLOGNORMINV(
     prob,
-    Alpha,
-    Beta
+    M,
+    S
 )
 ```
 
 ### Parameters
 
 - **_prob_** is a probability corresponding to the normal distribution $(0<prob<1)$.
-- **_Alpha_** is a parameter of the distribution $\alpha(>0)$.
-- **_Beta_** is a parameter of the distribution $\beta(>0)$.
+- **_M_** is a parameter of the distribution $M$.
+- **_S_** is a parameter of the distribution $S(>0)$.
 
 ## Example
 
-- The example may be easier to understand if you copy it to a blank worksheet
+- The example may be easier to understand if you copy it to a blank worksheet\
 
 <details>
   <summary>How to copy an example</summary>
@@ -56,17 +56,17 @@ NTGAMMADISTINV(
       [
         { value: "0.5", readOnly: true },
         {
-          value: "Probability associated with the gamma distribution",
+          value: "Probability associated with the log normal distribution",
           readOnly: true,
         },
       ],
       [
-        { value: "4", readOnly: true },
-        { value: "Value of parameter Alpha", readOnly: true },
+        { value: "13.5", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
       ],
       [
-        { value: "2.3", readOnly: true },
-        { value: "Value of parameter Beta", readOnly: true },
+        { value: "31", readOnly: true },
+        { value: "Value of parameter S", readOnly: true },
       ],
       [
         { value: "Formula", readOnly: true, className: "orange-cell" },
@@ -77,10 +77,7 @@ NTGAMMADISTINV(
         },
       ],
       [
-        {
-          value: "=NTGAMMADISTINV(A2,A3,A4)",
-          readOnly: true,
-        },
+        { value: "=NTLOGNORMINV(A2,A3,A4)", readOnly: true },
         {
           value:
             "Inverse of the cumulative distribution function for the terms above",
@@ -95,12 +92,13 @@ NTGAMMADISTINV(
 
 ## See also
 
-- [NTRANDGAMMA](https://www.ntrand.com/ntrandgamma/)
-- [NTGAMMADIST](https://www.ntrand.com/ntgammadist/)
-- [NTGAMMAKURT](https://www.ntrand.com/ntgammakurt/)
-- [NTGAMMAMEAN](https://www.ntrand.com/ntgammamean/)
-- [NTGAMMAMOM](https://www.ntrand.com/ntgammamom/)
-- [NTGAMMAPARAM](https://www.ntrand.com/ntgammaparam/)
-- [NTGAMMASKEW](https://www.ntrand.com/ntgammaskew/)
-- [NTGAMMASTDEV](https://www.ntrand.com/ntgammastdev/)
-- [gamma distribution](https://www.ntrand.com/gamma-distribution/)
+- [NTRANDLOGNORM](https://www.ntrand.com/ntrandlognorm/)
+- [NTLOGNORMDIST](https://www.ntrand.com/ntlognormdist/)
+- [NTLOGNORMINV](https://www.ntrand.com/ntlognorminv/)
+- [NTLOGNORMKURT](https://www.ntrand.com/ntlognormkurt/)
+- [NTLOGNORMMEAN](https://www.ntrand.com/ntlognormmean/)
+- [NTLOGNORMMOM](https://www.ntrand.com/ntlognormmom/)
+- [NTLOGNORMPARAM](https://www.ntrand.com/ntlognormparam/)
+- [NTLOGNORMSKEW](https://www.ntrand.com/ntlognormskew/)
+- [NTLOGNORMSTDEV](https://www.ntrand.com/ntlognormstdev/)
+- [Log Normal distribution](https://www.ntrand.com/log-normal-distribution/)

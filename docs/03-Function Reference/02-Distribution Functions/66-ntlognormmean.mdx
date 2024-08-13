@@ -1,0 +1,91 @@
+---
+title: NTLOGNORMMEAN
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTLOGNORMMEAN
+
+Returns mean of a specified log normal distribution.
+
+## Syntax
+
+```excel
+NTLOGNORMMEAN(
+    M,
+    S
+)
+```
+
+### Parameters
+
+- **_M_** is a parameter of the distribution $M$.
+- **_S_** is a parameter of the distribution $S(>0)$.
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet\
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "13.5", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "31", readOnly: true },
+        { value: "Value of parameter S", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTLOGNORMMEAN(A2,A3)", readOnly: true },
+        {
+          value: "Mean of the distribuion for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## See also
+
+- [NTRANDLOGNORM](https://www.ntrand.com/ntrandlognorm/)
+- [NTLOGNORMDIST](https://www.ntrand.com/ntlognormdist/)
+- [NTLOGNORMINV](https://www.ntrand.com/ntlognorminv/)
+- [NTLOGNORMKURT](https://www.ntrand.com/ntlognormkurt/)
+- [NTLOGNORMMOM](https://www.ntrand.com/ntlognormmom/)
+- [NTLOGNORMPARAM](https://www.ntrand.com/ntlognormparam/)
+- [NTLOGNORMSKEW](https://www.ntrand.com/ntlognormskew/)
+- [NTLOGNORMSTDEV](https://www.ntrand.com/ntlognormstdev/)
+- [Log Normal distribution](https://www.ntrand.com/log-normal-distribution/)

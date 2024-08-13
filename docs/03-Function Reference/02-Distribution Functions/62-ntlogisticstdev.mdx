@@ -1,0 +1,85 @@
+---
+title: NTLOGISTICSTDEV
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTLOGISTICSTDEV
+
+Returns standard deviation of a specified logistic distribution.
+
+## Syntax
+
+```excel
+NTLOGISTICSTDEV(
+    B
+)
+```
+
+### Parameters
+
+- **_B_** is a parameter of the distribution $b(>0)$.
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "11", readOnly: true },
+        { value: "Value of parameter B", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTLOGISTICSTDEV(A2)", readOnly: true },
+        {
+          value: "Standard deviation of the distribuion for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## See also
+
+- [NTRANDLOGISTIC](https://www.ntrand.com/ntrandlogistic/)
+- [NTLOGISTICDIST](https://www.ntrand.com/ntlogisticdist/)
+- [NTLOGISTICINV](https://www.ntrand.com/ntlogisticinv/)
+- [NTLOGISTICKURT](https://www.ntrand.com/ntlogistickurt/)
+- [NTLOGISTICMEAN](https://www.ntrand.com/ntlogisticmean/)
+- [NTLOGISTICMOM](https://www.ntrand.com/ntlogisticmom/)
+- [NTLOGISTICPARAM](https://www.ntrand.com/ntlogisticparam/)
+- [NTLOGISTICSKEW](https://www.ntrand.com/ntlogisticskew/)
+- [Logisitic distribution](https://www.ntrand.com/logistic-distribution/)
