@@ -1,0 +1,132 @@
+---
+title: NTTRUNCNORMDIST
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTTRUNCNORMDIST
+
+Returns the truncated normal distribution for the specified parameters.
+
+## Syntax
+
+```excel
+NTTRUNCNORMDIST(
+    x,
+    Min,
+    Max,
+    Mu,
+    Sigma,
+    Cumulative
+)
+```
+
+### Parameters
+
+- **_x_** is the value for which you want the distribution.
+- **_Min_** is a lower limit of a support of the distribution $a$.
+- **_Max_** is a upper limit of a support of the distribution $b$.
+- **_Mu_** is a parameter the distribution $\mu$.
+- **_Sigma_** is a parameter the distribution $\sigma(>0)$.
+- **_Cumulative_** is a logical value that determines the form of the function. If cumulative is TRUE, NORMDIST returns the cumulative distribution function; if FALSE, it returns the probability mass function.
+
+## Remarks
+
+- Restrictions of arguments:
+
+$$
+  a<b
+$$
+
+$$
+  a\leq x\leq b
+$$
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 2.5, readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: "Value of parameter Min", readOnly: true },
+      ],
+      [
+        { value: 4, readOnly: true },
+        { value: "Value of parameter Max", readOnly: true },
+      ],
+      [
+        { value: 3, readOnly: true },
+        { value: "Value of parameter Mu", readOnly: true },
+      ],
+      [
+        { value: 0.9, readOnly: true },
+        { value: "Value of parameter Sigma", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTTRUNCNORMDIST(A2,A3,A4,A5,A6,TRUE)", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=NTLOGNORMDIST(A2,A3,A4,A5,A6,FALSE)", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- [Download sample excel sheet](https://www.ntrand.com/files/NtRand2.zip "Downloading Sample")
+
+## See also
+
+- [NTRANDTRUNCNORM](https://www.ntrand.com/ntrandtruncnorm/)
+- [NTTRUNCNORMINV](https://www.ntrand.com/nttruncnorminv/)
+- [NTTRUNCNORMKURT](https://www.ntrand.com/nttruncnormkurt/)
+- [NTTRUNCNORMMEAN](https://www.ntrand.com/nttruncnormmean/)
+- [NTTRUNCNORMMOM](https://www.ntrand.com/nttruncnormmom/)
+- [NTTRUNCNORMPARAM](https://www.ntrand.com/nttruncnormparam/)
+- [NTTRUNCNORMSKEW](https://www.ntrand.com/nttruncnormskew/)
+- [NTTRUNCNORMSTDEV](https://www.ntrand.com/nttruncnormstdev/)
+- [Truncated normal distribution](https://www.ntrand.com/truncated-normal-distribution/)

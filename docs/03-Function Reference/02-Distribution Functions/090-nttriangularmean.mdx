@@ -1,0 +1,105 @@
+---
+title: NTTRIANGULARMEAN
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTTRIANGULARMEAN
+
+Returns mean of a specified triangular distribution.
+
+## Syntax
+
+```excel
+NTTRIANGULARMEAN(
+    Min,
+    Max,
+    Mode
+)
+```
+
+### Parameters
+
+- **_Min_** is a lower limit of a support of the distribution $a$.
+- **_Max_** is a upper limit of a support of the distribution $b$.
+- **_Mode_** is a mode of the distribution $c$.
+
+## Remarks
+
+- Restrictions of arguments:
+
+  $$
+  a<c<b
+  $$
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: "Value of parameter Min", readOnly: true },
+      ],
+      [
+        { value: 3, readOnly: true },
+        { value: "Value of parameter Max", readOnly: true },
+      ],
+      [
+        { value: 1.4, readOnly: true },
+        { value: "Value of parameter Mode", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTTRIANGULARMEAN(A2,A3,A4)", readOnly: true },
+        {
+          value: "Mean of the distribuion for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## See also
+
+- [NTRANDTRIANGULAR](https://www.ntrand.com/ntrandtriangular/)
+- [NTTRIANGULARDIST](https://www.ntrand.com/nttriangulardist/)
+- [NTTRIANGULARINV](https://www.ntrand.com/nttriangularinv/)
+- [NTTRIANGULARKURT](https://www.ntrand.com/nttriangularkurt/)
+- [NTTRIANGULARMOM](https://www.ntrand.com/nttriangularmom/)
+- [NTTRIANGULARPARAM](https://www.ntrand.com/nttriangularparam/)
+- [NTTRIANGULARSKEW](https://www.ntrand.com/nttriangularskew/)
+- [NTTRIANGULARSTDEV](https://www.ntrand.com/nttriangularstdev/)
+- [Truangular distribution](https://www.ntrand.com/triangular-distribution/)

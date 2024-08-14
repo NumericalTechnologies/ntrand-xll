@@ -1,0 +1,91 @@
+---
+title: NTTKURT
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTTKURT
+
+Returns [kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of a specified Student's t distribution.
+
+## Syntax
+
+```excel
+NTTKURT(
+    N
+)
+```
+
+### Parameters
+
+- **_N_** is a parameter of the distribution $N(>4)$.
+
+## Remarks
+
+The [kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as:
+
+$$
+\frac{6}{N-4}
+$$
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTTKURT(A2)", readOnly: true },
+        {
+          value: "Kurtosis of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## See also
+
+- [NTRANDT](https://www.ntrand.com/ntrandt/)
+- [NTTDIST](https://www.ntrand.com/nttdist/)
+- [NTTMEAN](https://www.ntrand.com/nttmean/)
+- [NTTMOM](https://www.ntrand.com/nttmom/)
+- [NTTSKEW](https://www.ntrand.com/nttskew/)
+- [NTTSTDEV](https://www.ntrand.com/nttstdev/)
+- [T distribution](https://www.ntrand.com/t-distribution/)

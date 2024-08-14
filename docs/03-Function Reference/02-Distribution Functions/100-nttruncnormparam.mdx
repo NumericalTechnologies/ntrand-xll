@@ -1,0 +1,117 @@
+---
+title: NTTRUNCNORMPARAM
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTTRUNCNORMPARAM
+
+Returns parameters of the triangular distribution for the specified support, mean and standard deviation.
+
+## Syntax
+
+```excel
+NTTRUNCNORMPARAM(
+    Min,
+    Max,
+    Mean,
+    Stdev
+)
+```
+
+### Parameters
+
+- **_Min_** is a lower limit of a support of the distribution $a$.
+- **_Max_** is a upper limit of a support of the distribution $b$.
+- **_Mean_** is the arithmetic mean of the distribution.
+- **_Stdev_** is the standard deviation of the distribution (Positive value).
+
+## Remarks
+
+- Restrictions of arguments:
+
+$$
+  a<b
+$$
+
+## Example
+
+- The example may be easier to understand if you copy it to a blank worksheet
+
+<details>
+  <summary>How to copy an example</summary>
+
+1.  Create a blank workbook or worksheet.
+2.  Select the example in the Help topic.
+
+    **Note**  Do not select the row or column headers.
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    Selecting an example from Help
+
+3.  Press CTRL+C.
+4.  In the worksheet, select cell A1, and press CTRL+V.
+5.  To switch between viewing the results and viewing the formulas that return the results, press CTRL+` (grave accent), or on the **Tools** menu, point to **Formula Auditing**, and then click **Formula Auditing Mode**.
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: "Value of parameter Min", readOnly: true },
+      ],
+      [
+        { value: 4, readOnly: true },
+        { value: "Value of parameter Max", readOnly: true },
+      ],
+      [
+        { value: 2.2, readOnly: true },
+        { value: "Arithmetic mean of the distribution", readOnly: true },
+      ],
+      [
+        { value: 2, readOnly: true },
+        { value: "Standard deviation of the distribution", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTTRUNCNORMPARAM(A2,A3,A4,A5)", readOnly: true },
+        {
+          value:
+            "Parameter of the distribution : Mu, Sigma for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A7:A8 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+- [Download sample excel sheet](https://www.ntrand.com/files/NtRand2.zip "Downloading Sample")
+
+## See also
+
+- [NTRANDTRUNCNORM](https://www.ntrand.com/ntrandtruncnorm/)
+- [NTTRUNCNORMDIST](https://www.ntrand.com/nttruncnormdist/)
+- [NTTRUNCNORMINV](https://www.ntrand.com/nttruncnorminv/)
+- [NTTRUNCNORMKURT](https://www.ntrand.com/nttruncnormkurt/)
+- [NTTRUNCNORMMEAN](https://www.ntrand.com/nttruncnormmean/)
+- [NTTRUNCNORMMOM](https://www.ntrand.com/nttruncnormmom/)
+- [NTTRUNCNORMSKEW](https://www.ntrand.com/nttruncnormskew/)
+- [NTTRUNCNORMSTDEV](https://www.ntrand.com/nttruncnormstdev/)
+- [Truncated normal distribution](https://www.ntrand.com/truncated-normal-distribution/)
+- [Why I always see the same result even if I input formula into multiple cell?](https://www.ntrand.com/faq/#local_CtrlShiftEnter)
