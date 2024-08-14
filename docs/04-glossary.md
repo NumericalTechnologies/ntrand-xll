@@ -26,7 +26,7 @@ The simplest method of converting uniform random numbers into normal random numb
 
 ## c.d.f.
 
-*See* [Cumulative distribution function](https://www.ntrand.com/glossary/#local_Cumulative)
+*See* [Cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
 ## Central moment
 
@@ -36,13 +36,13 @@ $$
 \mu*{(k)}=\int*{-\infty}^{+\infty}(x-\mu)^kf(x)\text{d}x
 $$
 
-where $f(x)$ is the [probability density function](https://www.ntrand.com/glossary/#local_Probability) and $\mu$ is the [mean](https://www.ntrand.com/glossary/#local_mean) of the distribution.
+where $f(x)$ is the [probability density function](/docs/glossary#probability-density-function) and $\mu$ is the [mean](/docs/glossary#mean) of the distribution.
 
 - The 0th central moment is one.
 - The 1st central moment is zero.
-- The 2nd central moment is called [variance](https://www.ntrand.com/glossary/#local_variance).
-- The 3rd central moment is used to define [skewness](https://www.ntrand.com/glossary/#local_skewness).
-- The 4th central moment is used to define [kurtosis](https://www.ntrand.com/glossary/#local_kurtosis).
+- The 2nd central moment is called [variance](/docs/glossary#variance).
+- The 3rd central moment is used to define [skewness](/docs/glossary#skewness).
+- The 4th central moment is used to define [kurtosis](/docs/glossary#kurtosis).
 
 ## Choice of the random number generator algorithm
 
@@ -87,7 +87,7 @@ $$
 I_x(p,q)=\frac{B_x(p,q)}{B(p,q)}
 $$
 
-where $B(\cdot,;\cdot)$ is [beta function](https://www.ntrand.com/glossary/#local_beta).
+where $B(\cdot,;\cdot)$ is [beta function](/docs/glossary#beta-function).
 
 ## Incomplete gamma function
 
@@ -107,12 +107,12 @@ $$
 \gamma_2=\frac{\mu_{(4)}}{\sigma^4}-3
 $$
 
-where $\mu_{(4)}$ is the 4-th [central moment](https://www.ntrand.com/glossary/#local_central_moment) of the distribution and $\sigma$ is the [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation) of the distribution.\
+where $\mu_{(4)}$ is the 4-th [central moment](/docs/glossary#central-moment) of the distribution and $\sigma$ is the [standard deviation](/docs/glossary#standard-deviation) of the distribution.\
 This is also known as "excess kurtosis"
 
 ## Leptokurtic
 
-Leptokurtic means the distribution has fat tail. Mathematically, [kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) is positive.
+Leptokurtic means the distribution has fat tail. Mathematically, [kurtosis](/docs/glossary#kurtosis) is positive.
 
 ## Mean
 
@@ -124,11 +124,11 @@ The probability density function transfers without changing its form when the me
 
 ![Mean of the distribution](./assets/movies/Mean.gif)
 
-It is computed as 1st. [raw moment](https://www.ntrand.com/glossary/#local_raw_moment) of the distribution. It is represented as "m" in almost all text book.
+It is computed as 1st. [raw moment](/docs/glossary#raw-moment) of the distribution. It is represented as "m" in almost all text book.
 
 ## Median
 
-The position at which [the probability density function](https://www.ntrand.com/glossary/#local_probability) is separated into two parts whose area are the same each other.
+The position at which [the probability density function](/docs/glossary#probability-density-function) is separated into two parts whose area are the same each other.
 
 ![](./assets//Median.png)
 
@@ -138,7 +138,7 @@ $$
 \text{median}=F^{-1}(0.5)
 $$
 
-, where $F^{-1}(x)$ is a inverse function of the [cumulative distribution function](https://www.ntrand.com/glossary/#local_Cumulative).
+, where $F^{-1}(x)$ is a inverse function of the [cumulative distribution function](/docs/glossary#cumulative-distribution-function).
 
 ## Mersenne Twister algorithm
 
@@ -146,7 +146,7 @@ An algorithm which generates uniform pseudo random numbers with longer period an
 
 ## Mode
 
-The value that occurs the most frequently in a data set or a probability distribution. For the [probability density function](https://www.ntrand.com/glossary/#local_probability) which has a single peak, the mode is the position of the peak.
+The value that occurs the most frequently in a data set or a probability distribution. For the [probability density function](/docs/glossary#probability-density-function) which has a single peak, the mode is the position of the peak.
 
 ![](./assets//Mode.png)
 
@@ -160,11 +160,11 @@ A sequence of random numbers that has the mean value of 0 and standard deviation
 
 ## p.d.f.
 
-*See* [Probability density function](https://www.ntrand.com/glossary/#local_Probability)
+*See* [Probability density function](/docs/glossary#probability-density-function)
 
 ## p.m.f.
 
-*See* [Probability mass function](https://www.ntrand.com/glossary/#local_ProbabilityMass)
+*See* [Probability mass function](/docs/glossary#probability-density-functionMass)
 
 ## Physical random numbers
 
@@ -172,7 +172,7 @@ Physical random numbers ([Wikipedia -- Random number generation](http://en.wikip
 
 ## Platykurtic
 
-Leptokurtic means the distribution has thin tail. Mathematically, [kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) is negative.
+Leptokurtic means the distribution has thin tail. Mathematically, [kurtosis](/docs/glossary#kurtosis) is negative.
 
 ## Probability density function
 
@@ -182,7 +182,7 @@ The real-value function which describes the relative likelihood for this random 
 - Area below the curb of function on the range between x=a and x=b represents a probability that the variable x have a value between a and b.\
   ![](./assets//pdf.png)
 - Whole area below the curb of function is one.
-- The function is characterized by [median](https://www.ntrand.com/glossary/#local_median), [mode](https://www.ntrand.com/glossary/#local_mode), [mean](https://www.ntrand.com/glossary/#local_mean), [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation), [skewness](https://www.ntrand.com/glossary/#local_skewness), [kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) and so on.
+- The function is characterized by [median](/docs/glossary#median), [mode](/docs/glossary#mode), [mean](/docs/glossary#mean), [standard deviation](/docs/glossary#standard-deviation), [skewness](/docs/glossary#skewness), [kurtosis](/docs/glossary#kurtosis) and so on.
 
 ## Probability mass function
 
@@ -192,7 +192,7 @@ $$
 Pr[X=x]=p(x)
 $$
 
-This is corresponding to [probability density function](https://www.ntrand.com/glossary/#local_Probability) for continuous distribution function.
+This is corresponding to [probability density function](/docs/glossary#probability-density-function) for continuous distribution function.
 
 ## Pseudo-random numbers
 
@@ -204,7 +204,7 @@ Generate random numbers for the desired number, calculate the statistics of enti
 
 ## Quantile
 
-p-quantile is the value at which the distribution is divided into two parts with probabilities p and (1-p) respectively. This is the value of inverse function of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) at p.
+p-quantile is the value at which the distribution is divided into two parts with probabilities p and (1-p) respectively. This is the value of inverse function of [cumulative distribution function](/docs/glossary#cumulative-distribution-function) at p.
 
 ![](./assets/movies/quantile.gif)
 
@@ -216,10 +216,10 @@ $$
 \mu^\prime_{(k)}=\int_{-\infty}^{+\infty}x^kf(x)\text{d}x
 $$
 
-where $f(x)$ is the [probability density function](https://www.ntrand.com/glossary/#local_Probability).
+where $f(x)$ is the [probability density function](/docs/glossary#probability-density-function).
 
 - The 0th raw moment is one.
-- The 1st raw moment is [mean](https://www.ntrand.com/glossary/#local_mean) of the distribution.
+- The 1st raw moment is [mean](/docs/glossary#mean) of the distribution.
 
 ## Regularized incomplete beta function
 
@@ -255,13 +255,13 @@ $$
 \gamma_1=\frac{\mu_{(3)}}{\sigma^3}
 $$
 
-where $\mu_{(3)}$ is the 3rd [central moment](https://www.ntrand.com/glossary/#local_central_moment) of the distribution and $\sigma$ is the [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation) of the distribution.
+where $\mu_{(3)}$ is the 3rd [central moment](/docs/glossary#central-moment) of the distribution and $\sigma$ is the [standard deviation](/docs/glossary#standard-deviation) of the distribution.
 
 ## Standard deviation
 
-The positive root of the [variance](https://www.ntrand.com/glossary/#local_variance) of the distribution and is denoted as $\sigma$.
+The positive root of the [variance](/docs/glossary#variance) of the distribution and is denoted as $\sigma$.
 
-Standard deviation represents how the distribution spread. In the case of normal distribution, the standard deviation is the distance between the [mean](https://www.ntrand.com/glossary/#local_mean) and the saddle point.
+Standard deviation represents how the distribution spread. In the case of normal distribution, the standard deviation is the distance between the [mean](/docs/glossary#mean) and the saddle point.
 
 ![Standard deviation of the distribution](./assets/movies/Stdev.gif)
 
@@ -277,8 +277,8 @@ Random numbers uniformly distributed in the [0,1] interval.
 
 ## Unimodal
 
-A unimodal probability distribution is a probability distribution which has a single [mode](https://www.ntrand.com/glossary/#local_mode). Rectangle shaped distributions such as the uniform distribution does not have a mode.
+A unimodal probability distribution is a probability distribution which has a single [mode](/docs/glossary#mode). Rectangle shaped distributions such as the uniform distribution does not have a mode.
 
 ## Variance
 
-Variance of the distribution is the 2nd [central moment](https://www.ntrand.com/glossary/#local_central_moment) of the distribution and denoted as $\sigma^2$. This is a square of [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation).
+Variance of the distribution is the 2nd [central moment](/docs/glossary#central-moment) of the distribution and denoted as $\sigma^2$. This is a square of [standard deviation](/docs/glossary#standard-deviation).
