@@ -72,13 +72,20 @@ sub replace_links {
                         File::Basename::dirname($file_path) );
 
                     $file_content =~
-                      s/http:\/\/www.ntrand.com\/$key\/?/$relative_path/g;
+                      s/http:\/\/www.ntrand.com\/$key\/?\)/$relative_path)/g;
                     $file_content =~
-                      s/https:\/\/www.ntrand.com\/$key\/?/$relative_path/g;
+                      s/https:\/\/www.ntrand.com\/$key\/?\)/$relative_path)/g;
                     $file_content =~
-                      s/http:\/\/www.ntrand.com\/jp\/$key\/?/$relative_path/g;
+                      s/http:\/\/www.ntrand.com\/jp\/$key\/?\)/$relative_path)/g;
                     $file_content =~
-                      s/https:\/\/www.ntrand.com\/jp\/$key\/?/$relative_path/g;
+                      s/https:\/\/www.ntrand.com\/jp\/$key\/?\)/$relative_path)/g;
+
+                    # get index from the file name
+                    my $index = $relative_path;
+                    $index =~ s/.*\/(\d\d\d?)-([^\/]*)\.mdx/$1/g;
+                    $index =~ s/(\d\d\d?)-([^\/]*)\.mdx/$1/g;
+                    # replace index in case it is outdated
+                    $file_content =~ s/\d\d\d?-$key\.mdx/$index-$key.mdx/g;
                 }
 
                 open( my $fh_out, '>', $file_path )
