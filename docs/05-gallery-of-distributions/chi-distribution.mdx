@@ -1,0 +1,324 @@
+---
+title: Chi Distribution
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# Chi Distribution
+
+## Shape of Distribution
+
+### Basic Properties
+
+- One parameter $N$ is required (Positive integer)
+- Continuous distribution defined on semi-bounded range $x \geq 0$
+- This distribution is asymmetric.
+
+### Probability
+
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{1}{2^{\frac{N}{2}-1}\Gamma\left(\frac{N}{2}\right)}\exp\left(-\frac{x^2}{2}\right)x^{N-1}
+  $$
+
+  , where $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+
+- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F(x)=\frac{\Gamma_{\frac{x^2}{2}}\left(\frac{N}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
+  $$
+
+  , where $\Gamma_{x}(\cdot)$ is [incomplete gamma function](https://www.ntrand.com/glossary/#local_incomplete_gamma).
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "5", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "9", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTCHIDIST(A2,A3,TRUE)", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=NTCHIDIST(A2,A3,FALSE)", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTCHIDIST](https://www.ntrand.com/ntchidist/)
+
+## Characteristics
+
+### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+
+- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+
+  $$
+  \sqrt{2}\frac{\Gamma\left(\frac{N+1}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
+  $$
+
+  , where $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTCHIMEAN(A2)", readOnly: true },
+        {
+          value: "Mean of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTCHIMEAN](https://www.ntrand.com/ntchimean/)
+
+### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+
+- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+
+  $$
+  N-2\left[\frac{\Gamma\left(\frac{N+1}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}\right]^2
+  $$
+
+  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTCHISTDEV(A2)", readOnly: true },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTCHISTDEV](https://www.ntrand.com/ntchistdev/)
+
+### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+
+- [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
+
+  $$
+  \frac{\mu(3)-3\mu(2)\mu(1)+2\mu^3(1)}{\sigma^3}
+  $$
+
+  $$
+  \mu(r)=\frac{2^{\frac{r}{2}}\Gamma\left(\frac{N+r}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
+  $$
+
+  , where $\sigma$ is [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation) and $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTCHISKEW(A2)", readOnly: true },
+        {
+          value: "Skewness of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTCHISKEW](https://www.ntrand.com/ntchiskew/)
+
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+
+- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+
+  $$
+  \frac{\mu(4)-4\mu(3)\mu(1)+6\mu(2)\mu^2(1)-3\mu^4(1)}{\sigma^4}-3
+  $$
+
+  $$
+  \mu(r)=\frac{2^{\frac{r}{2}}\Gamma\left(\frac{N+r}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
+  $$
+
+  , where $\sigma$ is [standard deviation and $\Gamma(\cdot)$ is ](https://www.ntrand.com/glossary/#local_standard_deviation)[gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+
+- This distribution can be [leptokurtic](https://www.ntrand.com/glossary/#local_leptokurtic) or [platykurtic](https://www.ntrand.com/glossary/#local_platykurtic).
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTCHIKURT(A2)", readOnly: true },
+        {
+          value: "Kurtosis of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTCHIKURT](https://www.ntrand.com/ntchikurt/)
+
+## Random Numbers
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTRANDCHI(100,A2,0)",
+          readOnly: true,
+        },
+        {
+          value:
+            "100 chi deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A5:A104 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+- Function reference : [NTRANDCHI](https://www.ntrand.com/ntrandchi/)
+
+## NtRand Functions
+
+- If you already have parameters of the distribution
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDCHI](https://www.ntrand.com/ntrandchi/)
+  - Computing probability : [NTCHIDIST](https://www.ntrand.com/ntchidist/)
+  - Computing mean : [NTCHIMEAN](https://www.ntrand.com/ntchimean/)
+  - Computing standard deviation : [NTCHISTDEV](https://www.ntrand.com/ntchiskew/)
+  - Computing skewness : [NTCHISKEW](https://www.ntrand.com/ntchiskew/)
+  - Computing kurtosis : [NTCHIKURT](https://www.ntrand.com/ntchikurt/)
+  - Computing moments above at once : [NTCHIMOM](https://www.ntrand.com/ntchimom/)
+
+## Reference
+
+- [Wolfram Mathworld -- Chi Distribution](http://mathworld.wolfram.com/ChiDistribution.html)
+- [Wikipedia -- Chi distribution](http://en.wikipedia.org/wiki/Chi_distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)

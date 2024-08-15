@@ -1,0 +1,187 @@
+---
+title: Normal Distribution (Multi Variable)
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# Normal Distribution (Multi Variable)
+
+## Where do you meet this distribution?
+
+- Finance, Economics : Value at Risk
+
+## Shape of Distribution
+
+### Basic Properties
+
+- For n-variables, means for each variable (n-dimensional vector), standard deviations for each variable (n-dimensional vector $\mu$) and correlation coefficients for every pair of variables (n times n matrix. Called correlation matrix) are required (In practice, a covariance matrix $\Sigma$ calculated from standard deviation vector and correlation correlation matrix is required).
+- Continuous distribution defined on $x\in R^{n}$
+
+### Probability
+
+- [NTBINROMDIST](https://www.ntrand.com/ntbinormdist/) is singular, when correlation coefficient $\rho=\pm 1$ and x1=x2.
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{1}{(2\pi)^{n/2}\left|\Sigma\right|^{1/2}}\exp\left[-\frac{1}{2}(x-\mu)^\prime\Sigma^{-1}(x-\mu)\right]
+  $$
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1.5", readOnly: true },
+        {
+          value: "Value of 1st. variable for which you want the distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "-1", readOnly: true },
+        {
+          value: "Value of 2nd. variable for which you want the distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "1.5", readOnly: true },
+        { value: "Mean of variable1 M1", readOnly: true },
+      ],
+      [
+        { value: "-1.2", readOnly: true },
+        { value: "Mean of variabel2 M2", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Standard deviation of variable1 Sigma1", readOnly: true },
+      ],
+      [
+        { value: "0.7", readOnly: true },
+        { value: "Standard deviation of variabel2 Sigma2", readOnly: true },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Correlation coefficient Rho", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTBINORMDIST((A2-A4)/A6,(A3-A5)/A7,A8,TRUE)",
+          readOnly: true,
+        },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        {
+          value: "=NTBINORMDIST((A2-A4)/A6,(A3-A5)/A7,A8,FALSE)",
+          readOnly: true,
+        },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+![](./../assets/functions/plot/binormdist.jpg)
+
+- Function reference : [NTBINORMDIST](https://www.ntrand.com/ntbinormdist/)
+
+## Random Numbers
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1.44", readOnly: true },
+        { value: "0.48", readOnly: true },
+        { value: "-0.36", readOnly: true },
+        { value: "cov. matrix", readOnly: true },
+      ],
+      [
+        { value: "0.48", readOnly: true },
+        { value: "0.64", readOnly: true },
+        { value: "0", readOnly: true },
+        { value: "cov. matrix", readOnly: true },
+      ],
+      [
+        { value: "-0.36", readOnly: true },
+        { value: "0", readOnly: true },
+        { value: "0.25", readOnly: true },
+        { value: "cov. matrix", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1", readOnly: true },
+        { value: "2", readOnly: true },
+        { value: "3", readOnly: true },
+        { value: "mean vector", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        { value: "", readOnly: true, className: "orange-cell" },
+        { value: "", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTRANDMULTINORM(100,A2:C4,A6:C6)",
+          readOnly: true,
+        },
+        { value: "", readOnly: true },
+        { value: "", readOnly: true },
+        {
+          value: "100 normal deviates (x 3 variables) for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+![](./../assets/functions/histogram/scatterMultiNorm.jpg)
+
+## NtRand Functions
+
+- Generating random numbers based on Mersenne Twister algorithm: [NTRANDMULTINORM](https://www.ntrand.com/ntrandmultinorm/)
+- Computing probability for 2-variables : [NTBINORMDIST](https://www.ntrand.com/ntbinormdist/)
+
+## Reference
+
+- [Wolfram Mathworld -- Multivariate Normal Distribution](http://mathworld.wolfram.com/MultivariateNormalDistribution.html)
+- [Wikipedia -- Multivariate normal distribution](http://en.wikipedia.org/wiki/Multivariate_normal_distribution)

@@ -1,0 +1,376 @@
+---
+title: Pareto Distribution
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# Pareto Distribution
+
+## Where do you meet this distribution?
+
+- [Meteorology](http://en.wikipedia.org/wiki/Meteorology), [Seismology](http://en.wikipedia.org/wiki/Seismology) : Model of extreme event (Extreme value theory)
+- [Risk management -- Operational risk](http://en.wikipedia.org/wiki/Operational_risk)
+
+## Shape of Distribution
+
+### Basic Properties
+
+- Two parameters $a, b$ are required.
+
+  $$
+  a>0, b>0
+  $$
+
+- Continuous distribution defined on semi-infinite range $x>b$
+- This distribution is always asymmetric.
+
+### Probability
+
+- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F(x)=1-\left(\frac{b}{x}\right)^a
+  $$
+
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{ab^a}{x^{a+1}}
+  $$
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "5", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter A", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter B", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=1-POWER(A4/A2,A3)", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=A3*A4^A3/POWER(A2,A3+1)", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+### Quantile
+
+- Inverse function of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F^{-1}(P)=\frac{b}{(1-P)^{1/a}}
+  $$
+
+- How to compute this on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.7", readOnly: true },
+        {
+          value: "Probability associated with the distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "1.7", readOnly: true },
+        { value: "Value of parameter A", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter B", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=A4/POWER(1-A2,1/A3)", readOnly: true },
+        {
+          value:
+            "Inverse of the cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## Characteristics
+
+### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+
+- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+
+  $$
+  \frac{ab}{a-1}
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=A2*A3/(A2-1)", readOnly: true },
+        {
+          value: "Mean of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+
+- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+
+  $$
+  \frac{ab^2}{(a-1)^2(a-2)}
+  $$
+
+  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter A", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter B", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=A3/(A2-1)*SQRT(A2/(A2-2))", readOnly: true },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+
+- [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
+
+  $$
+  \sqrt{\frac{a-2}{a}}\frac{2(a+1)}{a-3}
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter A", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=SQRT((A2-2)/A2)*2*(A2+1)/(A2-3)",
+          readOnly: true,
+        },
+        {
+          value: "Skewness of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+
+- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+
+  $$
+  \frac{6(a^3+a^2-6a-2)}{a(a-3)(a-4)}
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter A", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=6*(A2^3+A2^2-6*A2-2)/(A2*(A2-3)*(A2-4))",
+          readOnly: true,
+        },
+        {
+          value: "Kurtosis of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## Random Numbers
+
+- Random number x is generated by inverse function method, which is for uniform random U,
+
+  $$
+  x=\frac{b}{(1-U)^{1/a}}
+  $$
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value of parameter A", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter B", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=A3/POWER(1-NTRAND(100),1/A2)",
+          readOnly: true,
+        },
+        {
+          value:
+            "100 Pareto deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A5:A104 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+## NtRand Functions
+
+Not supported yet
+
+## Reference
+
+- [Wolfram Mathworld -- Pareto distribution](http://mathworld.wolfram.com/ParetoDistribution.html)
+- [Wikipedia -- Pareto distribution](http://en.wikipedia.org/wiki/Pareto_distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)

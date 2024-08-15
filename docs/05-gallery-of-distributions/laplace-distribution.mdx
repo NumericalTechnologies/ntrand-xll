@@ -1,0 +1,267 @@
+---
+title: Laplace Distribution
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# Laplace Distribution
+
+## Where will you meet this distribution?
+
+- Marketing
+
+  ["On the Laplace Distribution of Firms Growth Rates" by Giulio Bottazzi and Angelo Secchi](http://ideas.repec.org/p/ssa/lemwps/2002-20.html)
+
+- Computer graphics
+
+  ["State assignment of the JPEG statistical model based on a Laplacian distribution" by KUROKI Yoshimitsu el al](http://ci.nii.ac.jp/naid/110003706110/)
+
+## Shape of Distribution
+
+### Basic Properties
+
+- Two parameters $\mu, \phi$ are required.
+
+  $$
+  \phi>0
+  $$
+
+- Continuous distribution defined on entire range
+- This distribution is always symmetric.
+
+### Probability
+
+- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F(x)=\begin{cases}\frac{1}{2}\exp\left(\frac{x-\mu}{\phi}\right)\;&(x<\mu)\\1-\frac{1}{2}\exp\left(-\frac{x-\mu}{\phi}\right)\;&(x\geq \mu)\end{cases}
+  $$
+
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{1}{2\phi}\exp\left(-\frac{|x-\mu|}{\phi}\right)
+  $$
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter Mu", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Phi", readOnly: true },
+      ],
+      [
+        { value: "=(A2-A3)/A4", readOnly: true },
+        { value: "Standardized variable z", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=IF(A2<A3,0.5*EXP(A5),1-0.5*EXP(-A5))", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=0.5*EXP(-ABS(A5))/A4", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+### Quantile
+
+- Inverse function of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F^{-1}(P)=\begin{cases}\phi\ln 2P+\mu&(P<0.5)\\-(\phi\ln 2(1-P)+\mu)&(P\geq 0.5)\end{cases}
+  $$
+
+- How to compute this on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.7", readOnly: true },
+        {
+          value: "Probability associated with the distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "1.7", readOnly: true },
+        { value: "Value of parameter Mu", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Phi", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=IF(P<0.5,A4*LN(2*A2)+A3,-(A4*LN(2*(1-A2))+A3))",
+          readOnly: true,
+        },
+        {
+          value:
+            "Inverse of the cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## Characteristics
+
+### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+
+- Mean of the distribution is given as $\mu$.
+
+### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+
+- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+
+  $$
+  2\phi^2
+  $$
+
+  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Phi", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=SQRT(2)*A2", readOnly: true },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+
+- Skewness of the distribution is $0$.
+
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+
+- Kurtosis of the distribution is $3$.
+
+## Random Numbers
+
+- Random number x is generated by inverse function method, which is for uniform random U,
+
+  $$
+  x=\begin{cases}\phi\ln 2U+\mu&(U<0.5)\\-(\phi\ln 2(1-U)+\mu)&(U\geq 0.5)\end{cases}
+  $$
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value of parameter Mu", readOnly: true },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value of parameter Phi", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value:
+            "=IF(NTRAND(100)<0.5,A3*LN(2*NTRAND(100))+A2,-(A3*LN(2*(1-NTRAND(100)))+A2))",
+          readOnly: true,
+        },
+        {
+          value:
+            "100 Laplace deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A5:A104 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+## NtRand Functions
+
+Not supported yet
+
+## Reference
+
+- [Wolfram Mathworld -- Laplace distribution](http://mathworld.wolfram.com/LaplaceDistribution.html)
+- [Wikipedia -- Laplace distribution](http://en.wikipedia.org/wiki/Laplace_distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)

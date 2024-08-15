@@ -1,0 +1,381 @@
+---
+title: Gamma Distribution
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# Gamma Distribution
+
+## Shape of Distribution
+
+### Basic Properties
+
+- Two parameters $\alpha, \beta$ are required ([How can you get these?](https://www.ntrand.com/ntgammaparam/))
+
+  $$
+  \alpha>0,\beta>0
+  $$
+
+- Continuous distribution defined on semi-bounded range $x \geq 0$
+- This distribution is asymmetric.
+
+### Probability
+
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{1}{\beta^{\alpha}\Gamma(\alpha)}\exp\left(-\frac{x}{\beta}\right)x^{\alpha-1}
+  $$
+
+  , where $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+
+- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F(x)=\frac{\Gamma_{\frac{x}{\beta}}(\alpha)}{\Gamma(\alpha)}
+  $$
+
+  , where $\Gamma_{x}(\cdot)$ is [incomplete gamma function](https://www.ntrand.com/glossary/#local_incomplete_gamma).
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "5", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2.3", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTGAMMADIST(A2,A3,A4,TRUE)", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=NTGAMMADIST(A2,A3,A4,FALSE)", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTGAMMADIST](https://www.ntrand.com/ntgammadist/)
+
+### Quantile
+
+- Inverse function of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) cannot be expressed in closed form.
+- [GAMMAINV](http://office.microsoft.com/en-us/excel-help/gammainv-HP005209102.aspx?CTT=1) is an excel function.
+- How to compute this on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.7", readOnly: true },
+        {
+          value: "Probability associated with the distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2.3", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=GAMMAINV(A2,A3,A4)", readOnly: true },
+        {
+          value:
+            "Inverse of the cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## Characteristics
+
+### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+
+- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+
+  $$
+  \alpha\beta
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2.3", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTGAMMAMEAN(A2,A3)", readOnly: true },
+        {
+          value: "Mean of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTGAMMAMEAN](https://www.ntrand.com/ntgammamean/)
+
+### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+
+- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+
+  $$
+  \alpha\beta^2
+  $$
+
+  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2.3", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTGAMMASTDEV(A2,A3)", readOnly: true },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTGAMMASTDEV](https://www.ntrand.com/ntgammastdev/)
+
+### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+
+- [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
+
+  $$
+  \frac{2}{\sqrt{\alpha}}
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTGAMMASKEW(A2)", readOnly: true },
+        {
+          value: "Skewness of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTGAMMASKEW](https://www.ntrand.com/ntgammaskew/)
+
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+
+- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+
+  $$
+  \frac{6}{\alpha}
+  $$
+
+- This distribution can be [leptokurtic](https://www.ntrand.com/glossary/#local_leptokurtic) or [platykurtic](https://www.ntrand.com/glossary/#local_platykurtic).
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTGAMMAKURT(A2)", readOnly: true },
+        {
+          value: "Kurtosis of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTGAMMAKURT](https://www.ntrand.com/ntgammakurt/)
+
+## Random Numbers
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2.3", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTRANDGAMMA(100,A2,A3,0)",
+          readOnly: true,
+        },
+        {
+          value:
+            "100 gamma deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A5:A104 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+- Function reference : [NTRANDGAMMA](https://www.ntrand.com/ntrandgamma/)
+
+## NtRand Functions
+
+- If you already have parameters of the distribution
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDGAMMA](https://www.ntrand.com/ntrandbeta/)
+  - Computing probability : [NTGAMMADIST](https://www.ntrand.com/ntgammadist/)
+  - Computing mean : [NTGAMMAMEAN](https://www.ntrand.com/ntgammamean/)
+  - Computing standard deviation : [NTGAMMASTDEV](https://www.ntrand.com/ntgammaskew/)
+  - Computing skewness : [NTGAMMASKEW](https://www.ntrand.com/ntgammaskew/)
+  - Computing kurtosis : [NTGAMMAKURT](https://www.ntrand.com/ntgammakurt/)
+  - Computing moments above at once : [NTGAMMAMOM](https://www.ntrand.com/ntgammamom/)
+- If you know mean and standard deviation of the distribution
+  - Estimating parameters of the distribution:[NTGAMMAPARAM](https://www.ntrand.com/ntgammaparam/)
+
+## Reference
+
+- [Wolfram Mathworld -- Gamma Distribution](http://mathworld.wolfram.com/GammaDistribution.html)
+- [Wikipedia -- Gamma distribution](http://en.wikipedia.org/wiki/Gamma_distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)

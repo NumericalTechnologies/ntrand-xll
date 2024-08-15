@@ -1,0 +1,592 @@
+---
+title: Truncated Normal Distribution
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# Truncated Normal Distribution
+
+## Where will you meet this distribution?
+
+- [Econometrics](http://en.wikipedia.org/wiki/Econometric) : [probit model](http://economics.about.com/od/economicsglossary/g/probitmodel.htm), [tobit model](http://en.wikipedia.org/wiki/Tobit_model)
+- Marketing
+
+  "Use of the Left-Truncated Normal Distribution for Improving Achieved Service Levels" by Arvid C. Johnson
+
+- Agriculte
+
+  ["Modeling Nonnegativity via Truncated Logistic and Normal Distributions: An Application to Ranch Land Price Analysis" by Feng Xu et al.](http://ageconsearch.umn.edu/bitstream/31238/1/19010102.pdf)
+
+## Shape of Distribution
+
+### Basic Properties
+
+- Four parameters $a, b,m,\sigma$ are required ([How can you get these](https://www.ntrand.com/nttruncnormparam/)).
+
+  $$
+  a<b
+  $$
+
+  $$
+  \sigma>0
+  $$
+
+- Continuous distribution defined on bounded range $a\leq x \leq b$
+- This distribution can be symmetric or asymmetric.
+
+### Probability
+
+- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F(x)=\frac{1}{\Delta}\left[\Phi\left(\frac{x-m}{\sigma}\right)-\Phi(A)\right]
+  $$
+
+  where
+
+  $$
+  \Delta=\Phi(B)-\Phi(A)
+  $$
+
+  $$
+  A=\frac{a-m}{\sigma},\;B=\frac{b-m}{\sigma}
+  $$
+
+  and $\Phi(\cdot)$ is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{1}{\sigma\Delta}\phi\left(\frac{x-m}{\sigma}\right)
+  $$
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "2.5", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "1", readOnly: true },
+        { value: "Value of parameter Min", readOnly: true },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Max", readOnly: true },
+      ],
+      [
+        { value: "3", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Sigma", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTTRUNCNORMDIST(A2,A3,A4,A5,A6,TRUE)", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=NTTRUNCNORMDIST(A2,A3,A4,A5,A6,FALSE)", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+![Sample distribution](https://www.ntrand.com/images/functions/plot/plotTruncNorm.jpg)
+
+- Function reference : [NTTRUNCNORMDIST](https://www.ntrand.com/nttruncnormdist/)
+
+### Quantile
+
+- Inverse of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F^{-1}(P)=\sigma\Phi^{-1}\left[\Delta P+\Phi(A)\right]+m
+  $$
+
+  where
+
+  $$
+  \Delta=\Phi(B)-\Phi(A)
+  $$
+
+  $$
+  A=\frac{a-m}{\sigma},\;B=\frac{a-m}{\sigma}
+  $$
+
+  and $\Phi(\cdot)$ is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+
+- How to compute this on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        {
+          value:
+            "Probability associated with the truncated normal distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "1", readOnly: true },
+        { value: "Value of parameter Min", readOnly: true },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Max", readOnly: true },
+      ],
+      [
+        { value: "3", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Sigma", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTTRUNCNORMINV(A2,A3,A4,A5,A6)",
+          readOnly: true,
+        },
+        {
+          value:
+            "Inverse of the cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTTRUNCNORMINV](https://www.ntrand.com/nttruncnorminv/)
+
+## Characteristics
+
+### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+
+- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+
+  $$
+  m+\frac{\phi(A)-\phi(B)}{\Delta}\sigma
+  $$
+
+  where
+
+  $$
+  \Delta=\Phi(B)-\Phi(A)
+  $$
+
+  $$
+  A=\frac{a-m}{\sigma},\;B=\frac{a-m}{\sigma}
+  $$
+
+  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](https://www.ntrand.com/glossary/#local_probability) and [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution respectively.
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1", readOnly: true },
+        { value: "Value of parameter Min", readOnly: true },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Max", readOnly: true },
+      ],
+      [
+        { value: "3", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Sigma", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTTRUNCNORMMEAN(A2,A3,A4,A5)",
+          readOnly: true,
+        },
+        {
+          value: "Mean of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTTRUNCNORMMEAN](https://www.ntrand.com/nttruncnormmean/)
+
+### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+
+- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+
+  $$
+  \left[1+\frac{A\phi(A)-B\phi(B)}{\Delta}-\left(\frac{\phi(A)-\phi(B)}{\Delta}\right)^2\right]\sigma^2
+  $$
+
+  where
+
+  $$
+  \Delta=\Phi(B)-\Phi(A)
+  $$
+
+  $$
+  A=\frac{a-m}{\sigma},\;B=\frac{a-m}{\sigma}
+  $$
+
+  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](https://www.ntrand.com/glossary/#local_probability) and [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution respectively.
+
+  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1", readOnly: true },
+        { value: "Value of parameter Min", readOnly: true },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Max", readOnly: true },
+      ],
+      [
+        { value: "3", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Sigma", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTTRUNCNORMSTDEV(A2,A3,A4,A5)",
+          readOnly: true,
+        },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTTRUNCNORMSTDEV](https://www.ntrand.com/nttruncnormstdev/)
+
+### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+
+- [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
+
+  $$
+  -\frac{1}{V^{3/2}}\left[2\Delta_0+(3\Delta_{1}-1)\Delta_0+\Delta_2\right]
+  $$
+
+  where
+
+  $$
+  z(x)=\frac{\phi(x)}{\Delta}
+  $$
+
+  $$
+  \Delta_k=B^kz(B)-A^kz(A)
+  $$
+
+  $$
+  V=1-\Delta_1-\Delta_0^2
+  $$
+
+  $$
+  \Delta=\Phi(B)-\Phi(A)
+  $$
+
+  $$
+  A=\frac{a-m}{\sigma},\;B=\frac{a-m}{\sigma}
+  $$
+
+  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](https://www.ntrand.com/glossary/#local_probability) and [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution respectively.
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1", readOnly: true },
+        { value: "Value of parameter Min", readOnly: true },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Max", readOnly: true },
+      ],
+      [
+        { value: "3", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Sigma", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTTRUNCNORMSKEW(A2,A3,A4,A5)",
+          readOnly: true,
+        },
+        {
+          value: "Skewness of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTTRUNCNORMSKEW](https://www.ntrand.com/nttruncnormskew/)
+
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+
+- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+
+  $$
+  \frac{1}{V^2}\left[-3\Delta_0^4-2\Delta_0^2(3\Delta_1+1)-4\Delta_2\Delta_0-3\Delta_1-\Delta_3+3\right]-3
+  $$
+
+  where
+
+  $$
+  z(x)=\frac{\phi(x)}{\Delta}
+  $$
+
+  $$
+  \Delta_k=B^kz(B)-A^kz(A)
+  $$
+
+  $$
+  V=1-\Delta_1-\Delta_0^2
+  $$
+
+  $$
+  \Delta=\Phi(B)-\Phi(A)
+  $$
+
+  $$
+  A=\frac{a-m}{\sigma},\;B=\frac{a-m}{\sigma}
+  $$
+
+  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](https://www.ntrand.com/glossary/#local_probability) and [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution respectively.
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1", readOnly: true },
+        { value: "Value of parameter Min", readOnly: true },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Max", readOnly: true },
+      ],
+      [
+        { value: "3", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Sigma", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTTRUNCNORMKURT(A2,A3,A4,A5)",
+          readOnly: true,
+        },
+        {
+          value: "Kurtosis of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTTRUNCNORMKURT](https://www.ntrand.com/nttruncnormkurt/)
+
+## Random Numbers
+
+- Random number x is generated by inverse function method, which is for uniform random U,
+
+  $$
+  x=\sigma\Phi^{-1}\left[\Delta U+\Phi(A)\right]+m
+  $$
+
+  where
+
+  $$
+  \Delta=\Phi(B)-\Phi(A)
+  $$
+
+  $$
+  A=\frac{a-m}{\sigma},\;B=\frac{a-m}{\sigma}
+  $$
+
+  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](https://www.ntrand.com/glossary/#local_probability) and [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution respectively.
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1", readOnly: true },
+        { value: "Value of parameter Min", readOnly: true },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter Max", readOnly: true },
+      ],
+      [
+        { value: "3", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Sigma", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTRANDTRUNCNORM(100,A2,A3,A4,A5,0)",
+          readOnly: true,
+        },
+        {
+          value:
+            "100 truncated normal deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A7:A106 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+![](https://www.ntrand.com/images/functions/histogram/histogramTruncNorm.jpg)
+
+## NtRand Functions
+
+- If you already have parameters of the distribution
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDTRUNCNORM](https://www.ntrand.com/ntrandtruncnorm/)
+  - Computing probability : [NTTRUNCNORMDIST](https://www.ntrand.com/nttruncnormdist/)
+  - Computing quantile : [NTTRUNCNORMINV](https://www.ntrand.com/nttruncnorminv/)
+  - Computing mean : [NTTRUNCNORMMEAN](https://www.ntrand.com/nttruncnormmean/)
+  - Computing standard deviation : [NTTRUNCNORMSTDEV](https://www.ntrand.com/nttruncnormskew/)
+  - Computing skewness : [NTTRUNCNORMSKEW](https://www.ntrand.com/nttruncnormskew/)
+  - Computing kurtosis : [NTTRUNCNORMKURT](https://www.ntrand.com/nttruncnormkurt/)
+  - Computing moments above at once : [NTTRUNCNORMMOM](https://www.ntrand.com/nttruncnormmom/)
+- If you know mean and standard deviation of the distribution
+  - Estimating parameters of the distribution:[NTTRUNCNORMPARAM](https://www.ntrand.com/nttruncnormparam/)
+
+## Reference
+
+- [Wikipedia -- Truncated normal distribution](http://en.wikipedia.org/wiki/Truncated_normal_distribution)

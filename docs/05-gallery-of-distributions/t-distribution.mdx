@@ -1,0 +1,302 @@
+---
+title: T Distribution
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# T distribution
+
+## Shape of Distribution
+
+### Basic Properties
+
+- One parameter $N$ is required (Positive integer)
+- Continuous distribution defined on on entire range
+- This distribution is symmetric.
+
+### Probability
+
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{\Gamma\left(\frac{N+1}{2}\right)}{\sqrt{\pi N\left(1+\frac{x^2}{N}\right)^{N+1}}\Gamma\left(\frac{N}{2}\right)}
+  $$
+
+  , where $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+
+- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F(x)=\frac{1}{2}-\frac{1}{2}\left[1-I_{\gamma}\left(\frac{1}{2},\frac{N}{2}\right)\right]\text{sign}(x)
+  $$
+
+  , where $\gamma=\frac{N}{N+x^2}$ and $I_{x}(\cdot,\cdot)$ is [regularized incomplete beta function](https://www.ntrand.com/glossary/#local_regularized_incomplete_beta).
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "5", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTTDIST(A2,A3,TRUE)", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=NTTDIST(A2,A3,FALSE)", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTTDIST](https://www.ntrand.com/nttdist/)
+
+## Characteristics
+
+### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+
+- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is defined for $N>1$ and is always 0.
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTTMEAN(A2)", readOnly: true },
+        {
+          value: "Mean of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTTMEAN](https://www.ntrand.com/nttmean/)
+
+### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+
+- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+
+  $$
+  \frac{N}{N-2}\quad (N>2)
+  $$
+
+  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTTSTDEV(A2)", readOnly: true },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTTSTDEV](https://www.ntrand.com/nttstdev/)
+
+### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+
+- [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is defined for $N>3$$ and is always 0.
+
+  $$
+  \sqrt{\frac{8}{N}}
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTTSKEW(A2)", readOnly: true },
+        {
+          value: "Skewness of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTTSKEW](https://www.ntrand.com/nttskew/)
+
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+
+- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+
+  $$
+  \frac{6}{N-4};(N>4)
+  $$
+
+- This distribution can be [leptokurtic](https://www.ntrand.com/glossary/#local_leptokurtic) or [platykurtic](https://www.ntrand.com/glossary/#local_platykurtic).
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTTKURT(A2)", readOnly: true },
+        {
+          value: "Kurtosis of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTTKURT](https://www.ntrand.com/nttkurt/)
+
+## Random Numbers
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "9", readOnly: true },
+        { value: "Value of parameter N", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTRANDT(100,A2,0)", readOnly: true },
+        {
+          value:
+            "100 chi square deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A5:A104 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+- Function reference : [NTRANDT](https://www.ntrand.com/ntrandt/)
+
+## NtRand Functions
+
+- If you already have parameters of the distribution
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDT](https://www.ntrand.com/ntrandt/)
+  - Computing probability : [NTTDIST](https://www.ntrand.com/nttdist/)
+  - Computing mean : [NTTMEAN](https://www.ntrand.com/nttmean/)
+  - Computing standard deviation : [NTTSTDEV](https://www.ntrand.com/nttskew/)
+  - Computing skewness : [NTTSKEW](https://www.ntrand.com/nttskew/)
+  - Computing kurtosis : [NTTKURT](https://www.ntrand.com/nttkurt/)
+  - Computing moments above at once : [NTTMOM](https://www.ntrand.com/nttmom/)
+
+## Reference
+
+- [Wolfram Mathworld -- Student's t-Distribution](http://mathworld.wolfram.com/Studentst-Distribution.html)
+- [Wikipedia -- Student's t-distribution](http://en.wikipedia.org/wiki/Student's_t-distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)

@@ -1,0 +1,381 @@
+---
+title: U-Quadratic Distribution
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# U-Quadratic Distribution
+
+## Where do you meet this distribution?
+
+- Economic
+
+  "Job Insecurity isn't Always Efficient" by David J. Balan and Dan Hanner
+
+## Shape of Distribution
+
+### Basic Properties
+
+- Two parameters $a, b$ are required.
+
+  $$
+  a<b
+  $$
+
+  These parameters are minimum and maximum value of variable respectively.
+
+- Continuous distribution defined on bounded range $a\leq x \leq b$
+- This distribution is always symmetric.
+
+### Probability
+
+- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F(x)=\frac{a}{3}\left[(x-b)^3+(b-a)^3\right]
+  $$
+
+  where
+
+  $$
+  \alpha=\frac{12}{(b-a)^3},;\beta=\frac{a+b}{2}
+  $$
+
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=a(x-b)^2
+  $$
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "1", readOnly: true },
+        { value: "Value of parameter A", readOnly: true },
+      ],
+      [
+        { value: "5", readOnly: true },
+        { value: "Value of parameter B", readOnly: true },
+      ],
+      [
+        { value: "=12/((A4-A3)^3)", readOnly: true },
+        { value: "Vertical scale", readOnly: true },
+      ],
+      [
+        { value: "(A3+A4)/2", readOnly: true },
+        { value: "Mean of the distribution", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=A5*((A2-A6)^3+(A6-A5)^3)/3", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=A5*(A2-A6)^2", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+### Quantile
+
+- Inverse of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F^{-1}(P)=\left[\frac{3P}{\alpha}-(\beta-\alpha)^3\right]^{1/3}+\beta
+  $$
+
+  where
+
+  $$
+  \alpha=\frac{12}{(b-a)^3},;\beta=\frac{a+b}{2}
+  $$
+
+- How to compute this on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        {
+          value: "Probability associated with the distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "1", readOnly: true },
+        { value: "Value of parameter A", readOnly: true },
+      ],
+      [
+        { value: "5", readOnly: true },
+        { value: "Value of parameter B", readOnly: true },
+      ],
+      [
+        { value: "=12/((A4-A3)^3)", readOnly: true },
+        { value: "Vertical scale", readOnly: true },
+      ],
+      [
+        { value: "(A3+A4)/2", readOnly: true },
+        { value: "Mean of the distribution", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=(3*A2/A5-(A6-A5)^3)^(1/3)+A6", readOnly: true },
+        {
+          value:
+            "Inverse of the cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## Characteristics
+
+### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+
+- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+
+  $$
+  \frac{a+b}{2}
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter A", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter B", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "(A2+A3)/2", readOnly: true },
+        {
+          value: "Mean of the distribution for the terms above, (5)",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+
+- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+
+  $$
+  \frac{3}{20}(b-a)^2
+  $$
+
+  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter A", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter B", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=SQRT(3)*(A3-A2)/(2*SQRT(5))", readOnly: true },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+
+- Skewness of the distribution is $0$.
+
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+
+- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+
+  $$
+  \frac{3}{112}(a-b)^4
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter A", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter B", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=3*(A3-A2)^4/112", readOnly: true },
+        {
+          value: "Kurtosis of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## Random Numbers
+
+- Random number x is generated by inverse function method, which is for uniform random U,
+
+  $$
+  x=\left[\frac{3U}{\alpha}-(\beta-\alpha)^3\right]^{1/3}+\beta
+  $$
+
+  where
+
+  $$
+  \alpha=\frac{12}{(b-a)^3},;\beta=\frac{a+b}{2}
+  $$
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1", readOnly: true },
+        { value: "Value of parameter A", readOnly: true },
+      ],
+      [
+        { value: "5", readOnly: true },
+        { value: "Value of parameter B", readOnly: true },
+      ],
+      [
+        { value: "=12/((A3-A2)^3)", readOnly: true },
+        { value: "Vertical scale", readOnly: true },
+      ],
+      [
+        { value: "(A2+A3)/2", readOnly: true },
+        { value: "Mean of the distribution", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=(3*A2/A4-(A3-A4)^3)^(1/3)+A3",
+          readOnly: true,
+        },
+        {
+          value:
+            "100 U-quadratic deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A7:A106 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+## NtRand Functions
+
+Not supported yet
+
+## Reference
+
+- [Wikipedia -- U-quadratic distribution](http://en.wikipedia.org/wiki/U-quadratic_distribution)

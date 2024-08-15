@@ -1,0 +1,334 @@
+---
+title: F Distribution
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# F Distribution
+
+## Shape of Distribution
+
+### Basic Properties
+
+- Two parameters $N_1$ and $N_2$ are required (Positive integer)
+- Continuous distribution defined on semi-bounded range $x \geq 0$
+- This distribution is asymmetric.
+
+### Probability
+
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{\Gamma\left(\frac{N_1+N_2}{2}\right)\left(\frac{N_1}{N_2}\right)^\frac{N_1}{2}x^{\frac{N_1}{2}-1}}{\Gamma\left(\frac{N_1}{2}\right)\Gamma\left(\frac{N_2}{2}\right)\left(1+\frac{N_1}{N_2}x\right)^{\frac{N_1+N_2}{2}}}
+  $$
+
+  , where $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+
+- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F(x)=I_\gamma\left(\frac{N_1}{2},\frac{N_2}{2}\right)
+  $$
+
+  , where $\gamma=\frac{N_1x}{N_2+N_1x}$ and $I_{x}(\cdot,\cdot)$ is [regularized incomplete beta function](https://www.ntrand.com/glossary/#local_regularized_incomplete_beta).
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "5", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter N1", readOnly: true },
+      ],
+      [
+        { value: "30", readOnly: true },
+        { value: "Value of parameter N2", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTFDIST(A2,A3,A4,TRUE)", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=NTFDIST(A2,A3,A4,FALSE)", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTFDIST](https://www.ntrand.com/ntfdist/)
+
+## Characteristics
+
+### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+
+- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+
+  $$
+  \frac{N_2}{N_2-2}\quad (N_2>2)
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter N2", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTFMEAN(A2)", readOnly: true },
+        {
+          value: "Mean of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTFMEAN](https://www.ntrand.com/ntfmean/)
+
+### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+
+- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+
+  $$
+  \frac{2N_2^2(N_1+N_2-2)}{N_1(N_2-2)^2(N_2-4)}\quad (N_2>4)
+  $$
+
+  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter N1", readOnly: true },
+      ],
+      [
+        { value: "30", readOnly: true },
+        { value: "Value of parameter N2", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTFSTDEV(A2,A3)", readOnly: true },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTFSTDEV](https://www.ntrand.com/ntfstdev/)
+
+### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+
+- [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
+
+  $$
+  \frac{(2N_1+N_2-2)\sqrt{8(N_2-4)}}{\sqrt{N_1(N_1+N_2-2)}(N_2-6)}\quad (N_2>6)
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter N1", readOnly: true },
+      ],
+      [
+        { value: "30", readOnly: true },
+        { value: "Value of parameter N2", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTFSKEW(A2,A3)", readOnly: true },
+        {
+          value: "Skewness of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTFSKEW](https://www.ntrand.com/ntfskew/)
+
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+
+- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+
+  $$
+  \frac{12[(N_2-2)^2(N_2-4)+N_1(N_1+N_2-2)(5N_2-22)]}{N_1(N_2-6)(N_2-8)(N_1+N_2-2)}\quad (N_2>8)
+  $$
+
+- This distribution can be [leptokurtic](https://www.ntrand.com/glossary/#local_leptokurtic) or [platykurtic](https://www.ntrand.com/glossary/#local_platykurtic).
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter N1", readOnly: true },
+      ],
+      [
+        { value: "30", readOnly: true },
+        { value: "Value of parameter N2", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTFKURT(A2,A3)", readOnly: true },
+        {
+          value: "Kurtosis of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTFKURT](https://www.ntrand.com/ntfkurt/)
+
+## Random Numbers
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "100", readOnly: true },
+        { value: "Number of random numbers to generate", readOnly: true },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "Value of parameter N1", readOnly: true },
+      ],
+      [
+        { value: "30", readOnly: true },
+        { value: "Value of parameter N2", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTRANDF(100,A3,A4,0)",
+          readOnly: true,
+        },
+        {
+          value:
+            "100 F deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A5:A104 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+- Function reference : [NTRANDF](https://www.ntrand.com/ntrandf/)
+
+## NtRand Functions
+
+- If you already have parameters of the distribution
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDF](https://www.ntrand.com/ntrandf/)
+  - Computing probability : [NTFDIST](https://www.ntrand.com/ntfdist/)
+  - Computing mean : [NTFMEAN](https://www.ntrand.com/ntfmean/)
+  - Computing standard deviation : [NTFSTDEV](https://www.ntrand.com/ntfskew/)
+  - Computing skewness : [NTFSKEW](https://www.ntrand.com/ntfskew/)
+  - Computing kurtosis : [NTFKURT](https://www.ntrand.com/ntfkurt/)
+  - Computing moments above at once : [NTFMOM](https://www.ntrand.com/ntfmom/)
+
+## Reference
+
+- [Wolfram Mathworld -- F-Distribution](http://mathworld.wolfram.com/F-Distribution.html)
+- [Wikipedia -- F-distribution](http://en.wikipedia.org/wiki/F-distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)

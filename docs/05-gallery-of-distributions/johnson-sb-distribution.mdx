@@ -1,0 +1,254 @@
+---
+title: Johnson SB Distribution
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# Johnson SB Distribution
+
+## Where will you meet this distribution?
+
+- [Epidemiology](http://en.wikipedia.org/wiki/Epidemiology)
+
+  ["Fitting human exposure data with the Johnson SB distribution" by MICHAEL R. FLYNN](http://www.bvsde.paho.org/bvsacd/cd47/data.pdf)
+
+- [Forestry](http://en.wikipedia.org/wiki/Forestry)
+
+  ["Plotting Johnson's SB Distribution using a new parameterization" by Keith Rennolls1 et al](http://cms1.gre.ac.uk/conferences/iufro/FMA/SB_Plot_Minimum1.pdf)
+
+  "A new parameterization of Johnson's SB distribution with application to fitting forest tree diameter data" by Keith Rennolls and Mingliang Wang
+
+  "Tree diameter distribution modelling: introducing the logit--logistic distribution" by Mingliang Wang and Keith Rennolls
+
+## Shape of Distribution
+
+### Basic Properties
+
+- Four parameters $\gamma, \delta,\lambda,\xi$ are required.
+
+  $$
+  \delta>0,\lambda>0
+  $$
+
+- Continuous distribution defined on bounded range $\xi\leq x \leq \xi+\lambda$
+- This distribution can be symmetric or asymmetric.
+
+### Probability
+
+- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F(x)=\Phi\left(\gamma+\delta\ln\frac{z}{1-z}\right)
+  $$
+
+  where
+
+  $$
+  z=\frac{x-\xi}{\lambda}
+  $$
+
+  and $\Phi(\cdot)$ is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{\delta}{\lambda\sqrt{2\pi}z(1-z)}\exp\left[-\frac{1}{2}\left(\gamma+\delta\ln\frac{z}{1-z}\right)^2\right]
+  $$
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter Gamma", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Delta", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Lambda", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Xi", readOnly: true },
+      ],
+      [
+        { value: "=(A2-A5)/A4", readOnly: true },
+        { value: "Standardized variable z", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NORMSDIST(A3+A4*LN(A7/(1-A7)))", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        {
+          value:
+            "=A4*EXP(-0.5*(A3+A4*LN(A7/(1-A7)))^2)/(SQRT(2*PI())*A5*A7*(1-A7))",
+          readOnly: true,
+        },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+### Quantile
+
+- Inverse function of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F^{-1}(P)=\frac{\lambda\exp\left(\frac{\Phi^{-1}(P)-\gamma}{\delta}\right)}{1+\exp\left(\frac{\Phi^{-1}(P)-\gamma}{\delta}\right)}+\xi
+  $$
+
+  where $\Phi(\cdot)$ is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+
+- How to compute this on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        {
+          value: "Probability associated with the distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "1.7", readOnly: true },
+        { value: "Value of parameter Gamma", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Delta", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Lambda", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Xi", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value:
+            "=A5*EXP((NORMSINV(A2)-A3)/A4)/(1+EXP((NORMSINV(A2)-A3)/A4))+A6",
+          readOnly: true,
+        },
+        {
+          value:
+            "Inverse of the cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## Random Numbers
+
+- Random number x is generated by inverse function method, which is for uniform random U,
+
+  $$
+  x=\frac{\lambda\exp\left(\frac{\Phi^{-1}(U)-\gamma}{\delta}\right)}{1+\exp\left(\frac{\Phi^{-1}(U)-\gamma}{\delta}\right)}+\xi
+  $$
+
+  where $\Phi(\cdot)$ is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value of parameter Gamma", readOnly: true },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value of parameter Delta", readOnly: true },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value of parameter Lambda", readOnly: true },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value of parameter Xi", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value:
+            "=A4*EXP((NORMSINV(NTRAND(100))-A2)/A3)/(1+EXP((NORMSINV(NTRAND(100))-A2)/A3))+A5",
+          readOnly: true,
+        },
+        {
+          value:
+            "100 Johnson SB deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A7:A106 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+## NtRand Functions
+
+Not supported yet
+
+## Reference
+
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)

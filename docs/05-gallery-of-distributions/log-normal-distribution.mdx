@@ -1,0 +1,441 @@
+---
+title: Log Normal Distribution
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# Log Normal Distribution
+
+## Where do you meet this distribution?
+
+- Finance, Economics : Change of stock price
+
+## Shape of Distribution
+
+### Basic Properties
+
+- Two parameters $M, S$ are required ([How can you get these](https://www.ntrand.com/ntlognormparam/)).
+
+  $$
+  S>0
+  $$
+
+- Continuous distribution defined on semi-bounded range $x>0$
+- This distribution is always asymmetric.
+
+### Probability
+
+- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F(x)=\Phi\left(\frac{\ln x-M}{S}\right)
+  $$
+
+  where\
+  $\Phi(\cdot)$ is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{1}{Sx}\phi\left(\frac{\ln x-M}{S}\right)
+  $$
+
+  where\
+  $\phi(\cdot)$ is [probability density function](https://www.ntrand.com/glossary/#local_probability) of standard normal distribution.
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "0.1", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter S", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTLOGNORMDIST(A2,A3,A4,TRUE)", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=NTLOGNORMDIST(A2,A3,A4,FALSE)", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+![Sample distribution](./../assets/functions/plot/plotLogNorm.jpg)
+
+- Function reference : [NTLOGNORMDIST](https://www.ntrand.com/ntlognormdist/)
+
+### Quantile
+
+- Inverse function of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F^{-1}(P)=\exp\left[S\Phi^{-1}(P)+M\right]
+  $$
+
+  where\
+  $\Phi(\cdot)$is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+
+- How to compute this on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.7", readOnly: true },
+        {
+          value: "Probability associated with the distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "0.1", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter S", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTLOGNORMINV(A2,A3,A4)",
+          readOnly: true,
+        },
+        {
+          value:
+            "Inverse of the cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+## Characteristics
+
+### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+
+- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+
+  $$
+  m\sqrt{\omega}
+  $$
+
+  where
+
+  $$
+  m=\exp(M),;\omega=\exp(S^2)
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.1", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter S", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTLOGNORMMEAN(A2,A3)", readOnly: true },
+        {
+          value: "Mean of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTLOGNORMMEAN](https://www.ntrand.com/ntlognormmean/)
+
+### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+
+- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+
+  $$
+  m^2\omega(\omega-1)
+  $$
+
+  where
+
+  $$
+  m=\exp(M),;\omega=\exp(S^2)
+  $$
+
+  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.1", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter S", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTLOGNORMSTDEV(A2,A3)", readOnly: true },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTLOGNORMSTDEV](https://www.ntrand.com/ntlognormstdev/)
+
+### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+
+- [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
+
+  $$
+  (\omega+2)\sqrt{\omega-1}
+  $$
+
+  where
+
+  $$
+  \omega=\exp(S^2)
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.1", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter S", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTLOGNORMSKEW(A2,A3)", readOnly: true },
+        {
+          value: "Skewness of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTLOGNORMSKEW](https://www.ntrand.com/ntlognormskew/)
+
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+
+- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+
+  $$
+  \omega^4+2\omega^3+3\omega^2-6
+  $$
+
+  where
+
+  $$
+  \omega=\exp(S^2)
+  $$
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.1", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter S", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTLOGNORMKURT(A2,A3)", readOnly: true },
+        {
+          value: "Kurtosis of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTLOGNORMKURT](https://www.ntrand.com/ntlognormkurt/)
+
+## Random Numbers
+
+- Random number x is generated by inverse function method, which is for uniform random U,
+
+  $$
+  x=\exp\left[S\Phi^{-1}(U)+M\right]
+  $$
+
+  where\
+
+  $$
+  \Phi(\cdot)
+  $$
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.1", readOnly: true },
+        { value: "Value of parameter M", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter S", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTRANDLOGNORM(100,A2,A3,0)", readOnly: true },
+        {
+          value:
+            "100 log normal deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A7:A106 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+- Function reference : [NTRANDLOGNORM](https://www.ntrand.com/ntrandlognorm/)
+
+![](./../assets/functions/histogram/histogramLogNorm.jpg)
+
+## NtRand Functions
+
+- If you already have parameters of the distribution
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDLOGNORM](https://www.ntrand.com/ntrandlognorm/)
+  - Computing probability : [NTLOGNORMDIST](https://www.ntrand.com/ntlognormdist/)
+  - Computing mean : [NTLOGNORMMEAN](https://www.ntrand.com/ntlognormmean/)
+  - Computing standard deviation : [NTLOGNORMSTDEV](https://www.ntrand.com/ntlognormskew/)
+  - Computing skewness : [NTLOGNORMSKEW](https://www.ntrand.com/ntlognormskew/)
+  - Computing kurtosis : [NTLOGNORMKURT](https://www.ntrand.com/ntlognormkurt/)
+  - Computing moments above at once : [NTLOGNORMMOM](https://www.ntrand.com/ntlognormmom/)
+- If you know mean and standard deviation of the distribution
+  - Estimating parameters of the distribution:[NTLOGNORMPARAM](https://www.ntrand.com/ntlognormparam/)
+
+## Reference
+
+- [Wolfram Mathworld -- Log Normal Distribution](http://mathworld.wolfram.com/LogNormalDistribution.html)
+- [Wikipedia -- Log-normal distribution](http://en.wikipedia.org/wiki/Log_normal_distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)

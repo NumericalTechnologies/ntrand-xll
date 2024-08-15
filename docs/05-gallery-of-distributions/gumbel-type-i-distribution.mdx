@@ -1,0 +1,322 @@
+---
+title: Gumbel (Type I) Distribution
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# Gumbel (Type I) Distribution
+
+## Where do you meet this distribution?
+
+- Extreme value theory (EVT)
+- [Risk management -- Operational risk](http://en.wikipedia.org/wiki/Operational_risk)
+
+## Shape of Distribution
+
+### Basic Properties
+
+- Two parameters $\alpha, \beta$ are required ([How can you get these](https://www.ntrand.com/ntgumbelparam/)).
+
+  $$
+  \beta>0
+  $$
+
+- Continuous distribution defined on entire range
+- This distribution is always asymmetric.
+
+### Probability
+
+- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F(x)=\exp\left[-\exp\left(-\frac{x-\alpha}{\beta}\right)\right]
+  $$
+
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{1}{\beta}\exp\left(-\frac{x-\alpha}{\beta}\right)\exp\left[-\exp\left(-\frac{x-\alpha}{\beta}\right)\right]
+  $$
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTGUMBELDIST(A2,A3,A4,TRUE)", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=NTGUMBELDIST(A2,A3,A4,FALSE)", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+![Sample distribution](./../assets/functions/plot/plotGumbel.jpg)
+
+- Function reference : [NTGUMBELDIST](https://www.ntrand.com/ntgumbeldist/)
+
+### Quantile
+
+- Inverse function of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F^{-1}(P)=\alpha-\beta\ln\ln\frac{1}{P}
+  $$
+
+- How to compute this on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.7", readOnly: true },
+        {
+          value: "Probability associated with the distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "1.7", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=GUMBELINV(A2,A3,A4)", readOnly: true },
+        {
+          value:
+            "Inverse of the cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTGUMBELINV](https://www.ntrand.com/ntgumbelinv/)
+
+## Characteristics
+
+### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+
+- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+
+  $$
+  \alpha+\gamma\beta
+  $$
+
+  where $\gamma$ is [Euler's constant](https://www.ntrand.com/glossary/#local_EulerConstant).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTGUMBELMEAN(A2,A3)", readOnly: true },
+        {
+          value: "Mean of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTGUMBELMEAN](https://www.ntrand.com/ntgumbelmean/)
+
+### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+
+- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+
+  $$
+  \beta^2\zeta(2)
+  $$
+
+  where $\zeta(\cdot)$ is [Riemann zeta function](https://www.ntrand.com/glossary/#local_Riemann).
+
+  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTGUMBELSTDEV(A2)", readOnly: true },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTGUMBELSTDEV](https://www.ntrand.com/ntgumbelstdev/)
+
+### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+
+- [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
+
+  $$
+  -\frac{12\sqrt{6}\zeta(3)}{\pi^3}=-1.139547099\cdots
+  $$
+
+  where $\zeta(\cdot)$ is [Riemann zeta function](https://www.ntrand.com/glossary/#local_Riemann).
+
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+
+- Kurtosis of the distribution is $2.4$
+
+## Random Numbers
+
+- Random number x is generated by inverse function method, which is for uniform random U,
+
+  $$
+  x=\alpha-\beta\ln\ln\frac{1}{U}
+  $$
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTRANDGUMBEL(100,A2,A3,0)", readOnly: true },
+        {
+          value:
+            "100 Gumbel Type I deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A5:A104 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+![](./../assets/functions/histogram/histogramGumbel.jpg)
+
+## NtRand Functions
+
+- If you already have parameters of the distribution
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDGUMBEL](https://www.ntrand.com/ntrandgumbel/)
+  - Computing probability : [NTGUMBELDIST](https://www.ntrand.com/ntgumbeldist/)
+  - Computing mean : [NTGUMBELMEAN](https://www.ntrand.com/ntgumbelmean/)
+  - Computing standard deviation : [NTGUMBELSTDEV](https://www.ntrand.com/ntgumbelskew/)
+  - Computing skewness : [NTGUMBELSKEW](https://www.ntrand.com/ntgumbelskew/)
+  - Computing kurtosis : [NTGUMBELKURT](https://www.ntrand.com/ntgumbelkurt/)
+  - Computing moments above at once : [NTGUMBELMOM](https://www.ntrand.com/ntgumbelmom/)
+- If you know mean and standard deviation of the distribution
+  - Estimating parameters of the distribution:[NTGUMBELRPARAM](https://www.ntrand.com/ntgumbelparam/)
+
+## Reference
+
+- [Wolfram Mathworld -- Gumbel Distribution](http://mathworld.wolfram.com/GumbelDistribution.html)
+- [Wikipedia -- Gumbel distribution](http://en.wikipedia.org/wiki/Gumbel_distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)

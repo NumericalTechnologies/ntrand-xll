@@ -1,0 +1,428 @@
+---
+title: Weibull Distribution
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# Weibull Distribution
+
+## Where do you meet this distribution?
+
+- [Risk management -- Operational risk](http://en.wikipedia.org/wiki/Operational_risk)
+
+## Shape of Distribution
+
+### Basic Properties
+
+- Two parameters $\alpha, \beta$ are required ([How can you get these](https://www.ntrand.com/ntweibullparam/)).
+
+  $$
+  \alpha>0,\beta>0
+  $$
+
+- Continuous distribution defined on semi-bounded range $x \geq 0$
+- This distribution is always asymmetric.
+
+### Probability
+
+- How to compute these on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value for which you want the distribution", readOnly: true },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTWEIBULLDIST(A2,A3,A4,TRUE)", readOnly: true },
+        {
+          value: "Cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "=NTWEIBULLDIST(A2,A3,A4,FALSE)", readOnly: true },
+        {
+          value: "Probability density function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F(x)=1-\exp\left[-\left(\frac{x}{\beta}\right)^\alpha\right]
+  $$
+
+- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{\alpha}{\beta}\left(\frac{x}{\beta}\right)^{\alpha-1}\exp\left[-\left(\frac{x}{\beta}\right)^{\alpha}\right]
+  $$
+
+- Function reference : [NTWEIBULLDIST](https://www.ntrand.com/ntweibulldist/)
+
+![Sample distribution](./../assets/functions/plot/plotWeibull.jpg)
+
+### Quantile
+
+- Inverse function of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+
+  $$
+  F^{-1}(P)=\beta\left(\ln\frac{1}{1-P}\right)^{1/\alpha}
+  $$
+
+- How to compute this on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.7", readOnly: true },
+        {
+          value: "Probability associated with the distribution",
+          readOnly: true,
+        },
+      ],
+      [
+        { value: "1.7", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=WEIBULLINV(A2,A3,A4)", readOnly: true },
+        {
+          value:
+            "Inverse of the cumulative distribution function for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTWEIBULLINV](https://www.ntrand.com/ntweibullinv/)
+
+## Characteristics
+
+### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+
+- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+
+  $$
+  \beta\Gamma\left(1+\frac{1}{\alpha}\right)
+  $$
+
+  where $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTWEIBULLMEAN(A2,A3)", readOnly: true },
+        {
+          value: "Mean of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTWEIBULLMEAN](https://www.ntrand.com/ntweibullmean/)
+
+### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+
+- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+
+  $$
+  \mu^\prime(2)-m^2
+  $$
+
+  where
+
+  $$
+  \mu^\prime(r)=\beta^r\Gamma\left(1+\frac{r}{\alpha}\right)
+  $$
+
+  , $m$ is mean of the distribution and $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma)
+
+  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTWEIBULLSTDEV(A2,A3)", readOnly: true },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTWEIBULLSTDEV](https://www.ntrand.com/ntweibullstdev/)
+
+### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+
+- [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
+
+  $$
+  \frac{1}{\sigma^3}\left[\mu^\prime(3)-3m\sigma^2-m^3\right]
+  $$
+
+  where
+
+  $$
+  \mu^\prime(r)=\beta^r\Gamma\left(1+\frac{r}{\alpha}\right)
+  $$
+
+  , $m$ is mean of the distribution, $\sigma^2$ is variance of the distribution, $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma) and $\sigma$ is [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation) of the distribution.
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTWEIBULLSKEW(A2,A3)", readOnly: true },
+        {
+          value: "Skewness of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTWEIBULLSKEW](https://www.ntrand.com/ntweibullskew/)
+
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+
+- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+
+  $$
+  \frac{{\mu^\prime}(4)-4\gamma_1\sigma^3m-6m^2\sigma^2-m^4}{\sigma^4}-3
+  $$
+
+  where
+
+  $$
+  \mu^\prime(r)=\beta^r\Gamma\left(1+\frac{r}{\alpha}\right)
+  $$
+
+  , $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma), $m$ is [mean](https://www.ntrand.com/glossary/#local_mean) of the distribution, $\sigma$ is [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation) of the distribution and $\gamma_1$ is [skewness](https://www.ntrand.com/glossary/#local_skewness) of the distribution.
+
+- How to compute this on Excel
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        { value: "=NTWEIBULLKURT(A2,A3)", readOnly: true },
+        {
+          value: "Kurtosis of the distribution for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+- Function reference : [NTWEIBULLKURT](https://www.ntrand.com/ntweibullkurt/)
+
+## Random Numbers
+
+- Random number x is generated by inverse function method, which is for uniform random U,
+
+  $$
+  x=\beta\left(\ln\frac{1}{1-U}\right)^{1/\alpha}
+  $$
+
+- How to generate random numbers on Excel.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value of parameter Alpha", readOnly: true },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "Value of parameter Beta", readOnly: true },
+      ],
+      [
+        { value: "Formula", readOnly: true, className: "orange-cell" },
+        {
+          value: "Description (Result)",
+          readOnly: true,
+          className: "orange-cell",
+        },
+      ],
+      [
+        {
+          value: "=NTRANDWEIBULL(100,A2,A3,0)",
+          readOnly: true,
+        },
+        {
+          value:
+            "100 Weibull deviates based on Mersenne-Twister algorithm for which the parameters above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A5:A104 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+
+![](./../assets/functions/histogram/histogramWeibull.jpg)
+
+## NtRand Functions
+
+- If you already have parameters of the distribution
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDWEIBULL](https://www.ntrand.com/ntrandweibull/)
+  - Computing probability : [NTWEIBULLDIST](https://www.ntrand.com/ntweibulldist/)
+  - Computing mean : [NTWEIBULLMEAN](https://www.ntrand.com/ntweibullmean/)
+  - Computing standard deviation : [NTWEIBULLSTDEV](https://www.ntrand.com/ntweibullskew/)
+  - Computing skewness : [NTWEIBULLSKEW](https://www.ntrand.com/ntweibullskew/)
+  - Computing kurtosis : [NTWEIBULLKURT](https://www.ntrand.com/ntweibullkurt/)
+  - Computing moments above at once : [NTWEIBULLMOM](https://www.ntrand.com/ntweibullmom/)
+- If you know mean and standard deviation of the distribution
+  - Estimating parameters of the distribution:[NTWEIBULLPARAM](https://www.ntrand.com/ntweibullparam/)
+
+## Reference
+
+- [Wolfram Mathworld -- Weibull Distribution](http://mathworld.wolfram.com/WeibullDistribution.html)
+- [Wikipedia -- Weibull distribution](http://en.wikipedia.org/wiki/Weibull_distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)
