@@ -16,7 +16,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### Basic Properties
 
-- Four parameters $\gamma, \delta,\lambda,\xi$ are required ([How can you get these](https://www.ntrand.com/ntjohnsonsuparam/)).
+- Four parameters $\gamma, \delta,\lambda,\xi$ are required ([How can you get these](../03-function-reference/02-distribution-functions/052-ntjohnsonsuparam.mdx)).
 
   $$
   \delta>0,\lambda>0
@@ -27,7 +27,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### Probability
 
-- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- [Cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\Phi\left(\gamma+\delta\sinh^{-1}z\right)
@@ -39,9 +39,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   z=\frac{x-\xi}{\lambda}
   $$
 
-  and $\Phi(\cdot)$") is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+  and $\Phi(\cdot)$") is [cumulative distribution function](/docs/glossary#cumulative-distribution-function) of standard normal distribution.
 
-- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+- [Probability density function](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{\delta}{\lambda\sqrt{2\pi}\sqrt{z^2+1}}\exp\left[-\frac{1}{2}\left(\gamma+\delta\sinh^{-1}z\right)^2\right]
@@ -110,17 +110,17 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ![Sample distribution](./../assets/functions/plot/plotJohnsonSU.jpg)
 
-- Function reference : [NTJOHNSONSUDIST](https://www.ntrand.com/ntjohnsonsudist/)
+- Function reference : [NTJOHNSONSUDIST](../03-function-reference/02-distribution-functions/047-ntjohnsonsudist.mdx)
 
 ### Quantile
 
-- Inverse of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- Inverse of [cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F^{-1}(P)=\lambda\sinh\left(\frac{\Phi^{-1}(P)-\gamma}{\delta}\right)+\xi
   $$
 
-  where $\Phi(\cdot)$ is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+  where $\Phi(\cdot)$ is [cumulative distribution function](/docs/glossary#cumulative-distribution-function) of standard normal distribution.
 
 - How to compute this on Excel.
 
@@ -177,13 +177,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTJOHNSONSUINV](https://www.ntrand.com/ntjohnsonsuinv/)
+- Function reference : [NTJOHNSONSUINV](../03-function-reference/02-distribution-functions/048-ntjohnsonsuinv.mdx)
 
 ## Characteristics
 
-### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+### Mean -- Where is the "center" of the distribution? ([Definition](/docs/glossary#mean))
 
-- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+- [Mean](/docs/glossary#mean) of the distribution is given as
 
   $$
   \xi+\text{sign}(\gamma_1)\sigma\frac{\omega-1-m(\omega)}{\omega-1}
@@ -248,11 +248,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTJOHNSONSUMEAN](https://www.ntrand.com/ntjohnsonsumean/)
+- Function reference : [NTJOHNSONSUMEAN](../03-function-reference/02-distribution-functions/050-ntjohnsonsumean.mdx)
 
-### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+### Standard Deviation -- How wide does the distribution spread? ([Definition](/docs/glossary#standard-deviation))
 
-- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+- [Variance](/docs/glossary#variance) of the distribution is given as
 
   $$
   \lambda(\omega-1)\sqrt{\frac{\omega+1}{2m(\omega)}}
@@ -268,7 +268,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   \omega=\exp\left(\delta^{-2}\right)
   $$
 
-  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+  [Standard Deviation](/docs/glossary#standard-deviation) is a positive square root of [Variance](/docs/glossary#variance).
 
 - How to compute this on Excel
 
@@ -317,9 +317,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTJOHNSONSUSTDEV](https://www.ntrand.com/ntjohnsonsustdev/)
+- Function reference : [NTJOHNSONSUSTDEV](../03-function-reference/02-distribution-functions/054-ntjohnsonsustdev.mdx)
 
-### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+### Skewness -- Which side is the distribution distorted into? ([Definition](/docs/glossary#skewness))
 
 - [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
 
@@ -380,11 +380,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTJOHNSONSUSKEW](https://www.ntrand.com/ntjohnsonsuskew/)
+- Function reference : [NTJOHNSONSUSKEW](../03-function-reference/02-distribution-functions/053-ntjohnsonsuskew.mdx)
 
-### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](/docs/glossary#kurtosis))
 
-- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+- [Kurtosis](/docs/glossary#kurtosis) of the distribution is given as
 
   $$
   \beta_2=\frac{\omega^2(\omega^4+2\omega^3+3\omega^2-3)\cosh 4\Omega+4\omega^2(\omega+2)\cosh 2\Omega+3(2\omega+1)}{2(\omega\cosh 2\Omega+2)^2}-3
@@ -443,7 +443,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTJOHNSONSUKURT](https://www.ntrand.com/ntjohnsonsukurt/)
+- Function reference : [NTJOHNSONSUKURT](../03-function-reference/02-distribution-functions/049-ntjohnsonsukurt.mdx)
 
 ## Random Numbers
 
@@ -512,16 +512,16 @@ Note The formula in the example must be entered as an array formula. After copyi
 ## NtRand Functions
 
 - If you already have parameters of the distribution
-  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDJOHNSONSU](https://www.ntrand.com/ntrandjohnsonsu/)
-  - Computing probability : [NTJOHNSONSUDIST](https://www.ntrand.com/ntjohnsonsudist/)
-  - Computing quantile : [NTJOHNSONSUINV](https://www.ntrand.com/ntjohnsonsuinv/)
-  - Computing mean : [NTJOHNSONSUMEAN](https://www.ntrand.com/ntjohnsonsumean/)
-  - Computing standard deviation : [NTJOHNSONSUSTDEV](https://www.ntrand.com/ntjohnsonsuskew/)
-  - Computing skewness : [NTJOHNSONSUSKEW](https://www.ntrand.com/ntjohnsonsuskew/)
-  - Computing kurtosis : [NTJOHNSONSUKURT](https://www.ntrand.com/ntjohnsonsukurt/)
-  - Computing moments above at once : [NTJOHNSONSUMOM](https://www.ntrand.com/ntjohnsonsumom/)
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDJOHNSONSU](../03-function-reference/01-random-numbers/01-single-series/08-ntrandjohnsonsu.mdx)
+  - Computing probability : [NTJOHNSONSUDIST](../03-function-reference/02-distribution-functions/047-ntjohnsonsudist.mdx)
+  - Computing quantile : [NTJOHNSONSUINV](../03-function-reference/02-distribution-functions/048-ntjohnsonsuinv.mdx)
+  - Computing mean : [NTJOHNSONSUMEAN](../03-function-reference/02-distribution-functions/050-ntjohnsonsumean.mdx)
+  - Computing standard deviation : [NTJOHNSONSUSTDEV](../03-function-reference/02-distribution-functions/053-ntjohnsonsuskew.mdx)
+  - Computing skewness : [NTJOHNSONSUSKEW](../03-function-reference/02-distribution-functions/053-ntjohnsonsuskew.mdx)
+  - Computing kurtosis : [NTJOHNSONSUKURT](../03-function-reference/02-distribution-functions/049-ntjohnsonsukurt.mdx)
+  - Computing moments above at once : [NTJOHNSONSUMOM](../03-function-reference/02-distribution-functions/051-ntjohnsonsumom.mdx)
 - If you know mean and standard deviation of the distribution
-  - Estimating parameters of the distribution:[NTJOHNSONSUPARAM](https://www.ntrand.com/ntjohnsonsuparam/)
+  - Estimating parameters of the distribution:[NTJOHNSONSUPARAM](../03-function-reference/02-distribution-functions/052-ntjohnsonsuparam.mdx)
 
 ## Reference
 

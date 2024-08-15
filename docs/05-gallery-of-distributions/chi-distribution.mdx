@@ -16,21 +16,21 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### Probability
 
-- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+- [Probability density function](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{2^{\frac{N}{2}-1}\Gamma\left(\frac{N}{2}\right)}\exp\left(-\frac{x^2}{2}\right)x^{N-1}
   $$
 
-  , where $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+  , where $\Gamma(\cdot)$ is [gamma function](/docs/glossary#gamma-function).
 
-- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- [Cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{\Gamma_{\frac{x^2}{2}}\left(\frac{N}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
   $$
 
-  , where $\Gamma_{x}(\cdot)$ is [incomplete gamma function](https://www.ntrand.com/glossary/#local_incomplete_gamma).
+  , where $\Gamma_{x}(\cdot)$ is [incomplete gamma function](/docs/glossary#incomplete-gamma-function).
 
 - How to compute these on Excel.
 
@@ -75,19 +75,19 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTCHIDIST](https://www.ntrand.com/ntchidist/)
+- Function reference : [NTCHIDIST](../03-function-reference/02-distribution-functions/010-ntchidist.mdx)
 
 ## Characteristics
 
-### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+### Mean -- Where is the "center" of the distribution? ([Definition](/docs/glossary#mean))
 
-- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+- [Mean](/docs/glossary#mean) of the distribution is given as
 
   $$
   \sqrt{2}\frac{\Gamma\left(\frac{N+1}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
   $$
 
-  , where $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+  , where $\Gamma(\cdot)$ is [gamma function](/docs/glossary#gamma-function).
 
 - How to compute this on Excel
 
@@ -121,17 +121,17 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTCHIMEAN](https://www.ntrand.com/ntchimean/)
+- Function reference : [NTCHIMEAN](../03-function-reference/02-distribution-functions/013-ntchimean.mdx)
 
-### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+### Standard Deviation -- How wide does the distribution spread? ([Definition](/docs/glossary#standard-deviation))
 
-- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+- [Variance](/docs/glossary#variance) of the distribution is given as
 
   $$
   N-2\left[\frac{\Gamma\left(\frac{N+1}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}\right]^2
   $$
 
-  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+  [Standard Deviation](/docs/glossary#standard-deviation) is a positive square root of [Variance](/docs/glossary#variance).
 
 - How to compute this on Excel
 
@@ -165,9 +165,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTCHISTDEV](https://www.ntrand.com/ntchistdev/)
+- Function reference : [NTCHISTDEV](../03-function-reference/02-distribution-functions/016-ntchistdev.mdx)
 
-### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+### Skewness -- Which side is the distribution distorted into? ([Definition](/docs/glossary#skewness))
 
 - [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
 
@@ -179,7 +179,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   \mu(r)=\frac{2^{\frac{r}{2}}\Gamma\left(\frac{N+r}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
   $$
 
-  , where $\sigma$ is [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation) and $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+  , where $\sigma$ is [standard deviation](/docs/glossary#standard-deviation) and $\Gamma(\cdot)$ is [gamma function](/docs/glossary#gamma-function).
 
 - How to compute this on Excel
 
@@ -213,11 +213,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTCHISKEW](https://www.ntrand.com/ntchiskew/)
+- Function reference : [NTCHISKEW](../03-function-reference/02-distribution-functions/015-ntchiskew.mdx)
 
-### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](/docs/glossary#kurtosis))
 
-- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+- [Kurtosis](/docs/glossary#kurtosis) of the distribution is given as
 
   $$
   \frac{\mu(4)-4\mu(3)\mu(1)+6\mu(2)\mu^2(1)-3\mu^4(1)}{\sigma^4}-3
@@ -227,9 +227,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   \mu(r)=\frac{2^{\frac{r}{2}}\Gamma\left(\frac{N+r}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
   $$
 
-  , where $\sigma$ is [standard deviation and $\Gamma(\cdot)$ is ](https://www.ntrand.com/glossary/#local_standard_deviation)[gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+  , where $\sigma$ is [standard deviation and $\Gamma(\cdot)$ is ](/docs/glossary#standard-deviation)[gamma function](/docs/glossary#gamma-function).
 
-- This distribution can be [leptokurtic](https://www.ntrand.com/glossary/#local_leptokurtic) or [platykurtic](https://www.ntrand.com/glossary/#local_platykurtic).
+- This distribution can be [leptokurtic](https://www.ntrand.com/glossary/#local_leptokurtic) or [platykurtic](/docs/glossary#platykurtic).
 - How to compute this on Excel
 
 <DataGridMdx
@@ -262,7 +262,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTCHIKURT](https://www.ntrand.com/ntchikurt/)
+- Function reference : [NTCHIKURT](../03-function-reference/02-distribution-functions/012-ntchikurt.mdx)
 
 ## Random Numbers
 
@@ -304,18 +304,18 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A5:A104 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
 
-- Function reference : [NTRANDCHI](https://www.ntrand.com/ntrandchi/)
+- Function reference : [NTRANDCHI](../03-function-reference/01-random-numbers/01-single-series/03-ntrandchi.mdx)
 
 ## NtRand Functions
 
 - If you already have parameters of the distribution
-  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDCHI](https://www.ntrand.com/ntrandchi/)
-  - Computing probability : [NTCHIDIST](https://www.ntrand.com/ntchidist/)
-  - Computing mean : [NTCHIMEAN](https://www.ntrand.com/ntchimean/)
-  - Computing standard deviation : [NTCHISTDEV](https://www.ntrand.com/ntchiskew/)
-  - Computing skewness : [NTCHISKEW](https://www.ntrand.com/ntchiskew/)
-  - Computing kurtosis : [NTCHIKURT](https://www.ntrand.com/ntchikurt/)
-  - Computing moments above at once : [NTCHIMOM](https://www.ntrand.com/ntchimom/)
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDCHI](../03-function-reference/01-random-numbers/01-single-series/03-ntrandchi.mdx)
+  - Computing probability : [NTCHIDIST](../03-function-reference/02-distribution-functions/010-ntchidist.mdx)
+  - Computing mean : [NTCHIMEAN](../03-function-reference/02-distribution-functions/013-ntchimean.mdx)
+  - Computing standard deviation : [NTCHISTDEV](../03-function-reference/02-distribution-functions/015-ntchiskew.mdx)
+  - Computing skewness : [NTCHISKEW](../03-function-reference/02-distribution-functions/015-ntchiskew.mdx)
+  - Computing kurtosis : [NTCHIKURT](../03-function-reference/02-distribution-functions/012-ntchikurt.mdx)
+  - Computing moments above at once : [NTCHIMOM](../03-function-reference/02-distribution-functions/014-ntchimom.mdx)
 
 ## Reference
 

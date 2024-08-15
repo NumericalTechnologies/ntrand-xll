@@ -14,7 +14,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### Basic Properties
 
-- Two parameters $\alpha, \beta$ are required ([How can you get these](https://www.ntrand.com/ntweibullparam/)).
+- Two parameters $\alpha, \beta$ are required ([How can you get these](../03-function-reference/02-distribution-functions/108-ntweibullparam.mdx)).
 
   $$
   \alpha>0,\beta>0
@@ -72,25 +72,25 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- [Cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=1-\exp\left[-\left(\frac{x}{\beta}\right)^\alpha\right]
   $$
 
-- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+- [Probability density function](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{\alpha}{\beta}\left(\frac{x}{\beta}\right)^{\alpha-1}\exp\left[-\left(\frac{x}{\beta}\right)^{\alpha}\right]
   $$
 
-- Function reference : [NTWEIBULLDIST](https://www.ntrand.com/ntweibulldist/)
+- Function reference : [NTWEIBULLDIST](../03-function-reference/02-distribution-functions/103-ntweibulldist.mdx)
 
 ![Sample distribution](./../assets/functions/plot/plotWeibull.jpg)
 
 ### Quantile
 
-- Inverse function of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- Inverse function of [cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F^{-1}(P)=\beta\left(\ln\frac{1}{1-P}\right)^{1/\alpha}
@@ -140,19 +140,19 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTWEIBULLINV](https://www.ntrand.com/ntweibullinv/)
+- Function reference : [NTWEIBULLINV](../03-function-reference/02-distribution-functions/104-ntweibullinv.mdx)
 
 ## Characteristics
 
-### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+### Mean -- Where is the "center" of the distribution? ([Definition](/docs/glossary#mean))
 
-- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+- [Mean](/docs/glossary#mean) of the distribution is given as
 
   $$
   \beta\Gamma\left(1+\frac{1}{\alpha}\right)
   $$
 
-  where $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+  where $\Gamma(\cdot)$ is [gamma function](/docs/glossary#gamma-function).
 
 - How to compute this on Excel
 
@@ -190,11 +190,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTWEIBULLMEAN](https://www.ntrand.com/ntweibullmean/)
+- Function reference : [NTWEIBULLMEAN](../03-function-reference/02-distribution-functions/106-ntweibullmean.mdx)
 
-### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+### Standard Deviation -- How wide does the distribution spread? ([Definition](/docs/glossary#standard-deviation))
 
-- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+- [Variance](/docs/glossary#variance) of the distribution is given as
 
   $$
   \mu^\prime(2)-m^2
@@ -206,9 +206,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   \mu^\prime(r)=\beta^r\Gamma\left(1+\frac{r}{\alpha}\right)
   $$
 
-  , $m$ is mean of the distribution and $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma)
+  , $m$ is mean of the distribution and $\Gamma(\cdot)$ is [gamma function](/docs/glossary#gamma-function)
 
-  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+  [Standard Deviation](/docs/glossary#standard-deviation) is a positive square root of [Variance](/docs/glossary#variance).
 
 - How to compute this on Excel
 
@@ -246,9 +246,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTWEIBULLSTDEV](https://www.ntrand.com/ntweibullstdev/)
+- Function reference : [NTWEIBULLSTDEV](../03-function-reference/02-distribution-functions/110-ntweibullstdev.mdx)
 
-### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+### Skewness -- Which side is the distribution distorted into? ([Definition](/docs/glossary#skewness))
 
 - [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
 
@@ -262,7 +262,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   \mu^\prime(r)=\beta^r\Gamma\left(1+\frac{r}{\alpha}\right)
   $$
 
-  , $m$ is mean of the distribution, $\sigma^2$ is variance of the distribution, $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma) and $\sigma$ is [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation) of the distribution.
+  , $m$ is mean of the distribution, $\sigma^2$ is variance of the distribution, $\Gamma(\cdot)$ is [gamma function](/docs/glossary#gamma-function) and $\sigma$ is [standard deviation](/docs/glossary#standard-deviation) of the distribution.
 
 - How to compute this on Excel
 
@@ -300,11 +300,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTWEIBULLSKEW](https://www.ntrand.com/ntweibullskew/)
+- Function reference : [NTWEIBULLSKEW](../03-function-reference/02-distribution-functions/109-ntweibullskew.mdx)
 
-### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](/docs/glossary#kurtosis))
 
-- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+- [Kurtosis](/docs/glossary#kurtosis) of the distribution is given as
 
   $$
   \frac{{\mu^\prime}(4)-4\gamma_1\sigma^3m-6m^2\sigma^2-m^4}{\sigma^4}-3
@@ -316,7 +316,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   \mu^\prime(r)=\beta^r\Gamma\left(1+\frac{r}{\alpha}\right)
   $$
 
-  , $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma), $m$ is [mean](https://www.ntrand.com/glossary/#local_mean) of the distribution, $\sigma$ is [standard deviation](https://www.ntrand.com/glossary/#local_standard_deviation) of the distribution and $\gamma_1$ is [skewness](https://www.ntrand.com/glossary/#local_skewness) of the distribution.
+  , $\Gamma(\cdot)$ is [gamma function](/docs/glossary#gamma-function), $m$ is [mean](/docs/glossary#mean) of the distribution, $\sigma$ is [standard deviation](/docs/glossary#standard-deviation) of the distribution and $\gamma_1$ is [skewness](/docs/glossary#skewness) of the distribution.
 
 - How to compute this on Excel
 
@@ -354,7 +354,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTWEIBULLKURT](https://www.ntrand.com/ntweibullkurt/)
+- Function reference : [NTWEIBULLKURT](../03-function-reference/02-distribution-functions/105-ntweibullkurt.mdx)
 
 ## Random Numbers
 
@@ -411,15 +411,15 @@ Note The formula in the example must be entered as an array formula. After copyi
 ## NtRand Functions
 
 - If you already have parameters of the distribution
-  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDWEIBULL](https://www.ntrand.com/ntrandweibull/)
-  - Computing probability : [NTWEIBULLDIST](https://www.ntrand.com/ntweibulldist/)
-  - Computing mean : [NTWEIBULLMEAN](https://www.ntrand.com/ntweibullmean/)
-  - Computing standard deviation : [NTWEIBULLSTDEV](https://www.ntrand.com/ntweibullskew/)
-  - Computing skewness : [NTWEIBULLSKEW](https://www.ntrand.com/ntweibullskew/)
-  - Computing kurtosis : [NTWEIBULLKURT](https://www.ntrand.com/ntweibullkurt/)
-  - Computing moments above at once : [NTWEIBULLMOM](https://www.ntrand.com/ntweibullmom/)
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDWEIBULL](../03-function-reference/01-random-numbers/01-single-series/15-ntrandweibull.mdx)
+  - Computing probability : [NTWEIBULLDIST](../03-function-reference/02-distribution-functions/103-ntweibulldist.mdx)
+  - Computing mean : [NTWEIBULLMEAN](../03-function-reference/02-distribution-functions/106-ntweibullmean.mdx)
+  - Computing standard deviation : [NTWEIBULLSTDEV](../03-function-reference/02-distribution-functions/109-ntweibullskew.mdx)
+  - Computing skewness : [NTWEIBULLSKEW](../03-function-reference/02-distribution-functions/109-ntweibullskew.mdx)
+  - Computing kurtosis : [NTWEIBULLKURT](../03-function-reference/02-distribution-functions/105-ntweibullkurt.mdx)
+  - Computing moments above at once : [NTWEIBULLMOM](../03-function-reference/02-distribution-functions/107-ntweibullmom.mdx)
 - If you know mean and standard deviation of the distribution
-  - Estimating parameters of the distribution:[NTWEIBULLPARAM](https://www.ntrand.com/ntweibullparam/)
+  - Estimating parameters of the distribution:[NTWEIBULLPARAM](../03-function-reference/02-distribution-functions/108-ntweibullparam.mdx)
 
 ## Reference
 

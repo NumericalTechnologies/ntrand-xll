@@ -21,7 +21,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### Basic Properties
 
-- Four parameters $a, b,m,\sigma$ are required ([How can you get these](https://www.ntrand.com/nttruncnormparam/)).
+- Four parameters $a, b,m,\sigma$ are required ([How can you get these](../03-function-reference/02-distribution-functions/100-nttruncnormparam.mdx)).
 
   $$
   a<b
@@ -36,7 +36,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### Probability
 
-- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- [Cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{1}{\Delta}\left[\Phi\left(\frac{x-m}{\sigma}\right)-\Phi(A)\right]
@@ -52,9 +52,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},\;B=\frac{b-m}{\sigma}
   $$
 
-  and $\Phi(\cdot)$ is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+  and $\Phi(\cdot)$ is [cumulative distribution function](/docs/glossary#cumulative-distribution-function) of standard normal distribution.
 
-- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+- [Probability density function](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{\sigma\Delta}\phi\left(\frac{x-m}{\sigma}\right)
@@ -117,11 +117,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ![Sample distribution](https://www.ntrand.com/images/functions/plot/plotTruncNorm.jpg)
 
-- Function reference : [NTTRUNCNORMDIST](https://www.ntrand.com/nttruncnormdist/)
+- Function reference : [NTTRUNCNORMDIST](../03-function-reference/02-distribution-functions/095-nttruncnormdist.mdx)
 
 ### Quantile
 
-- Inverse of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- Inverse of [cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F^{-1}(P)=\sigma\Phi^{-1}\left[\Delta P+\Phi(A)\right]+m
@@ -137,7 +137,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},\;B=\frac{a-m}{\sigma}
   $$
 
-  and $\Phi(\cdot)$ is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+  and $\Phi(\cdot)$ is [cumulative distribution function](/docs/glossary#cumulative-distribution-function) of standard normal distribution.
 
 - How to compute this on Excel.
 
@@ -195,13 +195,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTTRUNCNORMINV](https://www.ntrand.com/nttruncnorminv/)
+- Function reference : [NTTRUNCNORMINV](../03-function-reference/02-distribution-functions/096-nttruncnorminv.mdx)
 
 ## Characteristics
 
-### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+### Mean -- Where is the "center" of the distribution? ([Definition](/docs/glossary#mean))
 
-- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+- [Mean](/docs/glossary#mean) of the distribution is given as
 
   $$
   m+\frac{\phi(A)-\phi(B)}{\Delta}\sigma
@@ -217,7 +217,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},\;B=\frac{a-m}{\sigma}
   $$
 
-  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](https://www.ntrand.com/glossary/#local_probability) and [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution respectively.
+  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](/docs/glossary#probability-density-function) and [cumulative distribution function](/docs/glossary#cumulative-distribution-function) of standard normal distribution respectively.
 
 - How to compute this on Excel
 
@@ -266,11 +266,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTTRUNCNORMMEAN](https://www.ntrand.com/nttruncnormmean/)
+- Function reference : [NTTRUNCNORMMEAN](../03-function-reference/02-distribution-functions/098-nttruncnormmean.mdx)
 
-### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+### Standard Deviation -- How wide does the distribution spread? ([Definition](/docs/glossary#standard-deviation))
 
-- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+- [Variance](/docs/glossary#variance) of the distribution is given as
 
   $$
   \left[1+\frac{A\phi(A)-B\phi(B)}{\Delta}-\left(\frac{\phi(A)-\phi(B)}{\Delta}\right)^2\right]\sigma^2
@@ -286,9 +286,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},\;B=\frac{a-m}{\sigma}
   $$
 
-  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](https://www.ntrand.com/glossary/#local_probability) and [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution respectively.
+  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](/docs/glossary#probability-density-function) and [cumulative distribution function](/docs/glossary#cumulative-distribution-function) of standard normal distribution respectively.
 
-  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+  [Standard Deviation](/docs/glossary#standard-deviation) is a positive square root of [Variance](/docs/glossary#variance).
 
 - How to compute this on Excel
 
@@ -339,7 +339,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 - Function reference : [NTTRUNCNORMSTDEV](https://www.ntrand.com/nttruncnormstdev/)
 
-### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+### Skewness -- Which side is the distribution distorted into? ([Definition](/docs/glossary#skewness))
 
 - [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
 
@@ -369,7 +369,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},\;B=\frac{a-m}{\sigma}
   $$
 
-  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](https://www.ntrand.com/glossary/#local_probability) and [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution respectively.
+  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](/docs/glossary#probability-density-function) and [cumulative distribution function](/docs/glossary#cumulative-distribution-function) of standard normal distribution respectively.
 
 - How to compute this on Excel
 
@@ -418,11 +418,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTTRUNCNORMSKEW](https://www.ntrand.com/nttruncnormskew/)
+- Function reference : [NTTRUNCNORMSKEW](../03-function-reference/02-distribution-functions/101-nttruncnormskew.mdx)
 
-### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](/docs/glossary#kurtosis))
 
-- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+- [Kurtosis](/docs/glossary#kurtosis) of the distribution is given as
 
   $$
   \frac{1}{V^2}\left[-3\Delta_0^4-2\Delta_0^2(3\Delta_1+1)-4\Delta_2\Delta_0-3\Delta_1-\Delta_3+3\right]-3
@@ -450,7 +450,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},\;B=\frac{a-m}{\sigma}
   $$
 
-  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](https://www.ntrand.com/glossary/#local_probability) and [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution respectively.
+  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](/docs/glossary#probability-density-function) and [cumulative distribution function](/docs/glossary#cumulative-distribution-function) of standard normal distribution respectively.
 
 - How to compute this on Excel
 
@@ -499,7 +499,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTTRUNCNORMKURT](https://www.ntrand.com/nttruncnormkurt/)
+- Function reference : [NTTRUNCNORMKURT](../03-function-reference/02-distribution-functions/097-nttruncnormkurt.mdx)
 
 ## Random Numbers
 
@@ -519,7 +519,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},\;B=\frac{a-m}{\sigma}
   $$
 
-  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](https://www.ntrand.com/glossary/#local_probability) and [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution respectively.
+  , $\Phi(\cdot)$ and $\phi(\cdot)$ are [probability density function](/docs/glossary#probability-density-function) and [cumulative distribution function](/docs/glossary#cumulative-distribution-function) of standard normal distribution respectively.
 
 - How to generate random numbers on Excel.
 
@@ -576,16 +576,16 @@ Note The formula in the example must be entered as an array formula. After copyi
 ## NtRand Functions
 
 - If you already have parameters of the distribution
-  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDTRUNCNORM](https://www.ntrand.com/ntrandtruncnorm/)
-  - Computing probability : [NTTRUNCNORMDIST](https://www.ntrand.com/nttruncnormdist/)
-  - Computing quantile : [NTTRUNCNORMINV](https://www.ntrand.com/nttruncnorminv/)
-  - Computing mean : [NTTRUNCNORMMEAN](https://www.ntrand.com/nttruncnormmean/)
-  - Computing standard deviation : [NTTRUNCNORMSTDEV](https://www.ntrand.com/nttruncnormskew/)
-  - Computing skewness : [NTTRUNCNORMSKEW](https://www.ntrand.com/nttruncnormskew/)
-  - Computing kurtosis : [NTTRUNCNORMKURT](https://www.ntrand.com/nttruncnormkurt/)
-  - Computing moments above at once : [NTTRUNCNORMMOM](https://www.ntrand.com/nttruncnormmom/)
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDTRUNCNORM](../03-function-reference/01-random-numbers/01-single-series/14-ntrandtruncnorm.mdx)
+  - Computing probability : [NTTRUNCNORMDIST](../03-function-reference/02-distribution-functions/095-nttruncnormdist.mdx)
+  - Computing quantile : [NTTRUNCNORMINV](../03-function-reference/02-distribution-functions/096-nttruncnorminv.mdx)
+  - Computing mean : [NTTRUNCNORMMEAN](../03-function-reference/02-distribution-functions/098-nttruncnormmean.mdx)
+  - Computing standard deviation : [NTTRUNCNORMSTDEV](../03-function-reference/02-distribution-functions/101-nttruncnormskew.mdx)
+  - Computing skewness : [NTTRUNCNORMSKEW](../03-function-reference/02-distribution-functions/101-nttruncnormskew.mdx)
+  - Computing kurtosis : [NTTRUNCNORMKURT](../03-function-reference/02-distribution-functions/097-nttruncnormkurt.mdx)
+  - Computing moments above at once : [NTTRUNCNORMMOM](../03-function-reference/02-distribution-functions/099-nttruncnormmom.mdx)
 - If you know mean and standard deviation of the distribution
-  - Estimating parameters of the distribution:[NTTRUNCNORMPARAM](https://www.ntrand.com/nttruncnormparam/)
+  - Estimating parameters of the distribution:[NTTRUNCNORMPARAM](../03-function-reference/02-distribution-functions/100-nttruncnormparam.mdx)
 
 ## Reference
 

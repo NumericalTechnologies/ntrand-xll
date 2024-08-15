@@ -14,7 +14,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### Basic Properties
 
-- Two parameters $M, S$ are required ([How can you get these](https://www.ntrand.com/ntlognormparam/)).
+- Two parameters $M, S$ are required ([How can you get these](../03-function-reference/02-distribution-functions/068-ntlognormparam.mdx)).
 
   $$
   S>0
@@ -25,23 +25,23 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### Probability
 
-- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- [Cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\Phi\left(\frac{\ln x-M}{S}\right)
   $$
 
   where\
-  $\Phi(\cdot)$ is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+  $\Phi(\cdot)$ is [cumulative distribution function](/docs/glossary#cumulative-distribution-function) of standard normal distribution.
 
-- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+- [Probability density function](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{Sx}\phi\left(\frac{\ln x-M}{S}\right)
   $$
 
   where\
-  $\phi(\cdot)$ is [probability density function](https://www.ntrand.com/glossary/#local_probability) of standard normal distribution.
+  $\phi(\cdot)$ is [probability density function](/docs/glossary#probability-density-function) of standard normal distribution.
 
 - How to compute these on Excel.
 
@@ -92,18 +92,18 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ![Sample distribution](./../assets/functions/plot/plotLogNorm.jpg)
 
-- Function reference : [NTLOGNORMDIST](https://www.ntrand.com/ntlognormdist/)
+- Function reference : [NTLOGNORMDIST](../03-function-reference/02-distribution-functions/063-ntlognormdist.mdx)
 
 ### Quantile
 
-- Inverse function of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- Inverse function of [cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F^{-1}(P)=\exp\left[S\Phi^{-1}(P)+M\right]
   $$
 
   where\
-  $\Phi(\cdot)$is [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative) of standard normal distribution.
+  $\Phi(\cdot)$is [cumulative distribution function](/docs/glossary#cumulative-distribution-function) of standard normal distribution.
 
 - How to compute this on Excel.
 
@@ -154,9 +154,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ## Characteristics
 
-### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+### Mean -- Where is the "center" of the distribution? ([Definition](/docs/glossary#mean))
 
-- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+- [Mean](/docs/glossary#mean) of the distribution is given as
 
   $$
   m\sqrt{\omega}
@@ -204,11 +204,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTLOGNORMMEAN](https://www.ntrand.com/ntlognormmean/)
+- Function reference : [NTLOGNORMMEAN](../03-function-reference/02-distribution-functions/066-ntlognormmean.mdx)
 
-### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+### Standard Deviation -- How wide does the distribution spread? ([Definition](/docs/glossary#standard-deviation))
 
-- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+- [Variance](/docs/glossary#variance) of the distribution is given as
 
   $$
   m^2\omega(\omega-1)
@@ -220,7 +220,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   m=\exp(M),;\omega=\exp(S^2)
   $$
 
-  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+  [Standard Deviation](/docs/glossary#standard-deviation) is a positive square root of [Variance](/docs/glossary#variance).
 
 - How to compute this on Excel
 
@@ -258,9 +258,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTLOGNORMSTDEV](https://www.ntrand.com/ntlognormstdev/)
+- Function reference : [NTLOGNORMSTDEV](../03-function-reference/02-distribution-functions/070-ntlognormstdev.mdx)
 
-### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+### Skewness -- Which side is the distribution distorted into? ([Definition](/docs/glossary#skewness))
 
 - [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
 
@@ -310,11 +310,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTLOGNORMSKEW](https://www.ntrand.com/ntlognormskew/)
+- Function reference : [NTLOGNORMSKEW](../03-function-reference/02-distribution-functions/069-ntlognormskew.mdx)
 
-### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](/docs/glossary#kurtosis))
 
-- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+- [Kurtosis](/docs/glossary#kurtosis) of the distribution is given as
 
   $$
   \omega^4+2\omega^3+3\omega^2-6
@@ -362,7 +362,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTLOGNORMKURT](https://www.ntrand.com/ntlognormkurt/)
+- Function reference : [NTLOGNORMKURT](../03-function-reference/02-distribution-functions/065-ntlognormkurt.mdx)
 
 ## Random Numbers
 
@@ -417,22 +417,22 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A7:A106 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
 
-- Function reference : [NTRANDLOGNORM](https://www.ntrand.com/ntrandlognorm/)
+- Function reference : [NTRANDLOGNORM](../03-function-reference/01-random-numbers/01-single-series/10-ntrandlognorm.mdx)
 
 ![](./../assets/functions/histogram/histogramLogNorm.jpg)
 
 ## NtRand Functions
 
 - If you already have parameters of the distribution
-  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDLOGNORM](https://www.ntrand.com/ntrandlognorm/)
-  - Computing probability : [NTLOGNORMDIST](https://www.ntrand.com/ntlognormdist/)
-  - Computing mean : [NTLOGNORMMEAN](https://www.ntrand.com/ntlognormmean/)
-  - Computing standard deviation : [NTLOGNORMSTDEV](https://www.ntrand.com/ntlognormskew/)
-  - Computing skewness : [NTLOGNORMSKEW](https://www.ntrand.com/ntlognormskew/)
-  - Computing kurtosis : [NTLOGNORMKURT](https://www.ntrand.com/ntlognormkurt/)
-  - Computing moments above at once : [NTLOGNORMMOM](https://www.ntrand.com/ntlognormmom/)
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDLOGNORM](../03-function-reference/01-random-numbers/01-single-series/10-ntrandlognorm.mdx)
+  - Computing probability : [NTLOGNORMDIST](../03-function-reference/02-distribution-functions/063-ntlognormdist.mdx)
+  - Computing mean : [NTLOGNORMMEAN](../03-function-reference/02-distribution-functions/066-ntlognormmean.mdx)
+  - Computing standard deviation : [NTLOGNORMSTDEV](../03-function-reference/02-distribution-functions/069-ntlognormskew.mdx)
+  - Computing skewness : [NTLOGNORMSKEW](../03-function-reference/02-distribution-functions/069-ntlognormskew.mdx)
+  - Computing kurtosis : [NTLOGNORMKURT](../03-function-reference/02-distribution-functions/065-ntlognormkurt.mdx)
+  - Computing moments above at once : [NTLOGNORMMOM](../03-function-reference/02-distribution-functions/067-ntlognormmom.mdx)
 - If you know mean and standard deviation of the distribution
-  - Estimating parameters of the distribution:[NTLOGNORMPARAM](https://www.ntrand.com/ntlognormparam/)
+  - Estimating parameters of the distribution:[NTLOGNORMPARAM](../03-function-reference/02-distribution-functions/068-ntlognormparam.mdx)
 
 ## Reference
 

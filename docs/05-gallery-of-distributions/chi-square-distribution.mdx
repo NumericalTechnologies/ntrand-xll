@@ -16,21 +16,21 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### Probability
 
-- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+- [Probability density function](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{2^{\frac{N}{2}}\Gamma\left(\frac{N}{2}\right)}\exp\left(-\frac{x}{2}\right)x^{\frac{N}{2}-1}
   $$
 
-  , where $\Gamma(\cdot)$ is [gamma function](https://www.ntrand.com/glossary/#local_Gamma).
+  , where $\Gamma(\cdot)$ is [gamma function](/docs/glossary#gamma-function).
 
-- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- [Cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{\Gamma_{\frac{x}{2}}\left(\frac{N}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
   $$
 
-  , where $\Gamma_{x}(\cdot)$ is [incomplete gamma function](https://www.ntrand.com/glossary/#local_incomplete_gamma).
+  , where $\Gamma_{x}(\cdot)$ is [incomplete gamma function](/docs/glossary#incomplete-gamma-function).
 
 - How to compute these on Excel.
 
@@ -75,13 +75,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTCHISQDIST](https://www.ntrand.com/ntchisqdist/)
+- Function reference : [NTCHISQDIST](../03-function-reference/02-distribution-functions/017-ntchisqdist.mdx)
 
 ## Characteristics
 
-### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+### Mean -- Where is the "center" of the distribution? ([Definition](/docs/glossary#mean))
 
-- [Mean](https://www.ntrand.com/glossary/#local_mean) of the distribution is given as
+- [Mean](/docs/glossary#mean) of the distribution is given as
 
   $$
   N
@@ -119,17 +119,17 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTCHISQMEAN](https://www.ntrand.com/ntchisqmean/)
+- Function reference : [NTCHISQMEAN](../03-function-reference/02-distribution-functions/020-ntchisqmean.mdx)
 
-### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+### Standard Deviation -- How wide does the distribution spread? ([Definition](/docs/glossary#standard-deviation))
 
-- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+- [Variance](/docs/glossary#variance) of the distribution is given as
 
   $$
   2N
   $$
 
-  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+  [Standard Deviation](/docs/glossary#standard-deviation) is a positive square root of [Variance](/docs/glossary#variance).
 
 - How to compute this on Excel
 
@@ -163,9 +163,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTCHISQSTDEV](https://www.ntrand.com/ntchisqstdev/)
+- Function reference : [NTCHISQSTDEV](../03-function-reference/02-distribution-functions/023-ntchisqstdev.mdx)
 
-### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+### Skewness -- Which side is the distribution distorted into? ([Definition](/docs/glossary#skewness))
 
 - [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
 
@@ -205,17 +205,17 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTCHISQSKEW](https://www.ntrand.com/ntchisqskew/)
+- Function reference : [NTCHISQSKEW](../03-function-reference/02-distribution-functions/022-ntchisqskew.mdx)
 
-### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](/docs/glossary#kurtosis))
 
-- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+- [Kurtosis](/docs/glossary#kurtosis) of the distribution is given as
 
   $$
   \frac{12}{N}
   $$
 
-- This distribution can be [leptokurtic](https://www.ntrand.com/glossary/#local_leptokurtic) or [platykurtic](https://www.ntrand.com/glossary/#local_platykurtic).
+- This distribution can be [leptokurtic](https://www.ntrand.com/glossary/#local_leptokurtic) or [platykurtic](/docs/glossary#platykurtic).
 - How to compute this on Excel
 
 <DataGridMdx
@@ -248,7 +248,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTCHISQKURT](https://www.ntrand.com/ntchisqkurt/)
+- Function reference : [NTCHISQKURT](../03-function-reference/02-distribution-functions/019-ntchisqkurt.mdx)
 
 ## Random Numbers
 
@@ -287,18 +287,18 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A5:A104 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
 
-- Function reference : [NTRANDCHISQ](https://www.ntrand.com/ntrandchisq/)
+- Function reference : [NTRANDCHISQ](../03-function-reference/01-random-numbers/01-single-series/04-ntrandchisq.mdx)
 
 ## NtRand Functions
 
 - If you already have parameters of the distribution
-  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDCHISQ](https://www.ntrand.com/ntrandchisq/)
-  - Computing probability : [NTCHISQDIST](https://www.ntrand.com/ntchisqdist/)
-  - Computing mean : [NTCHISQMEAN](https://www.ntrand.com/ntchisqmean/)
-  - Computing standard deviation : [NTCHISQSTDEV](https://www.ntrand.com/ntchisqskew/)
-  - Computing skewness : [NTCHISQSKEW](https://www.ntrand.com/ntchisqskew/)
-  - Computing kurtosis : [NTCHISQKURT](https://www.ntrand.com/ntchisqkurt/)
-  - Computing moments above at once : [NTCHISQMOM](https://www.ntrand.com/ntchisqmom/)
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDCHISQ](../03-function-reference/01-random-numbers/01-single-series/04-ntrandchisq.mdx)
+  - Computing probability : [NTCHISQDIST](../03-function-reference/02-distribution-functions/017-ntchisqdist.mdx)
+  - Computing mean : [NTCHISQMEAN](../03-function-reference/02-distribution-functions/020-ntchisqmean.mdx)
+  - Computing standard deviation : [NTCHISQSTDEV](../03-function-reference/02-distribution-functions/022-ntchisqskew.mdx)
+  - Computing skewness : [NTCHISQSKEW](../03-function-reference/02-distribution-functions/022-ntchisqskew.mdx)
+  - Computing kurtosis : [NTCHISQKURT](../03-function-reference/02-distribution-functions/019-ntchisqkurt.mdx)
+  - Computing moments above at once : [NTCHISQMOM](../03-function-reference/02-distribution-functions/021-ntchisqmom.mdx)
 
 ## Reference
 

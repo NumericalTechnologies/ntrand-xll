@@ -24,19 +24,19 @@ $$
   \nu>0
 $$
 
-$\nu$ is [mean](https://www.ntrand.com/glossary/#local_mean) of the distribution.
+$\nu$ is [mean](/docs/glossary#mean) of the distribution.
 
 - Discrete distribution defined at non-negative integer $x={0,1,2,\cdots}$
 
 ### Probability
 
-- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- [Cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\text{e}^{-\nu}\sum_{i=0}^{x}\frac{\nu^i}{i !}
   $$
 
-- [Probability mass function](https://www.ntrand.com/glossary/#local_probabilitymass)
+- [Probability mass function](/docs/glossary#probability-density-functionmass)
 
   $$
   f(x)=\frac{\nu^x\text{e}^{-\nu}}{x !}
@@ -85,23 +85,23 @@ $\nu$ is [mean](https://www.ntrand.com/glossary/#local_mean) of the distribut
   }}
 />
 
-- Function reference : [NTPOISSONDIST](https://www.ntrand.com/ntpoissondist/)
+- Function reference : [NTPOISSONDIST](../03-function-reference/02-distribution-functions/073-ntpoissondist.mdx)
 
 ![Triangular distribution](./../assets/functions/plot/plotPoisson.jpg)
 
 ## Characteristics
 
-### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+### Mean -- Where is the "center" of the distribution? ([Definition](/docs/glossary#mean))
 
 - Mean is given as $\nu$
 
-### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+### Standard Deviation -- How wide does the distribution spread? ([Definition](/docs/glossary#standard-deviation))
 
 - Standard deviation is given as $\nu$
 
-  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+  [Standard Deviation](/docs/glossary#standard-deviation) is a positive square root of [Variance](/docs/glossary#variance).
 
-### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+### Skewness -- Which side is the distribution distorted into? ([Definition](/docs/glossary#skewness))
 
 - [Skewness](https://www.ntrand.com/glossary/#local_skew) of the distribution is given as
 
@@ -141,11 +141,11 @@ $\nu$ is [mean](https://www.ntrand.com/glossary/#local_mean) of the distribut
   }}
 />
 
-- Function reference : [NTPOISSONSKEW](https://www.ntrand.com/ntpoissonskew/)
+- Function reference : [NTPOISSONSKEW](../03-function-reference/02-distribution-functions/078-ntpoissonskew.mdx)
 
-### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](/docs/glossary#kurtosis))
 
-- [Kurtosis](https://www.ntrand.com/glossary/#local_kurtosis) of the distribution is given as
+- [Kurtosis](/docs/glossary#kurtosis) of the distribution is given as
 
   $$
   \frac{1}{\nu}
@@ -183,7 +183,7 @@ $\nu$ is [mean](https://www.ntrand.com/glossary/#local_mean) of the distribut
   }}
 />
 
-- Function reference : [NTPOISSONKURT](https://www.ntrand.com/ntpoissonkurt/)
+- Function reference : [NTPOISSONKURT](../03-function-reference/02-distribution-functions/075-ntpoissonkurt.mdx)
 
 ## Random Numbers
 
@@ -227,13 +227,13 @@ Note The formula in the example must be entered as an array formula. After copyi
 ## NtRand Functions
 
 - If you already have parameters of the distribution
-  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDPOISSON](https://www.ntrand.com/ntrandpoisson/)
-  - Computing probability : [NTPOISSONDIST](https://www.ntrand.com/ntpoissondist/)
-  - Computing mean : [NTPOISSONMEAN](https://www.ntrand.com/ntpoissonmean/)
-  - Computing standard deviation : [NTPOISSONSTDEV](https://www.ntrand.com/ntpoissonstdev/)
-  - Computing skewness : [NTPOISSONSKEW](https://www.ntrand.com/ntpoissonskew/)
-  - Computing kurtosis : [NTPOISSONKURT](https://www.ntrand.com/ntpoissonkurt/)
-  - Computing moments above at once : [NTPOISSONMOM](https://www.ntrand.com/ntpoissonmom/)
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDPOISSON](../03-function-reference/01-random-numbers/01-single-series/11-ntrandpoisson.mdx)
+  - Computing probability : [NTPOISSONDIST](../03-function-reference/02-distribution-functions/073-ntpoissondist.mdx)
+  - Computing mean : [NTPOISSONMEAN](../03-function-reference/02-distribution-functions/076-ntpoissonmean.mdx)
+  - Computing standard deviation : [NTPOISSONSTDEV](../03-function-reference/02-distribution-functions/079-ntpoissonstdev.mdx)
+  - Computing skewness : [NTPOISSONSKEW](../03-function-reference/02-distribution-functions/078-ntpoissonskew.mdx)
+  - Computing kurtosis : [NTPOISSONKURT](../03-function-reference/02-distribution-functions/075-ntpoissonkurt.mdx)
+  - Computing moments above at once : [NTPOISSONMOM](../03-function-reference/02-distribution-functions/077-ntpoissonmom.mdx)
 
 ## Reference
 

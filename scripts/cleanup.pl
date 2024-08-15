@@ -25,9 +25,9 @@ sub get_mdx_files {
         }
         else {
             print "Processing $dir/$file\n";
-            if ( $file =~ m/(\d\d\d?)-(.*)\.mdx/ ) {
-                my $prefix = $1;
-                my $name   = $2;
+            if ( $file =~ m/((\d\d\d?)-)?(.*)\.mdx/ ) {
+                my $prefix = $2;
+                my $name   = $3;
                 my $ext    = "mdx";
                 $mdx_files{"$name"} = "$dir/$file";
             }
@@ -50,9 +50,9 @@ sub replace_links {
             replace_links("$dir/$file");
         }
         else {
-            if ( $file =~ m/(\d\d\d?)-(.*)\.mdx/ ) {
-                my $prefix    = $1;
-                my $name      = $2;
+            if ( $file =~ m/((\d\d\d?)-)?(.*)\.mdx/ ) {
+                my $prefix    = $2;
+                my $name      = $3;
                 my $ext       = "mdx";
                 my $file_path = "$dir/$file";
                 my $file_content;
@@ -76,16 +76,21 @@ sub replace_links {
                     $file_content =~
                       s/https:\/\/www.ntrand.com\/$key\/?\)/$relative_path)/g;
                     $file_content =~
-                      s/http:\/\/www.ntrand.com\/jp\/$key\/?\)/$relative_path)/g;
+s/http:\/\/www.ntrand.com\/jp\/$key\/?\)/$relative_path)/g;
                     $file_content =~
-                      s/https:\/\/www.ntrand.com\/jp\/$key\/?\)/$relative_path)/g;
+s/https:\/\/www.ntrand.com\/jp\/$key\/?\)/$relative_path)/g;
 
-                    # get index from the file name
-                    my $index = $relative_path;
-                    $index =~ s/.*\/(\d\d\d?)-([^\/]*)\.mdx/$1/g;
-                    $index =~ s/(\d\d\d?)-([^\/]*)\.mdx/$1/g;
-                    # replace index in case it is outdated
-                    $file_content =~ s/\d\d\d?-$key\.mdx/$index-$key.mdx/g;
+                    # update index if the relative path contains \d\d\d?-.*\.mdx
+                    if ( $relative_path =~ m/(\d\d\d?)-([^\/]*)\.mdx/ ) {
+
+                        # get index from the file name
+                        my $index = $relative_path;
+                        $index =~ s/.*\/(\d\d\d?)-([^\/]*)\.mdx/$1/g;
+                        $index =~ s/(\d\d\d?)-([^\/]*)\.mdx/$1/g;
+
+                        # replace index in case it is outdated
+                        $file_content =~ s/\d\d\d?-$key\.mdx/$index-$key.mdx/g;
+                    }
                 }
 
                 open( my $fh_out, '>', $file_path )
@@ -128,20 +133,20 @@ sub to_kebab_case {
 
 my %anchor_names;
 
-sub replace_glossary_links {
+sub get_glossary_links {
     my $url     = "https://www.ntrand.com/glossary/";
     my $content = `curl -s $url`;
     while ( $content =~ m/<a id="local_(.*?)" name="local_(.*?)">(.*?)<\/a>/g )
     {
         my $id    = $1;
         my $title = $3;
-        $title               = to_kebab_case($title);
-        $anchor_names{$id}   = $title;
+        $title = to_kebab_case($title);
+        $anchor_names{$id} = $title;
     }
 
-    foreach my $key ( keys %anchor_names ) {
-        print "$key => $anchor_names{$key}\n";
-    }
+}
+
+sub replace_glossary_links {
 
     my $dir = shift;
     my $dir_handle;
@@ -191,5 +196,11 @@ foreach my $key ( keys %mdx_files ) {
 }
 
 replace_links(".");
+
+get_glossary_links();
+
+foreach my $key ( keys %anchor_names ) {
+    print "$key => $anchor_names{$key}\n";
+}
 
 replace_glossary_links(".");

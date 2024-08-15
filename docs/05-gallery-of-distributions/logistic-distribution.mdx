@@ -19,7 +19,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### Basic Properties
 
-- Two parameters $m, b$ are required ([How can you get these](https://www.ntrand.com/ntlogisticparam/)).
+- Two parameters $m, b$ are required ([How can you get these](../03-function-reference/02-distribution-functions/060-ntlogisticparam.mdx)).
 
   $$
   b>0
@@ -30,13 +30,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### Probability
 
-- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- [Cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{1}{2}\left[1+\tanh\left(\frac{x-m}{2b}\right)\right]
   $$
 
-- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+- [Probability density function](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{4 b}\text{sech}^2\left(\frac{x-m}{2b}\right)
@@ -83,11 +83,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ![Sample distribution](./../assets/functions/plot/plotLogistic.jpg)
 
-- Function reference : [NTLOGISTICDIST](https://www.ntrand.com/ntlogisticdist/)
+- Function reference : [NTLOGISTICDIST](../03-function-reference/02-distribution-functions/055-ntlogisticdist.mdx)
 
 ### Quantile
 
-- Inverse function of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- Inverse function of [cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F^{-1}(P)=2b\tanh^{-1}(2P-1)+m
@@ -140,23 +140,23 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTLOGISTICINV](https://www.ntrand.com/ntlogisticinv/)
+- Function reference : [NTLOGISTICINV](../03-function-reference/02-distribution-functions/056-ntlogisticinv.mdx)
 
 ## Characteristics
 
-### Mean -- Where is the "center" of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+### Mean -- Where is the "center" of the distribution? ([Definition](/docs/glossary#mean))
 
 - Mean of the distribution is given as $m$
 
-### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+### Standard Deviation -- How wide does the distribution spread? ([Definition](/docs/glossary#standard-deviation))
 
-- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+- [Variance](/docs/glossary#variance) of the distribution is given as
 
   $$
   \frac{\pi^2b^2}{3}
   $$
 
-  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+  [Standard Deviation](/docs/glossary#standard-deviation) is a positive square root of [Variance](/docs/glossary#variance).
 
 - How to compute this on Excel
 
@@ -190,13 +190,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTLOGISTICSTDEV](https://www.ntrand.com/ntlogisticstdev/)
+- Function reference : [NTLOGISTICSTDEV](../03-function-reference/02-distribution-functions/062-ntlogisticstdev.mdx)
 
-### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+### Skewness -- Which side is the distribution distorted into? ([Definition](/docs/glossary#skewness))
 
 - Skewness of the distribution is $0$.
 
-### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](/docs/glossary#kurtosis))
 
 - Kurtosis of the distribution is $1.2$.
 
@@ -255,15 +255,15 @@ Note The formula in the example must be entered as an array formula. After copyi
 ## NtRand Functions
 
 - If you already have parameters of the distribution
-  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDLOGISTIC](https://www.ntrand.com/ntrandlogistic/)
-  - Computing probability : [NTLOGISTICDIST](https://www.ntrand.com/ntlogisticdist/)
-  - Computing mean : [NTLOGISTICMEAN](https://www.ntrand.com/ntlogisticmean/)
-  - Computing standard deviation : [NTLOGISTICSTDEV](https://www.ntrand.com/ntlogisticskew/)
-  - Computing skewness : [NTLOGISTICSKEW](https://www.ntrand.com/ntlogisticskew/)
-  - Computing kurtosis : [NTLOGISTICKURT](https://www.ntrand.com/ntlogistickurt/)
-  - Computing moments above at once : [NTLOGISTICMOM](https://www.ntrand.com/ntlogisticmom/)
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDLOGISTIC](../03-function-reference/01-random-numbers/01-single-series/09-ntrandlogistic.mdx)
+  - Computing probability : [NTLOGISTICDIST](../03-function-reference/02-distribution-functions/055-ntlogisticdist.mdx)
+  - Computing mean : [NTLOGISTICMEAN](../03-function-reference/02-distribution-functions/058-ntlogisticmean.mdx)
+  - Computing standard deviation : [NTLOGISTICSTDEV](../03-function-reference/02-distribution-functions/061-ntlogisticskew.mdx)
+  - Computing skewness : [NTLOGISTICSKEW](../03-function-reference/02-distribution-functions/061-ntlogisticskew.mdx)
+  - Computing kurtosis : [NTLOGISTICKURT](../03-function-reference/02-distribution-functions/057-ntlogistickurt.mdx)
+  - Computing moments above at once : [NTLOGISTICMOM](../03-function-reference/02-distribution-functions/059-ntlogisticmom.mdx)
 - If you know mean and standard deviation of the distribution
-  - Estimating parameters of the distribution:[NTLOGISTICPARAM](https://www.ntrand.com/ntlogisticparam/)
+  - Estimating parameters of the distribution:[NTLOGISTICPARAM](../03-function-reference/02-distribution-functions/060-ntlogisticparam.mdx)
 
 ## Reference
 

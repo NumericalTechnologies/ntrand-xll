@@ -15,32 +15,32 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   ["Truncated Triangular Distribution for Multiplicative Noise and Domain Estimation" by Jay J. Kim and Dong M. Jeong](http://www.amstat.org/sections/srms/Proceedings/y2008/Files/300855.pdf)
 
 - [Business simulation](http://en.wikipedia.org/wiki/Triangular_distribution#Business_simulations) (Corporate finance)
-- Proxy of [Beta distribution](https://www.ntrand.com/beta-distribution/)
+- Proxy of [Beta distribution](beta-distribution.mdx)
 
 ## Shape of Distribution
 
 ### Basic Properties
 
-- Three parameters $a, b, c$ are required ([How can you get these](https://www.ntrand.com/nttriangularparam/)).
+- Three parameters $a, b, c$ are required ([How can you get these](../03-function-reference/02-distribution-functions/092-nttriangularparam.mdx)).
 
   $$
   a<c<b
   $$
 
-  These parameters are minimum value of variable, maximum value of variable and [mode](https://www.ntrand.com/glossary/#local_mode) of the distribution respectively.
+  These parameters are minimum value of variable, maximum value of variable and [mode](/docs/glossary#mode) of the distribution respectively.
 
 - Continuous distribution defined on bounded range $a\leq x \leq b$
 - This distribution can be symmetric or asymmetric.
 
 ### Probability
 
-- [Cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- [Cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\begin{cases}\frac{(x-a)^2}{(b-a)(c-a)}\quad&(a\leq x<c)\\1-\frac{(b-x)^2}{(b-a)(b-c)}\quad&(c\leq x\leq b)\end{cases}
   $$
 
-- [Probability density function](https://www.ntrand.com/glossary/#local_probability)
+- [Probability density function](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\begin{cases}\frac{2(x-a)}{(b-a)(c-a)}\quad&(a\leq x<c)\\\frac{2(b-x)}{(b-a)(b-c)}\quad&(c\leq x\leq b)\end{cases}
@@ -97,13 +97,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTTRIANGULARDIST](https://www.ntrand.com/nttriangulardist/)
+- Function reference : [NTTRIANGULARDIST](../03-function-reference/02-distribution-functions/087-nttriangulardist.mdx)
 
 ![Triangular distribution](./../assets/functions/plot/plotTriangular.jpg)
 
 ### Quantile
 
-- Inverse function of [cumulative distribution function](https://www.ntrand.com/glossary/#local_cumulative)
+- Inverse function of [cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
   $$
   F^{-1}(P)=\begin{cases}\sqrt{P(c-a)(b-a)}+a\quad&\left(P< \frac{c-a}{b-a}\right)\\-\sqrt{(1-P)(b-c)(b-a)}+b\quad&\left(P\geq \frac{c-a}{b-a}\right)\end{cases}
@@ -157,11 +157,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTTRIANGULARINV](https://www.ntrand.com/nttriangularinv/)
+- Function reference : [NTTRIANGULARINV](../03-function-reference/02-distribution-functions/088-nttriangularinv.mdx)
 
 ## Characteristics
 
-### Mean - Where is the `center'' of the distribution? ([Definition](https://www.ntrand.com/glossary/#local_mean))
+### Mean - Where is the `center'' of the distribution? ([Definition](/docs/glossary#mean))
 
 - Mean of the distribution is given as
 
@@ -209,17 +209,17 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTTRIANGULARMEAN](https://www.ntrand.com/nttriangularmean/)
+- Function reference : [NTTRIANGULARMEAN](../03-function-reference/02-distribution-functions/090-nttriangularmean.mdx)
 
-### Standard Deviation -- How wide does the distribution spread? ([Definition](https://www.ntrand.com/glossary/#local_standard_deviation))
+### Standard Deviation -- How wide does the distribution spread? ([Definition](/docs/glossary#standard-deviation))
 
-- [Variance](https://www.ntrand.com/glossary/#local_variance) of the distribution is given as
+- [Variance](/docs/glossary#variance) of the distribution is given as
 
   $$
   \frac{a^2+b^2+c^2-ab-bc-ca}{18}
   $$
 
-  [Standard Deviation](https://www.ntrand.com/glossary/#local_standard_deviation) is a positive square root of [Variance](https://www.ntrand.com/glossary/#local_variance).
+  [Standard Deviation](/docs/glossary#standard-deviation) is a positive square root of [Variance](/docs/glossary#variance).
 
 - How to compute this on Excel
 
@@ -261,11 +261,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTTRIANGULARSTDEV](https://www.ntrand.com/nttriangularstdev/)
+- Function reference : [NTTRIANGULARSTDEV](../03-function-reference/02-distribution-functions/094-nttriangularstdev.mdx)
 
-### Skewness -- Which side is the distribution distorted into? ([Definition](https://www.ntrand.com/glossary/#local_skewness))
+### Skewness -- Which side is the distribution distorted into? ([Definition](/docs/glossary#skewness))
 
-- [Skewness](https://www.ntrand.com/glossary/#local_skewness) of the distribution is given as
+- [Skewness](/docs/glossary#skewness) of the distribution is given as
 
   $$
   \frac{\sqrt{2}(a+b-2c)(2a-b-c)(a-2b+c)}{5(a^2+b^2+c^2-ab-bc-ca)^{3/2}}
@@ -311,9 +311,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- Function reference : [NTTRIANGULARSKEW](https://www.ntrand.com/nttriangularskew/)
+- Function reference : [NTTRIANGULARSKEW](../03-function-reference/02-distribution-functions/093-nttriangularskew.mdx)
 
-### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](https://www.ntrand.com/glossary/#local_kurtosis))
+### Kurtosis -- Sharp or Dull, consequently Fat Tail or Thin Tail ([Definition](/docs/glossary#kurtosis))
 
 - Kurtosis is $-0.6$ .
 
@@ -376,16 +376,16 @@ Note The formula in the example must be entered as an array formula. After copyi
 ## NtRand Functions
 
 - If you already have parameters of the distribution
-  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDTRIANGULAR](https://www.ntrand.com/ntrandtriangular/)
-  - Computing probability : [NTTRIANGULARDIST](https://www.ntrand.com/nttriangulardist/)
-  - Computing quantile : [NTTRIANGULARINV](https://www.ntrand.com/nttriangularinv/)
-  - Computing mean : [NTTRIANGULARMEAN](https://www.ntrand.com/nttriangularmean/)
-  - Computing standard deviation : [NTTRIANGULARSTDEV](https://www.ntrand.com/nttriangularskew/)
-  - Computing skewness : [NTTRIANGULARSKEW](https://www.ntrand.com/nttriangularskew/)
-  - Computing kurtosis : [NTTRIANGULARKURT](https://www.ntrand.com/nttriangularkurt/)
-  - Computing moments above at once : [NTTRIANGULARMOM](https://www.ntrand.com/nttriangularmom/)
+  - Generating random numbers based on Mersenne Twister algorithm: [NTRANDTRIANGULAR](../03-function-reference/01-random-numbers/01-single-series/13-ntrandtriangular.mdx)
+  - Computing probability : [NTTRIANGULARDIST](../03-function-reference/02-distribution-functions/087-nttriangulardist.mdx)
+  - Computing quantile : [NTTRIANGULARINV](../03-function-reference/02-distribution-functions/088-nttriangularinv.mdx)
+  - Computing mean : [NTTRIANGULARMEAN](../03-function-reference/02-distribution-functions/090-nttriangularmean.mdx)
+  - Computing standard deviation : [NTTRIANGULARSTDEV](../03-function-reference/02-distribution-functions/093-nttriangularskew.mdx)
+  - Computing skewness : [NTTRIANGULARSKEW](../03-function-reference/02-distribution-functions/093-nttriangularskew.mdx)
+  - Computing kurtosis : [NTTRIANGULARKURT](../03-function-reference/02-distribution-functions/089-nttriangularkurt.mdx)
+  - Computing moments above at once : [NTTRIANGULARMOM](../03-function-reference/02-distribution-functions/091-nttriangularmom.mdx)
 - If you know mean, standard deviation and mode of the distribution
-  - Estimating parameters of the distribution:[NTTRIANGULARPARAM](https://www.ntrand.com/nttriangularparam/)
+  - Estimating parameters of the distribution:[NTTRIANGULARPARAM](../03-function-reference/02-distribution-functions/092-nttriangularparam.mdx)
 
 ## Reference
 
