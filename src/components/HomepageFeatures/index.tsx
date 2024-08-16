@@ -1,49 +1,61 @@
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import clsx from "clsx";
+import Heading from "@theme/Heading";
+import styles from "./styles.module.css";
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  Svg: React.ComponentType<React.ComponentProps<"svg">>;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: "Key Features",
+    Svg: require("@site/static/img/undraw_visual_data_re_mxxo.svg").default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        <ul className="text--left">
+          <li>Random number generation based on Mersenne Twister</li>
+          <li>Various probability distributions</li>
+          <li>Statistic utility functions</li>
+        </ul>
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: "Purposes of Use",
+    Svg: require("@site/static/img/undraw_problem_solving_re_4gq3.svg").default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        <ul className="text--left">
+          <li>Pricing financial derivatives</li>
+          <li>Risk management studies</li>
+          <li>
+            Preliminary test before introducing a costly calculating system
+          </li>
+          <li>Writing your research article</li>
+        </ul>
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: "Capabilities",
+    Svg: require("@site/static/img/undraw_all_the_data_re_hh4w.svg").default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        <ul className="text--left">
+          <li>Generate Over 1 Million Random Numbers</li>
+          <li>Excel 64-bit and 32-bit compatible</li>
+          <li>Armed with higher precision</li>
+        </ul>
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Svg, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx("col col--4")}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>

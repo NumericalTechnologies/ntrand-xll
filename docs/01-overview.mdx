@@ -8,30 +8,30 @@ title: Overview
 
 **NtRand**, Numerical Technologies's Random Number Generator for Microsoft Excel
 is a software where a family of various random numbers such as
-[standard normal (Gaussian) random numbers](</glossary/#local_normal(Gaussian)>)
+[standard normal (Gaussian) random numbers](/docs/glossary#normal-gaussian-random-numbers)
 in Monte Carlo method is implemented as add-in functions available with Excel.
-It also generates [multivariate correlation random numbers](/glossary/#local_multivariatecorrelation).
+It also generates [multivariate correlation random numbers](/docs/glossary#multivariate-correlation-random-numbers).
 
-NtRand uses [pseudo-random numbers](/glossary/#local_pseudo-random)
-by [Mersenne Twister algorithm](/glossary/#local_Mersenne_Twister),
+NtRand uses [pseudo-random numbers](/docs/glossary#pseudo-random-numbers)
+by [Mersenne Twister algorithm](/docs/glossary#mersenne-twister-algorithm),
 featuring longer period and higher order of equidistribution, which is a
 cynosure in simulation technology.
 
-Multivariate Mote Carlo employs [antithetic variant method](/glossary/#local_antitheticvariant)
-and [quadratic resampling](/glossary/#local_quadraticresampling)
+Multivariate Mote Carlo employs [antithetic variant method](/docs/glossary#antithetic-variant-method)
+and [quadratic resampling](/docs/glossary#quadratic-resampling)
 for higher accuracy. For more information, see
-["Enhancement of Monte Carlo by Moment Matching."](/faq/#local_EnhancementofMonteCarlo)
+["Enhancement of Monte Carlo by Moment Matching."](/docs/faq#enhancement-of-monte-carlo-by-moment-matching)
 
 ## Why NtRand?
 
 In the VaR computing for risk management, a larger scale Monte Carlo simulation
 is often necessary. In this case, the built-in random numbers would not serve
 well enough in ensuring the accuracy. Some solutions use the
-[physical random numbers](/glossary/#local_physicalrandom).
+[physical random numbers](/docs/glossary#physical-random-numbers).
 
 However, they are less practical because no significant repeatability is observed
 on any verification test and some special hardware is required.
-[Mersenne Twister](/glossary/#local_Mersenne_Twister) is one of
+[Mersenne Twister](/docs/glossary#mersenne-twister-algorithm) is one of
 the approaches to **provide a pragmatic solution in VaR quantification**,
 and widely incorporated in [PortfolioBrowser®](http://www.numtech.com/products/)
 / [CreditBrowser®](http://www.numtech.com/products/), risk management
@@ -50,28 +50,28 @@ We recommend NtRand for **_derivatives pricing_**, **_risk management studies_
 - Outstanding properties of longer period and higher order of equidistribution for **pseudo-random numbers** (random period of $2^{19937}-1$). For further information, visit the [Mersenne Twister Home Page](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html) hosted by assistant professor Makoto Matsumoto and Takuji Nishimura at Faculty of Science and Technology, Keio University, Japan.
 - **Easy generation** of the multivariate correlation random numbers essential to *the Monte Carlo VaR calculation*.
 - **High speed operation** enhanced by the efficient design in engineering. NtRand operates far faster than RAND function in Excel and easily generates random numbers for more than 10,000-time Monte Carlo.
-- **Various moment matching methods** available to improve the convergence in Monte Carlo. Enables you to easily use the [antithetic variant method](/glossary/#local_antitheticvariant) and/or [quadratic resampling](/glossary/#local_quadraticresampling). For more information, see ["Enhancement of Monte Carlo by Moment Matching."](/glossary/#local_EnhancementofMonteCarlo)
-- **Utilities to supplement the improvement of Monte Carlo's convergence** -- For [uniform/normal random numbers conversion](/glossary/#local_uniform/normal), [the Box-Muller method](/glossary/#local_Box-Muller) is available in addition to [the inverse function method (Moro's algorithm)](/glossary/#local_Inversefunctionmethod).
+- **Various moment matching methods** available to improve the convergence in Monte Carlo. Enables you to easily use the [antithetic variant method](/docs/glossary#antithetic-variant-method) and/or [quadratic resampling](/docs/glossary#quadratic-resampling). For more information, see ["Enhancement of Monte Carlo by Moment Matching."](/docs/faq#enhancement-of-monte-carlo-by-moment-matching)
+- **Utilities to supplement the improvement of Monte Carlo's convergence** -- For [uniform/normal random numbers conversion](/docs/glossary#uniform-random-numbers), [the Box-Muller method](/docs/glossary#box-muller-method) is available in addition to [the inverse function method (Moro's algorithm)](/docs/glossary#inverse-function-method-moros-algorithm).
 - **Random number generator and related utility functions for widely acknowledged following 17 different probability distributions widely acknowledged.**
 
-|                                                     | Rand. | Dist. | Inv. | Mom(\*) | Param. | Mean | Stdev. | Skew. | Kurt. |
-| --------------------------------------------------- | ----- | ----- | ---- | ------- | ------ | ---- | ------ | ----- | ----- |
-| [Uniform](/uniform-distribution/)                   | ✅    | ❌    | ❌   | ❌      | ❌     | ❌   | ❌     | ❌    | ❌    |
-| [Beta](/beta-distribution/)                         | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
-| [Chi](/chi-distribution/)                           | ✅    | ✅    | ✅   | ✅      | ❌     | ✅   | ✅     | ✅    | ✅    |
-| [Chi square](/chi-square-distribution/)             | ✅    | ✅    | ✅   | ✅      | ❌     | ✅   | ✅     | ✅    | ✅    |
-| [F](/f-distribution/)                               | ✅    | ✅    | ✅   | ✅      | ❌     | ✅   | ✅     | ✅    | ✅    |
-| [Gamma](/gamma-distribution/)                       | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
-| [Gumbel](/gumbel-type-i-distribution/)              | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
-| [Johnson SU](/johnson-su-distribution/)             | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
-| [Logistic](/logistic-distribution/)                 | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
-| [Log Normal](/log-normal-distribution/)             | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
-| [Standard Normal](/normal-distribution-single/)     | ✅    | ✅    | ✅   | ❌      | ❌     | ❌   | ❌     | ❌    | ❌    |
-| [Poisson](/poisson-distribution/)                   | ✅    | ✅    | ✅   | ✅      | ❌     | ✅   | ✅     | ✅    | ✅    |
-| [t](/t-distribution/)                               | ✅    | ✅    | ✅   | ✅      | ❌     | ✅   | ✅     | ✅    | ✅    |
-| [Triangular](/triangular-distribution/)             | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
-| [Truncated Normal](/truncated-normal-distribution/) | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
-| [Weibull](/weibull-distribution/)                   | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
-| [Multi Normal](/normal-distribution-multi/)         | ✅    | ✅    | ❌   | ❌      | ❌     | ❌   | ❌     | ❌    | ❌    |
+|                                                                                   | Rand. | Dist. | Inv. | Mom(\*) | Param. | Mean | Stdev. | Skew. | Kurt. |
+| --------------------------------------------------------------------------------- | ----- | ----- | ---- | ------- | ------ | ---- | ------ | ----- | ----- |
+| [Uniform](https://www.ntrand.com/uniform-distribution/)                           | ✅    | ❌    | ❌   | ❌      | ❌     | ❌   | ❌     | ❌    | ❌    |
+| [Beta](05-gallery-of-distributions/beta-distribution.mdx)                         | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
+| [Chi](05-gallery-of-distributions/chi-distribution.mdx)                           | ✅    | ✅    | ✅   | ✅      | ❌     | ✅   | ✅     | ✅    | ✅    |
+| [Chi square](05-gallery-of-distributions/chi-square-distribution.mdx)             | ✅    | ✅    | ✅   | ✅      | ❌     | ✅   | ✅     | ✅    | ✅    |
+| [F](05-gallery-of-distributions/f-distribution.mdx)                               | ✅    | ✅    | ✅   | ✅      | ❌     | ✅   | ✅     | ✅    | ✅    |
+| [Gamma](05-gallery-of-distributions/gamma-distribution.mdx)                       | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
+| [Gumbel](05-gallery-of-distributions/gumbel-type-i-distribution.mdx)              | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
+| [Johnson SU](05-gallery-of-distributions/johnson-su-distribution.mdx)             | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
+| [Logistic](05-gallery-of-distributions/logistic-distribution.mdx)                 | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
+| [Log Normal](05-gallery-of-distributions/log-normal-distribution.mdx)             | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
+| [Standard Normal](05-gallery-of-distributions/normal-distribution-single.mdx)     | ✅    | ✅    | ✅   | ❌      | ❌     | ❌   | ❌     | ❌    | ❌    |
+| [Poisson](05-gallery-of-distributions/poisson-distribution.mdx)                   | ✅    | ✅    | ✅   | ✅      | ❌     | ✅   | ✅     | ✅    | ✅    |
+| [t](05-gallery-of-distributions/t-distribution.mdx)                               | ✅    | ✅    | ✅   | ✅      | ❌     | ✅   | ✅     | ✅    | ✅    |
+| [Triangular](05-gallery-of-distributions/triangular-distribution.mdx)             | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
+| [Truncated Normal](05-gallery-of-distributions/truncated-normal-distribution.mdx) | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
+| [Weibull](05-gallery-of-distributions/weibull-distribution.mdx)                   | ✅    | ✅    | ✅   | ✅      | ✅     | ✅   | ✅     | ✅    | ✅    |
+| [Multi Normal](05-gallery-of-distributions/normal-distribution-multi.mdx)         | ✅    | ✅    | ❌   | ❌      | ❌     | ❌   | ❌     | ❌    | ❌    |
 
 (\*) Mom. function returns mean, standard deviation, skewness and kurtosis of the distribution at once.

@@ -113,28 +113,32 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Links",
           items: [
             {
-              label: "Documentation",
-              to: "/docs/intro",
+              label: "Numerical Technologies",
+              href: "https://www.numtech.com",
+            },
+            {
+              label: "ニューメリカルテクノロジーズ株式会社",
+              href: "https://www.numtech.co.jp",
+            },
+            {
+              label: "License Agreement",
+              to: "/license-agreement",
             },
           ],
         },
         {
-          title: "Community",
+          title: "Docs",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
+              label: "Overview",
+              to: "/docs/overview",
             },
             {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "Twitter",
-              href: "https://twitter.com/docusaurus",
+              label: "FAQ",
+              to: "/docs/faq",
             },
           ],
         },
