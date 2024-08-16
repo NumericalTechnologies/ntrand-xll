@@ -47,6 +47,8 @@ const config: Config = {
         },
         blog: {
           showReadingTime: true,
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
           feedOptions: {
             type: ["rss", "atom"],
             xslt: true,
@@ -130,7 +132,7 @@ const config: Config = {
           ],
         },
         {
-          title: "Docs",
+          title: "Documentation",
           items: [
             {
               label: "Overview",

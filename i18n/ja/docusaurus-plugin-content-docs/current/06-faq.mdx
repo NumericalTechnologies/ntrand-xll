@@ -1,0 +1,637 @@
+---
+title: FAQ
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# FAQ
+
+## ソフトウェアライセンス刑事ドラマに巻き込まれる危険？
+
+### 本当に**勝手に**ダウンロードして使っていいの?
+
+**NtRand** (以下 "ソフトウェア") は無料で提供しているソフトウェアであり、使用料やライセンス料などはいただいておりません。したがって、[使用許諾条件](https://www.ntrand.com/jp/license-agreement/)下の状況でご利用いただく場合には料金の請求やある日突然戸口に警察が立っているなどといったことは起こりませんので、ご安心ください。
+
+### 一体**ニューメリカルテクノロジーズ株式会社**って誰?
+
+[ニューメリカルテクノロジーズ株式会社](http://www.numtech.co.jp/)は東京、丸の内にあるITのシステム開発会社です。主に金融リスク管理に取り組み、金融機関大手を顧客に持っています。詳しくは[弊社のサイト](http://www.numtech.co.jp/ "ニューメリカルテクノロジーズ（株）")をご覧ください。
+
+## 使い方NtRand でコマッタ?
+
+### 困った、ヘルプファイル( chm ファイル)が開けない
+
+環境により、ダウンロードしたヘルプファイル( chm ファイル)のトピックが表示できない場合があります。これはマイクロソフト社のセキュリティ更新による現象で、この問題を解決するには次のいずれかの操作を行います。
+
+- 方法 1
+  - 1\. .chm ファイルをダブルクリック
+  - 2\. [開いているファイル -- セキュリティの警告] ダイアログ ボックスで、[この種類のファイルであれば常に警告する] チェック ボックスをオフ
+  - 3\. [開く] をクリック
+- 方法 2
+  - 1\. .chm ファイルを右クリックし、[プロパティ] を選択
+  - 2\. ブロックの解除]ボタンをクリックし、[OK]ボタンをクリック
+  - 3\. chm ファイルをダブルクリック
+
+### なぜバージョンアップで機能が削除されたの？
+
+NtRand はバージョン2からバージョン3にバージョンアップする際に以下の関数を削除しました（[リリースノート参照](https://www.ntrand.com/jp/release-note)）
+
+- NtPCA
+- NtOptionBS
+- NtOptionBF
+- NtOptionGK
+- NtMonteCarloLFM
+
+NtRand 3.0 ではその機能を乱数生成関数、および確率分布関数とそれらに関連する関数に絞りこむという方針をとり、結果、上記の金融工学への応用関数は削除しました。これらの関数を使用するには[旧バージョン](https://www.ntrand.com/jp/older-versions/)を引き続きご使用ください。 また、旧バージョンの乱数生成関数のうち、分布関数のモーメントを引数にとる関数（NtRandBeta，NtRandLogNorm，NtRandTruncNorm）は削除され、すべての乱数生成関数はパラメータを直接引数にとるもののみを残しました。 その代わりに各分布関数にモーメントからパラメータを算出する "\*\*\*PARAM" 関数を用意しました。
+
+### Excel RAND() の振る舞いに似せて、ワークシートを再計算するたびに乱数を自動的に更新する方法
+
+**NtRand** は常に同じ値を返します。これは設計仕様です。ワークシートを再計算するたびに異なる乱数値を欲しい方もいるかもしれません。これは簡単に実現できます。次の表計算式をご覧下さい。
+
+```excel
+=NTRAND(10000,0,RAND()*2147483647,RAND()*2147483647)
+```
+
+これで大丈夫です。[NTRAND](https://www.ntrand.com/jp/ntrand/) 関が10000回あるいは20000回呼ばれるということはありません。
+
+### Excelの仕様上の制限について (NtRand 32bit)
+
+**NtRand 32bit** は Excel 97 から Excel 2010 までをサポートしています。また使用 OS は Windows 95 以降（言語は不問）としています。\
+Excel関数に対して一度に受け渡し可能なデータの最大数は、配列数式の場合は行または列方向に32,767個以内、一般の数式の場合は行方向32,767個以内、列方向256個以内に制限されています。Windows95環境の場合はこれにさらに16bitの制限が加わります。すなわち一度に受け渡し可能なデータの最大量が64kBytesであるため、Excel標準の数値型 (倍精度浮動小数点数)ならば最大8,192個以上の受渡しはできません。このため、次元数の大きな多変量モンテカルロをNtRand 32bit で行う場合は、Windows NT/2000/XP 環境をお勧めします。これらの制限はExcelおよびWindowsの問題であり、NtRand 32bitの問題ではありません。 Excel 2007, 2010 では 32,767超のデータを取り扱うことが出来ます。
+
+### NtRand を VBA (Visual Basic for Application) から使用する方法
+
+VBA (Visual Basic for Application) から **NtRand** の内部関数を使用するには次の例を参考にしてください。このコードは [NTRANDMULTINORM](https://www.ntrand.com/jp/ntrandmultinorm/ "NTRANDMULTINORM") の計算例と同じ結果を与えます。
+
+```vba
+Public Sub Test1()
+Dim Result As Variant
+Result = Application.Run("NTRANDMULTINORM", 8,
+Range(Cells(14, 3), Cells(16, 5)), Range(Cells(12, 3), Cells(12, 5)),
+0, 12345, 67890, True, True, True)
+'... now 'Result' stores 8 x 3 array of multi-dimensional normal
+' random number sequence ...
+' You can extract an individual value from Result by e.g. Result(5, 2)
+'... do what you want ...
+End Sub
+```
+
+なお、VBA と Visual Basic とは異なる開発言語です。上記 "Application.Run..." のテクニックはVBAでのみ機能します。VBAはExcelの内部データ表現であるXLOPER型を変換することができます。しかし、Visual Basic にはこの機能がありません。Excelアドインの内部関数を Visual Basic から呼ぶことは簡単ではありません。
+
+### サンプルシートはどうやって使うの？
+
+サンプルシートは[ダウンロード](https://www.ntrand.com/jp/download/ "Download")ページから入手できます。 **NtRand Excelアドインを[インストール](https://www.ntrand.com/jp/install/ "インストール方法")**した後、NtRand 関数の使い方を学ぶためにサンプルシートを開きます。それぞれのサンプルシートは次のNtRand関数を含んでいます。
+
+- NtRand1.xls -- ([NTRAND](https://www.ntrand.com/jp/ntrand/ "uniform pseudo random number(s) in (0, 1)"), [NTRANDBETA](https://www.ntrand.com/jp/ntrandbeta/ "beta pseudo random number(s)"), [NTBETAMOM](https://www.ntrand.com/jp/ntbetamom/ "moments of the beta distribution"), [NTBETAPARAM](https://www.ntrand.com/jp/ntbetaparam/ "parameters of the beta distribution for the specified mean and standard deviation"), [NTRANDCHI](https://www.ntrand.com/jp/ntrandchi/ "Chi pseudo random number(s)"), [NTCHIMOM](https://www.ntrand.com/jp/ntchimom/ "moments of the chi distribution"), [NTRANDCHISQ](https://www.ntrand.com/jp/ntrandchisq/ "Chi square pseudo random number(s)"), [NTCHISQMOM](https://www.ntrand.com/jp/ntchisqmom/ "moments of the chi square distribution"), [NTRANDGAMMA](https://www.ntrand.com/jp/ntrandgamma/ "Gamma pseudo random number(s)"), [NTGAMMAMOM](https://www.ntrand.com/jp/ntgammamom/ "moments of the gamma distribution"), [NTGAMMAPARAM](https://www.ntrand.com/jp/ntgammaparam/ "parameters of the gamma distribution for the specified mean and standard deviation"), [NTRANDF](https://www.ntrand.com/jp/ntrandf/ "f pseudo random number(s)"), [NTFMOM](https://www.ntrand.com/jp/ntfmom/ "moments of the f distribution"), [NTRANDGUMBEL](https://www.ntrand.com/jp/ntrandgumbel/ "Gumbel pseudo random number(s)"), [NTGUMBELMOM](https://www.ntrand.com/jp/ntgumbelmom/ "moments of the Gumbel distribution"), [NTGUMBELPARAM](https://www.ntrand.com/jp/ntgumbelparam/ "parameters of the Gumbel distribution for the specified mean and standard deviation"), [NTRANDJOHNSONSU](https://www.ntrand.com/jp/ntrandjohnsonsu/ "Johnson SU pseudo random number(s)"), [NTJOHNSONSUMOM](https://www.ntrand.com/jp/ntjohnsonsumom/ "moments of the Johnson SU distribution"), [NTJOHNSONSUPARAM](https://www.ntrand.com/jp/ntjohnsonsuparam/ "parameters of the Johnson SU distribution for the specified mean standard deviation, skewness and kurtosis"), [NTRANDLOGISTIC](https://www.ntrand.com/jp/ntrandlogistic/ "logistic pseudo random number(s)"), [NTLOGISTICMOM](https://www.ntrand.com/jp/ntlogisticmom/ "moments of the logistic distribution"), [NTLOGISTICPARAM](https://www.ntrand.com/jp/ntlogisticparam/ "parameters of the logistic distribution for the specified mean and standard deviation"), [NTRANDLOGNORM](https://www.ntrand.com/jp/ntrandlognorm/ "log-normal pseudo random number(s)"), [NTLOGNORMMOM](https://www.ntrand.com/jp/ntlognormmom/ "moments of the log normal distribution"), [NTLOGNORMPARAM](https://www.ntrand.com/jp/ntlognormparam/ "parameters of the log normal distribution for the specified mean and standard deviation"), [NTRANDNORM](https://www.ntrand.com/jp/ntrandnorm/ "standard normal pseudo random number(s)"), [NTRANDPOISSON](https://www.ntrand.com/jp/ntrandpoisson/ "Poisson pseudo random number(s)"), [NTPOISSONMOM](https://www.ntrand.com/jp/ntpoissonmom/ "moments of the Poisson distribution"), [NTRANDT](https://www.ntrand.com/jp/ntrandt/ "Student's t pseudo random number(s)"), [NTTMOM](https://www.ntrand.com/jp/nttmom/ "moments of the Student's t distribution"), [NTRANDTRIANGULAR](https://www.ntrand.com/jp/ntrandtriangular/ "triangular pseudo random number(s)"), [NTTRIANGULARMOM](https://www.ntrand.com/jp/nttriangularmom/ "moments of the triangular distribution"), [NTTRIANGULARPARAM](https://www.ntrand.com/jp/nttriangularparam/ "parameters of the triangular distribution for the specified mean, standard deviation and skewness"), [NTRANDTRUNCNORM](https://www.ntrand.com/jp/ntrandtruncnorm/ "truncated normal pseudo random number(s)"), [NTTRUNCNORMMOM](https://www.ntrand.com/jp/nttruncnormmom/ "moments of the triangular distribution"), [NTTRUNCNORMPARAM](https://www.ntrand.com/jp/nttruncnormparam/ "parameters of the triangular distribution for the specified support, mean and standard deviation"), [NTRANDWEIBULL](https://www.ntrand.com/jp/ntrandweibull/ "Weibull pseudo random number(s)"), [NTWEIBULLMOM](https://www.ntrand.com/jp/ntweibullmom/ "moments of the Weibull distribution"), [NTWEIBULLPARAM](https://www.ntrand.com/jp/ntweibullparam/ "parameters of the Weibull distribution for the specified mean and standard deviation"), [NTRANDMULTINORM](https://www.ntrand.com/jp/ntrandmultinorm/ "multivariate normal pseudo random number(s)"))
+- NtRand2.xls -- ([NTBETADIST](https://www.ntrand.com/jp/ntbetadist/ "the beta distribution"), [NTBETAPARAM](https://www.ntrand.com/jp/ntbetaparam/ "parameters of the beta distribution for the specified mean and standard deviation"), [NTCHIDIST](https://www.ntrand.com/jp/ntchidist/ "the chi distribution"), [NTCHISQDIST](https://www.ntrand.com/jp/ntchisqdist/ "the chi square distribution"), [NTFDIST](https://www.ntrand.com/jp/ntfdist/ "the f distribution"), [NTGAMMADIST](https://www.ntrand.com/jp/ntgammadist/ "the gamma distribution"), [NTGAMMADISTINV](https://www.ntrand.com/jp/ntgammadistinv/ "the inverse of the cumulative distribution function for a specified gamma distribution"), [NTGUMBELDIST](https://www.ntrand.com/jp/ntgumbeldist/ "the Gumbel distribution for the specified parameters"), [NTGUMBELINV](https://www.ntrand.com/jp/ntgumbelinv/ "the inverse of the cumulative distribution function for a specified Gumbel distribution"), [NTGUMBELPARAM](https://www.ntrand.com/jp/ntgumbelparam/ "parameters of the Gumbel distribution for the specified mean and standard deviation"), [NTJOHNSONSUDIST](https://www.ntrand.com/jp/ntjohnsonsudist/ "the Johnson SU distribution for the specified parameters"), [NTJOHNSONSUINV](https://www.ntrand.com/jp/ntjohnsonsuinv/ "the inverse of the cumulative distribution function for a specified Johnson SU distribution"), [NTJOHNSONSUPARAM](https://www.ntrand.com/jp/ntjohnsonsuparam/ "parameters of the Johnson SU distribution for the specified mean standard deviation, skewness and kurtosis"), [NTLOGISTICDIST](https://www.ntrand.com/jp/ntlogisticdist/ "the logistic distribution for the specified parameters"), [NTLOGISTICINV](https://www.ntrand.com/jp/ntlogisticinv/ "the inverse of the cumulative distribution function for a specified logistic distribution"), [NTLOGISTICPARAM](https://www.ntrand.com/jp/ntlogisticparam/ "parameters of the logistic distribution for the specified mean and standard deviation"), [NTLOGNORMDIST](https://www.ntrand.com/jp/ntlognormdist/ "the log normal distribution for the specified parameters"), [NTLOGNORMINV](https://www.ntrand.com/jp/ntlognorminv/ "the inverse of the cumulative distribution function for a specified log normal distribution"), [NTLOGNORMPARAM](https://www.ntrand.com/jp/ntlognormparam/ "parameters of the log normal distribution for the specified mean and standard deviation"), [NTNORMDIST](https://www.ntrand.com/jp/ntnormdist/ "the standard normal distribution for the specified parameters"), [NTPOISSONDIST](https://www.ntrand.com/jp/ntpoissondist/ "the Poisson distribution for the specified parameters"), [NTTDIST](https://www.ntrand.com/jp/nttdist/ "the Student's t distribution"), [NTTRIANGULARDIST](https://www.ntrand.com/jp/nttriangulardist/ "the triangular distribution for the specified parameters"), [NTTRIANGULARINV](https://www.ntrand.com/jp/nttriangularinv/ "the inverse of the cumulative distribution function for a specified triangular distribution"), [NTTRIANGULARPARAM](https://www.ntrand.com/jp/nttriangularparam/ "parameters of the triangular distribution for the specified mean, standard deviation and skewness"), [NTTRUNCNORMDIST](https://www.ntrand.com/jp/nttruncnormdist/ "the truncated normal distribution for the specified parameters"), [NTTRUNCNORMINV](https://www.ntrand.com/jp/nttruncnorminv/ "the inverse of the cumulative distribution function for a specified truncated normal distribution"), [NTTRUNCNORMPARAM](https://www.ntrand.com/jp/nttruncnormparam/ "parameters of the triangular distribution for the specified support, mean and standard deviation"), [NTWEIBULLDIST](https://www.ntrand.com/jp/ntweibulldist/ "the Weibull distribution for the specified parameters"), [NTWEIBULLINV](https://www.ntrand.com/jp/ntweibullinv/ "the inverse of the cumulative distribution function for a specified Weibull distribution"), [NTWEIBULLPARAM](https://www.ntrand.com/jp/ntweibullparam/ "parameters of the Weibull distribution for the specified mean and standard deviation"))
+- NtRand3.xls -- ([NTCOR2COV](https://www.ntrand.com/jp/ntcor2cov/ "Converts standard deviation vector and correlation matrix to covariance matrix"), [NTCOV2COR](https://www.ntrand.com/jp/ntcov2cor/ "Converts covariance matrix to standard deviation vector and correlation matrix"), [NTMULTICORREL](https://www.ntrand.com/jp/ntmulticorrel/ "mean vector, standard deviation vector and covariance matrix"), [NTMULTICOVARP](https://www.ntrand.com/jp/ntmulticovarp/ "mean vector and covariance matrix"))
+
+### どうして複数のセルに数式をコピーすると全部同じ結果になるの？
+
+NtRand に関して最も多く受けるのがこの種の質問です。これはNtRand ではなくExcel の問題です。
+
+**CTRL+SHIFT+ENTER のキー入力**
+
+詳しくはExcel のヘルプやハウツー本を探してみてください。さらに、["配列数式"](https://www.ntrand.com/jp/glossary/#local_arrayformula "配列数式") や ["Excel の仕様上の制限について (NtRand 32bit)"](https://www.ntrand.com/#local_MicrosoftExcel-specificLimitations "Excel の仕様上の制限について (NtRand 32bit)")を読むことをお勧めします。
+
+### モーメントマッチングってどんな効果があるの？
+
+モンテカルロ法の利用者にとって最大の悩みは計算量です。原始的なモンテカルロ法 (Crude Monte Carlo)の理論性能 (=計算誤差)は、シミュレーション回数を$n$ とすれば、次の数式により示されます。
+
+$$
+O\left(\frac{1}{\sqrt{n}}\right)
+$$
+
+そこで、原始的なモンテカルロ法の性能を改善するための様々な方法が考えられてきました。その代表的例として次の2つのアプローチがあります。
+
+- **準乱数モンテカルロ** -- [疑似乱数](https://www.ntrand.com/jp/faq/#local_Pseudo-random)の代わりに規則性を持った数値列を使い、より望ましい確率分布に近づけようとするもの
+- **モーメントマッチング** -- 統計的手段により生成する[疑似乱数](https://www.ntrand.com/jp/faq/#local_Pseudo-random)を操作して、より望ましい確率分布に近づけようとするもの
+
+これらの方法は、用途に応じて使い分けるべき性格のもので、どちらかが常に優れているというわけではありません。その使い分けを簡単に解説すれば次の通りです。
+
+- **準乱数モンテカルロ**\
+  単変量または低次元における、特に期待値や分散を求める用途において効果を発揮します。例えば単変量のオプションプライシングには少ない繰り返し計算で絶大な精度向上の効果があり、金融界でも1980年代末から1990年代初め頃に市場の主要プレーヤーの間で流行しました (現在では計算機の性能が上がったため、何でもモーメントマッチングで回数を増せばとりあえず問題が解決するため流行も下火)。 逆に欠点は、高次元下において著しくパフォーマンスが劣化することと、分布のテールにおける準乱数の挙動の問題から、順位数計算 (VaR算出など)に使い難いことです。 準乱数モンテカルロの理論性能 (=計算誤差)は、シミュレーション回数を $n$ とすれば、次の数式に示される通り次元数 $d$ に支配されており、変量の数が増せば原始的なモンテカルロ法よりもかえって性能が悪化します。
+
+  $$
+  O\left(\frac{(\log n)^d}{n}\right)
+  $$
+
+- **モーメントマッチング**\
+  大半の用途に有効です。高次元あるいは分布のテール (例えば順位数算出)においても安定した性能を求めるには他に有力な代替手段がありません。 しかし、大幅に改善するとはいえ、先の原始的なモンテカルロ法と同じ理論性能限界を持つため、低次元下、特に単変量下での性能は準乱数モンテカルロに比べて見劣りします。 金融界では、リスク計量化、いわゆる Value at Risk (VaR) がテーマとなった1990年代半ばから、高次元モンテカルロを使用する際の標準的手法として定着しています。 今日、モーメントマッチングがこれほど普及した理由は、その扱いやすさ、予測可能性 (見通し)の良さ、もさることながらインフラとしてのコンピューターの性能が向上したところが大でしょう。 「今や10,000回以上のシミュレーションも手軽に１秒以下で可能なほど計算機の性能が向上したのだから準乱数モンテカルロの役割は終わった」と思われる方も多いかもしれません。 そうした考え方もある面では説得力がありますが、非常に計算負荷のかかる特殊なオプション計算を行うケースなどで、シミュレーション回数が重荷となったならば、モーメントマッチングではなく準乱数モンテカルロの採用を考えた方が良いでしょう。
+
+**NtRand** では代表的な[対称変量法](https://www.ntrand.com/jp/faq/#local_Antitheticvariant)と[2次サンプリング法](https://www.ntrand.com/jp/faq/#local_Quadraticresampling)の2つのモーメントマッチング手法を、各々または両方同時に使用可能にしています。特に同時使用時の効果はめざましく、それゆえに1980年代当時の金融界 (例えばMBS/ABSデリバティブプレーヤー)の間では一種の企業秘密でした。もちろん1990年代も終わろうとしている現在では、このテーマに纏わる各種の論文も続々と発表され、公開されたテクノロジーになっています。なお、最も単純な単変量のケースは、1999年1月22日付の日経金融新聞「金融フロンティア」欄に興銀フィナンシャルテクノロジーの方が平易な解説をされていますので、参考までにご覧ください。本ソフトウェアはその多変量版と考えて概ね間違いがありません。 精密な議論はご専門の方の論文などに譲るとして、参考までに以下では[対称変量法](https://www.ntrand.com/jp/faq/#local_Antitheticvariant)と[2次サンプリング法](https://www.ntrand.com/jp/faq/#local_Quadraticresampling)の各々または同時使用時における効果を、1次モーメント (平均)、2次モーメント (標準偏差または分散)、3次モーメント (歪度)、4次モーメント (尖度)、および求めた乱数の相関係数を比較して示します。シミュレーション回数 $n$ が100回の3変量モンテカルロのケースです。
+
+- **入力データ**\
+  次の統計値を持ったドリフトのある多変量正規乱数を発生させたいとします。 以下の比較では、これらの数値に近い結果になればなるほど、優れた効果を持つと考えられます。
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.01, readOnly: true },
+        { value: 0.02, readOnly: true },
+        { value: 0.03, readOnly: true },
+        { value: "means", readOnly: true },
+      ],
+      [
+        { value: 0.29833, readOnly: true },
+        { value: 0.24083, readOnly: true },
+        { value: 0.21213, readOnly: true },
+        { value: "stdevs", readOnly: true },
+      ],
+      [
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: "skewness", readOnly: true },
+      ],
+      [
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: "kurtosis", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 0.54843, readOnly: true },
+        { value: 0.50011, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.54843, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.50011, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- **計算1：原始的なモンテカルロ法 -- モーメントマッチングを全く使用しないケース**\
+  わずか100回程度の計算試行では、求めた多変量乱数から得た統計量は、入力データの統計量と著しく乖離してしまいます。
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.0521, readOnly: true },
+        { value: 0.0271, readOnly: true },
+        { value: 0.03757, readOnly: true },
+        { value: "means", readOnly: true },
+      ],
+      [
+        { value: 0.29159, readOnly: true },
+        { value: 0.22906, readOnly: true },
+        { value: 0.19863, readOnly: true },
+        { value: "stdevs", readOnly: true },
+      ],
+      [
+        { value: -0.06096, readOnly: true },
+        { value: 0.39699, readOnly: true },
+        { value: 0.41137, readOnly: true },
+        { value: "skewness", readOnly: true },
+      ],
+      [
+        { value: -0.30666, readOnly: true },
+        { value: 0.17643, readOnly: true },
+        { value: 0.55905, readOnly: true },
+        { value: "kurtosis", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 0.47414, readOnly: true },
+        { value: 0.45856, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.47414, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: 0.71127, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.45856, readOnly: true },
+        { value: 0.71127, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- **計算2：[対称変量法](https://www.ntrand.com/jp/faq/#local_Antitheticvariant)のみ使用 (奇数次モーメントのモーメントマッチング)**\
+  奇数次モーメントである、平均と歪度が入力データと完全に一致するように調整されます。この表には記していませんが、より高次の奇数次モーメントもゼロに調整されます。
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.01, readOnly: true },
+        { value: 0.02, readOnly: true },
+        { value: 0.03, readOnly: true },
+        { value: "means", readOnly: true },
+      ],
+      [
+        { value: 0.28964, readOnly: true },
+        { value: 0.23389, readOnly: true },
+        { value: 0.21311, readOnly: true },
+        { value: "stdevs", readOnly: true },
+      ],
+      [
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: "skewness", readOnly: true },
+      ],
+      [
+        { value: -0.13148, readOnly: true },
+        { value: -0.21078, readOnly: true },
+        { value: -0.04597, readOnly: true },
+        { value: "kurtosis", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 0.58045, readOnly: true },
+        { value: 0.52405, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.58045, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: 0.74021, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.52405, readOnly: true },
+        { value: 0.74021, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- **計算3：[2次サンプリング法](https://www.ntrand.com/jp/faq/#local_quadraticresampling "quadratic resampling")のみ使用 (1～2次モーメントのモーメントマッチング)**\
+  平均、標準偏差、相関係数が入力データと一致するように調整されます。なお、非常に高次元のケースでは、計算機の表現精度上の誤差限界 (逆行列計算と三角分解の過程で発生)が制約要因となるため、微小のずれが生ずる場合があります。
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.01, readOnly: true },
+        { value: 0.02, readOnly: true },
+        { value: 0.03, readOnly: true },
+        { value: "means", readOnly: true },
+      ],
+      [
+        { value: 0.29833, readOnly: true },
+        { value: 0.24083, readOnly: true },
+        { value: 0.21213, readOnly: true },
+        { value: "stdevs", readOnly: true },
+      ],
+      [
+        { value: 0.0047, readOnly: true },
+        { value: 0.40025, readOnly: true },
+        { value: 0.57564, readOnly: true },
+        { value: "skewness", readOnly: true },
+      ],
+      [
+        { value: 0.4371, readOnly: true },
+        { value: 1.71197, readOnly: true },
+        { value: 0.72973, readOnly: true },
+        { value: "kurtosis", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 0.54843, readOnly: true },
+        { value: 0.50011, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.54843, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.50011, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- **計算4：[対称変量法](https://www.ntrand.com/jp/faq/#local_antitheticvariant "antithetic variant method")と[2次サンプリング法](https://www.ntrand.com/jp/faq/#local_quadraticresampling "quadratic resampling")の同時使用 (奇数次＋2次モーメントのモーメントマッチング)**\
+  尖度を除くすべての数値が入力データと一致します。なお、非常に高次元のケースでは、計算機の表現精度上の誤差限界 (逆行列計算と三角分解の過程で発生)が制約要因となるため、微小のずれが生ずる場合があります。
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.01, readOnly: true },
+        { value: 0.02, readOnly: true },
+        { value: 0.03, readOnly: true },
+        { value: "means", readOnly: true },
+      ],
+      [
+        { value: 0.29833, readOnly: true },
+        { value: 0.24083, readOnly: true },
+        { value: 0.21213, readOnly: true },
+        { value: "stdevs", readOnly: true },
+      ],
+      [
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: "skewness", readOnly: true },
+      ],
+      [
+        { value: -0.73001, readOnly: true },
+        { value: 1.19494, readOnly: true },
+        { value: 0.15166, readOnly: true },
+        { value: "kurtosis", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 0.54843, readOnly: true },
+        { value: 0.50011, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.54843, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.50011, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+ちなみにシミュレーション回数 $n$ を10000回にした場合です。他の統計量は当然ながら変化しませんが、次のように尖度は改善します。
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.01, readOnly: true },
+        { value: 0.02, readOnly: true },
+        { value: 0.03, readOnly: true },
+        { value: "means", readOnly: true },
+      ],
+      [
+        { value: 0.29833, readOnly: true },
+        { value: 0.24083, readOnly: true },
+        { value: 0.21213, readOnly: true },
+        { value: "stdevs", readOnly: true },
+      ],
+      [
+        { value: 0.0047, readOnly: true },
+        { value: 0.40025, readOnly: true },
+        { value: 0.57564, readOnly: true },
+        { value: "skewness", readOnly: true },
+      ],
+      [
+        { value: -0.03774, readOnly: true },
+        { value: 0.11285, readOnly: true },
+        { value: 0.00159, readOnly: true },
+        { value: "kurtosis", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 0.54843, readOnly: true },
+        { value: 0.50011, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.54843, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.50011, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+こうしてみますと、わずか100回のモンテカルロシミュレーションであっても、[対称変量法](https://www.ntrand.com/jp/faq/#local_antitheticvariant "antithetic variant method")と[2次サンプリング法](https://www.ntrand.com/jp/faq/#local_quadraticresampling/ "quadratic resampling")を同時使用すれば劇的な改善効果があり、あたかも完璧な答えが出てしまいそうです。 これはある程度まで真理ですが間違った結論です。 実際、このような論理展開には頻繁に陥りがちなため、統計学上の名称さえついており、「**あわてものの誤り(Type I Error)**」と呼びます。 深遠な誤差論からの説明は本ソフトウェア解説の趣旨ではありませんので、その意味を簡単に申し上げれば、このようなモーメントマッチングによる急速な収束性改善が見られたからといって、真の解に必ず漸近することとは別問題ということです。 オプション計算であれVaR計算であれ用途を問わず、ある程度の計算試行は必要なのです。
+
+### 対数正規分布の平均、標準偏差について
+
+[対数正規分布](https://www.ntrand.com/jp/log-normal-distribution/)は2つのパラメータ$M$と$S$を持ち、
+
+$$
+F(x;M, S) = \Phi\left(\frac{{\ln x}-M}{S}\right)
+$$
+
+と表記されます。ここで$\Phi(\cdot)$は標準正規分布の累積分布関数です。\
+パラメータ$M$と$S$は分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean)、[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)では**ありません**。
+
+右辺からわかるように、対数正規分布に従う確率変数 **$x$ の対数$\ln x$が正規分布に従います**。ここから$M$は **$x$の対数をとったものの平均**、$S$は **$x$の対数をとったものの標準偏差**と説明できます。
+
+$$
+\text{E}\left[\ln x\right] = M
+$$
+
+$$
+\text{Stdev}\left[\ln x\right] = S
+$$
+
+では、$x$そのものの[平均](https://www.ntrand.com/jp/glossary/#local_mean)と[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)はどうなるでしょうか？\
+$\ln x$の平均が$M$だから、$x$の[平均](https://www.ntrand.com/jp/glossary/#local_mean)は$\exp\left(M\right)$ ?（同様に$x$の[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)は$\exp\left(S\right)$？残念ながらそんな簡単な話ではありません。
+
+[平均](https://www.ntrand.com/jp/glossary/#local_mean)と[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)を定義式にしたがって丁寧に計算すると、、、
+
+$$
+\text{E}[x] = \exp\left(M+\frac{S^2}{2}\right)
+$$
+
+$$
+\text{Stdev}[x] =\exp\left(M+\frac{S^2}{2}\right)\sqrt{\exp\left(S^2\right)-1}
+$$
+
+となります。ここからわかるように、$M$だけで$x$の[平均](https://www.ntrand.com/jp/glossary/#local_mean)を表したり、$S$で[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)を表すことはできません。[平均](https://www.ntrand.com/jp/glossary/#local_mean)も[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)も$M$と$S$の組み合わせになります。
+
+NtRand はもちろんこの計算をあなたの代わりにやってくれます。
+
+$$
+\text{E}[x]=\text{NTLOGNORMMEAN}(M, S)
+$$
+
+$$
+\text{Stdev}[x]=\text{NTLOGNORMSTDEV}(M, S)
+$$
+
+この計算の逆、つまり$\text{E}[x]$と$\text{Stdev}[x]$から$M$と$S$を求めるには？これもNtRandにお任せください。
+
+$$
+{M, S}={\text{NTLOGNORMPARAM}(\text{E}[x], \text{Stdev}[x])}
+$$
+
+ちなみに計算結果は、\
+$M =\frac{1}{2}\ln\left(\frac{\text{E}^4[x]}{\text{E}^2[x]+\text{Stdev}^2[x]}\right)$\
+$S =\sqrt{\ln\left(\frac{\text{E}^2[x]+\text{Stdev}^2[x]}{\text{E}^2[x]}\right)}$\
+となります。\
+詳しくは[サンプルシート](https://www.ntrand.com/files/NtRand1.zip)をご覧ください。
+
+### 切断○○分布の作り方
+
+もし○○分布の累積分布関数$F(x)$ とその逆関数$F^{-1}(u)$ が手元にあるならば、一様乱数u を用いて**"切断"○○分布**に従う乱数を生成できます。
+
+○○分布の乱数の範囲の切断法によって以下の3通りのパターンが考えられます。
+
+- 両裾を切断（範囲は$A\leq x\leq B$となる）
+  - $s=F(A)$
+  - $\Delta=F(B)-F(A)$
+- 下位の裾を切断（範囲は$x\geq A$となる）
+  - $s=F(A)$
+  - $\Delta=1-F(A)$
+- 上位の裾を切断（範囲は$x\leq B$となる）
+  - $\Delta=F(B)$
+  - $s=0$
+
+こうして定義された$\Delta, s$ を用いて$x=F^{-1}(\Delta u+s)$ とすれば切断○○分布に従う乱数が得られます。　ダウンロード：[切断Weibull分布の例](https://www.ntrand.com/files/TruncatedWeibullRandom.zip)
+
+## NtRand の裏側パンドラの箱かも
+
+### CPU、OS、コンパイラにより計算結果が異なる場合があるようですが...？
+
+コンピュータ数値計算に無縁の方は驚かれるかもしれませんが、コンピュータの計算結果は使用するCPU、OS、コンパイラに依存しており、たとえ同一のプログラムであってもマシンによって結果が変わり得ます。例えば大規模な行列の三角分解といったケースでは、WindowsパソコンとUNIXワークスーテーションの間の結果はまず一致しません。その主な理由は、CPUチップ内部の浮動小数点演算ユニット (FPU)の動作モードとCPUチップ内部のROMにハードコーディングされたマイクロプログラム (micro program)にあります。これは本などでよく解説されている2進数の桁落ち桁丸め計算によるエラー、あるいは2進化10進数 (BCD、binary coded decimal)とは別の問題です。例としてC/C++言語で最も精度の高い double 型を用いたプログラムをWindowsパソコンの上で動かしたとします。double 型の仮数部の精度は多くのコンパイラ (Sun Pro CC、gcc、egcs、 HP CC、Visual C++、Intel C/C++)では64bitのはずです。ところが、 Intel x86 系の FPU の仮数部の精度は 24/53/64bit に「プログラムを使って」設定可能であり、その設定はOSやコンパイラレベルで普通は規定されています。さらに x86 系では Pentium4 / Xeon になって以降、128bit、つまり double 型2個を一度に処理するSIMD最適化(SSE II)ができます。これももちろん精度に影響します。また、CPUが異なればマイクロプログラムのアルゴリズムも異なり、解析解のない関数 (例えば三角関数や指数関数)の結果は異なって当然です。その結果、「Linux、Windows、さまざまな商用UNIXでバラバラの答えが出る」といったことが普通に起こるわけです。デリバティブのポジション評価にパソコンやワークステーションをお使いの金融ユーザーの皆さん、ご注意あれ。コンピュータは字義どおりの魔物 (daemon)の住む機械です。おそるべきことに、数値計算に携わる専門家の常識であっても、コンピュータメーカーの営業上の理由からかディスクローズされていない、あるいは積極的に知らされていない問題が数多くあり、数値計算はシステムエンジニアにとってさえ縁遠い世界なのです。この問題についてより詳しく研究されたい方には、[このペーパー (David Goldberg, "What Every Computer Scientist Should Know about Floating-Point Arithmetic")](http://perso.ens-lyon.fr/jean-michel.muller/goldberg.pdf)が有用な情報になるでしょう。
+
+### どうして乱数シードが2つあるの？
+
+乱数の種数 (初期値)を64ビット分用意すべく、オリジナルの乱数アルゴリズムを拡張しました。なぜこのような拡張が必要なのかというと、実務においては再現性を伴うようなシミュレーション、すなわちバックテスティングやWhat-If分析の時に広大な初期値空間が必要になるからです。一般にはデータベースのキーフィールドを乱数の種数に関連付けてシミュレーションします。
+
+### 乱数シードの異なる乱数系列の独立性
+
+乱数シードを変更すると異なる乱数列が生成されます。どのような乱数シードを与えるべきか？この問いは極めて微妙で深遠なものです。\
+実際には適当に選択した整数（例えばシミュレーション番号）を与えるしかありません。しかし、乱数シードを気にする必要がない、あるいは Excel の RAND() 関数のように勝手に乱数シードが選ばれるようにしたいのであれば、「[Excel RAND() の振る舞いに似せて、ワークシートを再計算するたびに乱数を自動的に更新する方法](https://www.ntrand.com/jp/faq/#local_changerandomnumbers)」に記述してある方法があります。
+
+本来ならば、異なる乱数シードから生成された乱数系列間の独立性を注意深くテストした後にそれらをシミュレーションに用いるべきでしょうが、実際にはそのようなテストを行わずに乱数系列は互いに独立であるとしてシミュレーションなどを行っている場合がほとんどです（しかも、NtRand で生成される乱数系列は事実上独立としても問題ない）。\
+もしこの辺りの事情をより深く知りたいのであれば以下のサイトを参照してください。\
+[Dynamic Creator Home Page](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/DC/dc.html)

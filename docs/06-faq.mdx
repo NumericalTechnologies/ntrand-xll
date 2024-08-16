@@ -510,6 +510,7 @@ This is what you want. NtRand() function is called just once even if it returns 
 
 You may want to call **NtRand** addin functions from VBA (Visual Basic for Application). See following example. This code fragment implements same [NTRANDMULTINORM](03-function-reference/01-random-numbers/02-multi-series/01-ntrandmultinorm.mdx) worksheet example which is the same as written above.
 
+```vba
 Public Sub Test1()
 Dim Result As Variant
 Result = Application.Run("NTRANDMULTINORM", 8,
@@ -520,6 +521,7 @@ Range(Cells(14, 3), Cells(16, 5)), Range(Cells(12, 3), Cells(12, 5)),
 ' You can extract an individual value from Result by e.g. Result(5, 2)
 '... do what you want ...
 End Sub
+```
 
 Remind that VBA is different from Visual Basic. The "Application.Run..." technique works with VBA only. VBA can convert Excel internal data type XLOPER inside. However, Visual Basic doesn't have this feature. It is not simple matter to call internal Excel addin functions from Visual Basic.
 

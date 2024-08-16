@@ -346,5 +346,50 @@
   },
   "home.description": {
     "message": "Mersenne TwisterによるFREE Excel乱数生成アドイン"
+  },
+  "home.keyFeatures.title": {
+    "message": "主な特徴"
+  },
+  "home.keyFeatures.description.randomNumberGeneration": {
+    "message": "Mersenne Twister アルゴリズムに基づく乱数生成"
+  },
+  "home.keyFeatures.description.variousProbabilityDistributions": {
+    "message": "豊富な確率分布"
+  },
+  "home.keyFeatures.description.statisticUtilityFunctions": {
+    "message": "統計の実用関数"
+  },
+  "home.purposesOfUse.title": {
+    "message": "主な用途"
+  },
+  "home.purposesOfUse.description.pricingFinancialDerivatives": {
+    "message": "デリバティブのプライシング"
+  },
+  "home.purposesOfUse.description.riskManagementStudies": {
+    "message": "リスク管理の研究"
+  },
+  "home.purposesOfUse.description.preliminaryTestBeforeIntroducingACostlyCalculatingSystem": {
+    "message": "システム導入の事前調査"
+  },
+  "home.purposesOfUse.description.writingYourResearchArticle": {
+    "message": "研究用途。レポート作成（Excel 上でのモンテカルロシミュレーション）"
+  },
+  "home.capabilities.title": {
+    "message": "機能"
+  },
+  "home.capabilities.description.excelRandomGeneratorBasedOnMersenneTwister": {
+    "message": "Mersenne Twister アルゴリズムに基づく Excel 乱数生成アドイン "
+  },
+  "home.capabilities.description.generateOver1MillionRandomNumbers": {
+    "message": "100万超の乱数生成"
+  },
+  "home.capabilities.description.excel64BitAnd32BitCompatible": {
+    "message": "Excel 64ビット版および32ビット版に対応"
+  },
+  "home.capabilities.description.armedWithHigherPrecision": {
+    "message": "さらに高精度な計算が可能"
+  },
+  "home.tagline": {
+    "message": "Mersenne Twisterによる FREE Excel乱数生成アドイン"
   }
 }
