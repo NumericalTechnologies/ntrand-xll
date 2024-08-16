@@ -116,16 +116,16 @@ const config: Config = {
           title: "Links",
           items: [
             {
-              label: "Numerical Technologies",
-              href: "https://www.numtech.com",
-            },
-            {
-              label: "ニューメリカルテクノロジーズ株式会社",
-              href: "https://www.numtech.co.jp",
+              label: "Terms of Service",
+              to: "/terms-of-service",
             },
             {
               label: "License Agreement",
               to: "/license-agreement",
+            },
+            {
+              label: "Privacy Policy",
+              to: "/privacy-policy",
             },
           ],
         },
@@ -137,17 +137,29 @@ const config: Config = {
               to: "/docs/overview",
             },
             {
+              label: "Installation",
+              to: "/docs/installation",
+            },
+            {
+              label: "Function Reference",
+              to: "/docs/function-reference",
+            },
+            {
               label: "FAQ",
               to: "/docs/faq",
             },
           ],
         },
         {
-          title: "More",
+          title: "External Links",
           items: [
             {
-              label: "Blog",
-              to: "/blog",
+              label: "Numerical Technologies",
+              href: "https://www.numtech.com",
+            },
+            {
+              label: "ニューメリカルテクノロジーズ株式会社",
+              href: "https://www.numtech.co.jp",
             },
             {
               label: "GitHub",

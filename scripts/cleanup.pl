@@ -50,6 +50,7 @@ sub replace_links {
             replace_links("$dir/$file");
         }
         else {
+            print "Processing $dir/$file\n";
             if ( $file =~ m/((\d\d\d?)-)?(.*)\.mdx/ ) {
                 my $prefix    = $2;
                 my $name      = $3;
@@ -99,6 +100,7 @@ s/https:\/\/www.ntrand.com\/jp\/$key\/?\)/$relative_path)/g;
                 print $fh_out $file_content;
 
                 close($fh_out);
+                print "Done processing $dir/$file\n";
             }
         }
     }
