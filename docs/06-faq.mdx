@@ -1,0 +1,664 @@
+---
+title: FAQ
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# Frequently Asked Questions
+
+## About License
+
+### Is it really **no strings attached** when i use this software?
+
+**NtRand** (the "Software") is a free software and no user's fee or license fee is charged. So do not worry, you won't be asked to pay anything nor get caught just by using it under the [License Agreement](/license-agreement/).
+
+### **Who** is Numerical Technologies Incorporated?
+
+[Numerical Technologies Incorporated](http://www.numtech.com/) is an IT Software vendor which supports risk management system in major Japanese Financial Institutions and is located at Marunouchi in Tokyo, Japan.
+
+[Numerical Technologies Pte. Ltd.](http://www.numtech.com/) is its sister company located in Singapore.
+
+## How to Use? Trouble using NtRand?
+
+### I cannot open Help File
+
+Sometimes depends on your PC environment, you cannot open Help File (chm file). It is due to Windows security restrictions. Please try following methods.
+
+- Method 1
+  - 1\. Double-click the .chm file
+  - 2\. In the Open File-Security Warning dialog box, click to clear the Always ask before opening this file check box
+  - 3\. Click Open
+- Method 2
+  - 1\. Right-click the CHM file, and then click Properties
+  - 2\. Click Unblock
+  - 3\. Double-click the .chm file to open the file
+
+Reference: [Microsoft Support](http://support.microsoft.com/kb/902225)
+
+### Enhancement of Monte Carlo by moment matching
+
+The most serious headache of Monte Carlo users may be its complexity. The theoretical performance (computing error) of the **crude Monte Carlo** is represented by the expression below assuming the count of simulation is *n*:
+
+$$
+O\left(\frac{1}{\sqrt{n}}\right)
+$$
+
+Here are typical two of the approaches for improving the performance of crude Monte Carlo:
+
+- **Quasi-random number Monte Carlo** -- Use a regular numerical sequence instead of pseudo-random numbers, to approximate more preferable probability distribution.
+- **Moment matching** -- Operate pseudo-random numbers to be generated with statistical method, to approximate more preferable probability distribution.
+
+Whichever approach you should choose is dependent on your purpose of using Monte Carlo, for it is not always concluded which approach is superior to the other. Pros and cons of each approach are explained below:
+
+- **Quasi-random number Monte Carlo**\
+  Works best for specific purposes, such as evaluating the expected value or the variance of a single variant or of multiple variants under low dimensions. For instance, in the area of option pricing with a single variant, this approach greatly improves the accuracy of calculation with fewer times of repeating operations. The quasi-random number Monte Carlo made a boom among major players in financial communities in the late 1980s and early 1990s. Today the boom is almost gone because the moment matching with more times of operations has solved almost all problems thanks to the current improvement in computer performance. The disadvantage, on the other hand, is that this approach is not the solution for computing percentile numbers (e.g., VaR calculation) because of the significant degradation of performance in a higher dimension and the behavioral problem of quasi-random numbers on the tail of the distribution.\
+  Denoting the count of simulation by *n*, the theoretical performance (computing error) of the quasi-random number Monte Carlo relies on the dimensional number *d* ( as expressed in the following formula), which means the more the count of variant increases, the more the performance of the quasi-random number Monte Carlo deteriorates than that of the crude Monte Carlo.
+
+  $$
+  O\left(\frac{(\log n)^d}{n}\right)
+  $$
+
+- **Moment matching**\
+  Versatile for almost all purposes. There is no other powerful alternatives than this approach to maintain a stable performance in the higher dimension or on the tail of the distribution (e.g., percentile number calculation). Regardless of the great improvement in performance on the aspect, the moment matching approach also has the same theoretical performance limit as the crude Monte Carlo. Therefore its performance is poor in the single variant environment, even poorer than the quasi-random number Monte Carlo's. In the financial community, the moment matching approach has become widely used as a standard in the higher order Monte Carlo simulation since the middle of the 1990s when the quantification of risk [i.e. value-at-risk (VaR)] made a presence as a significant subject. What made the moment matching so popular? Not only its user-friendliness and good predictability (perspective) but also the progress in computer performance as the infrastructure have greatly contributed to its popularity. Most people may think that "Quasi-random number Monte Carlo ended its role because now we have powerful computers capable of finishing 10,000-time or more simulation in less than one second." This idea seems persuasive in a sense. But if you have to calculate a special option price for which large numbers of simulations are required as a very heavy burden of computing the quasi-random number Monte Carlo rather than the moment matching should be applied.
+
+**NtRand** is capable of using two moment matching methods of [antithetic variant method](/docs/glossary#antithetic-variant-method) and [quadratic resampling](/docs/glossary#quadratic-resampling) either separately or simultaneously. Especially the simultaneous operation brings a remarkably effective result, and thus this operation was a sort of company secret in the financial community (e.g., among the MBS/ABS derivative players) in the 1980s. Today, almost in the end of 1990s, this technology is out of the closet while many theses are released one after another regarding this subject.
+
+Leave precise arguments to the papers by experts. Let us run four types of 100-count 3-variate Monte Carlo simulation (n=100) to assess the effects of the individual operation and simultaneous operations of [antithetic variant method](/docs/glossary#antithetic-variant-method) and [quadratic resampling](/docs/glossary#quadratic-resampling). The comparison tables indicate the first moment (mean), second moment (standard deviation or variance), third moment (skewness), fourth moment (kurtosis), and correlation coefficients of obtained random numbers.
+
+- **Input data**\
+  Suppose that we generate drifting multivariate normal random numbers having following statistics. It is assessed that the more proximate the result comes to these values, the more effective the simulation case is.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.01, readOnly: true },
+        { value: 0.02, readOnly: true },
+        { value: 0.03, readOnly: true },
+        { value: "means", readOnly: true },
+      ],
+      [
+        { value: 0.29833, readOnly: true },
+        { value: 0.24083, readOnly: true },
+        { value: 0.21213, readOnly: true },
+        { value: "stdevs", readOnly: true },
+      ],
+      [
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: "skewness", readOnly: true },
+      ],
+      [
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: "kurtosis", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 0.54843, readOnly: true },
+        { value: 0.50011, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.54843, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.50011, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- **Case 1: Crude Monte Carlo -- with no use of moment matching**\
+  In only a hundred times of trial computing, the obtained statistics from generated multivariate random numbers are substantially far from those of the input data.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.0521, readOnly: true },
+        { value: 0.0271, readOnly: true },
+        { value: 0.03757, readOnly: true },
+        { value: "means", readOnly: true },
+      ],
+      [
+        { value: 0.29159, readOnly: true },
+        { value: 0.22906, readOnly: true },
+        { value: 0.19863, readOnly: true },
+        { value: "stdevs", readOnly: true },
+      ],
+      [
+        { value: -0.06096, readOnly: true },
+        { value: 0.39699, readOnly: true },
+        { value: 0.41137, readOnly: true },
+        { value: "skewness", readOnly: true },
+      ],
+      [
+        { value: -0.30666, readOnly: true },
+        { value: 0.17643, readOnly: true },
+        { value: 0.55905, readOnly: true },
+        { value: "kurtosis", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 0.47414, readOnly: true },
+        { value: 0.45856, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.47414, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: 0.71127, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.45856, readOnly: true },
+        { value: 0.71127, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- **Case 2: Only with [antithetic variant method ](/docs/glossary#antithetic-variant-method)(odd-order moment matching)**\
+  Mean and skewness which make the odd-order moment are adjusted so that they absolutely match the input data. Higher odd-order moments will be zeroed (not listed below).
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.01, readOnly: true },
+        { value: 0.02, readOnly: true },
+        { value: 0.03, readOnly: true },
+        { value: "means", readOnly: true },
+      ],
+      [
+        { value: 0.28964, readOnly: true },
+        { value: 0.23389, readOnly: true },
+        { value: 0.21311, readOnly: true },
+        { value: "stdevs", readOnly: true },
+      ],
+      [
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: "skewness", readOnly: true },
+      ],
+      [
+        { value: -0.13148, readOnly: true },
+        { value: -0.21078, readOnly: true },
+        { value: -0.04597, readOnly: true },
+        { value: "kurtosis", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 0.58045, readOnly: true },
+        { value: 0.52405, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.58045, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: 0.74021, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.52405, readOnly: true },
+        { value: 0.74021, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- **Case 3: Only with [quadratic resampling](/docs/glossary#quadratic-resampling) (1st- and 2nd-moment matching)**\
+  Mean, standard deviation and correlation coefficient are adjusted so that they absolutely match the input data. Note that a slight deviation may occur in case of very high dimension restricted by the error limit (generated in the process of inverse matrix computing and triangular decomposition) caused by representation accuracy of the computer.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.01, readOnly: true },
+        { value: 0.02, readOnly: true },
+        { value: 0.03, readOnly: true },
+        { value: "means", readOnly: true },
+      ],
+      [
+        { value: 0.29833, readOnly: true },
+        { value: 0.24083, readOnly: true },
+        { value: 0.21213, readOnly: true },
+        { value: "stdevs", readOnly: true },
+      ],
+      [
+        { value: 0.0047, readOnly: true },
+        { value: 0.40025, readOnly: true },
+        { value: 0.57564, readOnly: true },
+        { value: "skewness", readOnly: true },
+      ],
+      [
+        { value: 0.4371, readOnly: true },
+        { value: 1.71197, readOnly: true },
+        { value: 0.72973, readOnly: true },
+        { value: "kurtosis", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 0.54843, readOnly: true },
+        { value: 0.50011, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.54843, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.50011, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- **Case 4: Simultaneous use of [antithetic variant method](/docs/glossary#antithetic-variant-method) and [quadratic resampling](/docs/glossary#quadratic-resampling) (moment matching with odd-order moment plus 2nd-moment)**\
+  All values except for kurtosis match the input data. Note that a slight deviation may occur in case of very high dimension restricted by the error limit (generated in the process of inverse matrix computing and triangular decomposition) caused by representation accuracy of the computer.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.01, readOnly: true },
+        { value: 0.02, readOnly: true },
+        { value: 0.03, readOnly: true },
+        { value: "means", readOnly: true },
+      ],
+      [
+        { value: 0.29833, readOnly: true },
+        { value: 0.24083, readOnly: true },
+        { value: 0.21213, readOnly: true },
+        { value: "stdevs", readOnly: true },
+      ],
+      [
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: "skewness", readOnly: true },
+      ],
+      [
+        { value: -0.73001, readOnly: true },
+        { value: 1.19494, readOnly: true },
+        { value: 0.15166, readOnly: true },
+        { value: "kurtosis", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 0.54843, readOnly: true },
+        { value: 0.50011, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.54843, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.50011, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+Following table is another result of the case 4, where the simulation was run by 10000 times (_n_=10000). The kurtosis shows an improvement.
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "1st.series", readOnly: true, className: "orange-cell" },
+        { value: "2nd.series", readOnly: true, className: "orange-cell" },
+        { value: "3rd.series", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.01, readOnly: true },
+        { value: 0.02, readOnly: true },
+        { value: 0.03, readOnly: true },
+        { value: "means", readOnly: true },
+      ],
+      [
+        { value: 0.29833, readOnly: true },
+        { value: 0.24083, readOnly: true },
+        { value: 0.21213, readOnly: true },
+        { value: "stdevs", readOnly: true },
+      ],
+      [
+        { value: 0.0047, readOnly: true },
+        { value: 0.40025, readOnly: true },
+        { value: 0.57564, readOnly: true },
+        { value: "skewness", readOnly: true },
+      ],
+      [
+        { value: -0.03774, readOnly: true },
+        { value: 0.11285, readOnly: true },
+        { value: 0.00159, readOnly: true },
+        { value: "kurtosis", readOnly: true },
+      ],
+      [
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Data", readOnly: true, className: "orange-cell" },
+        { value: "Description", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 0.54843, readOnly: true },
+        { value: 0.50011, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.54843, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+      [
+        { value: 0.50011, readOnly: true },
+        { value: 0.68817, readOnly: true },
+        { value: 1, readOnly: true },
+        { value: "crrel.matrix", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+As discussed through above cases, the simultaneous use of [antithetic variant method](/docs/glossary#antithetic-variant-method) and [quadratic resampling](/docs/glossary#quadratic-resampling) is likely to serve for drastic improvement in convergence just with a hundred-time Monte Carlo simulation as if it would give a complete solution. This must be right to a certain extent, but a wrong conclusion. People are often lured by this sort of logical development named "**Type I error**" in statistics. To interpret the this Type I error in the case 4, a quick improvement in convergence by moment matching is quite different a question from the one that this method surely converges asymptotically to the true solution. Regardless of the purposes for calculating option or VaR, certain times of trial computing should be necessary.
+
+### How can I use sample sheets?
+
+Sample sheets can be downloaded from [Download](https://www.ntrand.com/download/) page. **After [installing](https://www.ntrand.com/install/) NtRand excel add-in**, open the sample sheet to understand how to use NtRand functions.\
+Each sample sheet includes following functions.
+
+- NtRand1.zip --\
+  ([NTRAND](03-function-reference/01-random-numbers/01-single-series/01-ntrand.mdx), [NTRANDBETA](03-function-reference/01-random-numbers/01-single-series/02-ntrandbeta.mdx), [NTBETAMOM](03-function-reference/02-distribution-functions/005-ntbetamom.mdx), [NTBETAPARAM](03-function-reference/02-distribution-functions/006-ntbetaparam.mdx), [NTRANDGUMBEL](03-function-reference/01-random-numbers/01-single-series/07-ntrandgumbel.mdx), [NTGUMBELMOM](03-function-reference/02-distribution-functions/043-ntgumbelmom.mdx), [NTGUMBELPARAM](03-function-reference/02-distribution-functions/044-ntgumbelparam.mdx), [NTRANDJOHNSONSU](03-function-reference/01-random-numbers/01-single-series/08-ntrandjohnsonsu.mdx), [NTJOHNSONSUMOM](03-function-reference/02-distribution-functions/051-ntjohnsonsumom.mdx), [NTJOHNSONSUPARAM](03-function-reference/02-distribution-functions/052-ntjohnsonsuparam.mdx), [NTRANDLOGISTIC](03-function-reference/01-random-numbers/01-single-series/09-ntrandlogistic.mdx), [NTLOGISTICMOM](03-function-reference/02-distribution-functions/059-ntlogisticmom.mdx), [NTLOGISTICPARAM](03-function-reference/02-distribution-functions/060-ntlogisticparam.mdx), [NTRANDLOGNORM](03-function-reference/01-random-numbers/01-single-series/10-ntrandlognorm.mdx), [NTLOGNORMMOM](03-function-reference/02-distribution-functions/067-ntlognormmom.mdx), [NTLOGNORMPARAM](03-function-reference/02-distribution-functions/068-ntlognormparam.mdx), [NTRANDNORM](03-function-reference/01-random-numbers/01-single-series/11-ntrandnorm.mdx), [NTRANDPOISSON](03-function-reference/01-random-numbers/01-single-series/12-ntrandpoisson.mdx), [NTPOISSONMOM](03-function-reference/02-distribution-functions/077-ntpoissonmom.mdx), [NTRANDTRIANGULAR](03-function-reference/01-random-numbers/01-single-series/14-ntrandtriangular.mdx), [NTTRIANGULARMOM](03-function-reference/02-distribution-functions/091-nttriangularmom.mdx), [NTTRIANGULARPARAM](03-function-reference/02-distribution-functions/092-nttriangularparam.mdx), [NTRANDTRUNCNORM](03-function-reference/01-random-numbers/01-single-series/15-ntrandtruncnorm.mdx), [NTTRUNCNORMMOM](03-function-reference/02-distribution-functions/099-nttruncnormmom.mdx), [NTTRUNCNORMPARAM](03-function-reference/02-distribution-functions/100-nttruncnormparam.mdx), [NTRANDWEIBULL](03-function-reference/01-random-numbers/01-single-series/16-ntrandweibull.mdx), [NTWEIBULLMOM](03-function-reference/02-distribution-functions/107-ntweibullmom.mdx), [NTWEIBULLPARAM](03-function-reference/02-distribution-functions/108-ntweibullparam.mdx), [NTRANDMULTINORM](03-function-reference/01-random-numbers/02-multi-series/01-ntrandmultinorm.mdx))
+- NtRand2.zip --\
+  ([NTBETANORMDIST](03-function-reference/02-distribution-functions/001-ntbetadist.mdx), [NTBETAPARAM](03-function-reference/02-distribution-functions/006-ntbetaparam.mdx), [NTGUMBELDIST](03-function-reference/02-distribution-functions/039-ntgumbeldist.mdx), [NTGUMBELINV](03-function-reference/02-distribution-functions/040-ntgumbelinv.mdx), [NTGUMBELPARAM](03-function-reference/02-distribution-functions/044-ntgumbelparam.mdx), [NTJOHNSONSUDIST](03-function-reference/02-distribution-functions/047-ntjohnsonsudist.mdx), [NTJOHNSONSUINV](03-function-reference/02-distribution-functions/048-ntjohnsonsuinv.mdx), [NTJOHNSONSUPARAM](03-function-reference/02-distribution-functions/052-ntjohnsonsuparam.mdx), [NTLOGISTICDIST](03-function-reference/02-distribution-functions/055-ntlogisticdist.mdx), [NTLOGISTICINV](03-function-reference/02-distribution-functions/056-ntlogisticinv.mdx), [NTLOGISTICPARAM](03-function-reference/02-distribution-functions/060-ntlogisticparam.mdx), [NTLOGNORMDIST](03-function-reference/02-distribution-functions/063-ntlognormdist.mdx), [NTLOGNORMINV](03-function-reference/02-distribution-functions/064-ntlognorminv.mdx), [NTLOGNORMPARAM](03-function-reference/02-distribution-functions/068-ntlognormparam.mdx), [NTNORMDIST](03-function-reference/02-distribution-functions/071-ntnormdist.mdx), [NTPOISSONDIST](03-function-reference/02-distribution-functions/073-ntpoissondist.mdx), [NTTRIANGULARDIST](03-function-reference/02-distribution-functions/087-nttriangulardist.mdx), [NTTRIANGULARINV](03-function-reference/02-distribution-functions/088-nttriangularinv.mdx), [NTTRIANGULARPARAM](03-function-reference/02-distribution-functions/092-nttriangularparam.mdx), [NTTRUNCNORMDIST](03-function-reference/02-distribution-functions/095-nttruncnormdist.mdx), [NTTRUNCNORMINV](03-function-reference/02-distribution-functions/096-nttruncnorminv.mdx), [NTTRUNCNORMPARAM](03-function-reference/02-distribution-functions/100-nttruncnormparam.mdx), [NTWEIBULLDIST](03-function-reference/02-distribution-functions/103-ntweibulldist.mdx), [NTWEIBULLINV](03-function-reference/02-distribution-functions/104-ntweibullinv.mdx), [NTWEIBULLPARAM](03-function-reference/02-distribution-functions/108-ntweibullparam.mdx))
+- NtRand3.zip --\
+  ([NTCOR2COV](03-function-reference/03-multivariate-statistics/01-ntcor2cov.mdx), [NTCOV2COR](03-function-reference/03-multivariate-statistics/02-ntcov2cor.mdx), [NTMULTICORREL](03-function-reference/03-multivariate-statistics/03-ntmulticorrel.mdx), [NTMULTICOVARP](03-function-reference/03-multivariate-statistics/04-ntmulticovarp.mdx))
+
+### How to change random numbers automatically like Excel RAND, when recalculating worksheet
+
+**NtRand** addin functions give stable number. This is by design. But you may want to update random number every time when you recalculate the worksheet. There is very simple way to achieve this. See following worksheet formula.
+
+=NtRand(10000,0,RAND()*2147483647,RAND()*2147483647)
+
+This is what you want. NtRand() function is called just once even if it returns multiple values, because it uses [array formula](/docs/glossary#array-formula-in-excel). For this reason, RAND() function is never called 10000 or 20000 times by this solution.
+
+### How to use NtRand from VBA (Visual Basic for Application)
+
+You may want to call **NtRand** addin functions from VBA (Visual Basic for Application). See following example. This code fragment implements same [NTRANDMULTINORM](03-function-reference/01-random-numbers/02-multi-series/01-ntrandmultinorm.mdx) worksheet example which is the same as written above.
+
+Public Sub Test1()
+Dim Result As Variant
+Result = Application.Run("NTRANDMULTINORM", 8,
+Range(Cells(14, 3), Cells(16, 5)), Range(Cells(12, 3), Cells(12, 5)),
+0, 12345, 67890, True, True, True)
+'... now 'Result' stores 8 x 3 array of multi-dimensional normal
+' random number sequence ...
+' You can extract an individual value from Result by e.g. Result(5, 2)
+'... do what you want ...
+End Sub
+
+Remind that VBA is different from Visual Basic. The "Application.Run..." technique works with VBA only. VBA can convert Excel internal data type XLOPER inside. However, Visual Basic doesn't have this feature. It is not simple matter to call internal Excel addin functions from Visual Basic.
+
+### Microsoft Excel-specific Limitations for NtRand 32bit
+
+NtRand 32bit supports Excel 97 -- 2016 running on the Windows 95 or later operating system **in any language version**. NtRand 32bit is also designed to be operated in Excel 5.0 on 95/98, but the correct operation is not verified in this environment.\
+And sample sheets are not for Excel 5.0.
+
+With regard to the Excel function, the maximum number of data passable at one time is limited to 32,767 records (both in row and column directions) for an array formula, or to 32,767 records (in row) and 256 records (in column) as a general expression.\
+In Windows 95/98, the 16-bit limitation in addition to the above restrictions restrains the maximum passable data size at one time to 64 KB. So, the Excel's standard "Numeric" type (double-precision floating-point number) data cannot be transferred more than 8,192 records.\
+Thus, the 32-bit Windows NT/2000/XP operating system is recommended for a higher dimension multivariate Monte Carlo with NtRand 32bit.\
+Basically these limitations are caused from the Excel and Windows, and not by NtRand 32bit.
+
+Excel 2007 or later can treat more than 32,767 records.
+
+### Why I always see the same result even if I input formula into multiple cell?
+
+The most frequently asked question for NtRand is this type of question. This is caused by Excel, not NtRand. People who don't know how to use Excel well, such as,
+
+**CTRL+SHIFT+ENTER**
+
+key combination, must read Excel help and/or how-to books carefully. In addition, we recommend to read either ["array formula "](/docs/glossary#array-formula-in-excel) or ["Microsoft Excel-specific Limitations"](/docs/faq#microsoft-excel-specific-limitations-for-ntrand-32bit).
+
+### Mean and standard deviation of the log normal distribution
+
+[Log normal distribution](05-gallery-of-distributions/log-normal-distribution.mdx) has 2 parameters such as $M$ and $S$, and its [cumulative distribution function](/docs/glossary#cumulative-distribution-function) is :
+
+$$
+F(x;M, S) = \Phi\left(\frac{{\ln x}-M}{S}\right)
+$$
+
+Where $\Phi(\cdot)$ is the [cumulative distribution function](/docs/glossary#cumulative-distribution-function) of the [standard normal distribution](/docs/glossary#standard-deviation).\
+Parameter $M$ and $S$ are **not** the [mean](/docs/glossary#mean) and not the [standard deviation](/docs/glossary#standard-deviation) of the distribution respectively.
+
+As you can see in r.h.s, the variable's logarithm is normally distributed. Therefore, $M$ and $S$ are the [mean](/docs/glossary#mean) and the standard deviation of the variable's natural logarithm.
+
+$$
+\text{E}\left[\ln x\right] = M
+$$
+
+$$
+\text{Stdev}\left[\ln x\right] = S
+$$
+
+However, how about the [mean](/docs/glossary#mean) and [standard deviation](/docs/glossary#standard-deviation) of $x$ itself？\
+If the mean of $\ln x$ is $M$ then the mean of $x$ is $\exp\left(M\right)$ ? (Then the standard deviation of $x$ is $\exp\left(S\right)$ ? ) Unfortunately, that is a sweet fantasy.
+
+When you calculate the [mean](/docs/glossary#mean) and the [standard deviation](/docs/glossary#standard-deviation) carefully according to definitional identity...
+
+$$
+\text{E}[x] = \exp\left(M+\frac{S^2}{2}\right)
+$$
+
+$$
+\text{Stdev}[x] =\exp\left(M+\frac{S^2}{2}\right)\sqrt{\exp\left(S^2\right)-1}
+$$
+
+Therefore, it's not possible to describe the mean of $x$ only with $M$ nor describe the standard deviation only with $S$. Both the mean and the standard deviation are combinations of $M$ and $S$.
+
+Of course NtRand is here to do all those tough calculations for you.
+
+$$
+\text{E}[x]=\text{NTLOGNORMMEAN}(M, S)
+$$
+
+$$
+\text{Stdev}[x]=\text{NTLOGNORMSTDEV}(M, S)
+$$
+
+What about the inverse of this calculation, in another word, to calculate $M$ and $S$ from $\text{E}[x]$ and $\text{Stdev}[x]$ ? Don't worry. Let NtRand do.
+
+$$
+{M, S}={\text{NTLOGNORMPARAM}(\text{E}[x], \text{Stdev}[x])}
+$$
+
+By the way, the result is\
+
+$$
+M =\frac{1}{2}\ln\left(\frac{\text{E}^4[x]}{\text{E}^2[x]+\text{Stdev}^2[x]}\right)
+$$
+
+$$
+S =\sqrt{\ln\left(\frac{\text{E}^2[x]+\text{Stdev}^2[x]}{\text{E}^2[x]}\right)}
+$$
+
+You can also check details at [Sample Sheet](https://www.ntrand.com/files/NtRand1.zip).
+
+### How to truncate tail of distribution?
+
+If you have cumulative distribution function $F(x)$ and its inverse function $F^{-1}(u)$ of a ** distribution, you can generate random number sequence following **"Truncated" distribution\*\* from uniform random numbers.
+
+There are three generating process depends on the way to truncate the tail.
+
+- Truncate both tail (Restrict the range to $A\leq x\leq B$)
+  - $s=F(A)$
+  - $\Delta=F(B)-F(A)$
+- Truncate lower tail (Restrict the range to $x\geq A$)
+  - $s=F(A)$
+  - $\Delta=1-F(A)$
+- Truncate upper tail (Restrict the range to $x\leq B$)
+  - $s=0$
+  - $\Delta=F(B)$
+
+By using constants defined above,\
+
+$$
+x=F^{-1}(\Delta u+s)
+$$
+
+is random number following "Truncated" \*\* distribution.\
+You can also check details at [sample (Truncated Weibull distribution)](https://www.ntrand.com/files/TruncatedWeibullRandom.zip)
+
+### Why NtRand 64bit version does not run on my 64bit environment?
+
+NtRand's 64bit/32bit versions are corresponding to Excel versions. Typically, we hear people trying to install NtRand 64bit version just because their OS is 64bit version. But that's not always the case. Especially OS 64bit usually has Excel 32bit version installed by default. You'd better check your Excel version before installing!
+
+## Behind NtRand. Opened the Pandora's box?
+
+### Different computing result by each CPU, operating system, and compiler came out ... ?
+
+The computing result depends on the computer's CPU, operating system, and compiler. Thus the same program would produce various results on the different machines. For instance, in triangular decomposition of a larger matrix, the results are not identical between on a Windows machine and on a UNIX workstation. The key reasons for such difference are (1) the operation mode of the floating-point processing unit (FPU) on the CPU chip and (2) the microprogram physically coded on the ROM on CPU chip. This is the different question from the binary underflow or round-off error, or the binary coded decimal (BCD) problems often described in the reference books.\
+Assume that you run a double data type program (most accurate numeric type among C/C++) on a Windows machine. Its binary expression must be 64-bit in most compilers (e.g., Sun Pro CC, egcs, HP CC, Visual C++, Intel C/C++). However, the binary expression accuracy of an Intel x86 FPU is settable to 24/53/64-bit "using the program," of which setting is usually specified in the operating system or compiler. In addition, Pentium4 / Xeon has SSE II instruction set, enables to process two double precision value at once by vectored operation. This feature also has sub-effect to accuracy, of course. Different CPU ought to employ different microprogram algorithm, therefore it is natural for the computers to generate various results in calculation of functions without analytic solution (e.g., trigonometric function, exponential function). That's why you always get different results on each operating system such as Windows, Linux, and various version of UNIX.\
+Watch out, if you are using a personal computer or workstation for evaluation of positioning derivatives. A computer has a daemon inside. To be frightened, to the knowledge of experts who are engaged in numerical calculation, there are number of problems restrained from disclosure or active opening due to the business operation reasons of computer manufacturers. Numerical calculation is an abyss even to the system engineers. Please study [this paper (David Goldberg, "What Every Computer Scientist Should Know about Floating-Point Arithmetic")](http://perso.ens-lyon.fr/jean-michel.muller/goldberg.pdf) for more information.
+
+### Independency among random numbers series with different random seeds
+
+When you change random seeds, different random number series are generated. Then what kind of random seeds should be given? This question is very sensitive and deep, so deep that you can't see the bottom.
+
+To conclude, there's no other way except giving "randomly picked" numbers as random seeds to generate different random number sequences. However, if you don't have to worry about random seeds nor if you embrace that random seed is a God-given value like a random number generator function RAND() of Excel, we tell you [an alternate method](/docs/faq#how-to-change-random-numbers-automatically-like-excel-rand-when-recalculating-worksheet), i.e. a random seed itself is a random number!
+
+Those methods above are widely used from well-known professors to ordinary people.\
+However, it should be used after careful tests of its independency among random number series (Naturally).\
+In reality, there's only quite few people who does such test, and those random number series are recognized as independent without being tested.\
+(Those random numbers are independent to each other more or less in fact.)\
+This is why on current NtRand we designed to give random seeds manually. We do also have a plan to provide this Excel-imitated random number generator function noted above in the next version of NtRand.
+
+If you are interested in those mysteries of random numbers, this link might help.\
+[Dynamic Creator Home Page](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/DC/dc.html)(Mersenne Twister web site)
+
+### Why are two seeds of random numbers required ?
+
+The original random number generating algorithm is extended to prepare the seeds of random numbers for 64 bits. This expansion is necessary to secure a large initial-value space for the simulation with repeatability (i.e., back testing, WHAT-IF analysis) in the business practices. Generally, such simulation is conducted by having the key fields of the database associated with the type of random numbers.

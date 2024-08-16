@@ -1,21 +1,22 @@
 ---
-title: NTRANDTRIANGULAR
+title: NTRANDTRUNCNORM
 ---
 
 import DataGridMdx from "@site/src/components/DataGridMdx";
 
-# NTRANDTRIANGULAR
+# NTRANDTRUNCNORM
 
-Returns triangular pseudo random number(s) based on [Mersenne Twister Algorithm](/docs/glossary#mersenne-twister-algorithm) which has long period ($2^{19937}-1$), high order of equidistribution (623 dimensions).
+Returns truncated normal pseudo random number(s) based on [Mersenne Twister Algorithm](/docs/glossary#mersenne-twister-algorithm) which has long period ($2^{19937}-1$), high order of equidistribution (623 dimensions).
 
 ## Syntax
 
 ```excel
-NTRANDTRIANGULAR(
+NTRANDTRUNCNORM(
   Size,
   Min,
   Max,
-  Mode,
+  Mu,
+  Sigma,
   Algorithm,
   Random seed1,
   Random seed2
@@ -27,7 +28,8 @@ NTRANDTRIANGULAR(
 - **_Size_** is # of random numbers (Positive integer).
 - **_Min_** is a lower limit of a support of the distribution $a$.
 - **_Max_** is a upper limit of a support of the distribution $b$.
-- **_Mode_** is a mode of the distribution $c$.
+- **_Mu_** is a parameter the distribution $\mu$.
+- **_Sigma_** is a parameter the distribution $\sigma(>0)$.
 - **_Algorithm_** is a integer value that determines a method to generate uniform random number.
   - 0: Mersenne Twister(2002)
   - 1: Mersenne Twister(1998)
@@ -38,12 +40,12 @@ NTRANDTRIANGULAR(
 
 ## Remarks
 
-- Parameters must hold the following relation: a < c < b
-- The distribution has bounded support [a, b]
+- Parameters a and b must hold following relation: a < b
+- The distribution has bounded support [a, b] (a < b)
 
 ## Example
 
-![](./../../../assets/functions/histogram/histogramTriangular.jpg)
+![](./../../../assets/functions/histogram/histogramTruncNorm.jpg)
 
 - The example may be easier to understand if you copy it to a blank worksheet
 
@@ -74,15 +76,19 @@ NTRANDTRIANGULAR(
       ],
       [
         { value: 1, readOnly: true },
-        { value: "Lower limit of support", readOnly: true },
+        { value: "lower limit of support", readOnly: true },
+      ],
+      [
+        { value: 4, readOnly: true },
+        { value: "upper limit of support", readOnly: true },
       ],
       [
         { value: 3, readOnly: true },
-        { value: "Upper limit of support", readOnly: true },
+        { value: "Value of parameter Mu", readOnly: true },
       ],
       [
-        { value: 1.4, readOnly: true },
-        { value: "Mode of the distribution", readOnly: true },
+        { value: 0.9, readOnly: true },
+        { value: "Value of parameter Sigma", readOnly: true },
       ],
       [
         { value: "Formula", readOnly: true, className: "orange-cell" },
@@ -93,10 +99,10 @@ NTRANDTRIANGULAR(
         },
       ],
       [
-        { value: "=NTRANDTRIANGULAR(100,A2,A3,A4,0)", readOnly: true },
+        { value: "=NTRANDTRUNCNORM(100,A2,A3,A4,A5,0)", readOnly: true },
         {
           value:
-            "100 triangular deviates based on Mersenne-Twister algorithm for which the parameters above",
+            "100 truncated normal deviates based on Mersenne-Twister algorithm for which the parameters above",
           readOnly: true,
         },
       ],
@@ -104,21 +110,21 @@ NTRANDTRIANGULAR(
   }}
 />
 
-Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A6:A105 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
+Note The formula in the example must be entered as an array formula. After copying the example to a blank worksheet, select the range A7:A106 starting with the formula cell. Press F2, and then press CTRL+SHIFT+ENTER.
 
 - [Download sample excel sheet](https://www.ntrand.com/files/NtRand1.zip)
 - [See tutorial video](https://www.ntrand.com/files/SingleRandom_Demo.swf)
 
 ## See also
 
-- [NTTRIANGULARDIST](../../02-distribution-functions/087-nttriangulardist.mdx)
-- [NTTRIANGULARINV](../../02-distribution-functions/088-nttriangularinv.mdx)
-- [NTTRIANGULARKURT](../../02-distribution-functions/089-nttriangularkurt.mdx)
-- [NTTRIANGULARMEAN](../../02-distribution-functions/090-nttriangularmean.mdx)
-- [NTTRIANGULARMOM](../../02-distribution-functions/091-nttriangularmom.mdx)
-- [NTTRIANGULARPARAM](../../02-distribution-functions/092-nttriangularparam.mdx)
-- [NTTRIANGULARSKEW](../../02-distribution-functions/093-nttriangularskew.mdx)
-- [NTTRIANGULARSTDEV](../../02-distribution-functions/094-nttriangularstdev.mdx)
-- [Triangular distribution](../../../05-gallery-of-distributions/triangular-distribution.mdx)
+- [NTTRUNCNORMDIST](../../02-distribution-functions/095-nttruncnormdist.mdx)
+- [NTTRUNCNORMINV](../../02-distribution-functions/096-nttruncnorminv.mdx)
+- [NTTRUNCNORMKURT](../../02-distribution-functions/097-nttruncnormkurt.mdx)
+- [NTTRUNCNORMMEAN](../../02-distribution-functions/098-nttruncnormmean.mdx)
+- [NTTRUNCNORMMOM](../../02-distribution-functions/099-nttruncnormmom.mdx)
+- [NTTRUNCNORMPARAM](../../02-distribution-functions/100-nttruncnormparam.mdx)
+- [NTTRUNCNORMSKEW](../../02-distribution-functions/101-nttruncnormskew.mdx)
+- [NTTRUNCNORMSTDEV](../../02-distribution-functions/102-nttruncnormstdev.mdx)
+- [Truncated normal distribution](../../../05-gallery-of-distributions/truncated-normal-distribution.mdx)
 - [Choice of the random number generator algorithm](/docs/glossary#choice-of-the-random-number-generator-algorithm)
-- [Why I always see the same result even if I input formula into multiple cell?](https://www.ntrand.com/faq/#local_CtrlShiftEnter)
+- [Why I always see the same result even if I input formula into multiple cell?](/docs/faq#why-i-always-see-the-same-result-even-if-i-input-formula-into-multiple-cell)

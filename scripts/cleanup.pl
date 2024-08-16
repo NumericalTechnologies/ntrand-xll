@@ -72,9 +72,9 @@ sub replace_links {
                         File::Basename::dirname($file_path) );
 
                     $file_content =~
-                      s/http:\/\/www.ntrand.com\/$key\/?\)/$relative_path)/g;
+                      s/http:\/\/www.ntrand.com\/$key\/?\)/$relative_path)/gi;
                     $file_content =~
-                      s/https:\/\/www.ntrand.com\/$key\/?\)/$relative_path)/g;
+                      s/https:\/\/www.ntrand.com\/$key\/?\)/$relative_path)/gi;
                     $file_content =~
 s/http:\/\/www.ntrand.com\/jp\/$key\/?\)/$relative_path)/g;
                     $file_content =~
@@ -131,7 +131,7 @@ sub to_kebab_case {
 # Replace all http://www.ntrand.com/glossary/#local_<name> or https://www.ntrand.com/glossary/#local_<name> to
 # /docs/glossary.mdx#new-TITLE
 
-my %anchor_names;
+my %glossary_anchor_names;
 
 sub get_glossary_links {
     my $url     = "https://www.ntrand.com/glossary/";
@@ -141,7 +141,7 @@ sub get_glossary_links {
         my $id    = $1;
         my $title = $3;
         $title = to_kebab_case($title);
-        $anchor_names{$id} = $title;
+        $glossary_anchor_names{$id} = $title;
     }
 
 }
@@ -167,14 +167,72 @@ sub replace_glossary_links {
             }
             close($fh);
 
-            foreach my $key ( keys %anchor_names ) {
-                my $title = $anchor_names{$key};
+            foreach my $key ( keys %glossary_anchor_names ) {
+                my $title = $glossary_anchor_names{$key};
 
                 # case insensitive
                 $file_content =~
-s/http:\/\/www.ntrand.com\/glossary\/#local_$key/\/docs\/glossary#$title/gi;
+s/http:\/\/www.ntrand.com\/glossary\/?#local_$key/\/docs\/glossary#$title/gi;
                 $file_content =~
-s/https:\/\/www.ntrand.com\/glossary\/#local_$key/\/docs\/glossary#$title/gi;
+s/https:\/\/www.ntrand.com\/glossary\/?#local_$key/\/docs\/glossary#$title/gi;
+
+            }
+
+            open( my $fh_out, '>', $file_path )
+              or die "Can't open $file_path: $!";
+
+            print $fh_out $file_content;
+
+            close($fh_out);
+        }
+    }
+}
+
+my %faq_anchor_names;
+
+sub get_faq_links {
+    my $url     = "https://www.ntrand.com/documentation/faq/";
+    my $content = `curl -s $url`;
+    while ( $content =~
+        m/<a id="local_(.*?)" name="local_(.*?)"><\/a>(.*?)<\/div>/g )
+    {
+        my $id    = $1;
+        my $title = $3;
+        $title = to_kebab_case($title);
+        $faq_anchor_names{$id} = $title;
+    }
+
+}
+
+sub replace_faq_links {
+
+    my $dir = shift;
+    my $dir_handle;
+    opendir( $dir_handle, $dir ) or die "Can't open $dir: $!";
+    while ( my $file = readdir($dir_handle) ) {
+        next if ( $file =~ m/^\./ );
+        if ( -d "$dir/$file" ) {
+            replace_faq_links("$dir/$file");
+        }
+        else {
+            my $file_path = "$dir/$file";
+            my $file_content;
+            open( my $fh, '<', $file_path )
+              or die "Can't open $file_path: $!";
+            {
+                local $/;
+                $file_content = <$fh>;
+            }
+            close($fh);
+
+            foreach my $key ( keys %faq_anchor_names ) {
+                my $title = $faq_anchor_names{$key};
+
+                # case insensitive
+                $file_content =~
+s/http:\/\/www.ntrand.com\/documentation\/faq\/#local_$key/\/docs\/faq#$title/gi;
+                $file_content =~
+s/https:\/\/www.ntrand.com\/documentation\/faq\/#local_$key/\/docs\/faq#$title/gi;
 
             }
 
@@ -199,8 +257,16 @@ replace_links(".");
 
 get_glossary_links();
 
-foreach my $key ( keys %anchor_names ) {
-    print "$key => $anchor_names{$key}\n";
+foreach my $key ( keys %glossary_anchor_names ) {
+    print "$key => $glossary_anchor_names{$key}\n";
 }
 
 replace_glossary_links(".");
+
+get_faq_links();
+
+foreach my $key ( keys %faq_anchor_names ) {
+    print "$key => $faq_anchor_names{$key}\n";
+}
+
+replace_faq_links(".");
