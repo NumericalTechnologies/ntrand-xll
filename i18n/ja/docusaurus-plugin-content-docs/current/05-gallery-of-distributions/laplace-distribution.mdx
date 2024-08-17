@@ -1,0 +1,228 @@
+---
+title: ラプラス分布(Laplace distribution)
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# ラプラス分布(Laplace distribution)
+
+## 分布の形状
+
+### 基本情報
+
+- 2つのパラメータ $\mu, \phi$ が必要です.
+
+  $$
+  \phi>0
+  $$
+
+- 無限区間 $(-\infty,+\infty)$ で定義された連続分布です。
+- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して常に対称です。
+
+### 確率
+
+- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+
+  $$
+  F(x)=\begin{cases}\frac{1}{2}\exp\left(\frac{x-\mu}{\phi}\right)\;&(x<\mu)\\1-\frac{1}{2}\exp\left(-\frac{x-\mu}{\phi}\right)\;&(x\geq \mu)\end{cases}
+  $$
+
+- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{1}{2\phi}\exp\left(-\frac{|x-\mu|}{\phi}\right)
+  $$
+
+- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "対象となる値", readOnly: true },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "分布のパラメータ Mu の値", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "分布のパラメータ Phi の値", readOnly: true },
+      ],
+      [
+        { value: "=(A2-A3)/A4", readOnly: true },
+        { value: "Standardized variable z", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=IF(A2<A3,0.5*EXP(A5),1-0.5*EXP(-A5))", readOnly: true },
+        { value: "上のデータに対する累積分布関数の値", readOnly: true },
+      ],
+      [
+        { value: "=0.5*EXP(-ABS(A5))/A4", readOnly: true },
+        { value: "上のデータに対する確率密度関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+### 分位点
+
+- [累積確率関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+
+  $$
+  F^{-1}(P)=\begin{cases}\phi\ln 2P+\mu&(P<0.5)\\-(\phi\ln 2(1-P)+\mu)&(P\geq 0.5)\end{cases}
+  $$
+
+- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.7", readOnly: true },
+        { value: "この分布の確率", readOnly: true },
+      ],
+      [
+        { value: "1.7", readOnly: true },
+        { value: "分布のパラメータ Mu の値", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "分布のパラメータ Phi の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        {
+          value: "=IF(P<0.5,A4*LN(2*A2)+A3,-(A4*LN(2*(1-A2))+A3))",
+          readOnly: true,
+        },
+        { value: "上のデータに対する累積分布関数の逆関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+## 分布の特徴
+
+### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+
+- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean)は $\mu$ と与えられます。
+
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+
+- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+
+  $$
+  2\phi^2
+  $$
+
+  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 2, readOnly: true },
+        { value: "分布のパラメータ Phi の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=SQRT(2)*A2", readOnly: true },
+        { value: "上のデータに対する分布の標準偏差", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+
+- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skewness)は $0$ です。
+
+### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+
+- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis)は $3$ です。
+
+## 乱数
+
+- 乱数 x は一様乱数 U に対して次式で生成されます（逆関数法） :
+
+  $$
+  x=\begin{cases}\phi\ln 2U+\mu&(U<0.5)\\-(\phi\ln 2(1-U)+\mu)&(U\geq 0.5)\end{cases}
+  $$
+
+- Excel での乱数生成法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.5, readOnly: true },
+        { value: "分布のパラメータ Mu の値", readOnly: true },
+      ],
+      [
+        { value: 0.5, readOnly: true },
+        { value: "分布のパラメータ Phi の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        {
+          value:
+            "=IF(NTRAND(100)<0.5,A3*LN(2*NTRAND(100))+A2,-(A3*LN(2*(1-NTRAND(100)))+A2))",
+          readOnly: true,
+        },
+        {
+          value:
+            "100個のラプラス乱数を Mersenne Twister アルゴリズムで生成します。",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A5:A104 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
+
+## 参照
+
+- [Wolfram Mathworld -- Laplace distribution](http://mathworld.wolfram.com/LaplaceDistribution.html)
+- [Wikipedia -- Laplace distribution](http://en.wikipedia.org/wiki/Laplace_distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)
+- Marketing
+
+  ["On the Laplace Distribution of Firms Growth Rates" by Giulio Bottazzi and Angelo Secchi](http://ideas.repec.org/p/ssa/lemwps/2002-20.html)
+
+- Computer graphics
+
+  ["State assignment of the JPEG statistical model based on a Laplacian distribution" by KUROKI Yoshimitsu el al](http://ci.nii.ac.jp/naid/110003706110/)

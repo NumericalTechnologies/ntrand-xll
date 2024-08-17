@@ -1,0 +1,251 @@
+---
+title: t 分布(t distribution)
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# t 分布(t distribution)
+
+## 分布の形状
+
+### 基本情報
+
+- 1つのパラメータ $N$ が必要です（正の整数）。
+- 無限区間 $(-\infty, +\infty)$ で定義された連続分布です。
+- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して常に対称です。
+
+### 確率
+
+- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{\Gamma\left(\frac{N+1}{2}\right)}{\sqrt{\pi N\left(1+\frac{x^2}{N}\right)^{N+1}}\Gamma\left(\frac{N}{2}\right)}
+  $$
+
+  ここで $\Gamma(\cdot)$ は [ガンマ関数](https://www.ntrand.com/glossary/#local_Gamma)です。
+
+- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+
+  $$
+  F(x)=\frac{1}{2}-\frac{1}{2}\left[1-I_{\gamma}\left(\frac{1}{2},\frac{N}{2}\right)\right]\text{sign}(x)
+  $$
+
+  ここで $\gamma=\frac{N}{N+x^2}$ で $I_{x}(\cdot,\cdot)$ は [正規化された不完全ベータ関数](https://www.ntrand.com/glossary/#local_regularized_incomplete_beta)です。
+
+- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "5", readOnly: true },
+        { value: "対象となる値", readOnly: true },
+      ],
+      [
+        { value: "9", readOnly: true },
+        { value: "分布のパラメータ N の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTTDIST(A2,A3,TRUE)", readOnly: true },
+        { value: "上のデータに対する累積分布関数の値", readOnly: true },
+      ],
+      [
+        { value: "=NTTDIST(A2,A3,FALSE)", readOnly: true },
+        { value: "上のデータに対する確率密度関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTTDIST](https://www.ntrand.com/jp/nttdist/)
+
+## 分布の特徴
+
+### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+
+- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は $N> 1$の場合に定義され、常に$0$です。
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "分布のパラメータ N の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTTMEAN(A2)", readOnly: true },
+        { value: "上のデータに対する分布の平均", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTTMEAN](https://www.ntrand.com/jp/nttmean/)
+
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+
+- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は $N> 2$の場合に定義され、次式で与えられます。
+
+  $$
+  \frac{N}{N-2}\quad (N>2)
+  $$
+
+  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "分布のパラメータ N の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTTSTDEV(A2)", readOnly: true },
+        { value: "上のデータに対する分布の標準偏差", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTTSTDEV](https://www.ntrand.com/jp/nttstdev/)
+
+### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+
+- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skewness)は $N>3$の場合に定義され、常に$0$ です。
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "分布のパラメータ N の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTTSKEW(A2)", readOnly: true },
+        { value: "上のデータに対する分布の歪度", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTTSKEW](https://www.ntrand.com/jp/nttskew/)
+
+### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+
+- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis)　は$N>4$の場合に定義され、次式で与えられます。
+
+  $$
+  \frac{6}{N-4}(N>4)
+  $$
+
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "分布のパラメータ N の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTTKURT(A2)", readOnly: true },
+        { value: "上のデータに対する分布の尖度", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTTKURT](https://www.ntrand.com/jp/nttkurt/)
+
+## 乱数
+
+- Excel での乱数生成法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "分布のパラメータ N の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTRANDT(100,A2,0)", readOnly: true },
+        {
+          value: "100個の T 乱数を Mersenne Twister アルゴリズムで生成します",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A4:A103 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
+
+## 関連 NtRand 関数
+
+- 既に分布のパラメータをお持ちの場合
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDT](https://www.ntrand.com/jp/ntrandchisq/)
+  - 確率計算 : [NTTDIST](https://www.ntrand.com/jp/nttdist/)
+  - 平均計算 : [NTTMEAN](https://www.ntrand.com/jp/nttmean/)
+  - 標準偏差計算 : [NTTSTDEV](https://www.ntrand.com/jp/nttskew/)
+  - 歪度計算 : [NTTSKEW](https://www.ntrand.com/jp/nttskew/)
+  - 尖度計算 : [NTTKURT](https://www.ntrand.com/jp/nttkurt/)
+  - 上記の各モーメントを一度に計算 : [NTTMOM](https://www.ntrand.com/jp/nttmom/)
+
+## 参照
+
+- [Wolfram Mathworld -- Student's t-Distribution](http://mathworld.wolfram.com/Studentst-Distribution.html)
+- [Wikipedia -- Student's t-distribution](http://en.wikipedia.org/wiki/Student's_t-distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)

@@ -1,0 +1,246 @@
+---
+title: ロジスティック分布(Logistic distribution)
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# ロジスティック分布(Logistic distribution)
+
+## 正規分布の代用品ロジスティック分布
+
+ロジスティック分布は[単峰分布](https://www.ntrand.com/jp/glossary/#local_Unimodal)で左右対称ということから正規分布に良く似ており、また式が扱いやすいこともあって正規分布の替わりに用いられることが多い実は人気の分布なのです。 ただ、正規分布より裾が厚いことに注意が必要です。
+
+ロジスティック分布の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_Cumulative)に見る曲線は**ロジスティック曲線**と呼ばれ、分布そのものよりこちらの曲線の方が様々な場面で現れています。
+
+- 生物学 : 生物がどのように生態系の競争関係の中で個体数を増やすか
+- エネルギー : 一次エネルギー資源の拡散、放散と代用原理
+- 疫学 : 病気の蔓延の原理
+- マーケティング : 新製品の流布
+- 心理学 : 学習曲線
+- テクノロジー : 新技術の普及と技術の世代交代
+
+## 分布の形状
+
+### 基本情報
+
+- 2つのパラメータ $m, b$ が必要です ([どうやって求めるの？](https://www.ntrand.com/jp/ntlogisticparam/)).
+
+  $$
+  b>0
+  $$
+
+- 無限区間 $(-\infty,+\infty)$ で定義された連続分布です。
+- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して常に対称です。
+
+### 確率
+
+- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+
+  $$
+  F(x)=\frac{1}{2}\left[1+\tanh\left(\frac{x-m}{2b}\right)\right]
+  $$
+
+- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{1}{4b}\text{sech}^2\left(\frac{x-m}{2b}\right)
+  $$
+
+- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "対象となる値", readOnly: true },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "分布のパラメータ M の値", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "分布のパラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTLOGISTICDIST(A2,A3,A4,TRUE)", readOnly: true },
+        { value: "上のデータに対する累積分布関数の値", readOnly: true },
+      ],
+      [
+        { value: "=NTLOGISTICDIST(A2,A3,A4,FALSE)", readOnly: true },
+        { value: "上のデータに対する確率密度関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+![Sample distribution](./../assets/functions/plot/plotLogistic.jpg)
+
+- 関連 NtRand 関数 : [NTLOGISTICDIST](https://www.ntrand.com/jp/ntlogisticdist/)
+
+### 分位点
+
+- [累積確率関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+
+  $$
+  F^{-1}(P)=2b\tanh^{-1}(2P-1)+m
+  $$
+
+- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.7", readOnly: true },
+        { value: "この分布の確率", readOnly: true },
+      ],
+      [
+        { value: "1.7", readOnly: true },
+        { value: "分布のパラメータ M の値", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "分布のパラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTLOGISTICINV(A2,A3,A4)", readOnly: true },
+        { value: "上のデータに対する累積分布関数の逆関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTLOGISTICINV](https://www.ntrand.com/jp/ntlogisticinv/)
+
+## 分布の特徴
+
+### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+
+- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean)は $m$ と与えられます。
+
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+
+- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+
+  $$
+  \frac{\pi^2b^2}{3}
+  $$
+
+  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "分布のパラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTLOGISTICSTDEV(A2)", readOnly: true },
+        { value: "上のデータに対する分布の標準偏差", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTLOGISTICSTDEV](https://www.ntrand.com/jp/ntlogisticstdev/)
+
+### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+
+- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skewness)は $0$ です。
+
+### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+
+- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis)は $1.2$ です。
+
+## 乱数
+
+- 乱数 x は一様乱数 U に対して次式で生成されます（逆関数法） :
+
+  $$
+  x=2b\tanh^{-1}(2U-1)+m
+  $$
+
+- Excel での乱数生成法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "分布のパラメータ M の値", readOnly: true },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "分布のパラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTRANDLOGISTIC(100,A2,A3)", readOnly: true },
+        {
+          value:
+            "100個のロジスティック乱数を Mersenne Twister アルゴリズムで生成します。",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A5:A104 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
+
+![](./../assets/functions/histogram/histogramLogistic.jpg)
+
+## 関連 NtRand 関数
+
+- 既に分布のパラメータをお持ちの場合
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDLOGISTIC](https://www.ntrand.com/jp/ntrandlogistic/)
+  - 確率計算 : [NTLOGISTICDIST](https://www.ntrand.com/jp/ntlogisticdist/)
+  - 平均計算 : [NTLOGISTICMEAN](https://www.ntrand.com/jp/ntlogisticmean/)
+  - 標準偏差計算 : [NTLOGISTICSTDEV](https://www.ntrand.com/jp/ntlogisticskew/)
+  - 歪度計算 : [NTLOGISTICSKEW](https://www.ntrand.com/jp/ntlogisticskew/)
+  - 尖度計算 : [NTLOGISTICKURT](https://www.ntrand.com/jp/ntlogistickurt/)
+  - 上記の各モーメントを一度に計算 : [NTLOGISTICMOM](https://www.ntrand.com/jp/ntlogisticmom/)
+- 分布の平均と標準偏差をお持ちの場合
+  - 分布のパラメータ推定 : [NTLOGISTICPARAM](https://www.ntrand.com/jp/ntlogisticparam/)
+
+## 参照
+
+- [Wolfram Mathworld -- Logistic Distribution](http://mathworld.wolfram.com/LogisticDistribution.html)
+- [Wikipedia -- ロジスティック分布](http://en.wikipedia.org/wiki/Logistic_distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)

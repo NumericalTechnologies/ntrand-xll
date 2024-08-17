@@ -1,0 +1,162 @@
+---
+title: ガンベル（タイプ2）分布(Gumbel type II distribution)
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# ガンベル（タイプ2）分布(Gumbel type II distribution)
+
+## 分布の形状
+
+### 基本情報
+
+- 2つのパラメータ $a, b$ が必要です.
+
+  $$
+  a>0, b>0
+  $$
+
+- 半無限区間 $x > 0$ で定義された連続分布です。
+- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して常に非対称です。
+
+### 確率
+
+- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+
+  $$
+  F(x)=\exp\left(-bx^{-a}\right)
+  $$
+
+- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+
+  $$
+  f(x)=abx^{-a-1}\exp\left(-bx^{-a}\right)
+  $$
+
+- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.5, readOnly: true },
+        { value: "対象となる値", readOnly: true },
+      ],
+      [
+        { value: 8, readOnly: true },
+        { value: "分布のパラメータ A の値", readOnly: true },
+      ],
+      [
+        { value: 2, readOnly: true },
+        { value: "分布のパラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=EXP(-A4*A2^(-A3))", readOnly: true },
+        { value: "上のデータに対する累積分布関数の値", readOnly: true },
+      ],
+      [
+        { value: "=A3*A4*A2^(-A3-1)*EXP(-A4*A2^(-A3))", readOnly: true },
+        { value: "上のデータに対する確率密度関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+### 分位点
+
+- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+
+  $$
+  F^{-1}(P)=\left(-\frac{\ln P}{b}\right)^{-1/a}
+  $$
+
+- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.7, readOnly: true },
+        { value: "この分布の確率", readOnly: true },
+      ],
+      [
+        { value: 1.7, readOnly: true },
+        { value: "分布のパラメータ A の値", readOnly: true },
+      ],
+      [
+        { value: 0.9, readOnly: true },
+        { value: "分布のパラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=POWER(-LN(A2)/A4,-1/A3)", readOnly: true },
+        { value: "上のデータに対する累積分布関数の逆関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+## 乱数
+
+- 乱数 x は一様乱数 U に対して次式で生成されます（逆関数法） :
+
+  $$
+  x=\left(-\frac{\ln U}{b}\right)^{-1/a}
+  $$
+
+- Excel での乱数生成法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.5, readOnly: true },
+        { value: "分布のパラメータ A の値", readOnly: true },
+      ],
+      [
+        { value: 2, readOnly: true },
+        { value: "分布のパラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=POWER(-A2*LN(-NTRAND(100)/A3),1/A2)", readOnly: true },
+        {
+          value:
+            "100個のガンベル（タイプ2）乱数を Mersenne Twister アルゴリズムで生成します。",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A5:A104 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
+
+## 参照
+
+- [Wikipedia -- Gumbel (Type II) distribution](<http://en.wikipedia.org/wiki/Gumbel%20(Type%20II)_distribution>)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)
+- [Meteorology](http://en.wikipedia.org/wiki/Meteorology), [Seismology](http://en.wikipedia.org/wiki/Seismology) : Model of extreme event (Extreme value theory)
+- [Risk management -- Operational risk](http://en.wikipedia.org/wiki/Operational_risk)

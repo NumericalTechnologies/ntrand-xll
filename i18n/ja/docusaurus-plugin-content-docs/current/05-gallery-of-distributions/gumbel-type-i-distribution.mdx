@@ -1,0 +1,280 @@
+---
+title: ガンベル（タイプ1）分布(Gumbel type I distribution)
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# ガンベル（タイプ1）分布(Gumbel type I distribution)
+
+## 分布の形状
+
+### 基本情報
+
+- 2つのパラメータ $\alpha, \beta$ が必要です ([どうやって求めるの？](https://www.ntrand.com/jp/ntgumbelparam/)).
+
+  $$
+  \beta>0
+  $$
+
+- 無限区間 $(-\infty,+\infty)$ で定義された連続分布です。
+- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して常に非対称です。
+
+### 確率
+
+- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+
+  $$
+  F(x)=\exp\left[-\exp\left(-\frac{x-\alpha}{\beta}\right)\right]
+  $$
+
+- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{1}{\beta}\exp\left(-\frac{x-\alpha}{\beta}\right)\exp\left[-\exp\left(-\frac{x-\alpha}{\beta}\right)\right]
+  $$
+
+- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "対象となる値", readOnly: true },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "分布のパラメータ Alpha の値", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "分布のパラメータ Beta の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTGUMBELDIST(A2,A3,A4,TRUE)", readOnly: true },
+        { value: "上のデータに対する累積分布関数の値", readOnly: true },
+      ],
+      [
+        { value: "=NTGUMBELDIST(A2,A3,A4,FALSE)", readOnly: true },
+        { value: "上のデータに対する確率密度関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+![Sample distribution](./../assets/functions/plot/plotGumbel.jpg)
+
+- 関連 NtRand 関数 : [NTGUMBELDIST](https://www.ntrand.com/jp/ntgumbeldist/)
+
+### 分位点
+
+- [累積確率関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+
+  $$
+  F^{-1}(P)=\alpha-\beta\ln\ln\frac{1}{P}
+  $$
+
+- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.7", readOnly: true },
+        { value: "この分布の確率", readOnly: true },
+      ],
+      [
+        { value: "1.7", readOnly: true },
+        { value: "分布のパラメータ Alpha の値", readOnly: true },
+      ],
+      [
+        { value: "0.9", readOnly: true },
+        { value: "分布のパラメータ Beta の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=GUMBELINV(A2,A3,A4)", readOnly: true },
+        { value: "上のデータに対する累積分布関数の逆関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTGUMBELINV](https://www.ntrand.com/jp/ntgumbelinv/)
+
+## 分布の特徴
+
+### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+
+- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は次式で与えられます。
+
+  $$
+  \alpha+\gamma \beta
+  $$
+
+  ここで $\gamma$ は [オイラーの定数](https://www.ntrand.com/jp/glossary/#local_EulerConstant)です。
+
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "8", readOnly: true },
+        { value: "分布のパラメータ Alpha の値", readOnly: true },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "分布のパラメータ Beta の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTGUMBELMEAN(A2,A3)", readOnly: true },
+        { value: "上のデータに対する分布の平均", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTGUMBELMEAN](https://www.ntrand.com/jp/ntgumbelmean/)
+
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+
+- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+
+  $$
+  \beta^2\zeta(2)
+  $$
+
+  ここで $\zeta(\cdot)$ は[リーマンのゼータ関数](https://www.ntrand.com/jp/glossary/#local_Riemann)です。
+
+  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "2", readOnly: true },
+        { value: "分布のパラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTGUMBELSTDEV(A2)", readOnly: true },
+        { value: "上のデータに対する分布の標準偏差", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTGUMBELSTDEV](https://www.ntrand.com/jp/ntgumbelstdev/)
+
+### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+
+- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skew) は次式で与えられます。
+
+  $$
+  -\frac{12\sqrt{6}\zeta(3)}{\pi^3}=-1.139547099\cdots
+  $$
+
+  ここで $\zeta(\cdot)$ は [リーマンのゼータ関数](https://www.ntrand.com/jp/glossary/#local_Riemann)です。
+
+### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+
+- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis)は $2.4$ です。
+
+## 乱数
+
+- 乱数 x は一様乱数 U に対して次式で生成されます（逆関数法） :
+
+  $$
+  x=\alpha-\beta\ln\ln\frac{1}{U}
+  $$
+
+- Excel での乱数生成法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "分布のパラメータ Alpha の値", readOnly: true },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "分布のパラメータ Beta の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTRANDGUMBEL(100,A2,A3,0)", readOnly: true },
+        {
+          value:
+            "100個のガンベル（タイプ1）乱数を Mersenne Twister アルゴリズムで生成します。",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A5:A104 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
+
+![](./../assets/functions/histogram/histogramGumbel.jpg)
+
+## 関連 NtRand 関数
+
+- 既に分布のパラメータをお持ちの場合
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDGUMBEL](https://www.ntrand.com/jp/ntrandgumbel/)
+  - 確率計算 : [NTGUMBELDIST](https://www.ntrand.com/jp/ntgumbeldist/)
+  - 平均計算 : [NTGUMBELMEAN](https://www.ntrand.com/jp/ntgumbelmean/)
+  - 標準偏差計算 : [NTGUMBELSTDEV](https://www.ntrand.com/jp/ntgumbelskew/)
+  - 歪度計算 : [NTGUMBELSKEW](https://www.ntrand.com/jp/ntgumbelskew/)
+  - 尖度計算 : [NTGUMBELKURT](https://www.ntrand.com/jp/ntgumbelkurt/)
+  - 上記の各モーメントを一度に計算 : [NTGUMBELMOM](https://www.ntrand.com/jp/ntgumbelmom/)
+- 分布の平均と標準偏差をお持ちの場合
+  - 分布のパラメータ推定 : [NTGUMBELRPARAM](https://www.ntrand.com/jp/ntgumbelparam/)
+
+## 参照
+
+- [Wolfram Mathworld -- Gumbel Distribution](http://mathworld.wolfram.com/GumbelDistribution.html)
+- [Wikipedia -- Gumbel distribution](http://en.wikipedia.org/wiki/Gumbel_distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)
+- Extreme value therory (EVT)
+- [Risk management -- Operational risk](http://en.wikipedia.org/wiki/Operational_risk)

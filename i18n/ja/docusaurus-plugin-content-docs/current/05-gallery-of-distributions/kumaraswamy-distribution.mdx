@@ -1,0 +1,209 @@
+---
+title: クマラスワミー分布(Kumaraswamy distribution)
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# クマラスワミー分布(Kumaraswamy distribution)
+
+## シンプルな単峰分布三角分布
+
+### 代用品としてのクマラスワミー分布
+
+[三角分布](https://www.ntrand.com/jp/triangular-distribution/)の項で説明したように、有限区間の[単峰分布](https://www.ntrand.com/jp/glossary/#local_Unimodal)として、[ベータ分布](https://www.ntrand.com/jp/beta-distribution/)や[ジョンソン SB 分布](https://www.ntrand.com/jp/johnson-sb-distribution/)が挙げられるが、これらの分布は関数が複雑で手に余る。 そこでシンプルな[三角分布](https://www.ntrand.com/jp/triangular-distribution/)の登場となるが、さすがに三角形で分布をフィットするのはどうも。。。そこで、もう少し調整の利くシンプルな分布が切望されるが、その特徴を兼ね備えた分布が**クマラスワミー分布**である。
+
+## 分布の形状
+
+### 基本情報
+
+- 2つのパラメータ $a, b$ が必要です.
+- 有限区間 $0\leq x \leq 1$ で定義された連続分布です。
+- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して対称にも非対称にもなり得ます。
+
+### 確率
+
+- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+
+  $$
+  F(x)=1-\left(1-x^a\right)^b
+  $$
+
+- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+
+  $$
+  f(x)=abx^{a-1}\left(1-x^a\right)^{b-1}
+  $$
+
+- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.5, readOnly: true },
+        { value: "対象となる値", readOnly: true },
+      ],
+      [
+        { value: 8, readOnly: true },
+        { value: "分布のパラメータ A の値", readOnly: true },
+      ],
+      [
+        { value: 2, readOnly: true },
+        { value: "分布のパラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=1-(1-A2^A3)^A4", readOnly: true },
+        { value: "上のデータに対する累積分布関数の値", readOnly: true },
+      ],
+      [
+        { value: "=A3*A4*A2^(A2-1)*(1-A2^A3)^(A4-1)", readOnly: true },
+        { value: "上のデータに対する確率密度関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+### 分位点
+
+- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+
+  $$
+  F^{-1}(P)=\left[1-(1-P)^{1/b}\right]^{1/a}
+  $$
+
+- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.5, readOnly: true },
+        { value: "上のデータに対する確率密度関数の値", readOnly: true },
+      ],
+      [
+        { value: 1.7, readOnly: true },
+        { value: "分布のパラメータ A の値", readOnly: true },
+      ],
+      [
+        { value: 0.9, readOnly: true },
+        { value: "分布のパラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=POWER(1-(1-A2)^(1/A4),1/A3)", readOnly: true },
+        { value: "上のデータに対する累積分布関数の逆関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+## 分布の特徴
+
+### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+
+- [Mean](https://www.ntrand.com/jp/glossary/#local_mean)
+
+  $$
+  bB\left(1+\frac{1}{a},b\right)
+  $$
+
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 8, readOnly: true },
+        { value: "分布のパラメータ A の値", readOnly: true },
+      ],
+      [
+        { value: 2, readOnly: true },
+        { value: "分布のパラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        {
+          value: "=A3*EXP(GAMMALN(1+1/A2)+GAMMALN(A3)-GAMMALN(1+1/A2+A3))",
+          readOnly: true,
+        },
+        { value: "上のデータに対する分布の平均", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+## 乱数
+
+- 乱数 x は一様乱数 U に対して次式で生成されます（逆関数法） :
+
+  $$
+  x=\left[1-\left(1-U\right)^{1/b}\right]^{1/a}
+  $$
+
+- Excel での乱数生成法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.5, readOnly: true },
+        { value: "分布のパラメータ A の値", readOnly: true },
+      ],
+      [
+        { value: 0.5, readOnly: true },
+        { value: "分布のパラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        {
+          value: "=POWER(1-(1-NTRAND(100))^(1/A3),1/A2)",
+          readOnly: true,
+        },
+        {
+          value:
+            "100個のクマラスワミー乱数を Mersenne Twister アルゴリズムで生成します。",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A5:A104 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
+
+## 参照
+
+- [Wikipedia -- Kumaraswamy distribution](http://en.wikipedia.org/wiki/Kumaraswamy_distribution)
+- [ModelAssist for ModelRisk](http://www.vosesoftware.com/ModelRiskHelp/index.htm#Distributions/Continuous_distributions/Kumaraswamy_distribution.htm)
+- [Hydrology](http://en.wikipedia.org/wiki/Hydrology)
+
+  Fletcher, S.G., and Ponnambalam, K. (1996). "Estimation of reservoir yield and storage distribution using moments analysis". Journal of Hydrology 182: 259-275.

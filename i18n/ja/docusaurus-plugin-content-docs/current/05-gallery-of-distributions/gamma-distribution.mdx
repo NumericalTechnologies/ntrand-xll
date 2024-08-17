@@ -1,0 +1,325 @@
+---
+title: ガンマ分布(Gamma distribution)
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# ガンマ分布(Gamma distribution)
+
+## 分布の形状
+
+### 基本情報
+
+- 2つのパラメータ $\alpha, \beta$ が必要です ([どうやって求めるの？](https://www.ntrand.com/jp/ntgammaparam/))
+
+  $$
+  \alpha>0,\beta>0
+  $$
+
+- 半無限区間 $x \geq 0$ で定義された連続分布です。
+- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して非対称です。
+
+### 確率
+
+- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{1}{\beta^{\alpha}\Gamma(\alpha)}\exp\left(-\frac{x}{\beta}\right)x^{\alpha-1}
+  $$
+
+  ここで $\Gamma(\cdot)$ は [ガンマ関数](https://www.ntrand.com/glossary/#local_Gamma)です。
+
+- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+
+  $$
+  F(x)=\frac{\Gamma_{\frac{x}{\beta}}(\alpha)}{\Gamma(\alpha)}
+  $$
+
+  ここで $\Gamma_{x}(\cdot)$ は [不完全ガンマ関数](https://www.ntrand.com/glossary/#local_incomplete_gamma)です。
+
+- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "5", readOnly: true },
+        { value: "対象となる値", readOnly: true },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "分布のパラメータ Alpha の値", readOnly: true },
+      ],
+      [
+        { value: "2.3", readOnly: true },
+        { value: "分布のパラメータ Beta の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTGAMMADIST(A2,A3,A4,TRUE)", readOnly: true },
+        { value: "上のデータに対する累積分布関数の値", readOnly: true },
+      ],
+      [
+        { value: "=NTGAMMADIST(A2,A3,A4,FALSE)", readOnly: true },
+        { value: "上のデータに対する確率密度関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTGAMMADIST](https://www.ntrand.com/jp/ntgammadist/)
+- 第4引数が TRUE の場合、この関数は Excel 関数"[GAMMADIST](http://office.microsoft.com/en-us/excel-help/gammadist-HP005209101.aspx?CTT=1)" と同等です。
+
+### 分位点
+
+- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数は閉じた形式で表記できません。
+- [GAMMAINV](http://office.microsoft.com/en-us/excel-help/gammainv-HP005209102.aspx?CTT=1) は Excel の関数です。
+- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.7", readOnly: true },
+        { value: "この分布の確率", readOnly: true },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "分布のパラメータ Alpha の値", readOnly: true },
+      ],
+      [
+        { value: "2.3", readOnly: true },
+        { value: "分布のパラメータ Beta の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=GAMMAINV(A2,A3,A4)", readOnly: true },
+        { value: "上のデータに対する累積分布関数の逆関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+## 分布の特徴
+
+### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+
+- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は次式で与えられます。
+
+  $$
+  \alpha\beta
+  $$
+
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "分布のパラメータ Alpha の値", readOnly: true },
+      ],
+      [
+        { value: "2.3", readOnly: true },
+        { value: "分布のパラメータ Beta の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTGAMMAMEAN(A2,A3)", readOnly: true },
+        { value: "上のデータに対する分布の平均", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTGAMMAMEAN](https://www.ntrand.com/jp/ntgammamean/)
+
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+
+- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+
+  $$
+  \alpha\beta^2
+  $$
+
+  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "分布のパラメータ Alpha の値", readOnly: true },
+      ],
+      [
+        { value: "2.3", readOnly: true },
+        { value: "分布のパラメータ Beta の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTGAMMASTDEV(A2,A3)", readOnly: true },
+        { value: "上のデータに対する分布の標準偏差", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTGAMMASTDEV](https://www.ntrand.com/jp/ntgammastdev/)
+
+### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+
+- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skew) は次式で与えられます。
+
+  $$
+  \frac{2}{\sqrt{\alpha}}
+  $$
+
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "分布のパラメータ Alpha の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTGAMMASKEW(A2)", readOnly: true },
+        { value: "上のデータに対する分布の歪度", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTGAMMASKEW](https://www.ntrand.com/jp/ntgammaskew/)
+
+### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+
+- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis) は次式で与えられます。
+
+  $$
+  \frac{6}{\alpha}
+  $$
+
+- Excel での計算法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "分布のパラメータ Alpha の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTGAMMAKURT(A2)", readOnly: true },
+        { value: "上のデータに対する分布の尖度", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- 関連 NtRand 関数 : [NTGAMMAKURT](https://www.ntrand.com/jp/ntgammakurt/)
+
+## 乱数
+
+- Excel での乱数生成法
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "4", readOnly: true },
+        { value: "分布のパラメータ Alpha の値", readOnly: true },
+      ],
+      [
+        { value: "2.3", readOnly: true },
+        { value: "分布のパラメータ Beta の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTRANDGAMMA(100,A2,A3,0)", readOnly: true },
+        {
+          value:
+            "100個のガンマ乱数を Mersenne Twister アルゴリズムで生成します。",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A5:A104 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
+
+- 関連 NtRand 関数 : [NTRANDGAMMA](https://www.ntrand.com/jp/ntrandgamma/)
+
+## 関連 NtRand 関数
+
+- 既に分布のパラメータをお持ちの場合
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDGAMMA](https://www.ntrand.com/jp/ntrandgamma/)
+  - 確率計算 : [NTGAMMADIST](https://www.ntrand.com/jp/ntgammadist/)
+  - 平均計算 : [NTGAMMAMEAN](https://www.ntrand.com/jp/ntgammamean/)
+  - 標準偏差計算 : [NTGAMMASTDEV](https://www.ntrand.com/jp/ntgammaskew/)
+  - 歪度計算 : [NTGAMMASKEW](https://www.ntrand.com/jp/ntgammaskew/)
+  - 尖度計算 : [NTGAMMAKURT](https://www.ntrand.com/jp/ntgammakurt/)
+  - 上記の各モーメントを一度に計算 : [NTGAMMAMOM](https://www.ntrand.com/jp/ntgammamom/)
+- 分布の平均と標準偏差をお持ちの場合
+  - 分布のパラメータ推定 : [NTGAMMAPARAM](https://www.ntrand.com/jp/ntgammaparam/)
+
+## 参照
+
+- [Wolfram Mathworld -- Gamma Distribution](http://mathworld.wolfram.com/GammaDistribution.html)
+- [Wikipedia -- Gamma distribution](http://en.wikipedia.org/wiki/Gamma_distribution)
+- [Statistics Online Computational Resource](http://www.socr.ucla.edu/htmls/SOCR_Distributions.html)

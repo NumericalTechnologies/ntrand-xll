@@ -4,35 +4,35 @@
     "description": "The label for version current"
   },
   "sidebar.documentationSidebar.category.Function Reference": {
-    "message": "Function Reference",
+    "message": "NtRand 関数マニュアル",
     "description": "The label for category Function Reference in sidebar documentationSidebar"
   },
   "sidebar.documentationSidebar.category.Random Numbers": {
-    "message": "Random Numbers",
+    "message": "乱数生成",
     "description": "The label for category Random Numbers in sidebar documentationSidebar"
   },
   "sidebar.documentationSidebar.category.Single Series": {
-    "message": "Single Series",
+    "message": "単変量",
     "description": "The label for category Single Series in sidebar documentationSidebar"
   },
   "sidebar.documentationSidebar.category.Multi Series": {
-    "message": "Multi Series",
+    "message": "多変量",
     "description": "The label for category Multi Series in sidebar documentationSidebar"
   },
   "sidebar.documentationSidebar.category.Distribution Functions": {
-    "message": "Distribution Functions",
+    "message": "分布関数",
     "description": "The label for category Distribution Functions in sidebar documentationSidebar"
   },
   "sidebar.documentationSidebar.category.Multivariate Statistics": {
-    "message": "Multivariate Statistics",
+    "message": "多変量統計分析",
     "description": "The label for category Multivariate Statistics in sidebar documentationSidebar"
   },
   "sidebar.documentationSidebar.category.Miscellaneous": {
-    "message": "Miscellaneous",
+    "message": "その他",
     "description": "The label for category Miscellaneous in sidebar documentationSidebar"
   },
   "sidebar.documentationSidebar.category.Gallery of Distributions": {
-    "message": "Gallery of Distributions",
+    "message": "確率分布の世界",
     "description": "The label for category Gallery of Distributions in sidebar documentationSidebar"
   }
 }
