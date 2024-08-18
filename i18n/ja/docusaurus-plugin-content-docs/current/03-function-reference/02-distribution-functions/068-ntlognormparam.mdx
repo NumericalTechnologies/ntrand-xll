@@ -1,0 +1,90 @@
+---
+title: NTLOGNORMPARAM
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTLOGNORMPARAM
+
+対数正規分布のパラメータを返します。
+
+## 書式
+
+```excel
+NTLOGNORMPARAM(
+    Mean,
+    Stdev
+)
+```
+
+### 引数
+
+- **_Mean_** 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean)を指定します。
+- **_Stdev_** 分布の[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)を指定します。
+
+## 使用例
+
+- 使用例を新規のワークシートにコピーすると、計算結果を確認できます。
+
+<details>
+<summary>その方法は？</summary>
+
+1.  新しいブックまたはワークシートを作成します。
+2.  ヘルプ トピックにある使用例を選択します（行番号および列番号を除く）。
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    ヘルプから使用例を選択する
+
+3.  Ctrl キーを押しながら C キーを押します。
+4.  ワークシートのセル A1 を選択し、Ctrl キーを押しながら V キーを押します。
+5.  計算結果と結果を返す数式の表示を切り替えるには、Ctrl キーを押しながら ` (アクサン グラーブ) キーを押すか、または [ツール] メニューの [ワークシート分析] をポイントし、[ワークシート分析モード] をクリックします。
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 3, readOnly: true },
+        { value: "分布の平均", readOnly: true },
+      ],
+      [
+        { value: 0.1, readOnly: true },
+        { value: "分布の標準偏差", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTLOGNORMPARAM(A2,A3)", readOnly: true },
+        {
+          value: "上のデータに対する分布のパラメータ Alpha and Beta",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A5:A8 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
+
+- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand2.xls "サンプル Excel シートをダウンロード")
+
+## 参照
+
+- [NTRANDLOGNORM](https://www.ntrand.com/jp/ntrandlognorm/)
+- [NTLOGNORMDIST](https://www.ntrand.com/jp/ntlognormdist/)
+- [NTLOGNORMINV](https://www.ntrand.com/jp/ntlognorminv/)
+- [NTLOGNORMKURT](https://www.ntrand.com/jp/ntlognormkurt/)
+- [NTLOGNORMMEAN](https://www.ntrand.com/jp/ntlognormmean/)
+- [NTLOGNORMMOM](https://www.ntrand.com/jp/ntlognormmom/)
+- [NTLOGNORMSKEW](https://www.ntrand.com/jp/ntlognormskew/)
+- [NTLOGNORMSTDEV](https://www.ntrand.com/jp/ntlognormstdev/)
+- [対数正規分布](https://www.ntrand.com/jp/log-normal-distribution/)
+- [どうして複数のセルに数式をコピーすると全部同じ結果になるの？](https://www.ntrand.com/jp/faq/#local_CtrlShiftEnter)

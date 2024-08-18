@@ -1,0 +1,82 @@
+---
+title: NTWEIBULLSKEW
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTWEIBULLSKEW
+
+ワイブル分布の歪度を返します。
+
+## 書式
+
+```excel
+NTWEIBULLSKEW(
+    Alpha,
+    Beta
+)
+```
+
+### 引数
+
+- **_Alpha_** 分布のパラメータ $\alpha(>0)$ を指定します。
+- **_Beta_** 分布のパラメータ $\beta(>0)$ を指定します。
+
+## 使用例
+
+- 使用例を新規のワークシートにコピーすると、計算結果を確認できます。
+
+<details>
+<summary>その方法は？</summary>
+
+1.  新しいブックまたはワークシートを作成します。
+2.  ヘルプ トピックにある使用例を選択します（行番号および列番号を除く）。
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    ヘルプから使用例を選択する
+
+3.  Ctrl キーを押しながら C キーを押します。
+4.  ワークシートのセル A1 を選択し、Ctrl キーを押しながら V キーを押します。
+5.  計算結果と結果を返す数式の表示を切り替えるには、Ctrl キーを押しながら ` (アクサン グラーブ) キーを押すか、または [ツール] メニューの [ワークシート分析] をポイントし、[ワークシート分析モード] をクリックします。
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1.7, readOnly: true },
+        { value: "パラメータ Alpha の値", readOnly: true },
+      ],
+      [
+        { value: 0.9, readOnly: true },
+        { value: "パラメータ Beta の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTWEIBULLSKEW(A2,A3)", readOnly: true },
+        { value: "上のデータに対する分布の歪度", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+## 参照
+
+- [NTRANDWEIBULL](https://www.ntrand.com/jp/ntrandweibull/)
+- [NTWEIBULLDIST](https://www.ntrand.com/jp/ntweibulldist/)
+- [NTWEIBULLINV](https://www.ntrand.com/jp/ntweibullinv/)
+- [NTWEIBULLKURT](https://www.ntrand.com/jp/ntweibullkurt/)
+- [NTWEIBULLMEAN](https://www.ntrand.com/jp/ntweibullmean/)
+- [NTWEIBULLMOM](https://www.ntrand.com/jp/ntweibullmom/)
+- [NTWEIBULLPARAM](https://www.ntrand.com/jp/ntweibullparam/)
+- [NTWEIBULLSTDEV](https://www.ntrand.com/jp/ntweibullstdev/)
+- [ワイブル分布](https://www.ntrand.com/jp/weibull-distribution/)

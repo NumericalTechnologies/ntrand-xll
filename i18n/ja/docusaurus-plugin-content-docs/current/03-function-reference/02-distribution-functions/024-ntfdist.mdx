@@ -1,0 +1,114 @@
+---
+title: NTFDIST
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTFDIST
+
+[F 分布](https://www.ntrand.com/jp/f-distribution/)布の確率の値を返します。
+
+## 書式
+
+```excel
+NTFDIST(
+    x,
+    N1,
+    N2,
+    Cumulative
+)
+```
+
+### 引数
+
+- **_x_** 関数に代入する値を指定します（$x\geq 0$）。
+- **_N1_** 分布のパラメータ $N_1$ を指定します（正の整数）。
+- **_N2_** 分布のパラメータ $N_2$ を指定します（正の整数）。
+- **_Cumulative_** 計算に使用する指数関数の形式を論理値で指定します。*Cumulative* に TRUE を指定すると累積分布関数の値が計算され、FALSE を指定すると確率密度関数の値が計算されます。
+
+## 解説
+
+- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+
+  $$
+  f(x)=\frac{\Gamma\left(\frac{N_1+N_2}{2}\right)\left(\frac{N_1}{N_2}\right)^\frac{N_1}{2}x^{\frac{N_1}{2}-1}}{\Gamma\left(\frac{N_1}{2}\right)\Gamma\left(\frac{N_2}{2}\right)\left(1+\frac{N_1}{N_2}x\right)^{\frac{N_1+N_2}{2}}}
+  $$
+
+  ここで $\Gamma(\cdot)$ は [ガンマ関数](https://www.ntrand.com/glossary/#local_Gamma)です。
+
+- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+
+  $$
+  F(x)=I_\gamma\left(\frac{N_1}{2},\frac{N_2}{2}\right)
+  $$
+
+  ここで $\gamma=\frac{N_1x}{N_2+N_1x}$ で $I_{x}(\cdot,\cdot)$ は [正規化された不完全ベータ関数](https://www.ntrand.com/glossary/#local_regularized_incomplete_beta)です。
+
+## 使用例
+
+- 使用例を新規のワークシートにコピーすると、計算結果を確認できます。
+
+<details>
+<summary>その方法は？</summary>
+
+1.  新しいブックまたはワークシートを作成します。
+2.  ヘルプ トピックにある使用例を選択します（行番号および列番号を除く）。
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    ヘルプから使用例を選択する
+
+3.  Ctrl キーを押しながら C キーを押します。
+4.  ワークシートのセル A1 を選択し、Ctrl キーを押しながら V キーを押します。
+5.  計算結果と結果を返す数式の表示を切り替えるには、Ctrl キーを押しながら ` (アクサン グラーブ) キーを押すか、または [ツール] メニューの [ワークシート分析] をポイントし、[ワークシート分析モード] をクリックします。
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 5, readOnly: true },
+        { value: "対象となる値", readOnly: true },
+      ],
+      [
+        { value: 4, readOnly: true },
+        { value: "分布のパラメータ N1 の値", readOnly: true },
+      ],
+      [
+        { value: 30, readOnly: true },
+        { value: "分布のパラメータ N2 の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTFDIST(A2,A3,A4,TRUE)", readOnly: true },
+        { value: "上のデータに対する累積分布関数の値", readOnly: true },
+      ],
+      [
+        { value: "=NTFDIST(A2,A3,A4,FALSE)", readOnly: true },
+        { value: "上のデータに対する確率密度関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand2.xls "サンプル Excel シートをダウンロード")
+
+## 参照
+
+- [NTRANDF](https://www.ntrand.com/jp/ntrandf/)
+- [NTFDISTINV](https://www.ntrand.com/jp/ntfdistinv/)
+- [NTFKURT](https://www.ntrand.com/jp/ntfkurt/)
+- [NTFMEAN](https://www.ntrand.com/jp/ntfmean/)
+- [NTFMOM](https://www.ntrand.com/jp/ntfmom/)
+- [NTFSKEW](https://www.ntrand.com/jp/ntfskew/)
+- [NTFSTDEV](https://www.ntrand.com/jp/ntfstdev/)
+- [F 分布](https://www.ntrand.com/jp/f-distribution/)
+

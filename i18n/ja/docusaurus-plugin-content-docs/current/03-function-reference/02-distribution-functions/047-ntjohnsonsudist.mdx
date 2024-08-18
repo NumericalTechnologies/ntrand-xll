@@ -1,0 +1,108 @@
+---
+title: NTJOHNSONSUDIST
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTJOHNSONSUDIST
+
+ジョンソン SU 分布の確率の値を返します。
+
+## 書式
+
+```excel
+NTJOHNSONSUDIST(
+    x,
+    Gamma,
+    Delta,
+    Lambda,
+    Xi,
+    Cumulative
+)
+```
+
+### 引数
+
+- **_x_** 関数に代入する値を指定します。
+- **_Gamma_** 分布のパラメータ $\gamma$ を指定します。
+- **_Delta_** 分布のパラメータ $\delta(>0)$ を指定します。
+- **_Lambda_** 分布のパラメータ $\lambda(>0)$ を指定します。
+- **_Xi_** 分布のパラメータ $\xi$ を指定します。
+- **_Cumulative_** 計算に使用する指数関数の形式を論理値で指定します。*Cumulative* に TRUE を指定すると累積分布関数の値が計算され、FALSE を指定すると確率密度関数の値が計算されます。
+
+## 使用例
+
+- 使用例を新規のワークシートにコピーすると、計算結果を確認できます。
+
+<details>
+<summary>その方法は？</summary>
+
+1.  新しいブックまたはワークシートを作成します。
+2.  ヘルプ トピックにある使用例を選択します（行番号および列番号を除く）。
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    ヘルプから使用例を選択する
+
+3.  Ctrl キーを押しながら C キーを押します。
+4.  ワークシートのセル A1 を選択し、Ctrl キーを押しながら V キーを押します。
+5.  計算結果と結果を返す数式の表示を切り替えるには、Ctrl キーを押しながら ` (アクサン グラーブ) キーを押すか、または [ツール] メニューの [ワークシート分析] をポイントし、[ワークシート分析モード] をクリックします。
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 2.5, readOnly: true },
+        { value: "対象となる値", readOnly: true },
+      ],
+      [
+        { value: 0.8, readOnly: true },
+        { value: "パラメータ Gamma の値", readOnly: true },
+      ],
+      [
+        { value: 2, readOnly: true },
+        { value: "パラメータ Delta の値", readOnly: true },
+      ],
+      [
+        { value: 2.5, readOnly: true },
+        { value: "パラメータ Lambda の値", readOnly: true },
+      ],
+      [
+        { value: 1.2, readOnly: true },
+        { value: "パラメータ Xi の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTJOHNSONSUDIST(A2,A3,A4,A5,A6,TRUE)", readOnly: true },
+        { value: "上のデータに対する累積分布関数の値", readOnly: true },
+      ],
+      [
+        { value: "=NTJOHNSONSUDIST(A2,A3,A4,A5,A6,FALSE)", readOnly: true },
+        { value: "上のデータに対する確率密度関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand2.xls "サンプル Excel シートをダウンロード")
+
+## 参照
+
+- [NTRANDJOHNSONSU](https://www.ntrand.com/jp/ntrandjohnsonsu/)
+- [NTJOHNSONSUINV](https://www.ntrand.com/jp/ntjohnsonsuinv/)
+- [NTJOHNSONSUKURT](https://www.ntrand.com/jp/ntjohnsonsukurt/)
+- [NTJOHNSONSUMEAN](https://www.ntrand.com/jp/ntjohnsonsumean/)
+- [NTJOHNSONSUMOM](https://www.ntrand.com/jp/ntjohnsonsumom/)
+- [NTJOHNSONSUPARAM](https://www.ntrand.com/jp/ntjohnsonsuparam/)
+- [NTJOHNSONSUSKEW](https://www.ntrand.com/jp/ntjohnsonsuskew/)
+- [NTJOHNSONSUSTDEV](https://www.ntrand.com/jp/ntjohnsonsustdev/)
+- [ジョンソン SU 分布](https://www.ntrand.com/jp/johnson-su-distribution/)

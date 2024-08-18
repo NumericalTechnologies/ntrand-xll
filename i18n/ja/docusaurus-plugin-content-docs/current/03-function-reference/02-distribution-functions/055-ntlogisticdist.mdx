@@ -1,0 +1,96 @@
+---
+title: NTLOGISTICDIST
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTLOGISTICDIST
+
+ロジスティック分布の確率の値を返します。
+
+## 書式
+
+```excel
+NTLOGISTICDIST(
+    x,
+    M,
+    B,
+    Cumulative
+)
+```
+
+### 引数
+
+- **_x_** 関数に代入する値を指定します。
+- **_M_** 分布のパラメータ $m$ を指定します。
+- **_B_** 分布のパラメータ $b(>0)$ を指定します。
+- **_Cumulative_** 計算に使用する指数関数の形式を論理値で指定します。*Cumulative* に TRUE を指定すると累積分布関数の値が計算され、FALSE を指定すると確率密度関数の値が計算されます。
+
+## 使用例
+
+- 使用例を新規のワークシートにコピーすると、計算結果を確認できます。
+
+<details>
+<summary>その方法は？</summary>
+
+1.  新しいブックまたはワークシートを作成します。
+2.  ヘルプ トピックにある使用例を選択します（行番号および列番号を除く）。
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    ヘルプから使用例を選択する
+
+3.  Ctrl キーを押しながら C キーを押します。
+4.  ワークシートのセル A1 を選択し、Ctrl キーを押しながら V キーを押します。
+5.  計算結果と結果を返す数式の表示を切り替えるには、Ctrl キーを押しながら ` (アクサン グラーブ) キーを押すか、または [ツール] メニューの [ワークシート分析] をポイントし、[ワークシート分析モード] をクリックします。
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1.5, readOnly: true },
+        { value: "対象となる値", readOnly: true },
+      ],
+      [
+        { value: -5.7, readOnly: true },
+        { value: "パラメータ M の値", readOnly: true },
+      ],
+      [
+        { value: 11, readOnly: true },
+        { value: "パラメータ B の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTLOGISTICDIST(A2,A3,A4,TRUE)", readOnly: true },
+        { value: "上のデータに対する累積分布関数の値", readOnly: true },
+      ],
+      [
+        { value: "=NTLOGISTICDIST(A2,A3,A4,FALSE)", readOnly: true },
+        { value: "上のデータに対する確率密度関数の値", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand2.xls "Downloading Sample")
+
+## 参照
+
+- [NTRANDLOGISTIC](https://www.ntrand.com/jp/ntrandlogistic/)
+- [NTLOGISTICINV](https://www.ntrand.com/jp/ntlogisticinv/)
+- [NTLOGISTICKURT](https://www.ntrand.com/jp/ntlogistickurt/)
+- [NTLOGISTICMEAN](https://www.ntrand.com/jp/ntlogisticmean/)
+- [NTLOGISTICMOM](https://www.ntrand.com/jp/ntlogisticmom/)
+- [NTLOGISTICPARAM](https://www.ntrand.com/jp/ntlogisticparam/)
+- [NTLOGISTICSKEW](https://www.ntrand.com/jp/ntlogisticskew/)
+- [NTLOGISTICSTDEV](https://www.ntrand.com/jp/ntlogisticstdev/)
+- [ロジスティック分布](https://www.ntrand.com/jp/logistic-distribution/)

@@ -1,0 +1,83 @@
+---
+title: NTTKURT
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTTKURT
+
+[t 分布](https://www.ntrand.com/jp/t-distribution/)の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis)を返します。
+
+## 書式
+
+```excel
+NTTKURT(
+    N
+)
+```
+
+### 引数
+
+- **_N_** 分布のパラメータ $N(N>4)$ を指定します。
+
+## 解説
+
+分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis)　は$N>4$の場合に定義され、次式で与えられます。
+
+$$
+\frac{6}{N-4}(N>4)
+$$
+
+## 使用例
+
+- 使用例を新規のワークシートにコピーすると、計算結果を確認できます。
+
+<details>
+<summary>その方法は？</summary>
+
+1.  新しいブックまたはワークシートを作成します。
+2.  ヘルプ トピックにある使用例を選択します（行番号および列番号を除く）。
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    ヘルプから使用例を選択する
+
+3.  Ctrl キーを押しながら C キーを押します。
+4.  ワークシートのセル A1 を選択し、Ctrl キーを押しながら V キーを押します。
+5.  計算結果と結果を返す数式の表示を切り替えるには、Ctrl キーを押しながら ` (アクサン グラーブ) キーを押すか、または [ツール] メニューの [ワークシート分析] をポイントし、[ワークシート分析モード] をクリックします。
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 8, readOnly: true },
+        { value: "分布のパラメータ N の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTTKURT(A2)", readOnly: true },
+        { value: "上のデータに対する分布の尖度", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+## 参照
+
+- [NTRANDT](https://www.ntrand.com/jp/ntrandt/)
+- [NTTDIST](https://www.ntrand.com/jp/nttdist/)
+- [NTTDISTINV](https://www.ntrand.com/jp/nttdistinv/)
+- [NTTMEAN](https://www.ntrand.com/jp/nttmean/)
+- [NTTMOM](https://www.ntrand.com/jp/nttmom/)
+- [NTTSKEW](https://www.ntrand.com/jp/nttskew/)
+- [NTTSTDEV](https://www.ntrand.com/jp/nttstdev/)
+- [t 分布](https://www.ntrand.com/jp/t-distribution/)

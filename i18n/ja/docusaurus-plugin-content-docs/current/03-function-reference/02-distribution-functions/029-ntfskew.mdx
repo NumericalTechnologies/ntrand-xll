@@ -1,0 +1,91 @@
+---
+title: NTFSKEW
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTFSKEW
+
+[F 分布](https://www.ntrand.com/jp/f-distribution/)の[歪度](https://www.ntrand.com/jp/glossary/#local_skew)を返します。
+
+## 書式
+
+```excel
+NTFSKEW(
+    N1,
+    N2
+)
+```
+
+### 引数
+
+- **_N1_** 分布のパラメータ $N_1$ を指定します（正の整数）。
+- **_N2_** 分布のパラメータ $N_2(N_2>6)$ を指定します。
+
+## 解説
+
+分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skew) は次式で与えられます。
+
+$$
+\frac{(2N_1+N_2-2)\sqrt{8(N_2-4)}}{\sqrt{N_1(N_1+N_2-2)}(N_2-6)}\quad (N_2>6)
+$$
+
+[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+
+## 使用例
+
+- 使用例を新規のワークシートにコピーすると、計算結果を確認できます。
+
+<details>
+<summary>その方法は？</summary>
+
+1.  新しいブックまたはワークシートを作成します。
+2.  ヘルプ トピックにある使用例を選択します（行番号および列番号を除く）。
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    ヘルプから使用例を選択する
+
+3.  Ctrl キーを押しながら C キーを押します。
+4.  ワークシートのセル A1 を選択し、Ctrl キーを押しながら V キーを押します。
+5.  計算結果と結果を返す数式の表示を切り替えるには、Ctrl キーを押しながら ` (アクサン グラーブ) キーを押すか、または [ツール] メニューの [ワークシート分析] をポイントし、[ワークシート分析モード] をクリックします。
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 4, readOnly: true },
+        { value: "パラメータ N1 の値", readOnly: true },
+      ],
+      [
+        { value: 30, readOnly: true },
+        { value: "パラメータ N2 の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTFSKEW(A2,A3)", readOnly: true },
+        { value: "上のデータに対する分布の歪度", readOnly: true },
+      ],
+    ],
+  }}
+/>
+
+## 参照
+
+- [NTRANDF](https://www.ntrand.com/jp/ntrandf/)
+- [NTFDIST](https://www.ntrand.com/jp/ntfdist/)
+- [NTFDISTINV](https://www.ntrand.com/jp/ntfdistinv/)
+- [NTFKURT](https://www.ntrand.com/jp/ntfkurt/)
+- [NTFMEAN](https://www.ntrand.com/jp/ntfmean/)
+- [NTFMOM](https://www.ntrand.com/jp/ntfmom/)
+- [NTFSTDEV](https://www.ntrand.com/jp/ntfstdev/)
+- [F 分布](https://www.ntrand.com/jp/f-distribution/)
