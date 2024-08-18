@@ -10,7 +10,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 概要
 
-[一様分布（離散）](https://www.ntrand.com/jp/uniform-distribution-discrete/)の項で説明したルーレットをもう一度考えてみましょう。\
+[一様分布（離散）](uniform-distribution-discrete.mdx)の項で説明したルーレットをもう一度考えてみましょう。\
 ルーレットは円周を一定の間隔で区切り、ボールがどの区画に飛び込むかを当てるゲームでしたね。区間が一定なので、どの区間に飛び込むかの確率は同様に確からしい→一様分布（離散）となる訳です。\
 では区間の数をどんどんと増やしてみたらどうなるでしょう？　100区間、1000区間、10,000区間...。区間がいくつであっても各区間にボールが落ちる確率は
 
@@ -30,15 +30,15 @@ $$
 F(x)=\frac{x}{360}
 $$
 
-です。実は大したことはないのです。これは[累積分布関数](https://www.ntrand.com/jp/glossary/#local_Cumulative)そのものだから。ではこれを $x$ で微分すると、
+です。実は大したことはないのです。これは[累積分布関数](/docs/glossary#cumulative-distribution-function)そのものだから。ではこれを $x$ で微分すると、
 
 $$
 f(x)=\frac{\text{d}}{\text{d}x}F(x)=\frac{1}{360}
 $$
 
-が得られます。実はこれが[確率密度関数](https://www.ntrand.com/jp/glossary/#local_Probability)の定義なのです。
+が得られます。実はこれが[確率密度関数](/docs/glossary#probability-density-function)の定義なのです。
 
-一般に連続区間$[a,b]$ で定義された連続一様分布の[確率密度関数](https://www.ntrand.com/jp/glossary/#local_Probability)は、
+一般に連続区間$[a,b]$ で定義された連続一様分布の[確率密度関数](/docs/glossary#probability-density-function)は、
 
 $$
 f(x)=\frac{1}{b-a}
@@ -48,7 +48,7 @@ $$
 
 ### 利用法
 
-一様乱数でばらまかれた点の間隔は[指数分布](https://www.ntrand.com/jp/exponential-distribution/)になります。
+一様乱数でばらまかれた点の間隔は[指数分布](exponential-distribution.mdx)になります。
 
 一様分布（連続）に従う乱数（範囲は0から1。0や1を含むか否かは状況による）は、コンピューターで他の分布に従う様々な乱数を生成する素になるのです。 乱数は**逆関数法**や**棄却・採択法**といった手法で生成されますが、このいずれも一様乱数と対象となる分布の分布関数を利用して生成されるのです。\
 つまり、最終的に得られる乱数の品質は元になる一様乱数の品質そのものということになります。\
@@ -67,23 +67,23 @@ $$
   これらのパラメータは分布の下限と上限を表します。
 
 - 有限区間 $a\leq x \leq b$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して常に対称です。
+- [平均](/docs/glossary#central-moment)対して常に対称です。
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{x}{b-a}
   $$
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{b-a}
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -124,13 +124,13 @@ $$
 
 ### 分位点
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)の逆関数
 
   $$
   F^{-1}(P)=a+P(b-a)
   $$
 
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{
@@ -165,9 +165,9 @@ $$
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は次式で与えられます。
+- 分布の[平均](/docs/glossary#central-moment) は次式で与えられます。
 
   $$
   \frac{a+b}{2}
@@ -202,15 +202,15 @@ $$
   }}
 />
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+- 分布の[分散](/docs/glossary#variance) は次式で与えられます。
 
   $$
   \frac{(a-b)^2}{12}
   $$
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
 - Excel での計算法
 
@@ -241,11 +241,11 @@ $$
   }}
 />
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
 - 分布の歪度は $0$ です。
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
 - 分布の尖度は $-1.2$ です。
 
@@ -289,7 +289,7 @@ Excel での乱数生成法
 
 ## 関連 NtRand 関数
 
-- Mersenne Twiseter 法による乱数生成 : [NTRAND](https://www.ntrand.com/jp/ntrand/)
+- Mersenne Twiseter 法による乱数生成 : [NTRAND](../03-function-reference/01-random-numbers/01-single-series/01-ntrand.mdx)
 
 ## 参照
 

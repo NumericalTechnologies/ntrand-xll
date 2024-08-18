@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ## NtRand – 乱数生成Excel アドイン関数
 
-Numerical Technologies Random Generator for Excel (**NtRand**) とは、モンテカルロ法に用いる[標準正規乱数](https://wwww.ntrand.com/jp/glossary/#local_normal_Gaussian) などを、Microsoft Excel から使える関数アドインとして実装したソフトウェアです。 NtRand はシミュレーション分野で注目を集めている超長周期と高次元均等分布を特徴とする[Mersenne Twister アルゴリズム](https://wwww.ntrand.com/jp/glossary/#local_Mersenne_Twister)による[疑似乱数](https://wwww.ntrand.com/jp/glossary/#local_pseudo-random)を使用しています。 また多変量モンテカルロにおいては[対称変量法 (antithetic)](https://wwww.ntrand.com/jp/glossary/#local_antitheticvariant) や [2次サンプリング (quadratic resampling)](https://wwww.ntrand.com/jp/glossary/#local_quadraticresampling) などの精度改善手法を採用しています。詳しくは、[「モーメントマッチングってどんな効果があるの？」](https://wwww.ntrand.com/jp/faq/#local_EnhancementofMonteCarlo)をご覧ください。
+Numerical Technologies Random Generator for Excel (**NtRand**) とは、モンテカルロ法に用いる[標準正規乱数](/docs/glossary#normal-gaussian-random-numbers) などを、Microsoft Excel から使える関数アドインとして実装したソフトウェアです。 NtRand はシミュレーション分野で注目を集めている超長周期と高次元均等分布を特徴とする[Mersenne Twister アルゴリズム](/docs/glossary#mersenne-twister-algorithm)による[疑似乱数](/docs/glossary#pseudo-random-numbers)を使用しています。 また多変量モンテカルロにおいては[対称変量法 (antithetic)](/docs/glossary#antithetic-variant-method) や [2次サンプリング (quadratic resampling)](/docs/glossary#quadratic-resampling) などの精度改善手法を採用しています。詳しくは、[「モーメントマッチングってどんな効果があるの？」](/docs/faq#enhancement-of-monte-carlo-by-moment-matching)をご覧ください。
 
 ## なぜNtRand?
 
@@ -17,31 +17,31 @@ Numerical Technologies Random Generator for Excel (**NtRand**) とは、モン�
 
 NtRand は非常に高速かつ高機能です。数十次元程度であれば実用レベルのモンテカルロVaR (Value at Risk) システムや、デリバティブのプライシングモデルを、パソコン上のExcel を使って構築可能です。 すなわち、大方の比較的小規模なVaR 管理ならばNtRand を用いれば実現できるはずです。デリバティブのプライシングやリスク管理の研究、高額なシステムの企画・発注の前の叩き台、あるいは論文ネタとして、ぜひご活用ください。
 
-- 超長周期（周期 $2^{19937}-1$ ）と高次元均等性（623次元）という目を見張る高品質な**[疑似乱数](https://wwww.ntrand.com/jp/overview/#local_Pseudo-random)**生成を実現（[Mersenns Twiser 法](https://wwww.ntrand.com/jp/glossary/#local_Mersenne_Twister)）。Mersenne Twister 法の詳しい説明は[Mersenne Twister ホームページ](http://www.math.sci.hiroshima-u.ac.~m-mat/MT/emt.html)へどうぞ。
+- 超長周期（周期 $2^{19937}-1$ ）と高次元均等性（623次元）という目を見張る高品質な**[疑似乱数](/docs/glossary#pseudo-random-numbers)**生成を実現（[Mersenns Twiser 法](/docs/glossary#mersenne-twister-algorithm)）。Mersenne Twister 法の詳しい説明は[Mersenne Twister ホームページ](http://www.math.sci.hiroshima-u.ac.~m-mat/MT/emt.html)へどうぞ。
 - **Excel のアドイン**として提供されているため、導入はとっても簡単。Excel のメニューから登録したらすぐに使えます。
 - **簡単操作**による多変量相関正規乱数生成。**モンテカルロ法による VaR**（Value at Risk）の計算に力を発揮します。
-- **乱数生成アルゴリズム選択**の自由性。一様乱数は[Mersenns Twiser 法](https://wwww.ntrand.com/jp/glossary/#local_Mersenne_Twister)の他にも簡便で広く使われている**Numerical Recipes ran2()** 法が選択可能。さらに正規乱生成は[Box-Muller 法](https://wwww.ntrand.com/jp/overview/#local_Box-Muller)と[Moro の方法](https://wwww.ntrand.com/jp/glossary/#local_Inversefunctionmethod)が選べます。
-- **モーメントマッチング法** によってモンテカルロシミュレーションにおける収束性が劇的に改善。[対称変量法](https://wwww.ntrand.com/jp/glossary/#local_antitheticvariant) と [2次サンプリング法](https://wwww.ntrand.com/jp/glossary/#local_quadraticresampling)を自由に組み合わせて使用可能。詳しくは[こちら](https://wwww.ntrand.com/jp/glossary/#local_EnhancementofMonteCarlo)へ。
+- **乱数生成アルゴリズム選択**の自由性。一様乱数は[Mersenns Twiser 法](/docs/glossary#mersenne-twister-algorithm)の他にも簡便で広く使われている**Numerical Recipes ran2()** 法が選択可能。さらに正規乱生成は[Box-Muller 法](/docs/glossary#box-muller-method)と[Moro の方法](/docs/glossary#inverse-function-method-moros-algorithm)が選べます。
+- **モーメントマッチング法** によってモンテカルロシミュレーションにおける収束性が劇的に改善。[対称変量法](/docs/glossary#antithetic-variant-method) と [2次サンプリング法](/docs/glossary#quadratic-resampling)を自由に組み合わせて使用可能。詳しくは[こちら](/docs/faq#enhancement-of-monte-carlo-by-moment-matching)へ。
 - 利用範囲の広い**17種の確率分布**の乱数生成とそれを利用するための有用性の高いユーティリティ関数を完全実装。下の表で対応関数を確認してください。
 
-|                                                                       | 乱数 | 分布関数 | 逆関数 | Mom(\*). | パラメータ推定 | 平均 | 標準偏差 | 歪度 | 尖度 |
-| --------------------------------------------------------------------- | ---- | -------- | ------ | -------- | -------------- | ---- | -------- | ---- | ---- |
-| [一様](https://wwww.ntrand.com/jp/uniform-distribution/)              | ✅   | ❌       | ❌     | ❌       | ❌             | ❌   | ❌       | ❌   | ❌   |
-| [ベータ](https://wwww.ntrand.com/jp/beta-distribution/)               | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
-| [カイ分布](https://wwww.ntrand.com/jp/chi-distribution/)              | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
-| [カイ2乗分布](https://wwww.ntrand.com/jp/chi-square-distribution/)    | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
-| [F 分布](https://wwww.ntrand.com/jp/f-distribution/)                  | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
-| [ガンマ分布](https://wwww.ntrand.com/jp/gamma-distribution/)          | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
-| [ガンベル](https://wwww.ntrand.com/jp/gumbel-type-i-distribution/)    | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
-| [ジョンソン SU](https://wwww.ntrand.com/jp/johnson-su-distribution/)  | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
-| [ロジスティック](https://wwww.ntrand.com/jp/logistic-distribution/)   | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
-| [対数正規](https://wwww.ntrand.com/jp/log-normal-distribution/)       | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
-| [標準正規](https://wwww.ntrand.com/jp/normal-distribution-single/)    | ✅   | ✅       | ✅     | ❌       | ❌             | ❌   | ❌       | ❌   | ❌   |
-| [ポアソン](https://wwww.ntrand.com/jp/poisson-distribution/)          | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
-| [t 分布](https://wwww.ntrand.com/jp/t-distribution/)                  | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
-| [三角](https://wwww.ntrand.com/jp/triangular-distribution/)           | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
-| [切断正規](https://wwww.ntrand.com/jp/truncated-normal-distribution/) | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
-| [ワイブル](https://wwww.ntrand.com/jp/weibull-distribution/)          | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
-| [多変量正規](https://wwww.ntrand.com/jp/normal-distribution-multi/)   | ✅   | ✅       | ❌     | ❌       | ❌             | ❌   | ❌       | ❌   | ❌   |
+|                                                                           | 乱数 | 分布関数 | 逆関数 | Mom(\*). | パラメータ推定 | 平均 | 標準偏差 | 歪度 | 尖度 |
+| ------------------------------------------------------------------------- | ---- | -------- | ------ | -------- | -------------- | ---- | -------- | ---- | ---- |
+| [一様](05-gallery-of-distributions/uniform-distribution-continuous.mdx)   | ✅   | ❌       | ❌     | ❌       | ❌             | ❌   | ❌       | ❌   | ❌   |
+| [ベータ](05-gallery-of-distributions/beta-distribution.mdx)               | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [カイ分布](05-gallery-of-distributions/chi-distribution.mdx)              | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
+| [カイ2乗分布](05-gallery-of-distributions/chi-square-distribution.mdx)    | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
+| [F 分布](05-gallery-of-distributions/f-distribution.mdx)                  | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
+| [ガンマ分布](05-gallery-of-distributions/gamma-distribution.mdx)          | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [ガンベル](05-gallery-of-distributions/gumbel-type-i-distribution.mdx)    | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [ジョンソン SU](05-gallery-of-distributions/johnson-su-distribution.mdx)  | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [ロジスティック](05-gallery-of-distributions/logistic-distribution.mdx)   | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [対数正規](05-gallery-of-distributions/log-normal-distribution.mdx)       | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [標準正規](05-gallery-of-distributions/normal-distribution-single.mdx)    | ✅   | ✅       | ✅     | ❌       | ❌             | ❌   | ❌       | ❌   | ❌   |
+| [ポアソン](05-gallery-of-distributions/poisson-distribution.mdx)          | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
+| [t 分布](05-gallery-of-distributions/t-distribution.mdx)                  | ✅   | ✅       | ✅     | ✅       | ❌             | ✅   | ✅       | ✅   | ✅   |
+| [三角](05-gallery-of-distributions/triangular-distribution.mdx)           | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [切断正規](05-gallery-of-distributions/truncated-normal-distribution.mdx) | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [ワイブル](05-gallery-of-distributions/weibull-distribution.mdx)          | ✅   | ✅       | ✅     | ✅       | ✅             | ✅   | ✅       | ✅   | ✅   |
+| [多変量正規](05-gallery-of-distributions/normal-distribution-multi.mdx)   | ✅   | ✅       | ❌     | ❌       | ❌             | ❌   | ❌       | ❌   | ❌   |
 
 (\*) Mom. は各分布の「平均」、「標準偏差」、「歪度」、「尖度」を一度に求める関数。

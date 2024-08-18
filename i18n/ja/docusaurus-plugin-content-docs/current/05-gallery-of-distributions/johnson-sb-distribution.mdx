@@ -17,11 +17,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   $$
 
 - 有限区間 $\xi\leq x \leq \xi+\lambda$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して対称にも非対称にもなり得ます。
+- [平均](/docs/glossary#central-moment)対して対称にも非対称にもなり得ます。
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\Phi\left(\gamma+\delta\ln\frac{z}{1-z}\right)
@@ -33,15 +33,15 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   z=\frac{x-\xi}{\lambda}
   $$
 
-  で、 $\Phi(\cdot)$ は 標準正規分布の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  で、 $\Phi(\cdot)$ は 標準正規分布の[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{\delta}{\lambda\sqrt{2\pi}z(1-z)}\exp\left[-\frac{1}{2}\left(\gamma+\delta\ln\frac{z}{1-z}\right)^2\right]
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -96,15 +96,15 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 分位点
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)の逆関数
 
   $$
   F^{-1}(P)=\frac{\lambda\exp\left(\frac{\Phi^{-1}(P)-\gamma}{\delta}\right)}{1+\exp\left(\frac{\Phi^{-1}(P)-\gamma}{\delta}\right)}+\xi
   $$
 
-  ここで $\Phi(\cdot)$ は標準正規分布の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  ここで $\Phi(\cdot)$ は標準正規分布の[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{

@@ -10,6 +10,19 @@ use File::Spec;
 # Store all prefix and file extension excluded name with relative paths in a hash
 # Then go thru each file again, replace http or https://www.ntrand.com/<name> to relative path to the file
 
+# get 1st argument
+my $target_locale = $ARGV[0];
+
+if ( !defined $target_locale ) {
+    print "Usage: cleanup.pl <jp|en>\n";
+    exit;
+}
+
+if ( $target_locale ne "jp" and $target_locale ne "en" ) {
+    print "Usage: cleanup.pl <jp|en>\n";
+    exit;
+}
+
 my %mdx_files;
 
 # Get all mdx files in the current directory and sub directories
@@ -72,14 +85,18 @@ sub replace_links {
                     my $relative_path = File::Spec->abs2rel( $target_file_path,
                         File::Basename::dirname($file_path) );
 
-                    $file_content =~
-                      s/http:\/\/www.ntrand.com\/$key\/?\)/$relative_path)/gi;
-                    $file_content =~
-                      s/https:\/\/www.ntrand.com\/$key\/?\)/$relative_path)/gi;
-                    $file_content =~
+                    if ( $target_locale eq "en" ) {
+                        $file_content =~
+s/http:\/\/www.ntrand.com\/$key\/?\)/$relative_path)/gi;
+                        $file_content =~
+s/https:\/\/www.ntrand.com\/$key\/?\)/$relative_path)/gi;
+                    }
+                    elsif ( $target_locale eq "jp" ) {
+                        $file_content =~
 s/http:\/\/www.ntrand.com\/jp\/$key\/?\)/$relative_path)/g;
-                    $file_content =~
+                        $file_content =~
 s/https:\/\/www.ntrand.com\/jp\/$key\/?\)/$relative_path)/g;
+                    }
 
                     # update index if the relative path contains \d\d\d?-.*\.mdx
                     if ( $relative_path =~ m/(\d\d\d?)-([^\/]*)\.mdx/ ) {
@@ -136,14 +153,65 @@ sub to_kebab_case {
 my %glossary_anchor_names;
 
 sub get_glossary_links {
-    my $url     = "https://www.ntrand.com/glossary/";
+    print "Getting glossary links\n";
+    my $url;
+    if ( $target_locale eq "en" ) {
+        $url = "https://www.ntrand.com/glossary/";
+    }
+    elsif ( $target_locale eq "jp" ) {
+        $url = "https://www.ntrand.com/jp/glossary/";
+    }
     my $content = `curl -s $url`;
-    while ( $content =~ m/<a id="local_(.*?)" name="local_(.*?)">(.*?)<\/a>/g )
-    {
-        my $id    = $1;
-        my $title = $3;
-        $title = to_kebab_case($title);
-        $glossary_anchor_names{$id} = $title;
+    if ( $content eq "" ) {
+        print "Failed to get content from $url\n";
+        exit;
+    }
+
+    if ( $target_locale eq "en" ) {
+
+        while (
+            $content =~ m/<a id="local_(.*?)" name="local_(.*?)">(.*?)<\/a>/g )
+        {
+            my $id    = $1;
+            my $title = $3;
+            $title = to_kebab_case($title);
+
+            # skip if the title is empty
+            if ( $title eq "" ) {
+                next;
+            }
+            $glossary_anchor_names{$id} = $title;
+        }
+    }
+    elsif ( $target_locale eq "jp" ) {
+        while (
+            $content =~ m/<a id="local_(.*?)" name="local_(.*?)">(.*?)<\/a>/g )
+        {
+            my $id             = $1;
+            my $japanese_title = $3;
+
+            # match title in 04-glossary.mdx
+            # the format is ## JAPANESE_TITLE {#kebab-case-title}
+            my $title = `grep -i "## $japanese_title" 04-glossary.mdx`;
+
+            if ( $title eq "" ) {
+                print "Failed to find $japanese_title in 04-glossary.mdx\n";
+                next;
+            }
+
+            # remove new line
+            $title =~ s/\n//g;
+
+            # get kebab case title
+            $title =~ s/.*\{#(.*?)\}.*/$1/g;
+
+            # skip if the title is empty
+            if ( $title eq "" ) {
+                next;
+            }
+
+            $glossary_anchor_names{$id} = $title;
+        }
     }
 
 }
@@ -160,6 +228,7 @@ sub replace_glossary_links {
         }
         else {
             my $file_path = "$dir/$file";
+            print "Processing $file_path\n";
             my $file_content;
             open( my $fh, '<', $file_path )
               or die "Can't open $file_path: $!";
@@ -173,10 +242,15 @@ sub replace_glossary_links {
                 my $title = $glossary_anchor_names{$key};
 
                 # case insensitive
+
                 $file_content =~
-s/http:\/\/www.ntrand.com\/glossary\/?#local_$key/\/docs\/glossary#$title/gi;
+s/http:\/\/www.ntrand.com\/glossary\/?#local_$key\/?/\/docs\/glossary#$title/gi;
                 $file_content =~
-s/https:\/\/www.ntrand.com\/glossary\/?#local_$key/\/docs\/glossary#$title/gi;
+s/https:\/\/www.ntrand.com\/glossary\/?#local_$key\/?/\/docs\/glossary#$title/gi;
+                $file_content =~
+s/http:\/\/www.ntrand.com\/jp\/glossary\/?#local_$key\/?/\/docs\/glossary#$title/gi;
+                $file_content =~
+s/https:\/\/www.ntrand.com\/jp\/glossary\/?#local_$key\/?/\/docs\/glossary#$title/gi;
 
             }
 
@@ -186,6 +260,7 @@ s/https:\/\/www.ntrand.com\/glossary\/?#local_$key/\/docs\/glossary#$title/gi;
             print $fh_out $file_content;
 
             close($fh_out);
+            print "Done processing $file_path\n";
         }
     }
 }
@@ -193,15 +268,76 @@ s/https:\/\/www.ntrand.com\/glossary\/?#local_$key/\/docs\/glossary#$title/gi;
 my %faq_anchor_names;
 
 sub get_faq_links {
-    my $url     = "https://www.ntrand.com/documentation/faq/";
+    print "Getting faq links\n";
+    my $url;
+    if ( $target_locale eq "en" ) {
+        $url = "https://www.ntrand.com/documentation/faq/";
+    }
+    elsif ( $target_locale eq "jp" ) {
+        $url = "https://www.ntrand.com/jp/faq/";
+    }
     my $content = `curl -s $url`;
-    while ( $content =~
-        m/<a id="local_(.*?)" name="local_(.*?)"><\/a>(.*?)<\/div>/g )
-    {
-        my $id    = $1;
-        my $title = $3;
-        $title = to_kebab_case($title);
-        $faq_anchor_names{$id} = $title;
+
+    if ( $content eq "" ) {
+        print "Failed to get content from $url\n";
+        exit;
+    }
+
+    if ( $target_locale eq "en" ) {
+
+        while ( $content =~
+            m/<a id="local_(.*?)" name="local_(.*?)"><\/a>(.*?)<\/div>/g )
+        {
+            my $id    = $1;
+            my $title = $3;
+            $title = to_kebab_case($title);
+
+            # skip if the title is empty
+            if ( $title eq "" ) {
+                next;
+            }
+            $faq_anchor_names{$id} = $title;
+        }
+    }
+    elsif ( $target_locale eq "jp" ) {
+
+        while ( $content =~
+            m/<a id="local_(.*?)" name="local_(.*?)">(.*?)<\/a><\/div>/g )
+        {
+            my $id             = $1;
+            my $japanese_title = $3;
+
+            # replace <strong></strong> tag to ** **
+            $japanese_title =~ s/<strong>(.*?)<\/strong>/**$1**/g;
+
+            # remove  leading and tailing spaces
+            $japanese_title =~ s/^\s+|\s+$//g;
+
+            # remove tailing full-width question mark
+            $japanese_title =~ s/？$//g;
+
+            # match title in 06-faq.mdx
+            # the format is ### JAPANESE_TITLE {#kebab-case-title}
+            my $title = `grep -i "### $japanese_title" 06-faq.mdx`;
+
+            if ( $title eq "" ) {
+                print "Failed to find $japanese_title in 06-faq.mdx\n";
+                next;
+            }
+
+            # remove new line
+            $title =~ s/\n//g;
+
+            # get kebab case title
+            $title =~ s/.*\{#(.*?)\}.*/$1/g;
+
+            # skip if the title is empty
+            if ( $title eq "" ) {
+                next;
+            }
+
+            $faq_anchor_names{$id} = $title;
+        }
     }
 
 }
@@ -218,6 +354,7 @@ sub replace_faq_links {
         }
         else {
             my $file_path = "$dir/$file";
+            print "Processing $file_path\n";
             my $file_content;
             open( my $fh, '<', $file_path )
               or die "Can't open $file_path: $!";
@@ -231,10 +368,18 @@ sub replace_faq_links {
                 my $title = $faq_anchor_names{$key};
 
                 # case insensitive
-                $file_content =~
+                if ( $target_locale eq "en" ) {
+                    $file_content =~
 s/http:\/\/www.ntrand.com\/documentation\/faq\/#local_$key/\/docs\/faq#$title/gi;
-                $file_content =~
+                    $file_content =~
 s/https:\/\/www.ntrand.com\/documentation\/faq\/#local_$key/\/docs\/faq#$title/gi;
+                }
+                elsif ( $target_locale eq "jp" ) {
+                    $file_content =~
+s/http:\/\/www.ntrand.com\/jp\/faq\/#local_$key/\/docs\/faq#$title/gi;
+                    $file_content =~
+s/https:\/\/www.ntrand.com\/jp\/faq\/#local_$key/\/docs\/faq#$title/gi;
+                }
 
             }
 
@@ -244,6 +389,7 @@ s/https:\/\/www.ntrand.com\/documentation\/faq\/#local_$key/\/docs\/faq#$title/g
             print $fh_out $file_content;
 
             close($fh_out);
+            print "Done processing $file_path\n";
         }
     }
 }

@@ -18,7 +18,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 - この原稿を書いている間に変換間違えをする数
 
 などといったものが考えられます。このようにポアソン分布とは、時間（例えば1時間当たり）、場所（例えば1平方メートル当たり）、距離（例えば1キロメートル当たり）などある一定区間の中で、偶然に起こる事象の数の分布です。\
-でもこれは一般的には起こる確率の低い事象に対する分布なので、注意したいところです。（ほら、なかなか馬に蹴られて死なないでしょ？）別名「少数の法則」とも呼ばれています（発生件数が多い場合は[正規分布](https://www.ntrand.com/jp/normal-distribution-single/)に近くなります）。
+でもこれは一般的には起こる確率の低い事象に対する分布なので、注意したいところです。（ほら、なかなか馬に蹴られて死なないでしょ？）別名「少数の法則」とも呼ばれています（発生件数が多い場合は[正規分布](normal-distribution-single.mdx)に近くなります）。
 
 ### 例えば以下のリアリティー溢れる例
 
@@ -67,7 +67,7 @@ $$
 
 98％の確率で定時に帰れる！楽しい金曜の夜になりそうです。
 
-ところで1時間に7通といっても、だいたい5分おきくらいに均等にメールが来るかもしれないし、30分来ないと思ったら一気に連続してメールが来るかもしれないですよね？ 受信したメールと次に来るメールの間隔はどのような分布になっているのでしょうか？実は、それは[指数分布](https://www.ntrand.com/jp/exponential-distribution/)になることが分かっているのです。
+ところで1時間に7通といっても、だいたい5分おきくらいに均等にメールが来るかもしれないし、30分来ないと思ったら一気に連続してメールが来るかもしれないですよね？ 受信したメールと次に来るメールの間隔はどのような分布になっているのでしょうか？実は、それは[指数分布](exponential-distribution.mdx)になることが分かっているのです。
 
 ## 分布の形状
 
@@ -79,25 +79,25 @@ $$
   \nu>0
   $$
 
-  このパラメータは分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean)です。
+  このパラメータは分布の[平均](/docs/glossary#central-moment)です。
 
 - 非負の整数 $x={0,1,2,\cdots}$ で定義される離散分布です。
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\text{e}^{-\nu}\sum_{i=0}^{x}\frac{\nu^i}{i !}
   $$
 
-- [確率質量関数](https://www.ntrand.com/jp/glossary/#local_probabilitymass)
+- [確率質量関数](/docs/glossary#probability-mass-function)
 
   $$
   f(x)=\frac{\nu^x\text{e}^{-\nu}}{x !}
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率質量関数 (p.m.f.)](https://www.ntrand.com/jp/glossary/#local_ProbabilityMass)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率質量関数 (p.m.f.)](/docs/glossary#probability-mass-function)の求め方
 
 <DataGridMdx
   data={{
@@ -130,25 +130,25 @@ $$
   }}
 />
 
-- 関連 NtRand 関数 : [NTPOISSONDIST](https://www.ntrand.com/jp/ntpoissondist/)
+- 関連 NtRand 関数 : [NTPOISSONDIST](../03-function-reference/02-distribution-functions/073-ntpoissondist.mdx)
 
 ![Triangular distribution](./../assets/functions/plot/plotPoisson.jpg)
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean)は $\nu$ と与えられます。
+- 分布の[平均](/docs/glossary#central-moment)は $\nu$ と与えられます。
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)は $\nu$ と与えられます。
+- 分布の[標準偏差](/docs/glossary#standard-deviation)は $\nu$ と与えられます。
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skew) は次式で与えられます。
+- 分布の[歪度](/docs/glossary#skewness) は次式で与えられます。
 
   $$
   \frac{1}{\sqrt{\nu}}
@@ -179,11 +179,11 @@ $$
   }}
 />
 
-- 関連 NtRand 関数 : [NTPOISSONSKEW](https://www.ntrand.com/jp/ntpoissonskew/)
+- 関連 NtRand 関数 : [NTPOISSONSKEW](../03-function-reference/02-distribution-functions/078-ntpoissonskew.mdx)
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis) は次式で与えられます。
+- 分布の[尖度](/docs/glossary#kurtosis) は次式で与えられます。
 
   $$
   \frac{1}{\nu}
@@ -214,7 +214,7 @@ $$
   }}
 />
 
-- 関連 NtRand 関数 : [NTPOISSONKURT](https://www.ntrand.com/jp/ntpoissonkurt/)
+- 関連 NtRand 関数 : [NTPOISSONKURT](../03-function-reference/02-distribution-functions/075-ntpoissonkurt.mdx)
 
 ## 乱数
 
@@ -258,13 +258,13 @@ Excel での乱数生成法
 ## 関連 NtRand 関数
 
 - 既に分布のパラメータをお持ちの場合
-  - Mersenne Twiseter 法による乱数生成 : [NTRANDPOISSON](https://www.ntrand.com/jp/ntrandpoisson/)
-  - 確率計算 : [NTPOISSONDIST](https://www.ntrand.com/jp/ntpoissondist/)
-  - 平均計算 : [NTPOISSONMEAN](https://www.ntrand.com/jp/ntpoissonmean/)
-  - 標準偏差計算 : [NTPOISSONSTDEV](https://www.ntrand.com/jp/ntpoissonstdev/)
-  - 歪度計算 : [NTPOISSONSKEW](https://www.ntrand.com/jp/ntpoissonskew/)
-  - 尖度計算 : [NTPOISSONKURT](https://www.ntrand.com/jp/ntpoissonkurt/)
-  - 上記の各モーメントを一度に計算 : [NTPOISSONMOM](https://www.ntrand.com/jp/ntpoissonmom/)
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDPOISSON](../03-function-reference/01-random-numbers/01-single-series/12-ntrandpoisson.mdx)
+  - 確率計算 : [NTPOISSONDIST](../03-function-reference/02-distribution-functions/073-ntpoissondist.mdx)
+  - 平均計算 : [NTPOISSONMEAN](../03-function-reference/02-distribution-functions/076-ntpoissonmean.mdx)
+  - 標準偏差計算 : [NTPOISSONSTDEV](../03-function-reference/02-distribution-functions/079-ntpoissonstdev.mdx)
+  - 歪度計算 : [NTPOISSONSKEW](../03-function-reference/02-distribution-functions/078-ntpoissonskew.mdx)
+  - 尖度計算 : [NTPOISSONKURT](../03-function-reference/02-distribution-functions/075-ntpoissonkurt.mdx)
+  - 上記の各モーメントを一度に計算 : [NTPOISSONMOM](../03-function-reference/02-distribution-functions/077-ntpoissonmom.mdx)
 
 ## 参照
 

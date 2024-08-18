@@ -59,34 +59,34 @@ PERT では**3点見積もり**という方法で納期の期待値を算出し�
 
 ### 基本情報
 
-- 2つのパラメータ $\alpha, \beta$ が必要です ([どうやって求めるの？](https://www.ntrand.com/jp/ntbetaparam/))
+- 2つのパラメータ $\alpha, \beta$ が必要です ([どうやって求めるの？](../03-function-reference/02-distribution-functions/006-ntbetaparam.mdx))
 
   $$
   \alpha>0,\beta>0
   $$
 
 - 有限区間 $0\leq x \leq 1$ で定義される連続分布
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して対称にも非対称にもなり得ます。
+- [平均](/docs/glossary#central-moment)対して対称にも非対称にもなり得ます。
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=I_x(\alpha,\beta)
   $$
 
-  ここで $I_x(\cdot,\cdot)$ は [正規化された不完全ベータ関数](https://www.ntrand.com/jp/glossary/#local_Regularized_incomplete_beta)です。
+  ここで $I_x(\cdot,\cdot)$ は [正規化された不完全ベータ関数](/docs/glossary#regularized-incomplete-beta-function)です。
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}
   $$
 
-  ここで $B(\cdot,\cdot)$ は [ベータ関数](https://www.ntrand.com/jp/glossary/#local_beta)です。
+  ここで $B(\cdot,\cdot)$ は [ベータ関数](/docs/glossary#beta-function)です。
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -125,14 +125,14 @@ PERT では**3点見積もり**という方法で納期の期待値を算出し�
 
 ![Triangular distribution](./../assets/functions/plot/plotBeta.jpg)
 
-- 関連 NtRand 関数 : [NTBETADIST](https://www.ntrand.com/jp/ntbetadist/)
+- 関連 NtRand 関数 : [NTBETADIST](../03-function-reference/02-distribution-functions/001-ntbetadist.mdx)
 - 第4引数が TRUE の場合、この関数は Excel 関数"[BETADIST](http://office.microsoft.com/en-us/excel/HP052090001033.aspx)" と同等です。
 
 ### 分位点
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数は閉じた形式で表記できません。
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)の逆関数は閉じた形式で表記できません。
 - [BETAINV](http://office.microsoft.com/en-us/excel/HP052090011033.aspx) は Excel の関数です。
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{
@@ -167,9 +167,9 @@ PERT では**3点見積もり**という方法で納期の期待値を算出し�
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は次式で与えられます。
+- 分布の[平均](/docs/glossary#central-moment) は次式で与えられます。
 
   $$
   \frac{\alpha}{\alpha+\beta}
@@ -204,17 +204,17 @@ PERT では**3点見積もり**という方法で納期の期待値を算出し�
   }}
 />
 
-- 関連 NtRand 関数 : [NTBETAMEAN](https://www.ntrand.com/jp/ntbetamean/)
+- 関連 NtRand 関数 : [NTBETAMEAN](../03-function-reference/02-distribution-functions/004-ntbetamean.mdx)
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+- 分布の[分散](/docs/glossary#variance) は次式で与えられます。
 
   $$
   \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
   $$
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
 - Excel での計算法
 
@@ -245,11 +245,11 @@ PERT では**3点見積もり**という方法で納期の期待値を算出し�
   }}
 />
 
-- 関連 NtRand 関数 : [NTBETASTDEV](https://www.ntrand.com/jp/ntbetastdev/)
+- 関連 NtRand 関数 : [NTBETASTDEV](../03-function-reference/02-distribution-functions/008-ntbetastdev.mdx)
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skew) は次式で与えられます。
+- 分布の[歪度](/docs/glossary#skewness) は次式で与えられます。
 
   $$
   \frac{2(\beta-\alpha)\sqrt{\alpha+\beta+1}}{(\alpha+\beta+2)\sqrt{\alpha\beta}}
@@ -284,11 +284,11 @@ PERT では**3点見積もり**という方法で納期の期待値を算出し�
   }}
 />
 
-- 関連 NtRand 関数 : [NTBETASKEW](https://www.ntrand.com/jp/ntbetaskew/)
+- 関連 NtRand 関数 : [NTBETASKEW](../03-function-reference/02-distribution-functions/007-ntbetaskew.mdx)
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis) は次式で与えられます。
+- 分布の[尖度](/docs/glossary#kurtosis) は次式で与えられます。
 
   $$
   6\frac{\alpha^3-\alpha^2(2\beta-1)+\beta^2(\beta+1)-2\alpha\beta(\beta+2)}{\alpha\beta(\alpha+\beta+2)(\alpha+\beta+3)}
@@ -323,7 +323,7 @@ PERT では**3点見積もり**という方法で納期の期待値を算出し�
   }}
 />
 
-- 関連 NtRand 関数 : [NTBETAKURT](https://www.ntrand.com/jp/ntbetakurt/)
+- 関連 NtRand 関数 : [NTBETAKURT](../03-function-reference/02-distribution-functions/003-ntbetakurt.mdx)
 
 ## 乱数
 
@@ -368,22 +368,22 @@ PERT では**3点見積もり**という方法で納期の期待値を算出し�
 
 メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A5:A104 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
 
-- 関連 NtRand 関数 : [NTRANDBETA](https://www.ntrand.com/jp/ntrandbeta/)
+- 関連 NtRand 関数 : [NTRANDBETA](../03-function-reference/01-random-numbers/01-single-series/02-ntrandbeta.mdx)
 
 ![](./../assets/functions/histogram/histogramBeta.jpg)
 
 ## 関連 NtRand 関数
 
 - 既に分布のパラメータをお持ちの場合
-  - Mersenne Twiseter 法による乱数生成 : [NTRANDBETA](https://www.ntrand.com/jp/ntrandbeta/)
-  - 確率計算 : [NTBETADIST](https://www.ntrand.com/jp/ntbetadist/)
-  - 平均計算 : [NTBETAMEAN](https://www.ntrand.com/jp/ntbetamean/)
-  - 標準偏差計算 : [NTBETASTDEV](https://www.ntrand.com/jp/ntbetaskew/)
-  - 歪度計算 : [NTBETASKEW](https://www.ntrand.com/jp/ntbetaskew/)
-  - 尖度計算 : [NTBETAKURT](https://www.ntrand.com/jp/ntbetakurt/)
-  - 上記の各モーメントを一度に計算 : [NTBETAMOM](https://www.ntrand.com/jp/ntbetamom/)
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDBETA](../03-function-reference/01-random-numbers/01-single-series/02-ntrandbeta.mdx)
+  - 確率計算 : [NTBETADIST](../03-function-reference/02-distribution-functions/001-ntbetadist.mdx)
+  - 平均計算 : [NTBETAMEAN](../03-function-reference/02-distribution-functions/004-ntbetamean.mdx)
+  - 標準偏差計算 : [NTBETASTDEV](../03-function-reference/02-distribution-functions/007-ntbetaskew.mdx)
+  - 歪度計算 : [NTBETASKEW](../03-function-reference/02-distribution-functions/007-ntbetaskew.mdx)
+  - 尖度計算 : [NTBETAKURT](../03-function-reference/02-distribution-functions/003-ntbetakurt.mdx)
+  - 上記の各モーメントを一度に計算 : [NTBETAMOM](../03-function-reference/02-distribution-functions/005-ntbetamom.mdx)
 - 分布の平均と標準偏差をお持ちの場合
-  - 分布のパラメータ推定 : [NTBETAPARAM](https://www.ntrand.com/jp/ntbetaparam/)
+  - 分布のパラメータ推定 : [NTBETAPARAM](../03-function-reference/02-distribution-functions/006-ntbetaparam.mdx)
 
 ## 参照
 

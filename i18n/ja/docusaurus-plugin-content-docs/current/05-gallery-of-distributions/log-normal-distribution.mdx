@@ -17,13 +17,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 下の図の左側は、TOPIX の収益率の分布です。 一方右の図は、対数収益率（= log(前日の終値/当日の終値) ）です。\
 ![](./../assets/distributions/LogNormal/TOPIX.png)\
 なるほど、確かに収益率の対数が正規分布に従っているみたいですね。 つまり、元の収益率は対数正規分布に従っているという仮定が一番もっともらしいことが分かるでしょう。\
-最近では、対数収益率は正規分布よりもっと裾の厚い分布に従っているという議論が高まってきています。そういった分布として[ジョンソン SU 分布](https://www.ntrand.com/jp/johnson-su-distribution/)が現在非常に注目されているのです。
+最近では、対数収益率は正規分布よりもっと裾の厚い分布に従っているという議論が高まってきています。そういった分布として[ジョンソン SU 分布](johnson-su-distribution.mdx)が現在非常に注目されているのです。
 
 他にお金がらみの話としては、世帯の**年収の分布**が対数正規分布（に近い分布）になるとの分析もあったりします。興味のある方は [ここ](http://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa08/2-2.html)に厚生労働省による所得の分布の図があるのでぜひ確かめてみてください。ご感想は心の中にでもしまっておいてください。
 
 ### ちょっと注意
 
-正規分布の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_Cumulative)は
+正規分布の[累積分布関数](/docs/glossary#cumulative-distribution-function)は
 
 $$
 \Phi\left(\frac{x-m}{\sigma}\right)
@@ -35,20 +35,20 @@ $$
 F(x)=\Phi\left(\frac{\log x-m}{\sigma}\right)
 $$
 
-になります。そう、[正規分布](https://www.ntrand.com/jp/normal-distribution-single/)の変数を $x\rightarrow \log x$ としただけなんです。\
-ここでもうちょっと**注意**。 [正規分布](https://www.ntrand.com/jp/normal-distribution-single/)の[確率密度関数](https://www.ntrand.com/jp/glossary/#local_Probability)が
+になります。そう、[正規分布](normal-distribution-single.mdx)の変数を $x\rightarrow \log x$ としただけなんです。\
+ここでもうちょっと**注意**。 [正規分布](normal-distribution-single.mdx)の[確率密度関数](/docs/glossary#probability-density-function)が
 
 $$
 \frac{1}{\sigma}\phi\left(\frac{x-m}{\sigma}\right)
 $$
 
-であるからって、調子に乗って対数正規分布の[確率密度関数](https://www.ntrand.com/jp/glossary/#local_Probability)を、
+であるからって、調子に乗って対数正規分布の[確率密度関数](/docs/glossary#probability-density-function)を、
 
 $$
 f(x)=\frac{1}{\sigma}\phi\left(\frac{\log x-m}{\sigma}\right)
 $$
 
-としないようにしましょう。[確率密度関数](https://www.ntrand.com/jp/glossary/#local_Probability)は、[累積分布関数](https://www.ntrand.com/jp/glossary/#local_Cumulative)を微分して求めるもの。だから正しい[確率密度関数](https://www.ntrand.com/jp/glossary/#local_Probability)は、
+としないようにしましょう。[確率密度関数](/docs/glossary#probability-density-function)は、[累積分布関数](/docs/glossary#cumulative-distribution-function)を微分して求めるもの。だから正しい[確率密度関数](/docs/glossary#probability-density-function)は、
 
 $$
 f(x)=\frac{1}{\sigma x}\phi\left(\frac{\log x-m}{\sigma}\right)
@@ -60,34 +60,34 @@ $$
 
 ### 基本情報
 
-- 2つのパラメータ $M, S$ が必要です ([どうやって求めるの？](https://www.ntrand.com/jp/ntlognormparam/)).
+- 2つのパラメータ $M, S$ が必要です ([どうやって求めるの？](../03-function-reference/02-distribution-functions/068-ntlognormparam.mdx)).
 
   $$
   S>0
   $$
 
 - 半無限区間 $x > 0$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して常に非対称です。
+- [平均](/docs/glossary#central-moment)対して常に非対称です。
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\Phi\left(\frac{\ln x-M}{S}\right)
   $$
 
-  ここで $\Phi(\cdot)$ は標準正規分布の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  ここで $\Phi(\cdot)$ は標準正規分布の[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{Sx}\phi\left(\frac{\ln x-M}{S}\right)
   $$
 
-  ここで $\phi(\cdot)$ は標準正規分布の[確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)です。
+  ここで $\phi(\cdot)$ は標準正規分布の[確率密度関数](/docs/glossary#probability-density-function)です。
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -126,19 +126,19 @@ $$
 
 ![Sample distribution](./../assets/functions/plot/plotLogNorm.jpg)
 
-- 関連 NtRand 関数 : [NTLOGNORMDIST](https://www.ntrand.com/jp/ntlognormdist/)
+- 関連 NtRand 関数 : [NTLOGNORMDIST](../03-function-reference/02-distribution-functions/063-ntlognormdist.mdx)
 
 ### 分位点
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)の逆関数
 
   $$
   F^{-1}(P)=\exp\left[S\Phi^{-1}(P)+M\right]
   $$
 
-  ここで $\Phi(\cdot)$ は標準正規分布の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  ここで $\Phi(\cdot)$ は標準正規分布の[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{
@@ -171,13 +171,13 @@ $$
   }}
 />
 
-- 関連 NtRand 関数 : [NTLOGNORMINV](https://www.ntrand.com/jp/ntlognorminv/)
+- 関連 NtRand 関数 : [NTLOGNORMINV](../03-function-reference/02-distribution-functions/064-ntlognorminv.mdx)
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は次式で与えられます。
+- 分布の[平均](/docs/glossary#central-moment) は次式で与えられます。
 
   $$
   m\sqrt{\omega}
@@ -220,11 +220,11 @@ $$
   }}
 />
 
-- 関連 NtRand 関数 : [NTLOGNORMMEAN](https://www.ntrand.com/jp/ntlognormmean/)
+- 関連 NtRand 関数 : [NTLOGNORMMEAN](../03-function-reference/02-distribution-functions/066-ntlognormmean.mdx)
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+- 分布の[分散](/docs/glossary#variance) は次式で与えられます。
 
   $$
   m^2\omega(\omega-1)
@@ -238,7 +238,7 @@ $$
 
   です。
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
 - Excel での計算法
 
@@ -269,11 +269,11 @@ $$
   }}
 />
 
-- 関連 NtRand 関数 : [NTLOGNORMSTDEV](https://www.ntrand.com/jp/ntlognormstdev/)
+- 関連 NtRand 関数 : [NTLOGNORMSTDEV](../03-function-reference/02-distribution-functions/070-ntlognormstdev.mdx)
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skew) は次式で与えられます。
+- 分布の[歪度](/docs/glossary#skewness) は次式で与えられます。
 
   $$
   (\omega+2)\sqrt{\omega-1}
@@ -316,11 +316,11 @@ $$
   }}
 />
 
-- 関連 NtRand 関数 : [NTLOGNORMSKEW](https://www.ntrand.com/jp/ntlognormskew/)
+- 関連 NtRand 関数 : [NTLOGNORMSKEW](../03-function-reference/02-distribution-functions/069-ntlognormskew.mdx)
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis) は次式で与えられます。
+- 分布の[尖度](/docs/glossary#kurtosis) は次式で与えられます。
 
   $$
   \omega^4+2\omega^3+3\omega^2-6
@@ -363,7 +363,7 @@ $$
   }}
 />
 
-- 関連 NtRand 関数 : [NTLOGNORMKURT](https://www.ntrand.com/jp/ntlognormkurt/)
+- 関連 NtRand 関数 : [NTLOGNORMKURT](../03-function-reference/02-distribution-functions/065-ntlognormkurt.mdx)
 
 ## 乱数
 
@@ -373,7 +373,7 @@ $$
   x=\exp\left[S\Phi^{-1}(U)+M\right]
   $$
 
-  ここで $\Phi(\cdot)$ は標準正規分布の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  ここで $\Phi(\cdot)$ は標準正規分布の[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
 - Excel での乱数生成法
 
@@ -410,22 +410,22 @@ $$
 
 メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A7:A106 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
 
-- 関連 NtRand 関数 : [NTRANDLOGNORM](https://www.ntrand.com/jp/ntrandlognorm/)
+- 関連 NtRand 関数 : [NTRANDLOGNORM](../03-function-reference/01-random-numbers/01-single-series/10-ntrandlognorm.mdx)
 
 ![](./../assets/functions/histogram/histogramLogNorm.jpg)
 
 ## 関連 NtRand 関数
 
 - 既に分布のパラメータをお持ちの場合
-  - Mersenne Twiseter 法による乱数生成 : [NTRANDLOGNORM](https://www.ntrand.com/jp/ntrandlognorm/)
-  - 確率計算 : [NTLOGNORMDIST](https://www.ntrand.com/jp/ntlognormdist/)
-  - 平均計算 : [NTLOGNORMMEAN](https://www.ntrand.com/jp/ntlognormmean/)
-  - 標準偏差計算 : [NTLOGNORMSTDEV](https://www.ntrand.com/jp/ntlognormskew/)
-  - 歪度計算 : [NTLOGNORMSKEW](https://www.ntrand.com/jp/ntlognormskew/)
-  - 尖度計算 : [NTLOGNORMKURT](https://www.ntrand.com/jp/ntlognormkurt/)
-  - 上記の各モーメントを一度に計算 : [NTLOGNORMMOM](https://www.ntrand.com/jp/ntlognormmom/)
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDLOGNORM](../03-function-reference/01-random-numbers/01-single-series/10-ntrandlognorm.mdx)
+  - 確率計算 : [NTLOGNORMDIST](../03-function-reference/02-distribution-functions/063-ntlognormdist.mdx)
+  - 平均計算 : [NTLOGNORMMEAN](../03-function-reference/02-distribution-functions/066-ntlognormmean.mdx)
+  - 標準偏差計算 : [NTLOGNORMSTDEV](../03-function-reference/02-distribution-functions/069-ntlognormskew.mdx)
+  - 歪度計算 : [NTLOGNORMSKEW](../03-function-reference/02-distribution-functions/069-ntlognormskew.mdx)
+  - 尖度計算 : [NTLOGNORMKURT](../03-function-reference/02-distribution-functions/065-ntlognormkurt.mdx)
+  - 上記の各モーメントを一度に計算 : [NTLOGNORMMOM](../03-function-reference/02-distribution-functions/067-ntlognormmom.mdx)
 - 分布の平均と標準偏差をお持ちの場合
-  - 分布のパラメータ推定 : [NTLOGNORMPARAM](https://www.ntrand.com/jp/ntlognormparam/)
+  - 分布のパラメータ推定 : [NTLOGNORMPARAM](../03-function-reference/02-distribution-functions/068-ntlognormparam.mdx)
 
 ## 参照
 

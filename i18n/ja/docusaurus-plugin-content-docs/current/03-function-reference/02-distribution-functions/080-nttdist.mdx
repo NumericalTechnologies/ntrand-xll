@@ -6,7 +6,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 # NTTDIST
 
-[t 分布](https://www.ntrand.com/jp/t-distribution/)布の確率の値を返します。
+[t 分布](../../05-gallery-of-distributions/t-distribution.mdx)布の確率の値を返します。
 
 ## 書式
 
@@ -26,21 +26,21 @@ NTTDIST(
 
 ## 解説
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{\Gamma\left(\frac{N+1}{2}\right)}{\sqrt{\pi N\left(1+\frac{x^2}{N}\right)^{N+1}}\Gamma\left(\frac{N}{2}\right)}
   $$
 
-  ここで $\Gamma(\cdot)$ は [ガンマ関数](https://www.ntrand.com/glossary/#local_Gamma)です。
+  ここで $\Gamma(\cdot)$ は [ガンマ関数](/docs/glossary#gamma-function)です。
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{1}{2}-\frac{1}{2}\left[1-I_{\gamma}\left(\frac{1}{2},\frac{N}{2}\right)\right]\text{sign}(x)
   $$
 
-  ここで $\gamma=\frac{N_1}{N_1+x^2}$ で $I_{x}(\cdot,\cdot)$ は [正規化された不完全ベータ関数](https://www.ntrand.com/glossary/#local_regularized_incomplete_beta)です。
+  ここで $\gamma=\frac{N_1}{N_1+x^2}$ で $I_{x}(\cdot,\cdot)$ は [正規化された不完全ベータ関数](/docs/glossary#regularized-incomplete-beta-function)です。
 
 ## 使用例
 
@@ -93,15 +93,15 @@ NTTDIST(
   }}
 />
 
-- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand2.xls "サンプル Excel シートをダウンロード")
+- [サンプル Excel シートをダウンロード](./../../assets/NtRand2.zip)
 
 ## 参照
 
-- [NTRANDT](https://www.ntrand.com/jp/ntrandt/)
-- [NTTDISTINV](https://www.ntrand.com/jp/nttdistinv/)
-- [NTTKURT](https://www.ntrand.com/jp/nttkurt/)
-- [NTTMEAN](https://www.ntrand.com/jp/nttmean/)
-- [NTTMOM](https://www.ntrand.com/jp/nttmom/)
-- [NTTSKEW](https://www.ntrand.com/jp/nttskew/)
-- [NTTSTDEV](https://www.ntrand.com/jp/nttstdev/)
-- [t 分布](https://www.ntrand.com/jp/t-distribution/)
+- [NTRANDT](../01-random-numbers/01-single-series/13-ntrandt.mdx)
+- [NTTDISTINV](081-nttdistinv.mdx)
+- [NTTKURT](082-nttkurt.mdx)
+- [NTTMEAN](083-nttmean.mdx)
+- [NTTMOM](084-nttmom.mdx)
+- [NTTSKEW](085-nttskew.mdx)
+- [NTTSTDEV](086-nttstdev.mdx)
+- [t 分布](../../05-gallery-of-distributions/t-distribution.mdx)

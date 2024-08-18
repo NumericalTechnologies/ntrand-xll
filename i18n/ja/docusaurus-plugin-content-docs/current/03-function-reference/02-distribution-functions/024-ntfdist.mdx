@@ -6,7 +6,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 # NTFDIST
 
-[F 分布](https://www.ntrand.com/jp/f-distribution/)布の確率の値を返します。
+[F 分布](../../05-gallery-of-distributions/f-distribution.mdx)布の確率の値を返します。
 
 ## 書式
 
@@ -28,21 +28,21 @@ NTFDIST(
 
 ## 解説
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{\Gamma\left(\frac{N_1+N_2}{2}\right)\left(\frac{N_1}{N_2}\right)^\frac{N_1}{2}x^{\frac{N_1}{2}-1}}{\Gamma\left(\frac{N_1}{2}\right)\Gamma\left(\frac{N_2}{2}\right)\left(1+\frac{N_1}{N_2}x\right)^{\frac{N_1+N_2}{2}}}
   $$
 
-  ここで $\Gamma(\cdot)$ は [ガンマ関数](https://www.ntrand.com/glossary/#local_Gamma)です。
+  ここで $\Gamma(\cdot)$ は [ガンマ関数](/docs/glossary#gamma-function)です。
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=I_\gamma\left(\frac{N_1}{2},\frac{N_2}{2}\right)
   $$
 
-  ここで $\gamma=\frac{N_1x}{N_2+N_1x}$ で $I_{x}(\cdot,\cdot)$ は [正規化された不完全ベータ関数](https://www.ntrand.com/glossary/#local_regularized_incomplete_beta)です。
+  ここで $\gamma=\frac{N_1x}{N_2+N_1x}$ で $I_{x}(\cdot,\cdot)$ は [正規化された不完全ベータ関数](/docs/glossary#regularized-incomplete-beta-function)です。
 
 ## 使用例
 
@@ -99,16 +99,16 @@ NTFDIST(
   }}
 />
 
-- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand2.xls "サンプル Excel シートをダウンロード")
+- [サンプル Excel シートをダウンロード](./../../assets/NtRand2.zip)
 
 ## 参照
 
-- [NTRANDF](https://www.ntrand.com/jp/ntrandf/)
-- [NTFDISTINV](https://www.ntrand.com/jp/ntfdistinv/)
-- [NTFKURT](https://www.ntrand.com/jp/ntfkurt/)
-- [NTFMEAN](https://www.ntrand.com/jp/ntfmean/)
-- [NTFMOM](https://www.ntrand.com/jp/ntfmom/)
-- [NTFSKEW](https://www.ntrand.com/jp/ntfskew/)
-- [NTFSTDEV](https://www.ntrand.com/jp/ntfstdev/)
-- [F 分布](https://www.ntrand.com/jp/f-distribution/)
+- [NTRANDF](../01-random-numbers/01-single-series/05-ntrandf.mdx)
+- [NTFDISTINV](025-ntfdistinv.mdx)
+- [NTFKURT](026-ntfkurt.mdx)
+- [NTFMEAN](027-ntfmean.mdx)
+- [NTFMOM](028-ntfmom.mdx)
+- [NTFSKEW](029-ntfskew.mdx)
+- [NTFSTDEV](030-ntfstdev.mdx)
+- [F 分布](../../05-gallery-of-distributions/f-distribution.mdx)
 

@@ -7,7 +7,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 # NTGAMMAPARAM
 
 [\
-ガンマ分布](https://www.ntrand.com/jp/gamma-distribution/)のパラメータを返します。
+ガンマ分布](../../05-gallery-of-distributions/gamma-distribution.mdx)のパラメータを返します。
 
 ## 書式
 
@@ -20,8 +20,8 @@ NTGAMMAPARAM(
 
 ### 引数
 
-- **_Mean_** 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean)を指定します。
-- **_Stdev_** 分布の[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)を指定します。
+- **_Mean_** 分布の[平均](/docs/glossary#central-moment)を指定します。
+- **_Stdev_** 分布の[標準偏差](/docs/glossary#standard-deviation)を指定します。
 
 ## 解説
 
@@ -31,7 +31,7 @@ $$
 \alpha=\frac{m^2}{\sigma^2},\quad \beta=\frac{\sigma^2}{m}
 $$
 
-ここで $m$ は分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean)で $\sigma$ は分布の[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)です。
+ここで $m$ は分布の[平均](/docs/glossary#central-moment)で $\sigma$ は分布の[標準偏差](/docs/glossary#standard-deviation)です。
 
 ## 使用例
 
@@ -82,17 +82,17 @@ $$
 
 メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A5:A6 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
 
-- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand2.zip "サンプル Excel シートをダウンロード")
+- [サンプル Excel シートをダウンロード](./../../assets/NtRand2.zip)
 
 ## 参照
 
-- [NTRANDGAMMA](https://www.ntrand.com/jp/ntrandgamma/)
-- [NTGAMMADIST](https://www.ntrand.com/jp/ntgammadist/)
-- [NTGAMMADISTINV](https://www.ntrand.com/jp/ntgammadistinv/)
-- [NTGAMMAKURT](https://www.ntrand.com/jp/ntgammakurt/)
-- [NTGAMMAMEAN](https://www.ntrand.com/jp/ntgammamean/)
-- [NTGAMMAMOM](https://www.ntrand.com/jp/ntgammamom/)
-- [NTGAMMASKEW](https://www.ntrand.com/jp/ntgammaskew/)
-- [NTGAMMASTDEV](https://www.ntrand.com/jp/ntgammastdev/)
-- [ガンマ分布](https://www.ntrand.com/jp/gamma-distribution/)
-- [どうして複数のセルに数式をコピーすると全部同じ結果になるの？](https://www.ntrand.com/jp/faq/#local_CtrlShiftEnter)
+- [NTRANDGAMMA](../01-random-numbers/01-single-series/06-ntrandgamma.mdx)
+- [NTGAMMADIST](031-ntgammadist.mdx)
+- [NTGAMMADISTINV](032-ntgammadistinv.mdx)
+- [NTGAMMAKURT](033-ntgammakurt.mdx)
+- [NTGAMMAMEAN](034-ntgammamean.mdx)
+- [NTGAMMAMOM](035-ntgammamom.mdx)
+- [NTGAMMASKEW](037-ntgammaskew.mdx)
+- [NTGAMMASTDEV](038-ntgammastdev.mdx)
+- [ガンマ分布](../../05-gallery-of-distributions/gamma-distribution.mdx)
+- [どうして複数のセルに数式をコピーすると全部同じ結果になるの？](/docs/faq#why-i-always-see-the-same-result-even-if-i-input-formula-into-multiple-cell)

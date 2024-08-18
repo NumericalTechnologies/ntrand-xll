@@ -21,7 +21,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 ### 条件付確率
 
 さていきなりここで問題です。図を見ると右の分布は左右の両側を切り取っただけでなく、背が高くなっていることに気がつきましたか？これは何故でしょうか？\
-そうです、確率の基礎を熟知しているあなたなら（アナタですよ、アナタ！）もう明らかでしょう。そう、[確率密度関数](https://www.ntrand.com/jp/glossary/#local_Probability)の曲線の下の面積は1でないといけないからです（ちゃんと覚えてましたか？）。\
+そうです、確率の基礎を熟知しているあなたなら（アナタですよ、アナタ！）もう明らかでしょう。そう、[確率密度関数](/docs/glossary#probability-density-function)の曲線の下の面積は1でないといけないからです（ちゃんと覚えてましたか？）。\
 もともと面積が1だった正規分布の曲線（図の左）から単純にに左右を切り取ると、面積は1より小さくなってしまいますね。そこで、面積が1になるように縦に引き伸ばしているのです。すごいでしょう？\
 そしてこれは、**条件付確率**の事実を表現しているのです。つまり、この状況下では
 
@@ -42,7 +42,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 基本情報
 
-- 4つのパラメータ $a, b,m,\sigma$ が必要です ([どうやって求めるの？](https://www.ntrand.com/jp/nttruncnormparam/)).
+- 4つのパラメータ $a, b,m,\sigma$ が必要です ([どうやって求めるの？](../03-function-reference/02-distribution-functions/100-nttruncnormparam.mdx)).
 
   $$
   a<b
@@ -53,11 +53,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   $$
 
 - 有限区間 $a\leq x \leq b$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して対称にも非対称にもなり得ます。
+- [平均](/docs/glossary#central-moment)対して対称にも非対称にもなり得ます。
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{1}{\Delta}\left[\Phi\left(\frac{x-m}{\sigma}\right)-\Phi(A)\right]
@@ -73,15 +73,15 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},B=\frac{b-m}{\sigma}
   $$
 
-  、 $\Phi(\cdot)$ は 標準正規分布の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  、 $\Phi(\cdot)$ は 標準正規分布の[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{\sigma\Delta}\phi\left(\frac{x-m}{\sigma}\right)
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -128,11 +128,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ![Sample distribution](./../assets/functions/plot/plotTruncNorm.jpg)
 
-- 関連 NtRand 関数 : [NTTRUNCNORMDIST](https://www.ntrand.com/jp/nttruncnormdist/)
+- 関連 NtRand 関数 : [NTTRUNCNORMDIST](../03-function-reference/02-distribution-functions/095-nttruncnormdist.mdx)
 
 ### 分位点
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)の逆関数
 
   $$
   F^{-1}(P)=\sigma\Phi^{-1}\left[\Delta P+\Phi(A)\right]+m
@@ -148,9 +148,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},B=\frac{a-m}{\sigma}
   $$
 
-  で、 $\Phi(\cdot)$ は標準正規分布の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  で、 $\Phi(\cdot)$ は標準正規分布の[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{
@@ -191,13 +191,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTRUNCNORMINV](https://www.ntrand.com/jp/nttruncnorminv/)
+- 関連 NtRand 関数 : [NTTRUNCNORMINV](../03-function-reference/02-distribution-functions/096-nttruncnorminv.mdx)
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は次式で与えられます。
+- 分布の[平均](/docs/glossary#central-moment) は次式で与えられます。
 
   $$
   m+\frac{\phi(A)-\phi(B)}{\Delta}\sigma
@@ -213,7 +213,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},B=\frac{a-m}{\sigma}
   $$
 
-  で、$\Phi(\cdot)$ と $\phi(\cdot)$ はそれぞれ、標準正規分布の[確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)と[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  で、$\Phi(\cdot)$ と $\phi(\cdot)$ はそれぞれ、標準正規分布の[確率密度関数](/docs/glossary#probability-density-function)と[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
 - Excel での計算法
 
@@ -252,11 +252,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTRUNCNORMMEAN](https://www.ntrand.com/jp/nttruncnormmean/)
+- 関連 NtRand 関数 : [NTTRUNCNORMMEAN](../03-function-reference/02-distribution-functions/098-nttruncnormmean.mdx)
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+- 分布の[分散](/docs/glossary#variance) は次式で与えられます。
 
   $$
   \left[1+\frac{A\phi(A)-B\phi(B)}{\Delta}-\left(\frac{\phi(A)-\phi(B)}{\Delta}\right)^2\right]\sigma^2
@@ -272,9 +272,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},B=\frac{a-m}{\sigma}
   $$
 
-  で、 $\Phi(\cdot)$ と $\phi(\cdot)$ はそれぞれ、標準正規分布の[確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)と[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  で、 $\Phi(\cdot)$ と $\phi(\cdot)$ はそれぞれ、標準正規分布の[確率密度関数](/docs/glossary#probability-density-function)と[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
 - Excel での計算法
 
@@ -313,11 +313,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTRUNCNORMSTDEV](https://www.ntrand.com/jp/nttruncnormstdev/)
+- 関連 NtRand 関数 : [NTTRUNCNORMSTDEV](../03-function-reference/02-distribution-functions/102-nttruncnormstdev.mdx)
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skew) は次式で与えられます。
+- 分布の[歪度](/docs/glossary#skewness) は次式で与えられます。
 
   $$
   -\frac{1}{V^{3/2}}\left[2\Delta_0+(3\Delta_{1}-1)\Delta_0+\Delta_2\right]
@@ -345,7 +345,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},B=\frac{a-m}{\sigma}
   $$
 
-  で、 $\Phi(\cdot)$ と $\phi(\cdot)$ はそれぞれ、標準正規分布の[確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)と[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  で、 $\Phi(\cdot)$ と $\phi(\cdot)$ はそれぞれ、標準正規分布の[確率密度関数](/docs/glossary#probability-density-function)と[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
 - Excel での計算法
 
@@ -384,11 +384,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTRUNCNORMSKEW](https://www.ntrand.com/jp/nttruncnormskew/)
+- 関連 NtRand 関数 : [NTTRUNCNORMSKEW](../03-function-reference/02-distribution-functions/101-nttruncnormskew.mdx)
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis) は次式で与えられます。
+- 分布の[尖度](/docs/glossary#kurtosis) は次式で与えられます。
 
   $$
   \frac{1}{V^2}\left[-3\Delta_0^4-2\Delta_0^2(3\Delta_1+1)-4\Delta_2\Delta_0-3\Delta_1-\Delta_3+3\right]-3
@@ -416,7 +416,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},B=\frac{a-m}{\sigma}
   $$
 
-  で、$\Phi(\cdot)$ と $\phi(\cdot)$ はそれぞれ、標準正規分布の[確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)と[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  で、$\Phi(\cdot)$ と $\phi(\cdot)$ はそれぞれ、標準正規分布の[確率密度関数](/docs/glossary#probability-density-function)と[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
 - Excel での計算法
 
@@ -455,7 +455,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTRUNCNORMKURT](https://www.ntrand.com/jp/nttruncnormkurt/)
+- 関連 NtRand 関数 : [NTTRUNCNORMKURT](../03-function-reference/02-distribution-functions/097-nttruncnormkurt.mdx)
 
 ## 乱数
 
@@ -475,7 +475,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   A=\frac{a-m}{\sigma},B=\frac{a-m}{\sigma}
   $$
 
-  で、$\Phi(\cdot)$ と $\phi(\cdot)$ はそれぞれ、標準正規分布の[確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)と[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  で、$\Phi(\cdot)$ と $\phi(\cdot)$ はそれぞれ、標準正規分布の[確率密度関数](/docs/glossary#probability-density-function)と[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
 - Excel での乱数生成法
 
@@ -524,16 +524,16 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 ## 関連 NtRand 関数
 
 - 既に分布のパラメータをお持ちの場合
-  - Mersenne Twiseter 法による乱数生成 : [NTRANDTRUNCNORM](https://www.ntrand.com/jp/ntrandtruncnorm/)
-  - 確率計算 : [NTTRUNCNORMDIST](https://www.ntrand.com/jp/nttruncnormdist/)
-  - Computing quantile : [NTTRUNCNORMINV](https://www.ntrand.com/jp/nttruncnorminv/)
-  - 平均計算 : [NTTRUNCNORMMEAN](https://www.ntrand.com/jp/nttruncnormmean/)
-  - 標準偏差計算 : [NTTRUNCNORMSTDEV](https://www.ntrand.com/jp/nttruncnormskew/)
-  - 歪度計算 : [NTTRUNCNORMSKEW](https://www.ntrand.com/jp/nttruncnormskew/)
-  - 尖度計算 : [NTTRUNCNORMKURT](https://www.ntrand.com/jp/nttruncnormkurt/)
-  - 上記の各モーメントを一度に計算 : [NTTRUNCNORMMOM](https://www.ntrand.com/jp/nttruncnormmom/)
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDTRUNCNORM](../03-function-reference/01-random-numbers/01-single-series/15-ntrandtruncnorm.mdx)
+  - 確率計算 : [NTTRUNCNORMDIST](../03-function-reference/02-distribution-functions/095-nttruncnormdist.mdx)
+  - Computing quantile : [NTTRUNCNORMINV](../03-function-reference/02-distribution-functions/096-nttruncnorminv.mdx)
+  - 平均計算 : [NTTRUNCNORMMEAN](../03-function-reference/02-distribution-functions/098-nttruncnormmean.mdx)
+  - 標準偏差計算 : [NTTRUNCNORMSTDEV](../03-function-reference/02-distribution-functions/101-nttruncnormskew.mdx)
+  - 歪度計算 : [NTTRUNCNORMSKEW](../03-function-reference/02-distribution-functions/101-nttruncnormskew.mdx)
+  - 尖度計算 : [NTTRUNCNORMKURT](../03-function-reference/02-distribution-functions/097-nttruncnormkurt.mdx)
+  - 上記の各モーメントを一度に計算 : [NTTRUNCNORMMOM](../03-function-reference/02-distribution-functions/099-nttruncnormmom.mdx)
 - 分布の平均と標準偏差をお持ちの場合
-  - 分布のパラメータ推定 : [NTTRUNCNORMPARAM](https://www.ntrand.com/jp/nttruncnormparam/)
+  - 分布のパラメータ推定 : [NTTRUNCNORMPARAM](../03-function-reference/02-distribution-functions/100-nttruncnormparam.mdx)
 
 ## 参照
 

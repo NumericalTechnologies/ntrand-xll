@@ -11,8 +11,8 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 ### ポートフォリオ
 
 大金持ちのあなたは、有り余る資産をどうしたものかと日々悩んでいます。あれこれ考えて土地、国内企業の株、海外企業の株、日本国債、金、ドル、ユーロ...様々な形で資産を保有することにしました。\
-それぞれの資産の価値は日々、否、時々刻々と変動しています。それぞれの資産の価値の変動は**[正規分布（単変量）](https://www.ntrand.com/jp/normal-distribution-single/)**に従うとみなされます。気になるのは資産全体の価値の変動です。はたしてどのような変動に従うのでしょうか？\
-それぞれの資産価値がてんで勝手に変動するならば答えは簡単ですが、例えばドルが安くなると国内の株価が下がるなど、これらの資産はお互いに関連しあいながら変動することが分かっています。 つまり、各資産の変動を表す正規分布の情報（[平均](https://www.ntrand.com/jp/glossary/#local_mean)と[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）に加えて、お互いにどのように関連しているかを表す情報が必要になります。それが**相関**です。
+それぞれの資産の価値は日々、否、時々刻々と変動しています。それぞれの資産の価値の変動は**[正規分布（単変量）](normal-distribution-single.mdx)**に従うとみなされます。気になるのは資産全体の価値の変動です。はたしてどのような変動に従うのでしょうか？\
+それぞれの資産価値がてんで勝手に変動するならば答えは簡単ですが、例えばドルが安くなると国内の株価が下がるなど、これらの資産はお互いに関連しあいながら変動することが分かっています。 つまり、各資産の変動を表す正規分布の情報（[平均](/docs/glossary#central-moment)と[標準偏差](/docs/glossary#standard-deviation)）に加えて、お互いにどのように関連しているかを表す情報が必要になります。それが**相関**です。
 
 ### 相関係数
 
@@ -50,13 +50,13 @@ $$
 
 ### 確率
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{(2\pi)^{n/2}\left|{\boldsymbol \Sigma}\right|^{1/2}}\exp\left[-\frac{1}{2}({\boldsymbol x}-{\boldsymbol \mu})^\prime{\boldsymbol \Sigma}^{-1}({\boldsymbol x}-{\boldsymbol \mu})\right]
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -117,8 +117,8 @@ $$
 
 ![](./../assets/functions/plot/binormdist.jpg)
 
-- 関連 NtRand 関数 : [NTBINORMDIST](https://www.ntrand.com/jp/ntbinormdist/)
-- 第4引数が*TRUE*の場合の[NTBINORMDIST](https://www.ntrand.com/jp/ntbinormdist/)[NTBINROMDIST](https://www.ntrand.com/jp/ntbinormdist/)は、相関係数が $\rho=\pm 1$ かつ $x1=x2$ の場合にエラーとなります。
+- 関連 NtRand 関数 : [NTBINORMDIST](../03-function-reference/02-distribution-functions/009-ntbinormdist.mdx)
+- 第4引数が*TRUE*の場合の[NTBINORMDIST](../03-function-reference/02-distribution-functions/009-ntbinormdist.mdx)[NTBINROMDIST](../03-function-reference/02-distribution-functions/009-ntbinormdist.mdx)は、相関係数が $\rho=\pm 1$ かつ $x1=x2$ の場合にエラーとなります。
 
 ## 乱数
 
@@ -192,8 +192,8 @@ Excel での乱数生成法
 
 ## 関連 NtRand 関数
 
-- Mersenne Twiseter 法による乱数生成 : [NTRANDMULTINORM](https://www.ntrand.com/jp/ntrandmultinorm/)
-- 2変数正規分布の分布関数 : [NTBINORMDIST](https://www.ntrand.com/jp/ntbinormdist/)
+- Mersenne Twiseter 法による乱数生成 : [NTRANDMULTINORM](../03-function-reference/01-random-numbers/02-multi-series/01-ntrandmultinorm.mdx)
+- 2変数正規分布の分布関数 : [NTBINORMDIST](../03-function-reference/02-distribution-functions/009-ntbinormdist.mdx)
 
 ## 参照
 

@@ -6,7 +6,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 # NTCHISQDIST
 
-[カイ2乗分布](https://www.ntrand.com/jp/chi-square-distribution/)布の確率の値を返します。
+[カイ2乗分布](../../05-gallery-of-distributions/chi-square-distribution.mdx)布の確率の値を返します。
 
 ## 書式
 
@@ -26,21 +26,21 @@ NTCHISQDIST(
 
 ## 解説
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{2^{\frac{N}{2}}\Gamma\left(\frac{N}{2}\right)}\exp\left(-\frac{x}{2}\right)x^{\frac{N}{2}-1}
   $$
 
-  ここで $\Gamma(\cdot)$ は [ガンマ関数](https://www.ntrand.com/glossary/#local_Gamma)です。
+  ここで $\Gamma(\cdot)$ は [ガンマ関数](/docs/glossary#gamma-function)です。
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{\Gamma_{\frac{x}{2}}\left(\frac{N}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
   $$
 
-  ここで $\Gamma_{x}(\cdot)$ は [不完全ガンマ関数](https://www.ntrand.com/glossary/#local_incomplete_gamma)です。
+  ここで $\Gamma_{x}(\cdot)$ は [不完全ガンマ関数](/docs/glossary#incomplete-gamma-function)です。
 
 ## 使用例
 
@@ -93,15 +93,15 @@ NTCHISQDIST(
   }}
 />
 
-- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand2.zip "サンプル Excel シートをダウンロード")
+- [サンプル Excel シートをダウンロード](./../../assets/NtRand2.zip)
 
 ## 参照
 
-- [NTRANDCHISQ](https://www.ntrand.com/jp/ntrandchisq/)
-- [NTCHISQINV](https://www.ntrand.com/jp/ntchisqinv/)
-- [NTCHISQKURT](https://www.ntrand.com/jp/ntchisqkurt/)
-- [NTCHISQMEAN](https://www.ntrand.com/jp/ntchisqmean/)
-- [NTCHISQMOM](https://www.ntrand.com/jp/ntchisqmom/)
-- [NTCHISQSKEW](https://www.ntrand.com/jp/ntchisqskew/)
-- [NTCHISQSTDEV](https://www.ntrand.com/jp/ntchisqstdev/)
-- [カイ2乗分布](https://www.ntrand.com/jp/chi-square-distribution/)
+- [NTRANDCHISQ](../01-random-numbers/01-single-series/04-ntrandchisq.mdx)
+- [NTCHISQINV](018-ntchisqinv.mdx)
+- [NTCHISQKURT](019-ntchisqkurt.mdx)
+- [NTCHISQMEAN](020-ntchisqmean.mdx)
+- [NTCHISQMOM](021-ntchisqmom.mdx)
+- [NTCHISQSKEW](022-ntchisqskew.mdx)
+- [NTCHISQSTDEV](023-ntchisqstdev.mdx)
+- [カイ2乗分布](../../05-gallery-of-distributions/chi-square-distribution.mdx)

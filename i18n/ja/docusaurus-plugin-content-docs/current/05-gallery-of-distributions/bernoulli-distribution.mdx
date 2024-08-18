@@ -23,7 +23,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 と表現し、$p$ のことを「**成功確率**」と呼びます。
 
-$p = 0.5$ の場合は、成功と失敗の確率が同じとなって、この場合に限り、下限が0、上限が1の[一様分布（離散）](https://www.ntrand.com/jp/uniform-distribution-discrete/)と同じになる。 つまり0か1の一様分布ですね。
+$p = 0.5$ の場合は、成功と失敗の確率が同じとなって、この場合に限り、下限が0、上限が1の[一様分布（離散）](uniform-distribution-discrete.mdx)と同じになる。 つまり0か1の一様分布ですね。
 
 ### ある営業マンの悲劇：ベルヌーイ試行を使って
 
@@ -63,19 +63,19 @@ $p = 0.5$ の場合は、成功と失敗の確率が同じとなって、この
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\begin{cases}0&(x<0)\\1-p&(0< x< 1)\\1&(x\geq 1)\end{cases}
   $$
 
-- [確率質量関数](https://www.ntrand.com/jp/glossary/#local_probabilitymass)
+- [確率質量関数](/docs/glossary#probability-mass-function)
 
   $$
   f(x)=\begin{cases}1-p&(x=0)\\p&(x=1)\end{cases}
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率質量関数 (p.m.f.)](https://www.ntrand.com/jp/glossary/#local_ProbabilityMass)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率質量関数 (p.m.f.)](/docs/glossary#probability-mass-function)の求め方
 
 <DataGridMdx
   data={{
@@ -110,27 +110,27 @@ $p = 0.5$ の場合は、成功と失敗の確率が同じとなって、この
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は $p$ と与えられます。
+- 分布の[平均](/docs/glossary#central-moment) は $p$ と与えられます。
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は $p(1-p)$ と与えられます。
+- 分布の[分散](/docs/glossary#standard-deviation) は $p(1-p)$ と与えられます。
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skewness) は次式で与えれらます。
+- 分布の[歪度](/docs/glossary#skewness) は次式で与えれらます。
 
   $$
   \frac{1-2p}{\sqrt{p(1-p)}}
   $$
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis) は次式で与えられます。
+- 分布の[尖度](/docs/glossary#kurtosis) は次式で与えられます。
 
   $$
   \frac{6p^2-6p+1}{p(1-p)}

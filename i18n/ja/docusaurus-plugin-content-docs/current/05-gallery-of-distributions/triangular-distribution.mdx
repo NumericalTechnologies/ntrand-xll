@@ -10,13 +10,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 代用品としての三角分布
 
-有限区間の[単峰分布](https://www.ntrand.com/jp/glossary/#local_Unimodal)として、[ベータ分布](https://www.ntrand.com/jp/beta-distribution/)が挙げられますが、この分布は関数が[ベータ関数](https://www.ntrand.com/jp/glossary/#local_beta_function)という聞いたこともない関数で正体が隠ぺいされている！（実際のところ、Excel を使えば中身など知らなくてもいいんですが）。 また、[ジョンソン SB 分布](https://www.ntrand.com/jp/johnson-sb-distribution/)も結局は[正規分布](https://www.ntrand.com/jp/normal-distribution-single/)の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_Cumulative)が使われているので、その正体はブラックボックスになっているのです。\
-そこと比べると三角分布の[確率密度関数](https://www.ntrand.com/jp/glossary/#local_Probability)は、中学生でもわかる（失礼！）1次式です。[累積分布関数](https://www.ntrand.com/jp/glossary/#local_Cumulative)だって2次式にすぎません。\
-シンプルで扱い易いその性質から、[ベータ分布](https://www.ntrand.com/jp/beta-distribution/)の代用として用いられることも実はよくあるんです。
+有限区間の[単峰分布](/docs/glossary#unimodal)として、[ベータ分布](beta-distribution.mdx)が挙げられますが、この分布は関数が[ベータ関数](/docs/glossary#beta-function_function)という聞いたこともない関数で正体が隠ぺいされている！（実際のところ、Excel を使えば中身など知らなくてもいいんですが）。 また、[ジョンソン SB 分布](johnson-sb-distribution.mdx)も結局は[正規分布](normal-distribution-single.mdx)の[累積分布関数](/docs/glossary#cumulative-distribution-function)が使われているので、その正体はブラックボックスになっているのです。\
+そこと比べると三角分布の[確率密度関数](/docs/glossary#probability-density-function)は、中学生でもわかる（失礼！）1次式です。[累積分布関数](/docs/glossary#cumulative-distribution-function)だって2次式にすぎません。\
+シンプルで扱い易いその性質から、[ベータ分布](beta-distribution.mdx)の代用として用いられることも実はよくあるんです。
 
 ### 納期の見積もり（またまた）
 
-[ベータ分布](https://www.ntrand.com/jp/beta-distribution/)の項で説明した PERT手法による納期の期待値算出（3点見積もり）を三角分布で行う場合ももちろんあります（だって代用品だもの）。 その場合、悲観値、楽観値、そして最可能値を用いて、
+[ベータ分布](beta-distribution.mdx)の項で説明した PERT手法による納期の期待値算出（3点見積もり）を三角分布で行う場合ももちろんあります（だって代用品だもの）。 その場合、悲観値、楽観値、そして最可能値を用いて、
 
 納期の期待値 = (楽観値+最可能値+悲観値）÷3
 
@@ -26,32 +26,32 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 基本情報
 
-- 3つのパラメータ $a, b, c$ が必要です ([どうやって求めるの？](https://www.ntrand.com/jp/nttriangularparam/)).
+- 3つのパラメータ $a, b, c$ が必要です ([どうやって求めるの？](../03-function-reference/02-distribution-functions/092-nttriangularparam.mdx)).
 
   $$
   a<c<b
   $$
 
-  これらのパラメータはそれぞれ、分布の下限、分布の上限、分布の[最頻値](https://www.ntrand.com/jp/glossary/#local_mode)を表します。
+  これらのパラメータはそれぞれ、分布の下限、分布の上限、分布の[最頻値](/docs/glossary#mode)を表します。
 
 - 有限区間 $a\leq x \leq b$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して対称にも非対称にもなり得ます。
+- [平均](/docs/glossary#central-moment)対して対称にも非対称にもなり得ます。
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\begin{cases}\frac{(x-a)^2}{(b-a)(c-a)}\quad&(a\leq x<c)\\1-\frac{(b-x)^2}{(b-a)(b-c)}\quad&(c\leq x\leq b)\end{cases}
   $$
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\begin{cases}\frac{2(x-a)}{(b-a)(c-a)}\quad&(a\leq x<c)\\\frac{2(b-x)}{(b-a)(b-c)}\quad&(c\leq x\leq b)\end{cases}
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -92,19 +92,19 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTRIANGULARDIST](https://www.ntrand.com/jp/nttriangulardist/)
+- 関連 NtRand 関数 : [NTTRIANGULARDIST](../03-function-reference/02-distribution-functions/087-nttriangulardist.mdx)
 
 ![Triangular distribution](./../assets/functions/plot/plotTriangular.jpg)
 
 ### 分位点
 
-- [累積確率関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+- [累積確率関数](/docs/glossary#cumulative-distribution-function)の逆関数
 
   $$
   F^{-1}(P)=\begin{cases}\sqrt{P(c-a)(b-a)}+a\quad&\left(P< \frac{c-a}{b-a}\right)\\-\sqrt{(1-P)(b-c)(b-a)}+b\quad&\left(P\geq \frac{c-a}{b-a}\right)\end{cases}
   $$
 
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{
@@ -141,13 +141,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTRIANGULARINV](https://www.ntrand.com/jp/nttriangularinv/)
+- 関連 NtRand 関数 : [NTTRIANGULARINV](../03-function-reference/02-distribution-functions/088-nttriangularinv.mdx)
 
 ## 分布の特徴
 
-### 平均 -- 分布の''中心''はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の''中心''はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は次式で与えられます。
+- 分布の[平均](/docs/glossary#central-moment) は次式で与えられます。
 
   $$
   \frac{a+b+c}{3}
@@ -186,17 +186,17 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTRIANGULARMEAN](https://www.ntrand.com/jp/nttriangularmean/)
+- 関連 NtRand 関数 : [NTTRIANGULARMEAN](../03-function-reference/02-distribution-functions/090-nttriangularmean.mdx)
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+- 分布の[分散](/docs/glossary#variance) は次式で与えられます。
 
   $$
   \frac{a^2+b^2+c^2-ab-bc-ca}{18}
   $$
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
 - Excel での計算法
 
@@ -231,11 +231,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTRIANGULARSTDEV](https://www.ntrand.com/jp/nttriangularstdev/)
+- 関連 NtRand 関数 : [NTTRIANGULARSTDEV](../03-function-reference/02-distribution-functions/094-nttriangularstdev.mdx)
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skewness)は次式で与えられます。
+- 分布の[歪度](/docs/glossary#skewness)は次式で与えられます。
 
   $$
   \frac{\sqrt{2}(a+b-2c)(2a-b-c)(a-2b+c)}{5(a^2+b^2+c^2-ab-bc-ca)^{3/2}}
@@ -274,11 +274,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTRIANGULARSKEW](https://www.ntrand.com/jp/nttriangularskew/)
+- 関連 NtRand 関数 : [NTTRIANGULARSKEW](../03-function-reference/02-distribution-functions/093-nttriangularskew.mdx)
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis)は $-0.6$ です。
+- 分布の[尖度](/docs/glossary#kurtosis)は $-0.6$ です。
 
 ## 乱数
 
@@ -332,16 +332,16 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 ## 関連 NtRand 関数
 
 - 既に分布のパラメータをお持ちの場合
-  - Mersenne Twiseter 法による乱数生成 : [NTRANDTRIANGULAR](https://www.ntrand.com/jp/ntrandtriangular/)
-  - 確率計算 : [NTTRIANGULARDIST](https://www.ntrand.com/jp/nttriangulardist/)
-  - Computing quantile : [NTTRIANGULARINV](https://www.ntrand.com/jp/nttriangularinv/)
-  - 平均計算 : [NTTRIANGULARMEAN](https://www.ntrand.com/jp/nttriangularmean/)
-  - 標準偏差計算 : [NTTRIANGULARSTDEV](https://www.ntrand.com/jp/nttriangularskew/)
-  - 歪度計算 : [NTTRIANGULARSKEW](https://www.ntrand.com/jp/nttriangularskew/)
-  - 尖度計算 : [NTTRIANGULARKURT](https://www.ntrand.com/jp/nttriangularkurt/)
-  - 上記の各モーメントを一度に計算 : [NTTRIANGULARMOM](https://www.ntrand.com/jp/nttriangularmom/)
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDTRIANGULAR](../03-function-reference/01-random-numbers/01-single-series/14-ntrandtriangular.mdx)
+  - 確率計算 : [NTTRIANGULARDIST](../03-function-reference/02-distribution-functions/087-nttriangulardist.mdx)
+  - Computing quantile : [NTTRIANGULARINV](../03-function-reference/02-distribution-functions/088-nttriangularinv.mdx)
+  - 平均計算 : [NTTRIANGULARMEAN](../03-function-reference/02-distribution-functions/090-nttriangularmean.mdx)
+  - 標準偏差計算 : [NTTRIANGULARSTDEV](../03-function-reference/02-distribution-functions/093-nttriangularskew.mdx)
+  - 歪度計算 : [NTTRIANGULARSKEW](../03-function-reference/02-distribution-functions/093-nttriangularskew.mdx)
+  - 尖度計算 : [NTTRIANGULARKURT](../03-function-reference/02-distribution-functions/089-nttriangularkurt.mdx)
+  - 上記の各モーメントを一度に計算 : [NTTRIANGULARMOM](../03-function-reference/02-distribution-functions/091-nttriangularmom.mdx)
 - 平均、標準偏差、最頻値をお持ちの場合
-  - 分布のパラメータ推定 : [NTTRIANGULARPARAM](https://www.ntrand.com/jp/nttriangularparam/)
+  - 分布のパラメータ推定 : [NTTRIANGULARPARAM](../03-function-reference/02-distribution-functions/092-nttriangularparam.mdx)
 
 ## 参照
 

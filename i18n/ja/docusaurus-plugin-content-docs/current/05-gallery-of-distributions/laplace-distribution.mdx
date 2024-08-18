@@ -17,23 +17,23 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   $$
 
 - 無限区間 $(-\infty,+\infty)$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して常に対称です。
+- [平均](/docs/glossary#central-moment)対して常に対称です。
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\begin{cases}\frac{1}{2}\exp\left(\frac{x-\mu}{\phi}\right)\;&(x<\mu)\\1-\frac{1}{2}\exp\left(-\frac{x-\mu}{\phi}\right)\;&(x\geq \mu)\end{cases}
   $$
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{2\phi}\exp\left(-\frac{|x-\mu|}{\phi}\right)
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -76,13 +76,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 分位点
 
-- [累積確率関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+- [累積確率関数](/docs/glossary#cumulative-distribution-function)の逆関数
 
   $$
   F^{-1}(P)=\begin{cases}\phi\ln 2P+\mu&(P<0.5)\\-(\phi\ln 2(1-P)+\mu)&(P\geq 0.5)\end{cases}
   $$
 
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{
@@ -120,19 +120,19 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean)は $\mu$ と与えられます。
+- 分布の[平均](/docs/glossary#central-moment)は $\mu$ と与えられます。
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+- 分布の[分散](/docs/glossary#variance) は次式で与えられます。
 
   $$
   2\phi^2
   $$
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
 - Excel での計算法
 
@@ -159,13 +159,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skewness)は $0$ です。
+- 分布の[歪度](/docs/glossary#skewness)は $0$ です。
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis)は $3$ です。
+- 分布の[尖度](/docs/glossary#kurtosis)は $3$ です。
 
 ## 乱数
 

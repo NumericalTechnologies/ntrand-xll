@@ -6,7 +6,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 # NTCHIDIST
 
-[カイ分布](https://www.ntrand.com/jp/chi-distribution/)布の確率の値を返します。
+[カイ分布](../../05-gallery-of-distributions/chi-distribution.mdx)布の確率の値を返します。
 
 ## 書式
 
@@ -26,21 +26,21 @@ NTCHIDIST(
 
 ## 解説
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{2^{\frac{N}{2}-1}\Gamma\left(\frac{N}{2}\right)}\exp\left(-\frac{x^2}{2}\right)x^{N-1}
   $$
 
-  , ここで $\Gamma(\cdot)$ は [ガンマ関数](https://www.ntrand.com/glossary/#local_Gamma)です。
+  , ここで $\Gamma(\cdot)$ は [ガンマ関数](/docs/glossary#gamma-function)です。
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{\Gamma_{\frac{x^2}{2}}\left(\frac{N}{2}\right)}{\Gamma\left(\frac{N}{2}\right)}
   $$
 
-  ここで $\Gamma_{x}(\cdot)$ は [不完全ガンマ関数](https://www.ntrand.com/glossary/#local_incomplete_gamma)です。
+  ここで $\Gamma_{x}(\cdot)$ は [不完全ガンマ関数](/docs/glossary#incomplete-gamma-function)です。
 
 ## 使用例
 
@@ -93,15 +93,15 @@ NTCHIDIST(
   }}
 />
 
-- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand2.zip "サンプル Excel シートをダウンロード")
+- [サンプル Excel シートをダウンロード](./../../assets/NtRand2.zip)
 
 ## 参照
 
-- [NTRANDCHI](https://www.ntrand.com/jp/ntrandchi/)
-- [NTCHIDISTINV](https://www.ntrand.com/jp/ntchidistinv/)
-- [NTCHIKURT](https://www.ntrand.com/jp/ntchikurt/)
-- [NTCHIMEAN](https://www.ntrand.com/jp/ntchimean/)
-- [NTCHIMOM](https://www.ntrand.com/jp/ntchimom/)
-- [NTCHISKEW](https://www.ntrand.com/jp/ntchiskew/)
-- [NTCHISTDEV](https://www.ntrand.com/jp/ntchistdev/)
-- [カイ分布](https://www.ntrand.com/jp/chi-distribution/)
+- [NTRANDCHI](../01-random-numbers/01-single-series/03-ntrandchi.mdx)
+- [NTCHIDISTINV](011-ntchidistinv.mdx)
+- [NTCHIKURT](012-ntchikurt.mdx)
+- [NTCHIMEAN](013-ntchimean.mdx)
+- [NTCHIMOM](014-ntchimom.mdx)
+- [NTCHISKEW](015-ntchiskew.mdx)
+- [NTCHISTDEV](016-ntchistdev.mdx)
+- [カイ分布](../../05-gallery-of-distributions/chi-distribution.mdx)

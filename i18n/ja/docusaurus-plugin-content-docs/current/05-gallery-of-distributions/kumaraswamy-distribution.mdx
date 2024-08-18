@@ -10,7 +10,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 代用品としてのクマラスワミー分布
 
-[三角分布](https://www.ntrand.com/jp/triangular-distribution/)の項で説明したように、有限区間の[単峰分布](https://www.ntrand.com/jp/glossary/#local_Unimodal)として、[ベータ分布](https://www.ntrand.com/jp/beta-distribution/)や[ジョンソン SB 分布](https://www.ntrand.com/jp/johnson-sb-distribution/)が挙げられるが、これらの分布は関数が複雑で手に余る。 そこでシンプルな[三角分布](https://www.ntrand.com/jp/triangular-distribution/)の登場となるが、さすがに三角形で分布をフィットするのはどうも。。。そこで、もう少し調整の利くシンプルな分布が切望されるが、その特徴を兼ね備えた分布が**クマラスワミー分布**である。
+[三角分布](triangular-distribution.mdx)の項で説明したように、有限区間の[単峰分布](/docs/glossary#unimodal)として、[ベータ分布](beta-distribution.mdx)や[ジョンソン SB 分布](johnson-sb-distribution.mdx)が挙げられるが、これらの分布は関数が複雑で手に余る。 そこでシンプルな[三角分布](triangular-distribution.mdx)の登場となるが、さすがに三角形で分布をフィットするのはどうも。。。そこで、もう少し調整の利くシンプルな分布が切望されるが、その特徴を兼ね備えた分布が**クマラスワミー分布**である。
 
 ## 分布の形状
 
@@ -18,23 +18,23 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 - 2つのパラメータ $a, b$ が必要です.
 - 有限区間 $0\leq x \leq 1$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して対称にも非対称にもなり得ます。
+- [平均](/docs/glossary#central-moment)対して対称にも非対称にもなり得ます。
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=1-\left(1-x^a\right)^b
   $$
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=abx^{a-1}\left(1-x^a\right)^{b-1}
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -73,13 +73,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 分位点
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)の逆関数
 
   $$
   F^{-1}(P)=\left[1-(1-P)^{1/b}\right]^{1/a}
   $$
 
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{
@@ -114,9 +114,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- [Mean](https://www.ntrand.com/jp/glossary/#local_mean)
+- [Mean](/docs/glossary#central-moment)
 
   $$
   bB\left(1+\frac{1}{a},b\right)

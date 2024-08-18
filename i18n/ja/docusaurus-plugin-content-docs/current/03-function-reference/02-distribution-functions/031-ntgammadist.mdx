@@ -6,7 +6,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 # NTGAMMADIST
 
-[ガンマ分布](https://www.ntrand.com/jp/gamma-distribution/)布の確率の値を返します。
+[ガンマ分布](../../05-gallery-of-distributions/gamma-distribution.mdx)布の確率の値を返します。
 
 ## 書式
 
@@ -28,21 +28,21 @@ NTGAMMADIST(
 
 ## 解説
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{\beta^{\alpha}\Gamma(\alpha)}\exp\left(-\frac{x}{\beta}\right)x^{\alpha-1}
   $$
 
-  ここで $\Gamma(\cdot)$ は [ガンマ関数](https://www.ntrand.com/glossary/#local_Gamma)です。
+  ここで $\Gamma(\cdot)$ は [ガンマ関数](/docs/glossary#gamma-function)です。
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{\Gamma_{\frac{x}{\beta}}(\alpha)}{\Gamma(\alpha)}
   $$
 
-  ここで $\Gamma_{x}(\cdot)$ は [不完全ガンマ関数](https://www.ntrand.com/glossary/#local_incomplete_gamma)です。
+  ここで $\Gamma_{x}(\cdot)$ は [不完全ガンマ関数](/docs/glossary#incomplete-gamma-function)です。
 
 - 引数 *Cumulative* が TRUE の場合、この関数は Excel 関数 "GAMMADIST" と同等です。
 
@@ -101,16 +101,16 @@ NTGAMMADIST(
   }}
 />
 
-- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand2.zip "サンプル Excel シートをダウンロード")
+- [サンプル Excel シートをダウンロード](./../../assets/NtRand2.zip)
 
 ## 参照
 
-- [NTRANDGAMMA](https://www.ntrand.com/jp/ntrandgamma/)
-- [NTGAMMADISTINV](https://www.ntrand.com/jp/ntgammadistinv/)
-- [NTGAMMAKURT](https://www.ntrand.com/jp/ntgammakurt/)
-- [NTGAMMAMEAN](https://www.ntrand.com/jp/ntgammamean/)
-- [NTGAMMAMOM](https://www.ntrand.com/jp/ntgammamom/)
-- [NTGAMMAPARAM](https://www.ntrand.com/jp/ntgammaparam/)
-- [NTGAMMASKEW](https://www.ntrand.com/jp/ntgammaskew/)
-- [NTGAMMASTDEV](https://www.ntrand.com/jp/ntgammastdev/)
-- [ガンマ分布](https://www.ntrand.com/jp/gamma-distribution/)
+- [NTRANDGAMMA](../01-random-numbers/01-single-series/06-ntrandgamma.mdx)
+- [NTGAMMADISTINV](032-ntgammadistinv.mdx)
+- [NTGAMMAKURT](033-ntgammakurt.mdx)
+- [NTGAMMAMEAN](034-ntgammamean.mdx)
+- [NTGAMMAMOM](035-ntgammamom.mdx)
+- [NTGAMMAPARAM](036-ntgammaparam.mdx)
+- [NTGAMMASKEW](037-ntgammaskew.mdx)
+- [NTGAMMASTDEV](038-ntgammastdev.mdx)
+- [ガンマ分布](../../05-gallery-of-distributions/gamma-distribution.mdx)

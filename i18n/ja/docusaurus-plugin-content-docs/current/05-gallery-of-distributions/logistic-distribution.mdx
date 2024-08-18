@@ -8,9 +8,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ## 正規分布の代用品ロジスティック分布
 
-ロジスティック分布は[単峰分布](https://www.ntrand.com/jp/glossary/#local_Unimodal)で左右対称ということから正規分布に良く似ており、また式が扱いやすいこともあって正規分布の替わりに用いられることが多い実は人気の分布なのです。 ただ、正規分布より裾が厚いことに注意が必要です。
+ロジスティック分布は[単峰分布](/docs/glossary#unimodal)で左右対称ということから正規分布に良く似ており、また式が扱いやすいこともあって正規分布の替わりに用いられることが多い実は人気の分布なのです。 ただ、正規分布より裾が厚いことに注意が必要です。
 
-ロジスティック分布の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_Cumulative)に見る曲線は**ロジスティック曲線**と呼ばれ、分布そのものよりこちらの曲線の方が様々な場面で現れています。
+ロジスティック分布の[累積分布関数](/docs/glossary#cumulative-distribution-function)に見る曲線は**ロジスティック曲線**と呼ばれ、分布そのものよりこちらの曲線の方が様々な場面で現れています。
 
 - 生物学 : 生物がどのように生態系の競争関係の中で個体数を増やすか
 - エネルギー : 一次エネルギー資源の拡散、放散と代用原理
@@ -23,30 +23,30 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 基本情報
 
-- 2つのパラメータ $m, b$ が必要です ([どうやって求めるの？](https://www.ntrand.com/jp/ntlogisticparam/)).
+- 2つのパラメータ $m, b$ が必要です ([どうやって求めるの？](../03-function-reference/02-distribution-functions/060-ntlogisticparam.mdx)).
 
   $$
   b>0
   $$
 
 - 無限区間 $(-\infty,+\infty)$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して常に対称です。
+- [平均](/docs/glossary#central-moment)対して常に対称です。
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{1}{2}\left[1+\tanh\left(\frac{x-m}{2b}\right)\right]
   $$
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{4b}\text{sech}^2\left(\frac{x-m}{2b}\right)
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -85,17 +85,17 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ![Sample distribution](./../assets/functions/plot/plotLogistic.jpg)
 
-- 関連 NtRand 関数 : [NTLOGISTICDIST](https://www.ntrand.com/jp/ntlogisticdist/)
+- 関連 NtRand 関数 : [NTLOGISTICDIST](../03-function-reference/02-distribution-functions/055-ntlogisticdist.mdx)
 
 ### 分位点
 
-- [累積確率関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+- [累積確率関数](/docs/glossary#cumulative-distribution-function)の逆関数
 
   $$
   F^{-1}(P)=2b\tanh^{-1}(2P-1)+m
   $$
 
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{
@@ -128,23 +128,23 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTLOGISTICINV](https://www.ntrand.com/jp/ntlogisticinv/)
+- 関連 NtRand 関数 : [NTLOGISTICINV](../03-function-reference/02-distribution-functions/056-ntlogisticinv.mdx)
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean)は $m$ と与えられます。
+- 分布の[平均](/docs/glossary#central-moment)は $m$ と与えられます。
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+- 分布の[分散](/docs/glossary#variance) は次式で与えられます。
 
   $$
   \frac{\pi^2b^2}{3}
   $$
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
 - Excel での計算法
 
@@ -171,15 +171,15 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTLOGISTICSTDEV](https://www.ntrand.com/jp/ntlogisticstdev/)
+- 関連 NtRand 関数 : [NTLOGISTICSTDEV](../03-function-reference/02-distribution-functions/062-ntlogisticstdev.mdx)
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skewness)は $0$ です。
+- 分布の[歪度](/docs/glossary#skewness)は $0$ です。
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis)は $1.2$ です。
+- 分布の[尖度](/docs/glossary#kurtosis)は $1.2$ です。
 
 ## 乱数
 
@@ -229,15 +229,15 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 ## 関連 NtRand 関数
 
 - 既に分布のパラメータをお持ちの場合
-  - Mersenne Twiseter 法による乱数生成 : [NTRANDLOGISTIC](https://www.ntrand.com/jp/ntrandlogistic/)
-  - 確率計算 : [NTLOGISTICDIST](https://www.ntrand.com/jp/ntlogisticdist/)
-  - 平均計算 : [NTLOGISTICMEAN](https://www.ntrand.com/jp/ntlogisticmean/)
-  - 標準偏差計算 : [NTLOGISTICSTDEV](https://www.ntrand.com/jp/ntlogisticskew/)
-  - 歪度計算 : [NTLOGISTICSKEW](https://www.ntrand.com/jp/ntlogisticskew/)
-  - 尖度計算 : [NTLOGISTICKURT](https://www.ntrand.com/jp/ntlogistickurt/)
-  - 上記の各モーメントを一度に計算 : [NTLOGISTICMOM](https://www.ntrand.com/jp/ntlogisticmom/)
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDLOGISTIC](../03-function-reference/01-random-numbers/01-single-series/09-ntrandlogistic.mdx)
+  - 確率計算 : [NTLOGISTICDIST](../03-function-reference/02-distribution-functions/055-ntlogisticdist.mdx)
+  - 平均計算 : [NTLOGISTICMEAN](../03-function-reference/02-distribution-functions/058-ntlogisticmean.mdx)
+  - 標準偏差計算 : [NTLOGISTICSTDEV](../03-function-reference/02-distribution-functions/061-ntlogisticskew.mdx)
+  - 歪度計算 : [NTLOGISTICSKEW](../03-function-reference/02-distribution-functions/061-ntlogisticskew.mdx)
+  - 尖度計算 : [NTLOGISTICKURT](../03-function-reference/02-distribution-functions/057-ntlogistickurt.mdx)
+  - 上記の各モーメントを一度に計算 : [NTLOGISTICMOM](../03-function-reference/02-distribution-functions/059-ntlogisticmom.mdx)
 - 分布の平均と標準偏差をお持ちの場合
-  - 分布のパラメータ推定 : [NTLOGISTICPARAM](https://www.ntrand.com/jp/ntlogisticparam/)
+  - 分布のパラメータ推定 : [NTLOGISTICPARAM](../03-function-reference/02-distribution-functions/060-ntlogisticparam.mdx)
 
 ## 参照
 

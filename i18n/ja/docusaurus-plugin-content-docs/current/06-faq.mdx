@@ -10,11 +10,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 本当に**勝手に**ダウンロードして使っていいの? {#is-it-reallyno-strings-attachedwhen-i-use-this-software}
 
-**NtRand** (以下 "ソフトウェア") は無料で提供しているソフトウェアであり、使用料やライセンス料などはいただいておりません。したがって、[使用許諾条件](https://www.ntrand.com/jp/license-agreement/)下の状況でご利用いただく場合には料金の請求やある日突然戸口に警察が立っているなどといったことは起こりませんので、ご安心ください。
+**NtRand** (以下 "ソフトウェア") は無料で提供しているソフトウェアであり、使用料やライセンス料などはいただいておりません。したがって、[使用許諾条件](/license-agreement/)下の状況でご利用いただく場合には料金の請求やある日突然戸口に警察が立っているなどといったことは起こりませんので、ご安心ください。
 
 ### 一体**ニューメリカルテクノロジーズ株式会社**って誰? {#whois-numerical-technologies-incorporated}
 
-[ニューメリカルテクノロジーズ株式会社](http://www.numtech.co.jp/)は東京、丸の内にあるITのシステム開発会社です。主に金融リスク管理に取り組み、金融機関大手を顧客に持っています。詳しくは[弊社のサイト](http://www.numtech.co.jp/ "ニューメリカルテクノロジーズ（株）")をご覧ください。
+[ニューメリカルテクノロジーズ株式会社](http://www.numtech.co.jp/)は東京、丸の内にあるITのシステム開発会社です。主に金融リスク管理に取り組み、金融機関大手を顧客に持っています。詳しくは[弊社のサイト](http://www.numtech.co.jp/)をご覧ください。
 
 ## 使い方NtRand でコマッタ? {#how-to-use-trouble-using-ntrand}
 
@@ -31,18 +31,6 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   - 2\. ブロックの解除]ボタンをクリックし、[OK]ボタンをクリック
   - 3\. chm ファイルをダブルクリック
 
-### なぜバージョンアップで機能が削除されたの？ {#why-were-functions-removed-in-the-upgrade}
-
-NtRand はバージョン2からバージョン3にバージョンアップする際に以下の関数を削除しました（[リリースノート参照](https://www.ntrand.com/jp/release-note)）
-
-- NtPCA
-- NtOptionBS
-- NtOptionBF
-- NtOptionGK
-- NtMonteCarloLFM
-
-NtRand 3.0 ではその機能を乱数生成関数、および確率分布関数とそれらに関連する関数に絞りこむという方針をとり、結果、上記の金融工学への応用関数は削除しました。これらの関数を使用するには[旧バージョン](https://www.ntrand.com/jp/older-versions/)を引き続きご使用ください。 また、旧バージョンの乱数生成関数のうち、分布関数のモーメントを引数にとる関数（NtRandBeta，NtRandLogNorm，NtRandTruncNorm）は削除され、すべての乱数生成関数はパラメータを直接引数にとるもののみを残しました。 その代わりに各分布関数にモーメントからパラメータを算出する "\*\*\*PARAM" 関数を用意しました。
-
 ### Excel RAND() の振る舞いに似せて、ワークシートを再計算するたびに乱数を自動的に更新する方法 {#how-to-change-random-numbers-automatically-like-excel-rand-when-recalculating-worksheet}
 
 **NtRand** は常に同じ値を返します。これは設計仕様です。ワークシートを再計算するたびに異なる乱数値を欲しい方もいるかもしれません。これは簡単に実現できます。次の表計算式をご覧下さい。
@@ -51,7 +39,7 @@ NtRand 3.0 ではその機能を乱数生成関数、および確率分布関数
 =NTRAND(10000,0,RAND()*2147483647,RAND()*2147483647)
 ```
 
-これで大丈夫です。[NTRAND](https://www.ntrand.com/jp/ntrand/) 関が10000回あるいは20000回呼ばれるということはありません。
+これで大丈夫です。[NTRAND](03-function-reference/01-random-numbers/01-single-series/01-ntrand.mdx) 関が10000回あるいは20000回呼ばれるということはありません。
 
 ### Excelの仕様上の制限について (NtRand 32bit) {#microsoft-excel-specific-limitations-for-ntrand-32bit}
 
@@ -60,7 +48,7 @@ Excel関数に対して一度に受け渡し可能なデータの最大数は、
 
 ### NtRand を VBA (Visual Basic for Application) から使用する方法 {#how-to-use-ntrand-from-vba-visual-basic-for-application}
 
-VBA (Visual Basic for Application) から **NtRand** の内部関数を使用するには次の例を参考にしてください。このコードは [NTRANDMULTINORM](https://www.ntrand.com/jp/ntrandmultinorm/ "NTRANDMULTINORM") の計算例と同じ結果を与えます。
+VBA (Visual Basic for Application) から **NtRand** の内部関数を使用するには次の例を参考にしてください。このコードは [NTRANDMULTINORM](03-function-reference/01-random-numbers/02-multi-series/01-ntrandmultinorm.mdx) の計算例と同じ結果を与えます。
 
 ```vba
 Public Sub Test1()
@@ -79,11 +67,11 @@ End Sub
 
 ### サンプルシートはどうやって使うの？ {#how-can-i-use-sample-sheets}
 
-サンプルシートは[ダウンロード](https://www.ntrand.com/jp/download/ "Download")ページから入手できます。 **NtRand Excelアドインを[インストール](https://www.ntrand.com/jp/install/ "インストール方法")**した後、NtRand 関数の使い方を学ぶためにサンプルシートを開きます。それぞれのサンプルシートは次のNtRand関数を含んでいます。
+サンプルシートは[ダウンロード](./07-support-sample-download.mdx)ページから入手できます。 **NtRand Excelアドインを[インストール](./02-installation.mdx)**した後、NtRand 関数の使い方を学ぶためにサンプルシートを開きます。それぞれのサンプルシートは次のNtRand関数を含んでいます。
 
-- NtRand1.xls -- ([NTRAND](https://www.ntrand.com/jp/ntrand/ "uniform pseudo random number(s) in (0, 1)"), [NTRANDBETA](https://www.ntrand.com/jp/ntrandbeta/ "beta pseudo random number(s)"), [NTBETAMOM](https://www.ntrand.com/jp/ntbetamom/ "moments of the beta distribution"), [NTBETAPARAM](https://www.ntrand.com/jp/ntbetaparam/ "parameters of the beta distribution for the specified mean and standard deviation"), [NTRANDCHI](https://www.ntrand.com/jp/ntrandchi/ "Chi pseudo random number(s)"), [NTCHIMOM](https://www.ntrand.com/jp/ntchimom/ "moments of the chi distribution"), [NTRANDCHISQ](https://www.ntrand.com/jp/ntrandchisq/ "Chi square pseudo random number(s)"), [NTCHISQMOM](https://www.ntrand.com/jp/ntchisqmom/ "moments of the chi square distribution"), [NTRANDGAMMA](https://www.ntrand.com/jp/ntrandgamma/ "Gamma pseudo random number(s)"), [NTGAMMAMOM](https://www.ntrand.com/jp/ntgammamom/ "moments of the gamma distribution"), [NTGAMMAPARAM](https://www.ntrand.com/jp/ntgammaparam/ "parameters of the gamma distribution for the specified mean and standard deviation"), [NTRANDF](https://www.ntrand.com/jp/ntrandf/ "f pseudo random number(s)"), [NTFMOM](https://www.ntrand.com/jp/ntfmom/ "moments of the f distribution"), [NTRANDGUMBEL](https://www.ntrand.com/jp/ntrandgumbel/ "Gumbel pseudo random number(s)"), [NTGUMBELMOM](https://www.ntrand.com/jp/ntgumbelmom/ "moments of the Gumbel distribution"), [NTGUMBELPARAM](https://www.ntrand.com/jp/ntgumbelparam/ "parameters of the Gumbel distribution for the specified mean and standard deviation"), [NTRANDJOHNSONSU](https://www.ntrand.com/jp/ntrandjohnsonsu/ "Johnson SU pseudo random number(s)"), [NTJOHNSONSUMOM](https://www.ntrand.com/jp/ntjohnsonsumom/ "moments of the Johnson SU distribution"), [NTJOHNSONSUPARAM](https://www.ntrand.com/jp/ntjohnsonsuparam/ "parameters of the Johnson SU distribution for the specified mean standard deviation, skewness and kurtosis"), [NTRANDLOGISTIC](https://www.ntrand.com/jp/ntrandlogistic/ "logistic pseudo random number(s)"), [NTLOGISTICMOM](https://www.ntrand.com/jp/ntlogisticmom/ "moments of the logistic distribution"), [NTLOGISTICPARAM](https://www.ntrand.com/jp/ntlogisticparam/ "parameters of the logistic distribution for the specified mean and standard deviation"), [NTRANDLOGNORM](https://www.ntrand.com/jp/ntrandlognorm/ "log-normal pseudo random number(s)"), [NTLOGNORMMOM](https://www.ntrand.com/jp/ntlognormmom/ "moments of the log normal distribution"), [NTLOGNORMPARAM](https://www.ntrand.com/jp/ntlognormparam/ "parameters of the log normal distribution for the specified mean and standard deviation"), [NTRANDNORM](https://www.ntrand.com/jp/ntrandnorm/ "standard normal pseudo random number(s)"), [NTRANDPOISSON](https://www.ntrand.com/jp/ntrandpoisson/ "Poisson pseudo random number(s)"), [NTPOISSONMOM](https://www.ntrand.com/jp/ntpoissonmom/ "moments of the Poisson distribution"), [NTRANDT](https://www.ntrand.com/jp/ntrandt/ "Student's t pseudo random number(s)"), [NTTMOM](https://www.ntrand.com/jp/nttmom/ "moments of the Student's t distribution"), [NTRANDTRIANGULAR](https://www.ntrand.com/jp/ntrandtriangular/ "triangular pseudo random number(s)"), [NTTRIANGULARMOM](https://www.ntrand.com/jp/nttriangularmom/ "moments of the triangular distribution"), [NTTRIANGULARPARAM](https://www.ntrand.com/jp/nttriangularparam/ "parameters of the triangular distribution for the specified mean, standard deviation and skewness"), [NTRANDTRUNCNORM](https://www.ntrand.com/jp/ntrandtruncnorm/ "truncated normal pseudo random number(s)"), [NTTRUNCNORMMOM](https://www.ntrand.com/jp/nttruncnormmom/ "moments of the triangular distribution"), [NTTRUNCNORMPARAM](https://www.ntrand.com/jp/nttruncnormparam/ "parameters of the triangular distribution for the specified support, mean and standard deviation"), [NTRANDWEIBULL](https://www.ntrand.com/jp/ntrandweibull/ "Weibull pseudo random number(s)"), [NTWEIBULLMOM](https://www.ntrand.com/jp/ntweibullmom/ "moments of the Weibull distribution"), [NTWEIBULLPARAM](https://www.ntrand.com/jp/ntweibullparam/ "parameters of the Weibull distribution for the specified mean and standard deviation"), [NTRANDMULTINORM](https://www.ntrand.com/jp/ntrandmultinorm/ "multivariate normal pseudo random number(s)"))
-- NtRand2.xls -- ([NTBETADIST](https://www.ntrand.com/jp/ntbetadist/ "the beta distribution"), [NTBETAPARAM](https://www.ntrand.com/jp/ntbetaparam/ "parameters of the beta distribution for the specified mean and standard deviation"), [NTCHIDIST](https://www.ntrand.com/jp/ntchidist/ "the chi distribution"), [NTCHISQDIST](https://www.ntrand.com/jp/ntchisqdist/ "the chi square distribution"), [NTFDIST](https://www.ntrand.com/jp/ntfdist/ "the f distribution"), [NTGAMMADIST](https://www.ntrand.com/jp/ntgammadist/ "the gamma distribution"), [NTGAMMADISTINV](https://www.ntrand.com/jp/ntgammadistinv/ "the inverse of the cumulative distribution function for a specified gamma distribution"), [NTGUMBELDIST](https://www.ntrand.com/jp/ntgumbeldist/ "the Gumbel distribution for the specified parameters"), [NTGUMBELINV](https://www.ntrand.com/jp/ntgumbelinv/ "the inverse of the cumulative distribution function for a specified Gumbel distribution"), [NTGUMBELPARAM](https://www.ntrand.com/jp/ntgumbelparam/ "parameters of the Gumbel distribution for the specified mean and standard deviation"), [NTJOHNSONSUDIST](https://www.ntrand.com/jp/ntjohnsonsudist/ "the Johnson SU distribution for the specified parameters"), [NTJOHNSONSUINV](https://www.ntrand.com/jp/ntjohnsonsuinv/ "the inverse of the cumulative distribution function for a specified Johnson SU distribution"), [NTJOHNSONSUPARAM](https://www.ntrand.com/jp/ntjohnsonsuparam/ "parameters of the Johnson SU distribution for the specified mean standard deviation, skewness and kurtosis"), [NTLOGISTICDIST](https://www.ntrand.com/jp/ntlogisticdist/ "the logistic distribution for the specified parameters"), [NTLOGISTICINV](https://www.ntrand.com/jp/ntlogisticinv/ "the inverse of the cumulative distribution function for a specified logistic distribution"), [NTLOGISTICPARAM](https://www.ntrand.com/jp/ntlogisticparam/ "parameters of the logistic distribution for the specified mean and standard deviation"), [NTLOGNORMDIST](https://www.ntrand.com/jp/ntlognormdist/ "the log normal distribution for the specified parameters"), [NTLOGNORMINV](https://www.ntrand.com/jp/ntlognorminv/ "the inverse of the cumulative distribution function for a specified log normal distribution"), [NTLOGNORMPARAM](https://www.ntrand.com/jp/ntlognormparam/ "parameters of the log normal distribution for the specified mean and standard deviation"), [NTNORMDIST](https://www.ntrand.com/jp/ntnormdist/ "the standard normal distribution for the specified parameters"), [NTPOISSONDIST](https://www.ntrand.com/jp/ntpoissondist/ "the Poisson distribution for the specified parameters"), [NTTDIST](https://www.ntrand.com/jp/nttdist/ "the Student's t distribution"), [NTTRIANGULARDIST](https://www.ntrand.com/jp/nttriangulardist/ "the triangular distribution for the specified parameters"), [NTTRIANGULARINV](https://www.ntrand.com/jp/nttriangularinv/ "the inverse of the cumulative distribution function for a specified triangular distribution"), [NTTRIANGULARPARAM](https://www.ntrand.com/jp/nttriangularparam/ "parameters of the triangular distribution for the specified mean, standard deviation and skewness"), [NTTRUNCNORMDIST](https://www.ntrand.com/jp/nttruncnormdist/ "the truncated normal distribution for the specified parameters"), [NTTRUNCNORMINV](https://www.ntrand.com/jp/nttruncnorminv/ "the inverse of the cumulative distribution function for a specified truncated normal distribution"), [NTTRUNCNORMPARAM](https://www.ntrand.com/jp/nttruncnormparam/ "parameters of the triangular distribution for the specified support, mean and standard deviation"), [NTWEIBULLDIST](https://www.ntrand.com/jp/ntweibulldist/ "the Weibull distribution for the specified parameters"), [NTWEIBULLINV](https://www.ntrand.com/jp/ntweibullinv/ "the inverse of the cumulative distribution function for a specified Weibull distribution"), [NTWEIBULLPARAM](https://www.ntrand.com/jp/ntweibullparam/ "parameters of the Weibull distribution for the specified mean and standard deviation"))
-- NtRand3.xls -- ([NTCOR2COV](https://www.ntrand.com/jp/ntcor2cov/ "Converts standard deviation vector and correlation matrix to covariance matrix"), [NTCOV2COR](https://www.ntrand.com/jp/ntcov2cor/ "Converts covariance matrix to standard deviation vector and correlation matrix"), [NTMULTICORREL](https://www.ntrand.com/jp/ntmulticorrel/ "mean vector, standard deviation vector and covariance matrix"), [NTMULTICOVARP](https://www.ntrand.com/jp/ntmulticovarp/ "mean vector and covariance matrix"))
+- NtRand1.xls -- ([NTRAND](03-function-reference/01-random-numbers/01-single-series/01-ntrand.mdx), [NTRANDBETA](03-function-reference/01-random-numbers/01-single-series/02-ntrandbeta.mdx), [NTBETAMOM](03-function-reference/02-distribution-functions/005-ntbetamom.mdx), [NTBETAPARAM](03-function-reference/02-distribution-functions/006-ntbetaparam.mdx), [NTRANDCHI](03-function-reference/01-random-numbers/01-single-series/03-ntrandchi.mdx), [NTCHIMOM](03-function-reference/02-distribution-functions/014-ntchimom.mdx), [NTRANDCHISQ](03-function-reference/01-random-numbers/01-single-series/04-ntrandchisq.mdx), [NTCHISQMOM](03-function-reference/02-distribution-functions/021-ntchisqmom.mdx), [NTRANDGAMMA](03-function-reference/01-random-numbers/01-single-series/06-ntrandgamma.mdx), [NTGAMMAMOM](03-function-reference/02-distribution-functions/035-ntgammamom.mdx), [NTGAMMAPARAM](03-function-reference/02-distribution-functions/036-ntgammaparam.mdx), [NTRANDF](03-function-reference/01-random-numbers/01-single-series/05-ntrandf.mdx), [NTFMOM](03-function-reference/02-distribution-functions/028-ntfmom.mdx), [NTRANDGUMBEL](03-function-reference/01-random-numbers/01-single-series/07-ntrandgumbel.mdx), [NTGUMBELMOM](03-function-reference/02-distribution-functions/043-ntgumbelmom.mdx), [NTGUMBELPARAM](03-function-reference/02-distribution-functions/044-ntgumbelparam.mdx), [NTRANDJOHNSONSU](03-function-reference/01-random-numbers/01-single-series/08-ntrandjohnsonsu.mdx), [NTJOHNSONSUMOM](03-function-reference/02-distribution-functions/051-ntjohnsonsumom.mdx), [NTJOHNSONSUPARAM](03-function-reference/02-distribution-functions/052-ntjohnsonsuparam.mdx), [NTRANDLOGISTIC](03-function-reference/01-random-numbers/01-single-series/09-ntrandlogistic.mdx), [NTLOGISTICMOM](03-function-reference/02-distribution-functions/059-ntlogisticmom.mdx), [NTLOGISTICPARAM](03-function-reference/02-distribution-functions/060-ntlogisticparam.mdx), [NTRANDLOGNORM](03-function-reference/01-random-numbers/01-single-series/10-ntrandlognorm.mdx), [NTLOGNORMMOM](03-function-reference/02-distribution-functions/067-ntlognormmom.mdx), [NTLOGNORMPARAM](03-function-reference/02-distribution-functions/068-ntlognormparam.mdx), [NTRANDNORM](03-function-reference/01-random-numbers/01-single-series/11-ntrandnorm.mdx), [NTRANDPOISSON](03-function-reference/01-random-numbers/01-single-series/12-ntrandpoisson.mdx), [NTPOISSONMOM](03-function-reference/02-distribution-functions/077-ntpoissonmom.mdx), [NTRANDT](03-function-reference/01-random-numbers/01-single-series/13-ntrandt.mdx), [NTTMOM](03-function-reference/02-distribution-functions/084-nttmom.mdx), [NTRANDTRIANGULAR](03-function-reference/01-random-numbers/01-single-series/14-ntrandtriangular.mdx), [NTTRIANGULARMOM](03-function-reference/02-distribution-functions/091-nttriangularmom.mdx), [NTTRIANGULARPARAM](03-function-reference/02-distribution-functions/092-nttriangularparam.mdx), [NTRANDTRUNCNORM](03-function-reference/01-random-numbers/01-single-series/15-ntrandtruncnorm.mdx), [NTTRUNCNORMMOM](03-function-reference/02-distribution-functions/099-nttruncnormmom.mdx), [NTTRUNCNORMPARAM](03-function-reference/02-distribution-functions/100-nttruncnormparam.mdx), [NTRANDWEIBULL](03-function-reference/01-random-numbers/01-single-series/16-ntrandweibull.mdx), [NTWEIBULLMOM](03-function-reference/02-distribution-functions/107-ntweibullmom.mdx), [NTWEIBULLPARAM](03-function-reference/02-distribution-functions/108-ntweibullparam.mdx), [NTRANDMULTINORM](03-function-reference/01-random-numbers/02-multi-series/01-ntrandmultinorm.mdx))
+- NtRand2.xls -- ([NTBETADIST](03-function-reference/02-distribution-functions/001-ntbetadist.mdx), [NTBETAPARAM](03-function-reference/02-distribution-functions/006-ntbetaparam.mdx), [NTCHIDIST](03-function-reference/02-distribution-functions/010-ntchidist.mdx), [NTCHISQDIST](03-function-reference/02-distribution-functions/017-ntchisqdist.mdx), [NTFDIST](03-function-reference/02-distribution-functions/024-ntfdist.mdx), [NTGAMMADIST](03-function-reference/02-distribution-functions/031-ntgammadist.mdx), [NTGAMMADISTINV](03-function-reference/02-distribution-functions/032-ntgammadistinv.mdx), [NTGUMBELDIST](03-function-reference/02-distribution-functions/039-ntgumbeldist.mdx), [NTGUMBELINV](03-function-reference/02-distribution-functions/040-ntgumbelinv.mdx), [NTGUMBELPARAM](03-function-reference/02-distribution-functions/044-ntgumbelparam.mdx), [NTJOHNSONSUDIST](03-function-reference/02-distribution-functions/047-ntjohnsonsudist.mdx), [NTJOHNSONSUINV](03-function-reference/02-distribution-functions/048-ntjohnsonsuinv.mdx), [NTJOHNSONSUPARAM](03-function-reference/02-distribution-functions/052-ntjohnsonsuparam.mdx), [NTLOGISTICDIST](03-function-reference/02-distribution-functions/055-ntlogisticdist.mdx), [NTLOGISTICINV](03-function-reference/02-distribution-functions/056-ntlogisticinv.mdx), [NTLOGISTICPARAM](03-function-reference/02-distribution-functions/060-ntlogisticparam.mdx), [NTLOGNORMDIST](03-function-reference/02-distribution-functions/063-ntlognormdist.mdx), [NTLOGNORMINV](03-function-reference/02-distribution-functions/064-ntlognorminv.mdx), [NTLOGNORMPARAM](03-function-reference/02-distribution-functions/068-ntlognormparam.mdx), [NTNORMDIST](03-function-reference/02-distribution-functions/071-ntnormdist.mdx), [NTPOISSONDIST](03-function-reference/02-distribution-functions/073-ntpoissondist.mdx), [NTTDIST](03-function-reference/02-distribution-functions/080-nttdist.mdx), [NTTRIANGULARDIST](03-function-reference/02-distribution-functions/087-nttriangulardist.mdx), [NTTRIANGULARINV](03-function-reference/02-distribution-functions/088-nttriangularinv.mdx), [NTTRIANGULARPARAM](03-function-reference/02-distribution-functions/092-nttriangularparam.mdx), [NTTRUNCNORMDIST](03-function-reference/02-distribution-functions/095-nttruncnormdist.mdx), [NTTRUNCNORMINV](03-function-reference/02-distribution-functions/096-nttruncnorminv.mdx), [NTTRUNCNORMPARAM](03-function-reference/02-distribution-functions/100-nttruncnormparam.mdx), [NTWEIBULLDIST](03-function-reference/02-distribution-functions/103-ntweibulldist.mdx), [NTWEIBULLINV](03-function-reference/02-distribution-functions/104-ntweibullinv.mdx), [NTWEIBULLPARAM](03-function-reference/02-distribution-functions/108-ntweibullparam.mdx))
+- NtRand3.xls -- ([NTCOR2COV](03-function-reference/03-multivariate-statistics/01-ntcor2cov.mdx), [NTCOV2COR](03-function-reference/03-multivariate-statistics/02-ntcov2cor.mdx), [NTMULTICORREL](03-function-reference/03-multivariate-statistics/03-ntmulticorrel.mdx), [NTMULTICOVARP](03-function-reference/03-multivariate-statistics/04-ntmulticovarp.mdx))
 
 ### どうして複数のセルに数式をコピーすると全部同じ結果になるの？{#why-i-always-see-the-same-result-even-if-i-input-formula-into-multiple-cell}
 
@@ -91,7 +79,7 @@ NtRand に関して最も多く受けるのがこの種の質問です。これ�
 
 **CTRL+SHIFT+ENTER のキー入力**
 
-詳しくはExcel のヘルプやハウツー本を探してみてください。さらに、["配列数式"](https://www.ntrand.com/jp/glossary/#local_arrayformula "配列数式") や ["Excel の仕様上の制限について (NtRand 32bit)"](https://www.ntrand.com/#local_MicrosoftExcel-specificLimitations "Excel の仕様上の制限について (NtRand 32bit)")を読むことをお勧めします。
+詳しくはExcel のヘルプやハウツー本を探してみてください。さらに、["配列数式"](/docs/glossary#array-formula-in-excel) や ["Excel の仕様上の制限について (NtRand 32bit)"](/docs/faq#microsoft-excel-specific-limitations-for-ntrand-32bit)を読むことをお勧めします。
 
 ### モーメントマッチングってどんな効果があるの？ {#enhancement-of-monte-carlo-by-moment-matching}
 
@@ -103,8 +91,8 @@ $$
 
 そこで、原始的なモンテカルロ法の性能を改善するための様々な方法が考えられてきました。その代表的例として次の2つのアプローチがあります。
 
-- **準乱数モンテカルロ** -- [疑似乱数](https://www.ntrand.com/jp/faq/#local_Pseudo-random)の代わりに規則性を持った数値列を使い、より望ましい確率分布に近づけようとするもの
-- **モーメントマッチング** -- 統計的手段により生成する[疑似乱数](https://www.ntrand.com/jp/faq/#local_Pseudo-random)を操作して、より望ましい確率分布に近づけようとするもの
+- **準乱数モンテカルロ** -- [疑似乱数](/docs/glossary#pseudo-random-numbers)の代わりに規則性を持った数値列を使い、より望ましい確率分布に近づけようとするもの
+- **モーメントマッチング** -- 統計的手段により生成する[疑似乱数](/docs/glossary#pseudo-random-numbers)を操作して、より望ましい確率分布に近づけようとするもの
 
 これらの方法は、用途に応じて使い分けるべき性格のもので、どちらかが常に優れているというわけではありません。その使い分けを簡単に解説すれば次の通りです。
 
@@ -118,7 +106,7 @@ $$
 - **モーメントマッチング**\
   大半の用途に有効です。高次元あるいは分布のテール (例えば順位数算出)においても安定した性能を求めるには他に有力な代替手段がありません。 しかし、大幅に改善するとはいえ、先の原始的なモンテカルロ法と同じ理論性能限界を持つため、低次元下、特に単変量下での性能は準乱数モンテカルロに比べて見劣りします。 金融界では、リスク計量化、いわゆる Value at Risk (VaR) がテーマとなった1990年代半ばから、高次元モンテカルロを使用する際の標準的手法として定着しています。 今日、モーメントマッチングがこれほど普及した理由は、その扱いやすさ、予測可能性 (見通し)の良さ、もさることながらインフラとしてのコンピューターの性能が向上したところが大でしょう。 「今や10,000回以上のシミュレーションも手軽に１秒以下で可能なほど計算機の性能が向上したのだから準乱数モンテカルロの役割は終わった」と思われる方も多いかもしれません。 そうした考え方もある面では説得力がありますが、非常に計算負荷のかかる特殊なオプション計算を行うケースなどで、シミュレーション回数が重荷となったならば、モーメントマッチングではなく準乱数モンテカルロの採用を考えた方が良いでしょう。
 
-**NtRand** では代表的な[対称変量法](https://www.ntrand.com/jp/faq/#local_Antitheticvariant)と[2次サンプリング法](https://www.ntrand.com/jp/faq/#local_Quadraticresampling)の2つのモーメントマッチング手法を、各々または両方同時に使用可能にしています。特に同時使用時の効果はめざましく、それゆえに1980年代当時の金融界 (例えばMBS/ABSデリバティブプレーヤー)の間では一種の企業秘密でした。もちろん1990年代も終わろうとしている現在では、このテーマに纏わる各種の論文も続々と発表され、公開されたテクノロジーになっています。なお、最も単純な単変量のケースは、1999年1月22日付の日経金融新聞「金融フロンティア」欄に興銀フィナンシャルテクノロジーの方が平易な解説をされていますので、参考までにご覧ください。本ソフトウェアはその多変量版と考えて概ね間違いがありません。 精密な議論はご専門の方の論文などに譲るとして、参考までに以下では[対称変量法](https://www.ntrand.com/jp/faq/#local_Antitheticvariant)と[2次サンプリング法](https://www.ntrand.com/jp/faq/#local_Quadraticresampling)の各々または同時使用時における効果を、1次モーメント (平均)、2次モーメント (標準偏差または分散)、3次モーメント (歪度)、4次モーメント (尖度)、および求めた乱数の相関係数を比較して示します。シミュレーション回数 $n$ が100回の3変量モンテカルロのケースです。
+**NtRand** では代表的な[対称変量法](/docs/glossary#antithetic-variant-method)と[2次サンプリング法](/docs/glossary#quadratic-resampling)の2つのモーメントマッチング手法を、各々または両方同時に使用可能にしています。特に同時使用時の効果はめざましく、それゆえに1980年代当時の金融界 (例えばMBS/ABSデリバティブプレーヤー)の間では一種の企業秘密でした。もちろん1990年代も終わろうとしている現在では、このテーマに纏わる各種の論文も続々と発表され、公開されたテクノロジーになっています。なお、最も単純な単変量のケースは、1999年1月22日付の日経金融新聞「金融フロンティア」欄に興銀フィナンシャルテクノロジーの方が平易な解説をされていますので、参考までにご覧ください。本ソフトウェアはその多変量版と考えて概ね間違いがありません。 精密な議論はご専門の方の論文などに譲るとして、参考までに以下では[対称変量法](/docs/glossary#antithetic-variant-method)と[2次サンプリング法](/docs/glossary#quadratic-resampling)の各々または同時使用時における効果を、1次モーメント (平均)、2次モーメント (標準偏差または分散)、3次モーメント (歪度)、4次モーメント (尖度)、および求めた乱数の相関係数を比較して示します。シミュレーション回数 $n$ が100回の3変量モンテカルロのケースです。
 
 - **入力データ**\
   次の統計値を持ったドリフトのある多変量正規乱数を発生させたいとします。 以下の比較では、これらの数値に近い結果になればなるほど、優れた効果を持つと考えられます。
@@ -260,7 +248,7 @@ $$
   }}
 />
 
-- **計算2：[対称変量法](https://www.ntrand.com/jp/faq/#local_Antitheticvariant)のみ使用 (奇数次モーメントのモーメントマッチング)**\
+- **計算2：[対称変量法](/docs/glossary#antithetic-variant-method)のみ使用 (奇数次モーメントのモーメントマッチング)**\
   奇数次モーメントである、平均と歪度が入力データと完全に一致するように調整されます。この表には記していませんが、より高次の奇数次モーメントもゼロに調整されます。
 
 <DataGridMdx
@@ -330,7 +318,7 @@ $$
   }}
 />
 
-- **計算3：[2次サンプリング法](https://www.ntrand.com/jp/faq/#local_quadraticresampling "quadratic resampling")のみ使用 (1～2次モーメントのモーメントマッチング)**\
+- **計算3：[2次サンプリング法](/docs/glossary#quadratic-resampling)のみ使用 (1～2次モーメントのモーメントマッチング)**\
   平均、標準偏差、相関係数が入力データと一致するように調整されます。なお、非常に高次元のケースでは、計算機の表現精度上の誤差限界 (逆行列計算と三角分解の過程で発生)が制約要因となるため、微小のずれが生ずる場合があります。
 
 <DataGridMdx
@@ -400,7 +388,7 @@ $$
   }}
 />
 
-- **計算4：[対称変量法](https://www.ntrand.com/jp/faq/#local_antitheticvariant "antithetic variant method")と[2次サンプリング法](https://www.ntrand.com/jp/faq/#local_quadraticresampling "quadratic resampling")の同時使用 (奇数次＋2次モーメントのモーメントマッチング)**\
+- **計算4：[対称変量法](/docs/glossary#antithetic-variant-method)と[2次サンプリング法](/docs/glossary#quadratic-resampling)の同時使用 (奇数次＋2次モーメントのモーメントマッチング)**\
   尖度を除くすべての数値が入力データと一致します。なお、非常に高次元のケースでは、計算機の表現精度上の誤差限界 (逆行列計算と三角分解の過程で発生)が制約要因となるため、微小のずれが生ずる場合があります。
 
 <DataGridMdx
@@ -539,18 +527,18 @@ $$
   }}
 />
 
-こうしてみますと、わずか100回のモンテカルロシミュレーションであっても、[対称変量法](https://www.ntrand.com/jp/faq/#local_antitheticvariant "antithetic variant method")と[2次サンプリング法](https://www.ntrand.com/jp/faq/#local_quadraticresampling/ "quadratic resampling")を同時使用すれば劇的な改善効果があり、あたかも完璧な答えが出てしまいそうです。 これはある程度まで真理ですが間違った結論です。 実際、このような論理展開には頻繁に陥りがちなため、統計学上の名称さえついており、「**あわてものの誤り(Type I Error)**」と呼びます。 深遠な誤差論からの説明は本ソフトウェア解説の趣旨ではありませんので、その意味を簡単に申し上げれば、このようなモーメントマッチングによる急速な収束性改善が見られたからといって、真の解に必ず漸近することとは別問題ということです。 オプション計算であれVaR計算であれ用途を問わず、ある程度の計算試行は必要なのです。
+こうしてみますと、わずか100回のモンテカルロシミュレーションであっても、[対称変量法](/docs/glossary#antithetic-variant-method)と[2次サンプリング法](/docs/glossary#quadratic-resampling)を同時使用すれば劇的な改善効果があり、あたかも完璧な答えが出てしまいそうです。 これはある程度まで真理ですが間違った結論です。 実際、このような論理展開には頻繁に陥りがちなため、統計学上の名称さえついており、「**あわてものの誤り(Type I Error)**」と呼びます。 深遠な誤差論からの説明は本ソフトウェア解説の趣旨ではありませんので、その意味を簡単に申し上げれば、このようなモーメントマッチングによる急速な収束性改善が見られたからといって、真の解に必ず漸近することとは別問題ということです。 オプション計算であれVaR計算であれ用途を問わず、ある程度の計算試行は必要なのです。
 
 ### 対数正規分布の平均、標準偏差について {#mean-and-standard-deviation-of-the-log-normal-distribution}
 
-[対数正規分布](https://www.ntrand.com/jp/log-normal-distribution/)は2つのパラメータ$M$と$S$を持ち、
+[対数正規分布](05-gallery-of-distributions/log-normal-distribution.mdx)は2つのパラメータ$M$と$S$を持ち、
 
 $$
 F(x;M, S) = \Phi\left(\frac{{\ln x}-M}{S}\right)
 $$
 
 と表記されます。ここで$\Phi(\cdot)$は標準正規分布の累積分布関数です。\
-パラメータ$M$と$S$は分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean)、[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)では**ありません**。
+パラメータ$M$と$S$は分布の[平均](/docs/glossary#central-moment)、[標準偏差](/docs/glossary#standard-deviation)では**ありません**。
 
 右辺からわかるように、対数正規分布に従う確率変数 **$x$ の対数$\ln x$が正規分布に従います**。ここから$M$は **$x$の対数をとったものの平均**、$S$は **$x$の対数をとったものの標準偏差**と説明できます。
 
@@ -562,10 +550,10 @@ $$
 \text{Stdev}\left[\ln x\right] = S
 $$
 
-では、$x$そのものの[平均](https://www.ntrand.com/jp/glossary/#local_mean)と[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)はどうなるでしょうか？\
-$\ln x$の平均が$M$だから、$x$の[平均](https://www.ntrand.com/jp/glossary/#local_mean)は$\exp\left(M\right)$ ?（同様に$x$の[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)は$\exp\left(S\right)$？残念ながらそんな簡単な話ではありません。
+では、$x$そのものの[平均](/docs/glossary#central-moment)と[標準偏差](/docs/glossary#standard-deviation)はどうなるでしょうか？\
+$\ln x$の平均が$M$だから、$x$の[平均](/docs/glossary#central-moment)は$\exp\left(M\right)$ ?（同様に$x$の[標準偏差](/docs/glossary#standard-deviation)は$\exp\left(S\right)$？残念ながらそんな簡単な話ではありません。
 
-[平均](https://www.ntrand.com/jp/glossary/#local_mean)と[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)を定義式にしたがって丁寧に計算すると、、、
+[平均](/docs/glossary#central-moment)と[標準偏差](/docs/glossary#standard-deviation)を定義式にしたがって丁寧に計算すると、、、
 
 $$
 \text{E}[x] = \exp\left(M+\frac{S^2}{2}\right)
@@ -575,7 +563,7 @@ $$
 \text{Stdev}[x] =\exp\left(M+\frac{S^2}{2}\right)\sqrt{\exp\left(S^2\right)-1}
 $$
 
-となります。ここからわかるように、$M$だけで$x$の[平均](https://www.ntrand.com/jp/glossary/#local_mean)を表したり、$S$で[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)を表すことはできません。[平均](https://www.ntrand.com/jp/glossary/#local_mean)も[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)も$M$と$S$の組み合わせになります。
+となります。ここからわかるように、$M$だけで$x$の[平均](/docs/glossary#central-moment)を表したり、$S$で[標準偏差](/docs/glossary#standard-deviation)を表すことはできません。[平均](/docs/glossary#central-moment)も[標準偏差](/docs/glossary#standard-deviation)も$M$と$S$の組み合わせになります。
 
 NtRand はもちろんこの計算をあなたの代わりにやってくれます。
 
@@ -597,7 +585,7 @@ $$
 $M =\frac{1}{2}\ln\left(\frac{\text{E}^4[x]}{\text{E}^2[x]+\text{Stdev}^2[x]}\right)$\
 $S =\sqrt{\ln\left(\frac{\text{E}^2[x]+\text{Stdev}^2[x]}{\text{E}^2[x]}\right)}$\
 となります。\
-詳しくは[サンプルシート](https://www.ntrand.com/files/NtRand1.zip)をご覧ください。
+詳しくは[サンプルシート](./assets/NtRand1.zip)をご覧ください。
 
 ### 切断○○分布の作り方 {#how-to-truncate-tail-of-distribution}
 
@@ -615,7 +603,7 @@ $S =\sqrt{\ln\left(\frac{\text{E}^2[x]+\text{Stdev}^2[x]}{\text{E}^2[x]}\right)}
   - $\Delta=F(B)$
   - $s=0$
 
-こうして定義された$\Delta, s$ を用いて$x=F^{-1}(\Delta u+s)$ とすれば切断○○分布に従う乱数が得られます。　ダウンロード：[切断Weibull分布の例](https://www.ntrand.com/files/TruncatedWeibullRandom.zip)
+こうして定義された$\Delta, s$ を用いて$x=F^{-1}(\Delta u+s)$ とすれば切断○○分布に従う乱数が得られます。　ダウンロード：[切断Weibull分布の例](./assets/TruncatedWeibullRandom.zip)
 
 ## NtRand の裏側パンドラの箱かも {#behind-ntrand-opened-the-pandoras-box}
 
@@ -630,7 +618,7 @@ $S =\sqrt{\ln\left(\frac{\text{E}^2[x]+\text{Stdev}^2[x]}{\text{E}^2[x]}\right)}
 ### 乱数シードの異なる乱数系列の独立性 {#independency-among-random-numbers-series-with-different-random-seeds}
 
 乱数シードを変更すると異なる乱数列が生成されます。どのような乱数シードを与えるべきか？この問いは極めて微妙で深遠なものです。\
-実際には適当に選択した整数（例えばシミュレーション番号）を与えるしかありません。しかし、乱数シードを気にする必要がない、あるいは Excel の RAND() 関数のように勝手に乱数シードが選ばれるようにしたいのであれば、「[Excel RAND() の振る舞いに似せて、ワークシートを再計算するたびに乱数を自動的に更新する方法](https://www.ntrand.com/jp/faq/#local_changerandomnumbers)」に記述してある方法があります。
+実際には適当に選択した整数（例えばシミュレーション番号）を与えるしかありません。しかし、乱数シードを気にする必要がない、あるいは Excel の RAND() 関数のように勝手に乱数シードが選ばれるようにしたいのであれば、「[Excel RAND() の振る舞いに似せて、ワークシートを再計算するたびに乱数を自動的に更新する方法](/docs/faq#how-to-change-random-numbers-automatically-like-excel-rand-when-recalculating-worksheet)」に記述してある方法があります。
 
 本来ならば、異なる乱数シードから生成された乱数系列間の独立性を注意深くテストした後にそれらをシミュレーションに用いるべきでしょうが、実際にはそのようなテストを行わずに乱数系列は互いに独立であるとしてシミュレーションなどを行っている場合がほとんどです（しかも、NtRand で生成される乱数系列は事実上独立としても問題ない）。\
 もしこの辺りの事情をより深く知りたいのであれば以下のサイトを参照してください。\

@@ -12,27 +12,27 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 - 2つのパラメータ $N_1, N_2$ が必要です（正の整数）。
 - 半無限区間 $x \geq 0$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して非対称です。
+- [平均](/docs/glossary#central-moment)対して非対称です。
 
 ### 確率
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{\Gamma\left(\frac{N_1+N_2}{2}\right)\left(\frac{N_1}{N_2}\right)^\frac{N_1}{2}x^{\frac{N_1}{2}-1}}{\Gamma\left(\frac{N_1}{2}\right)\Gamma\left(\frac{N_2}{2}\right)\left(1+\frac{N_1}{N_2}x\right)^{\frac{N_1+N_2}{2}}}
   $$
 
-  ここで $\Gamma(\cdot)$ は [ガンマ関数](https://www.ntrand.com/glossary/#local_Gamma)です。
+  ここで $\Gamma(\cdot)$ は [ガンマ関数](/docs/glossary#gamma-function)です。
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=I_\gamma\left(\frac{N_1}{2},\frac{N_2}{2}\right)
   $$
 
-  ここで $\gamma=\frac{N_1x}{N_2+N_1x}$ で $I_{x}(\cdot,\cdot)$ は [正規化された不完全ベータ関数](https://www.ntrand.com/glossary/#local_regularized_incomplete_beta)です。
+  ここで $\gamma=\frac{N_1x}{N_2+N_1x}$ で $I_{x}(\cdot,\cdot)$ は [正規化された不完全ベータ関数](/docs/glossary#regularized-incomplete-beta-function)です。
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -69,13 +69,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTFDIST](https://www.ntrand.com/jp/ntfdist/)
+- 関連 NtRand 関数 : [NTFDIST](../03-function-reference/02-distribution-functions/024-ntfdist.mdx)
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は次式で与えられます。
+- 分布の[平均](/docs/glossary#central-moment) は次式で与えられます。
 
   $$
   \frac{N_2}{N_2-2}\quad (N_2>2)
@@ -106,17 +106,17 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTFMEAN](https://www.ntrand.com/jp/ntfmean/)
+- 関連 NtRand 関数 : [NTFMEAN](../03-function-reference/02-distribution-functions/027-ntfmean.mdx)
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+- 分布の[分散](/docs/glossary#variance) は次式で与えられます。
 
   $$
   \frac{2N_2^2(N_1+N_2-2)}{N_1(N_2-2)^2(N_2-4)}\quad (N_2>4)
   $$
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
 - Excel での計算法
 
@@ -147,11 +147,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTFSTDEV](https://www.ntrand.com/jp/ntfstdev/)
+- 関連 NtRand 関数 : [NTFSTDEV](../03-function-reference/02-distribution-functions/030-ntfstdev.mdx)
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skew) は次式で与えられます。
+- 分布の[歪度](/docs/glossary#skewness) は次式で与えられます。
 
   $$
   \frac{(2N_1+N_2-2)\sqrt{8(N_2-4)}}{\sqrt{N_1(N_1+N_2-2)}(N_2-6)}\quad (N_2>6)
@@ -186,11 +186,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTFSKEW](https://www.ntrand.com/jp/ntfskew/)
+- 関連 NtRand 関数 : [NTFSKEW](../03-function-reference/02-distribution-functions/029-ntfskew.mdx)
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis) は次式で与えられます。
+- 分布の[尖度](/docs/glossary#kurtosis) は次式で与えられます。
 
   $$
   \frac{12[(N_2-2)^2(N_2-4)+N_1(N_1+N_2-2)(5N_2-22)]}{N_1(N_2-6)(N_2-8)(N_1+N_2-2)}\quad (N_2>8)
@@ -225,7 +225,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTFKURT](https://www.ntrand.com/jp/ntfkurt/)
+- 関連 NtRand 関数 : [NTFKURT](../03-function-reference/02-distribution-functions/026-ntfkurt.mdx)
 
 ## 乱数
 
@@ -263,18 +263,18 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A5:A104 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
 
-- 関連 NtRand 関数 : [NTRANDF](https://www.ntrand.com/jp/ntrandf/)
+- 関連 NtRand 関数 : [NTRANDF](../03-function-reference/01-random-numbers/01-single-series/05-ntrandf.mdx)
 
 ## 関連 NtRand 関数
 
 - 既に分布のパラメータをお持ちの場合
-  - Mersenne Twiseter 法による乱数生成 : [NTRANDF](https://www.ntrand.com/jp/ntrandgamma/)
-  - 確率計算 : [NTFDIST](https://www.ntrand.com/jp/ntfdist/)
-  - 平均計算 : [NTFMEAN](https://www.ntrand.com/jp/ntfmean/)
-  - 標準偏差計算 : [NTFSTDEV](https://www.ntrand.com/jp/ntfskew/)
-  - 歪度計算 : [NTFSKEW](https://www.ntrand.com/jp/ntfskew/)
-  - 尖度計算 : [NTFKURT](https://www.ntrand.com/jp/ntfkurt/)
-  - 上記の各モーメントを一度に計算 : [NTFMOM](https://www.ntrand.com/jp/ntfmom/)
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDF](../03-function-reference/01-random-numbers/01-single-series/06-ntrandgamma.mdx)
+  - 確率計算 : [NTFDIST](../03-function-reference/02-distribution-functions/024-ntfdist.mdx)
+  - 平均計算 : [NTFMEAN](../03-function-reference/02-distribution-functions/027-ntfmean.mdx)
+  - 標準偏差計算 : [NTFSTDEV](../03-function-reference/02-distribution-functions/029-ntfskew.mdx)
+  - 歪度計算 : [NTFSKEW](../03-function-reference/02-distribution-functions/029-ntfskew.mdx)
+  - 尖度計算 : [NTFKURT](../03-function-reference/02-distribution-functions/026-ntfkurt.mdx)
+  - 上記の各モーメントを一度に計算 : [NTFMOM](../03-function-reference/02-distribution-functions/028-ntfmom.mdx)
 
 ## 参照
 

@@ -10,30 +10,30 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 基本情報
 
-- 2つのパラメータ $\alpha, \beta$ が必要です ([どうやって求めるの？](https://www.ntrand.com/jp/ntgumbelparam/)).
+- 2つのパラメータ $\alpha, \beta$ が必要です ([どうやって求めるの？](../03-function-reference/02-distribution-functions/044-ntgumbelparam.mdx)).
 
   $$
   \beta>0
   $$
 
 - 無限区間 $(-\infty,+\infty)$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して常に非対称です。
+- [平均](/docs/glossary#central-moment)対して常に非対称です。
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\exp\left[-\exp\left(-\frac{x-\alpha}{\beta}\right)\right]
   $$
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{\beta}\exp\left(-\frac{x-\alpha}{\beta}\right)\exp\left[-\exp\left(-\frac{x-\alpha}{\beta}\right)\right]
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -72,17 +72,17 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ![Sample distribution](./../assets/functions/plot/plotGumbel.jpg)
 
-- 関連 NtRand 関数 : [NTGUMBELDIST](https://www.ntrand.com/jp/ntgumbeldist/)
+- 関連 NtRand 関数 : [NTGUMBELDIST](../03-function-reference/02-distribution-functions/039-ntgumbeldist.mdx)
 
 ### 分位点
 
-- [累積確率関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+- [累積確率関数](/docs/glossary#cumulative-distribution-function)の逆関数
 
   $$
   F^{-1}(P)=\alpha-\beta\ln\ln\frac{1}{P}
   $$
 
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{
@@ -115,19 +115,19 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTGUMBELINV](https://www.ntrand.com/jp/ntgumbelinv/)
+- 関連 NtRand 関数 : [NTGUMBELINV](../03-function-reference/02-distribution-functions/040-ntgumbelinv.mdx)
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は次式で与えられます。
+- 分布の[平均](/docs/glossary#central-moment) は次式で与えられます。
 
   $$
   \alpha+\gamma \beta
   $$
 
-  ここで $\gamma$ は [オイラーの定数](https://www.ntrand.com/jp/glossary/#local_EulerConstant)です。
+  ここで $\gamma$ は [オイラーの定数](/docs/glossary#eulers-constant)です。
 
 - Excel での計算法
 
@@ -158,19 +158,19 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTGUMBELMEAN](https://www.ntrand.com/jp/ntgumbelmean/)
+- 関連 NtRand 関数 : [NTGUMBELMEAN](../03-function-reference/02-distribution-functions/042-ntgumbelmean.mdx)
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+- 分布の[分散](/docs/glossary#variance) は次式で与えられます。
 
   $$
   \beta^2\zeta(2)
   $$
 
-  ここで $\zeta(\cdot)$ は[リーマンのゼータ関数](https://www.ntrand.com/jp/glossary/#local_Riemann)です。
+  ここで $\zeta(\cdot)$ は[リーマンのゼータ関数](/docs/glossary#riemann-zeta-function)です。
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
 - Excel での計算法
 
@@ -197,21 +197,21 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTGUMBELSTDEV](https://www.ntrand.com/jp/ntgumbelstdev/)
+- 関連 NtRand 関数 : [NTGUMBELSTDEV](../03-function-reference/02-distribution-functions/046-ntgumbelstdev.mdx)
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skew) は次式で与えられます。
+- 分布の[歪度](/docs/glossary#skewness) は次式で与えられます。
 
   $$
   -\frac{12\sqrt{6}\zeta(3)}{\pi^3}=-1.139547099\cdots
   $$
 
-  ここで $\zeta(\cdot)$ は [リーマンのゼータ関数](https://www.ntrand.com/jp/glossary/#local_Riemann)です。
+  ここで $\zeta(\cdot)$ は [リーマンのゼータ関数](/docs/glossary#riemann-zeta-function)です。
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis)は $2.4$ です。
+- 分布の[尖度](/docs/glossary#kurtosis)は $2.4$ です。
 
 ## 乱数
 
@@ -261,15 +261,15 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 ## 関連 NtRand 関数
 
 - 既に分布のパラメータをお持ちの場合
-  - Mersenne Twiseter 法による乱数生成 : [NTRANDGUMBEL](https://www.ntrand.com/jp/ntrandgumbel/)
-  - 確率計算 : [NTGUMBELDIST](https://www.ntrand.com/jp/ntgumbeldist/)
-  - 平均計算 : [NTGUMBELMEAN](https://www.ntrand.com/jp/ntgumbelmean/)
-  - 標準偏差計算 : [NTGUMBELSTDEV](https://www.ntrand.com/jp/ntgumbelskew/)
-  - 歪度計算 : [NTGUMBELSKEW](https://www.ntrand.com/jp/ntgumbelskew/)
-  - 尖度計算 : [NTGUMBELKURT](https://www.ntrand.com/jp/ntgumbelkurt/)
-  - 上記の各モーメントを一度に計算 : [NTGUMBELMOM](https://www.ntrand.com/jp/ntgumbelmom/)
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDGUMBEL](../03-function-reference/01-random-numbers/01-single-series/07-ntrandgumbel.mdx)
+  - 確率計算 : [NTGUMBELDIST](../03-function-reference/02-distribution-functions/039-ntgumbeldist.mdx)
+  - 平均計算 : [NTGUMBELMEAN](../03-function-reference/02-distribution-functions/042-ntgumbelmean.mdx)
+  - 標準偏差計算 : [NTGUMBELSTDEV](../03-function-reference/02-distribution-functions/045-ntgumbelskew.mdx)
+  - 歪度計算 : [NTGUMBELSKEW](../03-function-reference/02-distribution-functions/045-ntgumbelskew.mdx)
+  - 尖度計算 : [NTGUMBELKURT](../03-function-reference/02-distribution-functions/041-ntgumbelkurt.mdx)
+  - 上記の各モーメントを一度に計算 : [NTGUMBELMOM](../03-function-reference/02-distribution-functions/043-ntgumbelmom.mdx)
 - 分布の平均と標準偏差をお持ちの場合
-  - 分布のパラメータ推定 : [NTGUMBELRPARAM](https://www.ntrand.com/jp/ntgumbelparam/)
+  - 分布のパラメータ推定 : [NTGUMBELRPARAM](../03-function-reference/02-distribution-functions/044-ntgumbelparam.mdx)
 
 ## 参照
 

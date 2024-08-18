@@ -11,24 +11,24 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 最近、正規分布によるモデルに限界を感じていませんか？\
 政治、経済、自然...。変化の著しい今の世の中をモデル化するには、正規分布には荷が重すぎます。それは**完全な左右対称性**と**裾の薄さ**という最大の弱点があるからなのです。\
 ジョンソン SU 分布はこれらの欠陥をカバーする分布として最近注目を浴びてきています。\
-この分布は[歪度](https://www.ntrand.com/jp/glossary/#local_skewness)（分布の非対称性）と[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis)（裾の厚さ）を適当に与えることで分布の形状をかなり自由に操作できるという特徴をもっているのです。
+この分布は[歪度](/docs/glossary#skewness)（分布の非対称性）と[尖度](/docs/glossary#kurtosis)（裾の厚さ）を適当に与えることで分布の形状をかなり自由に操作できるという特徴をもっているのです。
 
 ## 分布の形状
 
 ### 基本情報
 
-- 4つのパラメータ $\gamma, \delta,\lambda,\xi$ が必要です ([どうやって求めるの？](https://www.ntrand.com/jp/ntjohnsonsuparam/)).
+- 4つのパラメータ $\gamma, \delta,\lambda,\xi$ が必要です ([どうやって求めるの？](../03-function-reference/02-distribution-functions/052-ntjohnsonsuparam.mdx)).
 
   $$
   \delta>0,\lambda>0
   $$
 
 - 無限区間 $(-\infty,+\infty)$ で定義された連続分布.
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して対称にも非対称にもなり得ます。
+- [平均](/docs/glossary#central-moment)対して対称にも非対称にもなり得ます。
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\Phi\left(\gamma+\delta\sinh^{-1}z\right)
@@ -40,15 +40,15 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   z=\frac{x-\xi}{\lambda}
   $$
 
-  で、$\Phi(\cdot)$ は標準席分布の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。
+  で、$\Phi(\cdot)$ は標準席分布の[累積分布関数](/docs/glossary#cumulative-distribution-function)です。
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{\delta}{\lambda\sqrt{2\pi}\sqrt{z^2+1}}\exp\left[-\frac{1}{2}\left(\gamma+\delta\sinh^{-1}z\right)^2\right]
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -95,19 +95,19 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ![Sample distribution](./../assets/functions/plot/plotJohnsonSU.jpg)
 
-- 関連 NtRand 関数 : [NTJOHNSONSUDIST](https://www.ntrand.com/jp/ntjohnsonsudist/)
+- 関連 NtRand 関数 : [NTJOHNSONSUDIST](../03-function-reference/02-distribution-functions/047-ntjohnsonsudist.mdx)
 
 ### 分位点
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)の逆関数
 
   $$
   F^{-1}(P)=\lambda\sinh\left(\frac{\Phi^{-1}(P)-\gamma}{\delta}\right)+\xi
   $$
 
-  ここで $\Phi(\cdot)$ は 標準正規分布の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)です。.
+  ここで $\Phi(\cdot)$ は 標準正規分布の[累積分布関数](/docs/glossary#cumulative-distribution-function)です。.
 
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{
@@ -148,13 +148,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTJOHNSONSUINV](https://www.ntrand.com/jp/ntjohnsonsuinv/)
+- 関連 NtRand 関数 : [NTJOHNSONSUINV](../03-function-reference/02-distribution-functions/048-ntjohnsonsuinv.mdx)
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は次式で与えられます。
+- 分布の[平均](/docs/glossary#central-moment) は次式で与えられます。
 
   $$
   \xi-\lambda\omega^{1/2}\sinh\Omega
@@ -205,11 +205,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTJOHNSONSUMEAN](https://www.ntrand.com/jp/ntjohnsonsumean/)
+- 関連 NtRand 関数 : [NTJOHNSONSUMEAN](../03-function-reference/02-distribution-functions/050-ntjohnsonsumean.mdx)
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+- 分布の[分散](/docs/glossary#variance) は次式で与えられます。
 
   $$
   \frac{\lambda^2}{2}(\omega-1)(\omega\cosh 2\Omega+1)
@@ -223,7 +223,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
   です。
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
 - Excel での計算法
 
@@ -262,11 +262,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTJOHNSONSUSTDEV](https://www.ntrand.com/jp/ntjohnsonsustdev/)
+- 関連 NtRand 関数 : [NTJOHNSONSUSTDEV](../03-function-reference/02-distribution-functions/054-ntjohnsonsustdev.mdx)
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skew) は次式の平方根で与えられます。
+- 分布の[歪度](/docs/glossary#skewness) は次式の平方根で与えられます。
 
   $$
   \beta_1=\omega(\omega-1)\frac{[\omega(\omega+2)\sinh 3\Omega+3\sinh\Omega]^2}{2(\omega\cosh 2\Omega+1)^3}
@@ -317,11 +317,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTJOHNSONSUSKEW](https://www.ntrand.com/jp/ntjohnsonsuskew/)
+- 関連 NtRand 関数 : [NTJOHNSONSUSKEW](../03-function-reference/02-distribution-functions/053-ntjohnsonsuskew.mdx)
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis) は次式で与えられます。
+- 分布の[尖度](/docs/glossary#kurtosis) は次式で与えられます。
 
   $$
   \beta_2=\frac{\omega^2(\omega^4+2\omega^3+3\omega^2-3)\cosh 4\Omega+4\omega^2(\omega+2)\cosh 2\Omega+3(2\omega+1)}{2(\omega\cosh 2\Omega+1)^2}-3
@@ -372,7 +372,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTJOHNSONSUKURT](https://www.ntrand.com/jp/ntjohnsonsukurt/)
+- 関連 NtRand 関数 : [NTJOHNSONSUKURT](../03-function-reference/02-distribution-functions/049-ntjohnsonsukurt.mdx)
 
 ## 乱数
 
@@ -430,16 +430,16 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 ## 関連 NtRand 関数
 
 - 既に分布のパラメータをお持ちの場合
-  - Mersenne Twister 法による乱数生成 : [NTRANDJOHNSONSU](https://www.ntrand.com/jp/ntrandjohnsonsu/)
-  - 確率計算 : [NTJOHNSONSUDIST](https://www.ntrand.com/jp/ntjohnsonsudist/)
-  - Computing quantile : [NTJOHNSONSUINV](https://www.ntrand.com/jp/ntjohnsonsuinv/)
-  - 平均計算 : [NTJOHNSONSUMEAN](https://www.ntrand.com/jp/ntjohnsonsumean/)
-  - 標準偏差計算 : [NTJOHNSONSUSTDEV](https://www.ntrand.com/jp/ntjohnsonsuskew/)
-  - 歪度計算 : [NTJOHNSONSUSKEW](https://www.ntrand.com/jp/ntjohnsonsuskew/)
-  - 尖度計算 : [NTJOHNSONSUKURT](https://www.ntrand.com/jp/ntjohnsonsukurt/)
-  - 上記の各モーメントを一度に計算 : [NTJOHNSONSUMOM](https://www.ntrand.com/jp/ntjohnsonsumom/)
+  - Mersenne Twister 法による乱数生成 : [NTRANDJOHNSONSU](../03-function-reference/01-random-numbers/01-single-series/08-ntrandjohnsonsu.mdx)
+  - 確率計算 : [NTJOHNSONSUDIST](../03-function-reference/02-distribution-functions/047-ntjohnsonsudist.mdx)
+  - Computing quantile : [NTJOHNSONSUINV](../03-function-reference/02-distribution-functions/048-ntjohnsonsuinv.mdx)
+  - 平均計算 : [NTJOHNSONSUMEAN](../03-function-reference/02-distribution-functions/050-ntjohnsonsumean.mdx)
+  - 標準偏差計算 : [NTJOHNSONSUSTDEV](../03-function-reference/02-distribution-functions/053-ntjohnsonsuskew.mdx)
+  - 歪度計算 : [NTJOHNSONSUSKEW](../03-function-reference/02-distribution-functions/053-ntjohnsonsuskew.mdx)
+  - 尖度計算 : [NTJOHNSONSUKURT](../03-function-reference/02-distribution-functions/049-ntjohnsonsukurt.mdx)
+  - 上記の各モーメントを一度に計算 : [NTJOHNSONSUMOM](../03-function-reference/02-distribution-functions/051-ntjohnsonsumom.mdx)
 - 分布の平均と標準偏差をお持ちの場合
-  - 分布のパラメータ推定 : [NTJOHNSONSUPARAM](https://www.ntrand.com/jp/ntjohnsonsuparam/)
+  - 分布のパラメータ推定 : [NTJOHNSONSUPARAM](../03-function-reference/02-distribution-functions/052-ntjohnsonsuparam.mdx)
 
 ## 参照
 

@@ -10,34 +10,34 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 基本情報
 
-- 2つのパラメータ $\alpha, \beta$ が必要です ([どうやって求めるの？](https://www.ntrand.com/jp/ntgammaparam/))
+- 2つのパラメータ $\alpha, \beta$ が必要です ([どうやって求めるの？](../03-function-reference/02-distribution-functions/036-ntgammaparam.mdx))
 
   $$
   \alpha>0,\beta>0
   $$
 
 - 半無限区間 $x \geq 0$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して非対称です。
+- [平均](/docs/glossary#central-moment)対して非対称です。
 
 ### 確率
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{\beta^{\alpha}\Gamma(\alpha)}\exp\left(-\frac{x}{\beta}\right)x^{\alpha-1}
   $$
 
-  ここで $\Gamma(\cdot)$ は [ガンマ関数](https://www.ntrand.com/glossary/#local_Gamma)です。
+  ここで $\Gamma(\cdot)$ は [ガンマ関数](/docs/glossary#gamma-function)です。
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{\Gamma_{\frac{x}{\beta}}(\alpha)}{\Gamma(\alpha)}
   $$
 
-  ここで $\Gamma_{x}(\cdot)$ は [不完全ガンマ関数](https://www.ntrand.com/glossary/#local_incomplete_gamma)です。
+  ここで $\Gamma_{x}(\cdot)$ は [不完全ガンマ関数](/docs/glossary#incomplete-gamma-function)です。
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -74,14 +74,14 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTGAMMADIST](https://www.ntrand.com/jp/ntgammadist/)
+- 関連 NtRand 関数 : [NTGAMMADIST](../03-function-reference/02-distribution-functions/031-ntgammadist.mdx)
 - 第4引数が TRUE の場合、この関数は Excel 関数"[GAMMADIST](http://office.microsoft.com/en-us/excel-help/gammadist-HP005209101.aspx?CTT=1)" と同等です。
 
 ### 分位点
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数は閉じた形式で表記できません。
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)の逆関数は閉じた形式で表記できません。
 - [GAMMAINV](http://office.microsoft.com/en-us/excel-help/gammainv-HP005209102.aspx?CTT=1) は Excel の関数です。
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{
@@ -116,9 +116,9 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は次式で与えられます。
+- 分布の[平均](/docs/glossary#central-moment) は次式で与えられます。
 
   $$
   \alpha\beta
@@ -153,17 +153,17 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTGAMMAMEAN](https://www.ntrand.com/jp/ntgammamean/)
+- 関連 NtRand 関数 : [NTGAMMAMEAN](../03-function-reference/02-distribution-functions/034-ntgammamean.mdx)
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は次式で与えられます。
+- 分布の[分散](/docs/glossary#variance) は次式で与えられます。
 
   $$
   \alpha\beta^2
   $$
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
 - Excel での計算法
 
@@ -194,11 +194,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTGAMMASTDEV](https://www.ntrand.com/jp/ntgammastdev/)
+- 関連 NtRand 関数 : [NTGAMMASTDEV](../03-function-reference/02-distribution-functions/038-ntgammastdev.mdx)
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skew) は次式で与えられます。
+- 分布の[歪度](/docs/glossary#skewness) は次式で与えられます。
 
   $$
   \frac{2}{\sqrt{\alpha}}
@@ -229,11 +229,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTGAMMASKEW](https://www.ntrand.com/jp/ntgammaskew/)
+- 関連 NtRand 関数 : [NTGAMMASKEW](../03-function-reference/02-distribution-functions/037-ntgammaskew.mdx)
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis) は次式で与えられます。
+- 分布の[尖度](/docs/glossary#kurtosis) は次式で与えられます。
 
   $$
   \frac{6}{\alpha}
@@ -264,7 +264,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTGAMMAKURT](https://www.ntrand.com/jp/ntgammakurt/)
+- 関連 NtRand 関数 : [NTGAMMAKURT](../03-function-reference/02-distribution-functions/033-ntgammakurt.mdx)
 
 ## 乱数
 
@@ -303,20 +303,20 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A5:A104 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
 
-- 関連 NtRand 関数 : [NTRANDGAMMA](https://www.ntrand.com/jp/ntrandgamma/)
+- 関連 NtRand 関数 : [NTRANDGAMMA](../03-function-reference/01-random-numbers/01-single-series/06-ntrandgamma.mdx)
 
 ## 関連 NtRand 関数
 
 - 既に分布のパラメータをお持ちの場合
-  - Mersenne Twiseter 法による乱数生成 : [NTRANDGAMMA](https://www.ntrand.com/jp/ntrandgamma/)
-  - 確率計算 : [NTGAMMADIST](https://www.ntrand.com/jp/ntgammadist/)
-  - 平均計算 : [NTGAMMAMEAN](https://www.ntrand.com/jp/ntgammamean/)
-  - 標準偏差計算 : [NTGAMMASTDEV](https://www.ntrand.com/jp/ntgammaskew/)
-  - 歪度計算 : [NTGAMMASKEW](https://www.ntrand.com/jp/ntgammaskew/)
-  - 尖度計算 : [NTGAMMAKURT](https://www.ntrand.com/jp/ntgammakurt/)
-  - 上記の各モーメントを一度に計算 : [NTGAMMAMOM](https://www.ntrand.com/jp/ntgammamom/)
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDGAMMA](../03-function-reference/01-random-numbers/01-single-series/06-ntrandgamma.mdx)
+  - 確率計算 : [NTGAMMADIST](../03-function-reference/02-distribution-functions/031-ntgammadist.mdx)
+  - 平均計算 : [NTGAMMAMEAN](../03-function-reference/02-distribution-functions/034-ntgammamean.mdx)
+  - 標準偏差計算 : [NTGAMMASTDEV](../03-function-reference/02-distribution-functions/037-ntgammaskew.mdx)
+  - 歪度計算 : [NTGAMMASKEW](../03-function-reference/02-distribution-functions/037-ntgammaskew.mdx)
+  - 尖度計算 : [NTGAMMAKURT](../03-function-reference/02-distribution-functions/033-ntgammakurt.mdx)
+  - 上記の各モーメントを一度に計算 : [NTGAMMAMOM](../03-function-reference/02-distribution-functions/035-ntgammamom.mdx)
 - 分布の平均と標準偏差をお持ちの場合
-  - 分布のパラメータ推定 : [NTGAMMAPARAM](https://www.ntrand.com/jp/ntgammaparam/)
+  - 分布のパラメータ推定 : [NTGAMMAPARAM](../03-function-reference/02-distribution-functions/036-ntgammaparam.mdx)
 
 ## 参照
 

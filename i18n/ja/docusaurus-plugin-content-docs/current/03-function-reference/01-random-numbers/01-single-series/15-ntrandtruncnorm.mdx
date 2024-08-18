@@ -6,7 +6,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 # NTRANDTRUNCNORM
 
-[切断正規分布](https://www.ntrand.com/jp/truncated-normal-distribution/)に従う疑似乱数を返します。乱数は超長周期 ($2^{19937}-1$)、 かつ高次元均等性（623次元）を備えた[Mersenne Twister アルゴリズム](https://www.ntrand.com/jp/glossary/#local_Mersenne_Twister) を基に生成されます。
+[切断正規分布](../../../05-gallery-of-distributions/truncated-normal-distribution.mdx)に従う疑似乱数を返します。乱数は超長周期 ($2^{19937}-1$)、 かつ高次元均等性（623次元）を備えた[Mersenne Twister アルゴリズム](/docs/glossary#mersenne-twister-algorithm) を基に生成されます。
 
 ## 書式
 
@@ -46,7 +46,7 @@ NTRANDTRUNCNORM(
   x=\sigma\Phi^{-1}\left[\Delta U +\Phi(A)\right]+\mu
   $$
 
-  として計算されます（逆関数法）。ここで、$\Phi(\cdot)$ は[標準正規分布](https://www.ntrand.com/jp/normal-distribution-single/)の[累積分布関数](https://www.ntrand.com/jp/glossary/#local_Cumulative)で、
+  として計算されます（逆関数法）。ここで、$\Phi(\cdot)$ は[標準正規分布](../../../05-gallery-of-distributions/normal-distribution-single.mdx)の[累積分布関数](/docs/glossary#cumulative-distribution-function)で、
 
   $$
   \Delta=\Phi(B)-\Phi(A)
@@ -121,19 +121,18 @@ NTRANDTRUNCNORM(
 
 メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A7:A106 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
 
-- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand1.xls "サンプル Excel シートをダウンロード")
-- [チュートリアルビデオを見る](https://www.ntrand.com/files/SingleRandom_Demo.swf)
+- [サンプル Excel シートをダウンロード](./../../../assets/NtRand1.zip)
 
 ## 参照
 
-- [NTTRUNCNORMDIST](https://www.ntrand.com/jp/nttruncnormdist/)
-- [NTTRUNCNORMINV](https://www.ntrand.com/jp/nttruncnorminv/)
-- [NTTRUNCNORMKURT](https://www.ntrand.com/jp/nttruncnormkurt/)
-- [NTTRUNCNORMMEAN](https://www.ntrand.com/jp/nttruncnormmean/)
-- [NTTRUNCNORMMOM](https://www.ntrand.com/jp/nttruncnormmom/)
-- [NTTRUNCNORMPARAM](https://www.ntrand.com/jp/nttruncnormparam/)
-- [NTTRUNCNORMSKEW](https://www.ntrand.com/jp/nttruncnormskew/)
-- [NTTRUNCNORMSTDEV](https://www.ntrand.com/jp/nttruncnormstdev/)
-- [切断正規分布](https://www.ntrand.com/jp/truncated-normal-distribution/)
-- [乱数アルゴリズムの選択](https://www.ntrand.com/jp/glossary/#local_Choiceoftherandomnumber)
-- [どうして複数のセルに数式をコピーすると全部同じ結果になるの？](https://www.ntrand.com/jp/faq/#local_CtrlShiftEnter)
+- [NTTRUNCNORMDIST](../../02-distribution-functions/095-nttruncnormdist.mdx)
+- [NTTRUNCNORMINV](../../02-distribution-functions/096-nttruncnorminv.mdx)
+- [NTTRUNCNORMKURT](../../02-distribution-functions/097-nttruncnormkurt.mdx)
+- [NTTRUNCNORMMEAN](../../02-distribution-functions/098-nttruncnormmean.mdx)
+- [NTTRUNCNORMMOM](../../02-distribution-functions/099-nttruncnormmom.mdx)
+- [NTTRUNCNORMPARAM](../../02-distribution-functions/100-nttruncnormparam.mdx)
+- [NTTRUNCNORMSKEW](../../02-distribution-functions/101-nttruncnormskew.mdx)
+- [NTTRUNCNORMSTDEV](../../02-distribution-functions/102-nttruncnormstdev.mdx)
+- [切断正規分布](../../../05-gallery-of-distributions/truncated-normal-distribution.mdx)
+- [乱数アルゴリズムの選択](/docs/glossary#choice-of-the-random-number-generator-algorithm)
+- [どうして複数のセルに数式をコピーすると全部同じ結果になるの？](/docs/faq#why-i-always-see-the-same-result-even-if-i-input-formula-into-multiple-cell)

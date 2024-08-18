@@ -12,27 +12,27 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 - 1つのパラメータ $N$ が必要です（正の整数）。
 - 無限区間 $(-\infty, +\infty)$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)対して常に対称です。
+- [平均](/docs/glossary#central-moment)対して常に対称です。
 
 ### 確率
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{\Gamma\left(\frac{N+1}{2}\right)}{\sqrt{\pi N\left(1+\frac{x^2}{N}\right)^{N+1}}\Gamma\left(\frac{N}{2}\right)}
   $$
 
-  ここで $\Gamma(\cdot)$ は [ガンマ関数](https://www.ntrand.com/glossary/#local_Gamma)です。
+  ここで $\Gamma(\cdot)$ は [ガンマ関数](/docs/glossary#gamma-function)です。
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{1}{2}-\frac{1}{2}\left[1-I_{\gamma}\left(\frac{1}{2},\frac{N}{2}\right)\right]\text{sign}(x)
   $$
 
-  ここで $\gamma=\frac{N}{N+x^2}$ で $I_{x}(\cdot,\cdot)$ は [正規化された不完全ベータ関数](https://www.ntrand.com/glossary/#local_regularized_incomplete_beta)です。
+  ここで $\gamma=\frac{N}{N+x^2}$ で $I_{x}(\cdot,\cdot)$ は [正規化された不完全ベータ関数](/docs/glossary#regularized-incomplete-beta-function)です。
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -65,13 +65,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTDIST](https://www.ntrand.com/jp/nttdist/)
+- 関連 NtRand 関数 : [NTTDIST](../03-function-reference/02-distribution-functions/080-nttdist.mdx)
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
-- 分布の[平均](https://www.ntrand.com/jp/glossary/#local_mean) は $N> 1$の場合に定義され、常に$0$です。
+- 分布の[平均](/docs/glossary#central-moment) は $N> 1$の場合に定義され、常に$0$です。
 - Excel での計算法
 
 <DataGridMdx
@@ -97,17 +97,17 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTMEAN](https://www.ntrand.com/jp/nttmean/)
+- 関連 NtRand 関数 : [NTTMEAN](../03-function-reference/02-distribution-functions/083-nttmean.mdx)
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
-- 分布の[分散](https://www.ntrand.com/jp/glossary/#local_variance) は $N> 2$の場合に定義され、次式で与えられます。
+- 分布の[分散](/docs/glossary#variance) は $N> 2$の場合に定義され、次式で与えられます。
 
   $$
   \frac{N}{N-2}\quad (N>2)
   $$
 
-  [標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation) は [分散](https://www.ntrand.com/jp/glossary/#local_variance)の正の平方根です。
+  [標準偏差](/docs/glossary#standard-deviation) は [分散](/docs/glossary#variance)の正の平方根です。
 
 - Excel での計算法
 
@@ -134,11 +134,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTSTDEV](https://www.ntrand.com/jp/nttstdev/)
+- 関連 NtRand 関数 : [NTTSTDEV](../03-function-reference/02-distribution-functions/086-nttstdev.mdx)
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
-- 分布の[歪度](https://www.ntrand.com/jp/glossary/#local_skewness)は $N>3$の場合に定義され、常に$0$ です。
+- 分布の[歪度](/docs/glossary#skewness)は $N>3$の場合に定義され、常に$0$ です。
 - Excel での計算法
 
 <DataGridMdx
@@ -164,11 +164,11 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTSKEW](https://www.ntrand.com/jp/nttskew/)
+- 関連 NtRand 関数 : [NTTSKEW](../03-function-reference/02-distribution-functions/085-nttskew.mdx)
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
-- 分布の[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis)　は$N>4$の場合に定義され、次式で与えられます。
+- 分布の[尖度](/docs/glossary#kurtosis)　は$N>4$の場合に定義され、次式で与えられます。
 
   $$
   \frac{6}{N-4}(N>4)
@@ -199,7 +199,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   }}
 />
 
-- 関連 NtRand 関数 : [NTTKURT](https://www.ntrand.com/jp/nttkurt/)
+- 関連 NtRand 関数 : [NTTKURT](../03-function-reference/02-distribution-functions/082-nttkurt.mdx)
 
 ## 乱数
 
@@ -236,13 +236,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 ## 関連 NtRand 関数
 
 - 既に分布のパラメータをお持ちの場合
-  - Mersenne Twiseter 法による乱数生成 : [NTRANDT](https://www.ntrand.com/jp/ntrandchisq/)
-  - 確率計算 : [NTTDIST](https://www.ntrand.com/jp/nttdist/)
-  - 平均計算 : [NTTMEAN](https://www.ntrand.com/jp/nttmean/)
-  - 標準偏差計算 : [NTTSTDEV](https://www.ntrand.com/jp/nttskew/)
-  - 歪度計算 : [NTTSKEW](https://www.ntrand.com/jp/nttskew/)
-  - 尖度計算 : [NTTKURT](https://www.ntrand.com/jp/nttkurt/)
-  - 上記の各モーメントを一度に計算 : [NTTMOM](https://www.ntrand.com/jp/nttmom/)
+  - Mersenne Twiseter 法による乱数生成 : [NTRANDT](../03-function-reference/01-random-numbers/01-single-series/04-ntrandchisq.mdx)
+  - 確率計算 : [NTTDIST](../03-function-reference/02-distribution-functions/080-nttdist.mdx)
+  - 平均計算 : [NTTMEAN](../03-function-reference/02-distribution-functions/083-nttmean.mdx)
+  - 標準偏差計算 : [NTTSTDEV](../03-function-reference/02-distribution-functions/085-nttskew.mdx)
+  - 歪度計算 : [NTTSKEW](../03-function-reference/02-distribution-functions/085-nttskew.mdx)
+  - 尖度計算 : [NTTKURT](../03-function-reference/02-distribution-functions/082-nttkurt.mdx)
+  - 上記の各モーメントを一度に計算 : [NTTMOM](../03-function-reference/02-distribution-functions/084-nttmom.mdx)
 
 ## 参照
 

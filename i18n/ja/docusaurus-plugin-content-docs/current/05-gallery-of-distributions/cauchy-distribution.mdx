@@ -8,7 +8,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ## チョイ悪分布コーシー分布
 
-[単峰分布](https://www.ntrand.com/jp/glossary/#local_Unimodal)で、左右対称。一目見ただけでは[正規分布](https://www.ntrand.com/jp/normal-distribution-single/)や[ロジスティック分布](https://www.ntrand.com/jp/logistic-distribution/)とあまり変わらないように見えますが、実はこの分布、裾が厚すぎて平均すら定義されない、なんともタチの悪い分布の代表なのです。
+[単峰分布](/docs/glossary#unimodal)で、左右対称。一目見ただけでは[正規分布](normal-distribution-single.mdx)や[ロジスティック分布](logistic-distribution.mdx)とあまり変わらないように見えますが、実はこの分布、裾が厚すぎて平均すら定義されない、なんともタチの悪い分布の代表なのです。
 
 ## 分布の形状
 
@@ -21,23 +21,23 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   $$
 
 - 無限区間 $(-\infty,+\infty)$ で定義された連続分布です。
-- [平均](https://www.ntrand.com/jp/glossary/#local_mean)、[標準偏差](https://www.ntrand.com/jp/glossary/#local_standard_deviation)、[歪度](https://www.ntrand.com/jp/glossary/#local_skewness)、[尖度](https://www.ntrand.com/jp/glossary/#local_kurtosis) は定義されません
+- [平均](/docs/glossary#central-moment)、[標準偏差](/docs/glossary#standard-deviation)、[歪度](/docs/glossary#skewness)、[尖度](/docs/glossary#kurtosis) は定義されません
 
 ### 確率
 
-- [累積分布関数](https://www.ntrand.com/jp/glossary/#local_cumulative)
+- [累積分布関数](/docs/glossary#cumulative-distribution-function)
 
   $$
   F(x)=\frac{1}{2}+\frac{1}{\pi}\tan^{-1}\frac{x-\mu}{\phi}
   $$
 
-- [確率密度関数](https://www.ntrand.com/jp/glossary/#local_probability)
+- [確率密度関数](/docs/glossary#probability-density-function)
 
   $$
   f(x)=\frac{1}{\pi\phi\left[1+\left(\frac{x-\mu}{\phi}\right)^2\right]}
   $$
 
-- Excel での[累積分布関数 (c.d.f.)](https://www.ntrand.com/jp/glossary/#local_cumulative) と [確率密度関数 (p.d.f.)](https://www.ntrand.com/jp/glossary/#local_Probability)の求め方
+- Excel での[累積分布関数 (c.d.f.)](/docs/glossary#cumulative-distribution-function) と [確率密度関数 (p.d.f.)](/docs/glossary#probability-density-function)の求め方
 
 <DataGridMdx
   data={{
@@ -76,13 +76,13 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### 分位点
 
-- [累積確率関数](https://www.ntrand.com/jp/glossary/#local_cumulative)の逆関数
+- [累積確率関数](/docs/glossary#cumulative-distribution-function)の逆関数
 
   $$
   F^{-1}(P)=\mu+\phi\left[\tan\pi\left(P-\frac{1}{2}\right)\right]
   $$
 
-- Excel での[分位点](https://www.ntrand.com/jp/glossary/#local_quantile)の求め方
+- Excel での[分位点](/docs/glossary#quantile)の求め方
 
 <DataGridMdx
   data={{
@@ -117,19 +117,19 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ## 分布の特徴
 
-### 平均 -- 分布の"中心"はどこ？ ([定義](https://www.ntrand.com/jp/glossary/#local_mean))
+### 平均 -- 分布の"中心"はどこ？ ([定義](/docs/glossary#central-moment))
 
 Not defined
 
-### 標準偏差 -- 分布はどのくらい広がっているか（[定義](https://www.ntrand.com/jp/glossary/#local_standard_deviation)）
+### 標準偏差 -- 分布はどのくらい広がっているか（[定義](/docs/glossary#standard-deviation)）
 
 Not defined
 
-### 歪度 -- 分布はどちらに偏っているか([定義](https://www.ntrand.com/jp/glossary/#local_skewness))
+### 歪度 -- 分布はどちらに偏っているか([定義](/docs/glossary#skewness))
 
 Not defined
 
-### 尖度 -- 尖っているか丸まっているか ([定義](https://www.ntrand.com/jp/glossary/#local_kurtosis))
+### 尖度 -- 尖っているか丸まっているか ([定義](/docs/glossary#kurtosis))
 
 Not defined
 
