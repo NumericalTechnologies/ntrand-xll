@@ -1,0 +1,145 @@
+---
+title: NTMULTICORREL
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTMULTICORREL
+
+各変数の平均，標準偏差，相関行列を返します。
+
+## 書式
+
+```excel
+NTMULTICORREL(
+    Data set,
+    Calc mean,
+    Calc stdev
+)
+```
+
+### 引数
+
+- **_Data set_** 各変数のデータ系列を指定します。
+- **_Calc mean_** 各変数の平均を計算するかを論理値で指定します。*Calc mean* に TRUE を指定すると各変数の平均が計算され、FALSE を指定すると計算されません。
+- **_Calc stdev_** 各変数の標準偏差を計算するかを論理値で指定します。*Calc stdev* に TRUE を指定すると各変数の標準偏差が計算され、FALSE を指定すると計算されません。
+
+## 使用例
+
+- 使用例を新規のワークシートにコピーすると、計算結果を確認できます。
+
+<details>
+<summary>その方法は？</summary>
+
+1.  新しいブックまたはワークシートを作成します。
+2.  ヘルプ トピックにある使用例を選択します（行番号および列番号を除く）。
+
+    ![Selecting an example from Help](./../../assets/functions/HowToCopy.png)
+
+    ヘルプから使用例を選択する
+
+3.  Ctrl キーを押しながら C キーを押します。
+4.  ワークシートのセル A1 を選択し、Ctrl キーを押しながら V キーを押します。
+5.  計算結果と結果を返す数式の表示を切り替えるには、Ctrl キーを押しながら ` (アクサン グラーブ) キーを押すか、または [ツール] メニューの [ワークシート分析] をポイントし、[ワークシート分析モード] をクリックします。
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "第1系列", readOnly: true, className: "orange-cell" },
+        { value: "第2系列", readOnly: true, className: "orange-cell" },
+        { value: "第3系列", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 0.07, readOnly: true },
+        { value: 0.312, readOnly: true },
+        { value: 0.137, readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: -0.05, readOnly: true },
+        { value: -0.271, readOnly: true },
+        { value: -0.077, readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: -0.0123, readOnly: true },
+        { value: 0.312, readOnly: true },
+        { value: 0.0175, readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: 0.0323, readOnly: true },
+        { value: -0.272, readOnly: true },
+        { value: 0.043, readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: 0.205, readOnly: true },
+        { value: 0.307, readOnly: true },
+        { value: -0.0018, readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: -0.185, readOnly: true },
+        { value: -0.267, readOnly: true },
+        { value: 0.062, readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: -0.331, readOnly: true },
+        { value: -0.187, readOnly: true },
+        { value: 0.112, readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: 0.351, readOnly: true },
+        { value: 0.227, readOnly: true },
+        { value: -0.051, readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: 0.061, readOnly: true },
+        { value: -0.026, readOnly: true },
+        { value: -0.068, readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: -0.041, readOnly: true },
+        { value: 0.066, readOnly: true },
+        { value: 0.128, readOnly: true },
+        { value: "", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "", readOnly: true, className: "orange-cell" },
+        { value: "", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTMULTICORREL(A2:C11,TRUE,TRUE)", readOnly: true },
+        { value: "", readOnly: true },
+        { value: "", readOnly: true },
+        {
+          value:
+            "上のデータに対する各変数の平均 (A13:C13)、標準偏差 (A14:C14)、相関行列 (A15:C17)",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A13:C17 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
+
+- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand3.xls "Downloading Sample")
+
+## 参照
+
+- [NTCOR2COV](https://www.ntrand.com/jp/ntcor2cov/)
+- [NTCOV2COR](https://www.ntrand.com/jp/ntcov2cor/)
+- [NTMULTICOVARP](https://www.ntrand.com/jp/ntmulticovarp/)
+- [どうして複数のセルに数式をコピーすると全部同じ結果になるの？](https://www.ntrand.com/jp/faq/#local_CtrlShiftEnter)

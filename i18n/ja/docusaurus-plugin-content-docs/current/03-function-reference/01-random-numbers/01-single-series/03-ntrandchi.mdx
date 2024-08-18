@@ -1,0 +1,100 @@
+---
+title: NTRANDCHI
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTRANDCHI
+
+[カイ分布](https://www.ntrand.com/jp/chi-distribution/)に従う疑似乱数を返します。乱数は超長周期 (2^19937^-1)、 かつ高次元均等性（623次元）を備えた[Mersenne Twister アルゴリズム](https://www.ntrand.com/jp/glossary/#local_Mersenne_Twister) を基に生成されます。
+
+## 書式
+
+```excel
+NTRANDCHI(
+    Size,
+    N,
+    Algorithm,
+    Random seed1,
+    Random seed2
+)
+```
+
+### 引数
+
+- **_Size_**乱数の個数を指定します（正の整数）。
+- **_N_** 分布のパラメータ $N$ を指定します（正の整数）。
+- **_Algorithm_** 一様乱数を生成するアルゴリズムを下記の3つから選択します。この引数は省略することができます。
+  - 0: Mersenne Twister(2002)
+  - 1: Mersenne Twister(1998)
+  - 2: Numerical Recipes ran2()
+- **_Random seed1_** 第1乱数シードを指定します。この引数は省略することが出来ます。
+- **_Random seed2_** 第2乱数シードを指定します。この引数は省略することが出来ます。
+
+## 解説
+
+- 半無限区間 $x \geq 0$ で定義された連続分布です。
+
+## 使用例
+
+- 使用例を新規のワークシートにコピーすると、計算結果を確認できます。
+
+<details>
+<summary>その方法は？</summary>
+
+1.  新しいブックまたはワークシートを作成します。
+2.  ヘルプ トピックにある使用例を選択します（行番号および列番号を除く）。
+
+    ![Selecting an example from Help](./../../../assets/functions/HowToCopy.png)
+
+    ヘルプから使用例を選択する
+
+3.  Ctrl キーを押しながら C キーを押します。
+4.  ワークシートのセル A1 を選択し、Ctrl キーを押しながら V キーを押します。
+5.  計算結果と結果を返す数式の表示を切り替えるには、Ctrl キーを押しながら ` (アクサン グラーブ) キーを押すか、または [ツール] メニューの [ワークシート分析] をポイントし、[ワークシート分析モード] をクリックします。
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 8, readOnly: true },
+        { value: "パラメータ N の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTRANDCHI(100,A2,0)", readOnly: true },
+        {
+          value: "100個のカイ乱数を Mersenne Twister アルゴリズムで生成します",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A4:A103 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
+
+- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand1.zip "Downloading Sample")
+- [チュートリアルビデオを見る](https://www.ntrand.com/files/SingleRandom_Demo.swf)
+
+## 参照
+
+- [NTCHIDIST](https://www.ntrand.com/jp/ntchidist/)
+- [NTCHIDISTINV](https://www.ntrand.com/jp/ntchidistinv/)
+- [NTCHIKURT](https://www.ntrand.com/jp/ntchikurt/)
+- [NTCHIMEAN](https://www.ntrand.com/jp/ntchimean/)
+- [NTCHIMOM](https://www.ntrand.com/jp/ntchimom/)
+- [NTCHISKEW](https://www.ntrand.com/jp/ntchiskew/)
+- [NTCHISTDEV](https://www.ntrand.com/jp/ntchistdev/)
+- [カイ分布](https://www.ntrand.com/jp/chi-distribution/)
+- [乱数アルゴリズムの選択](https://www.ntrand.com/jp/glossary/#local_Choiceoftherandomnumber)
+- [どうして複数のセルに数式をコピーすると全部同じ結果になるの？](https://www.ntrand.com/jp/faq/#local_CtrlShiftEnter)

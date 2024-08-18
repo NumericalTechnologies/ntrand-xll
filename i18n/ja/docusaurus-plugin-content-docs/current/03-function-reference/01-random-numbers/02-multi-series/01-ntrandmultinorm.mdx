@@ -1,0 +1,131 @@
+---
+title: NTRANDMULTINORM
+---
+
+import DataGridMdx from "@site/src/components/DataGridMdx";
+
+# NTRANDMULTINORM
+
+[多変量正規分布](https://www.ntrand.com/jp/normal-distribution-multi/)に従う疑似乱数を返します。乱数は超長周期 (2^19937^-1)、 かつ高次元均等性（623次元）を備えた[Mersenne Twister アルゴリズム](https://www.ntrand.com/jp/glossary/#local_Mersenne_Twister) を基に生成されます。
+
+## 書式
+
+```excel
+NTRANDMULTINORM(
+    Size,
+    Cov,
+    Mean,
+    Algorithm,
+    Random seed1,
+    Random seed2,
+    Use invert func,
+    Use antithetic,
+    Use resampling
+)
+```
+
+### 引数
+
+- **_Size_**乱数の個数を指定します（正の整数）。
+- **_Cov_** 分散・共分散行列を指定します。
+- **_Mean_** 各変数の平均を指定します。
+- **_Algorithm_** 一様乱数を生成するアルゴリズムを下記の3つから選択します。この引数は省略することができます。
+  - 0: Mersenne Twister(2002)
+  - 1: Mersenne Twister(1998)
+  - 2: Numerical Recipes ran2()
+- **_Random seed1_** 第1乱数シードを指定します。この引数は省略することが出来ます。
+- **_Random seed2_** 第2乱数シードを指定します。この引数は省略することが出来ます。
+- **_Use invert func_** 乱数生成法を論理値で指定します。*Use invert func* に TRUE を指定すると逆関数法が用いられ、FALSE を指定すると[極座標法（Box-Muller 法）](https://www.ntrand.com/jp/glossary/#local_Box-Muller)が用いられます。
+- **_Use antithetic_** [対称変量法](https://www.ntrand.com/jp/glossary/#local_Antitheticvariant)を用いるか否かを論理値で指定します。*Use antithetic* に TRUE を指定すると[対称変量法](https://www.ntrand.com/jp/glossary/#local_Antitheticvariant)が用いられ，FALSEを指定すると用いられません。
+- **_Use resampling_** [2次サンプリング](https://www.ntrand.com/jp/glossary/#local_quadraticresampling)を用いるか否かを論理値で指定します。*Use resampling* に TRUE を指定すると[2次サンプリング](https://www.ntrand.com/jp/glossary/#local_Antitheticvariant)が用いられ，FALSEを指定すると用いられません。
+
+## 使用例
+
+![](./../../../assets/functions/histogram/scatterMultiNorm.jpg)
+
+- 使用例を新規のワークシートにコピーすると、計算結果を確認できます。
+
+<details>
+<summary>その方法は？</summary>
+
+1.  新しいブックまたはワークシートを作成します。
+2.  ヘルプ トピックにある使用例を選択します（行番号および列番号を除く）。
+
+    ![Selecting an example from Help](./../../../assets/functions/HowToCopy.png)
+
+    ヘルプから使用例を選択する
+
+3.  Ctrl キーを押しながら C キーを押します。
+4.  ワークシートのセル A1 を選択し、Ctrl キーを押しながら V キーを押します。
+5.  計算結果と結果を返す数式の表示を切り替えるには、Ctrl キーを押しながら ` (アクサン グラーブ) キーを押すか、または [ツール] メニューの [ワークシート分析] をポイントし、[ワークシート分析モード] をクリックします。
+
+</details>
+
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1.44, readOnly: true },
+        { value: 0.48, readOnly: true },
+        { value: -0.36, readOnly: true },
+        { value: "cov. matrix", readOnly: true },
+      ],
+      [
+        { value: 0.48, readOnly: true },
+        { value: 0.64, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: "cov. matrix", readOnly: true },
+      ],
+      [
+        { value: -0.36, readOnly: true },
+        { value: 0, readOnly: true },
+        { value: 0.25, readOnly: true },
+        { value: "cov. matrix", readOnly: true },
+      ],
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: 1, readOnly: true },
+        { value: 2, readOnly: true },
+        { value: 3, readOnly: true },
+        { value: "mean vector", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "", readOnly: true, className: "orange-cell" },
+        { value: "", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=NTRANDMULTINORM(100,A2:C4,A6:C6)", readOnly: true },
+        { value: "", readOnly: true },
+        { value: "", readOnly: true },
+        {
+          value: "100 normal deviates (x 3 variables) for the terms above",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
+
+メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A8:C107 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
+
+- [サンプル Excel シートをダウンロード](https://www.ntrand.com/files/NtRand1.xls "サンプル Excel シートをダウンロード")
+- [チュートリアルビデオを見る](https://www.ntrand.com/files/NtRandMultiNorm_Demo.swf)
+
+## 参照
+
+- [多変量正規分布](https://www.ntrand.com/jp/normal-distribution-multi/)
+- [乱数アルゴリズムの選択](https://www.ntrand.com/jp/glossary/#local_Choiceoftherandomnumber)
+- [どうして複数のセルに数式をコピーすると全部同じ結果になるの？](https://www.ntrand.com/jp/faq/#local_CtrlShiftEnter)
