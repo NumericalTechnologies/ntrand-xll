@@ -502,7 +502,9 @@ Each sample sheet includes following functions.
 
 **NtRand** addin functions give stable number. This is by design. But you may want to update random number every time when you recalculate the worksheet. There is very simple way to achieve this. See following worksheet formula.
 
+```excel
 =NtRand(10000,0,RAND()*2147483647,RAND()*2147483647)
+```
 
 This is what you want. NtRand() function is called just once even if it returns multiple values, because it uses [array formula](/docs/glossary#array-formula-in-excel). For this reason, RAND() function is never called 10000 or 20000 times by this solution.
 

@@ -6,19 +6,19 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 # FAQ
 
-## ソフトウェアライセンス刑事ドラマに巻き込まれる危険？
+## ソフトウェアライセンス刑事ドラマに巻き込まれる危険？{#about-license}
 
-### 本当に**勝手に**ダウンロードして使っていいの?
+### 本当に**勝手に**ダウンロードして使っていいの? {#is-it-reallyno-strings-attachedwhen-i-use-this-software}
 
 **NtRand** (以下 "ソフトウェア") は無料で提供しているソフトウェアであり、使用料やライセンス料などはいただいておりません。したがって、[使用許諾条件](https://www.ntrand.com/jp/license-agreement/)下の状況でご利用いただく場合には料金の請求やある日突然戸口に警察が立っているなどといったことは起こりませんので、ご安心ください。
 
-### 一体**ニューメリカルテクノロジーズ株式会社**って誰?
+### 一体**ニューメリカルテクノロジーズ株式会社**って誰? {#whois-numerical-technologies-incorporated}
 
 [ニューメリカルテクノロジーズ株式会社](http://www.numtech.co.jp/)は東京、丸の内にあるITのシステム開発会社です。主に金融リスク管理に取り組み、金融機関大手を顧客に持っています。詳しくは[弊社のサイト](http://www.numtech.co.jp/ "ニューメリカルテクノロジーズ（株）")をご覧ください。
 
-## 使い方NtRand でコマッタ?
+## 使い方NtRand でコマッタ? {#how-to-use-trouble-using-ntrand}
 
-### 困った、ヘルプファイル( chm ファイル)が開けない
+### 困った、ヘルプファイル( chm ファイル)が開けない {#i-cannot-open-help-file}
 
 環境により、ダウンロードしたヘルプファイル( chm ファイル)のトピックが表示できない場合があります。これはマイクロソフト社のセキュリティ更新による現象で、この問題を解決するには次のいずれかの操作を行います。
 
@@ -31,7 +31,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   - 2\. ブロックの解除]ボタンをクリックし、[OK]ボタンをクリック
   - 3\. chm ファイルをダブルクリック
 
-### なぜバージョンアップで機能が削除されたの？
+### なぜバージョンアップで機能が削除されたの？ {#why-were-functions-removed-in-the-upgrade}
 
 NtRand はバージョン2からバージョン3にバージョンアップする際に以下の関数を削除しました（[リリースノート参照](https://www.ntrand.com/jp/release-note)）
 
@@ -43,7 +43,7 @@ NtRand はバージョン2からバージョン3にバージョンアップす�
 
 NtRand 3.0 ではその機能を乱数生成関数、および確率分布関数とそれらに関連する関数に絞りこむという方針をとり、結果、上記の金融工学への応用関数は削除しました。これらの関数を使用するには[旧バージョン](https://www.ntrand.com/jp/older-versions/)を引き続きご使用ください。 また、旧バージョンの乱数生成関数のうち、分布関数のモーメントを引数にとる関数（NtRandBeta，NtRandLogNorm，NtRandTruncNorm）は削除され、すべての乱数生成関数はパラメータを直接引数にとるもののみを残しました。 その代わりに各分布関数にモーメントからパラメータを算出する "\*\*\*PARAM" 関数を用意しました。
 
-### Excel RAND() の振る舞いに似せて、ワークシートを再計算するたびに乱数を自動的に更新する方法
+### Excel RAND() の振る舞いに似せて、ワークシートを再計算するたびに乱数を自動的に更新する方法 {#how-to-change-random-numbers-automatically-like-excel-rand-when-recalculating-worksheet}
 
 **NtRand** は常に同じ値を返します。これは設計仕様です。ワークシートを再計算するたびに異なる乱数値を欲しい方もいるかもしれません。これは簡単に実現できます。次の表計算式をご覧下さい。
 
@@ -53,12 +53,12 @@ NtRand 3.0 ではその機能を乱数生成関数、および確率分布関数
 
 これで大丈夫です。[NTRAND](https://www.ntrand.com/jp/ntrand/) 関が10000回あるいは20000回呼ばれるということはありません。
 
-### Excelの仕様上の制限について (NtRand 32bit)
+### Excelの仕様上の制限について (NtRand 32bit) {#microsoft-excel-specific-limitations-for-ntrand-32bit}
 
 **NtRand 32bit** は Excel 97 から Excel 2010 までをサポートしています。また使用 OS は Windows 95 以降（言語は不問）としています。\
 Excel関数に対して一度に受け渡し可能なデータの最大数は、配列数式の場合は行または列方向に32,767個以内、一般の数式の場合は行方向32,767個以内、列方向256個以内に制限されています。Windows95環境の場合はこれにさらに16bitの制限が加わります。すなわち一度に受け渡し可能なデータの最大量が64kBytesであるため、Excel標準の数値型 (倍精度浮動小数点数)ならば最大8,192個以上の受渡しはできません。このため、次元数の大きな多変量モンテカルロをNtRand 32bit で行う場合は、Windows NT/2000/XP 環境をお勧めします。これらの制限はExcelおよびWindowsの問題であり、NtRand 32bitの問題ではありません。 Excel 2007, 2010 では 32,767超のデータを取り扱うことが出来ます。
 
-### NtRand を VBA (Visual Basic for Application) から使用する方法
+### NtRand を VBA (Visual Basic for Application) から使用する方法 {#how-to-use-ntrand-from-vba-visual-basic-for-application}
 
 VBA (Visual Basic for Application) から **NtRand** の内部関数を使用するには次の例を参考にしてください。このコードは [NTRANDMULTINORM](https://www.ntrand.com/jp/ntrandmultinorm/ "NTRANDMULTINORM") の計算例と同じ結果を与えます。
 
@@ -77,7 +77,7 @@ End Sub
 
 なお、VBA と Visual Basic とは異なる開発言語です。上記 "Application.Run..." のテクニックはVBAでのみ機能します。VBAはExcelの内部データ表現であるXLOPER型を変換することができます。しかし、Visual Basic にはこの機能がありません。Excelアドインの内部関数を Visual Basic から呼ぶことは簡単ではありません。
 
-### サンプルシートはどうやって使うの？
+### サンプルシートはどうやって使うの？ {#how-can-i-use-sample-sheets}
 
 サンプルシートは[ダウンロード](https://www.ntrand.com/jp/download/ "Download")ページから入手できます。 **NtRand Excelアドインを[インストール](https://www.ntrand.com/jp/install/ "インストール方法")**した後、NtRand 関数の使い方を学ぶためにサンプルシートを開きます。それぞれのサンプルシートは次のNtRand関数を含んでいます。
 
@@ -85,7 +85,7 @@ End Sub
 - NtRand2.xls -- ([NTBETADIST](https://www.ntrand.com/jp/ntbetadist/ "the beta distribution"), [NTBETAPARAM](https://www.ntrand.com/jp/ntbetaparam/ "parameters of the beta distribution for the specified mean and standard deviation"), [NTCHIDIST](https://www.ntrand.com/jp/ntchidist/ "the chi distribution"), [NTCHISQDIST](https://www.ntrand.com/jp/ntchisqdist/ "the chi square distribution"), [NTFDIST](https://www.ntrand.com/jp/ntfdist/ "the f distribution"), [NTGAMMADIST](https://www.ntrand.com/jp/ntgammadist/ "the gamma distribution"), [NTGAMMADISTINV](https://www.ntrand.com/jp/ntgammadistinv/ "the inverse of the cumulative distribution function for a specified gamma distribution"), [NTGUMBELDIST](https://www.ntrand.com/jp/ntgumbeldist/ "the Gumbel distribution for the specified parameters"), [NTGUMBELINV](https://www.ntrand.com/jp/ntgumbelinv/ "the inverse of the cumulative distribution function for a specified Gumbel distribution"), [NTGUMBELPARAM](https://www.ntrand.com/jp/ntgumbelparam/ "parameters of the Gumbel distribution for the specified mean and standard deviation"), [NTJOHNSONSUDIST](https://www.ntrand.com/jp/ntjohnsonsudist/ "the Johnson SU distribution for the specified parameters"), [NTJOHNSONSUINV](https://www.ntrand.com/jp/ntjohnsonsuinv/ "the inverse of the cumulative distribution function for a specified Johnson SU distribution"), [NTJOHNSONSUPARAM](https://www.ntrand.com/jp/ntjohnsonsuparam/ "parameters of the Johnson SU distribution for the specified mean standard deviation, skewness and kurtosis"), [NTLOGISTICDIST](https://www.ntrand.com/jp/ntlogisticdist/ "the logistic distribution for the specified parameters"), [NTLOGISTICINV](https://www.ntrand.com/jp/ntlogisticinv/ "the inverse of the cumulative distribution function for a specified logistic distribution"), [NTLOGISTICPARAM](https://www.ntrand.com/jp/ntlogisticparam/ "parameters of the logistic distribution for the specified mean and standard deviation"), [NTLOGNORMDIST](https://www.ntrand.com/jp/ntlognormdist/ "the log normal distribution for the specified parameters"), [NTLOGNORMINV](https://www.ntrand.com/jp/ntlognorminv/ "the inverse of the cumulative distribution function for a specified log normal distribution"), [NTLOGNORMPARAM](https://www.ntrand.com/jp/ntlognormparam/ "parameters of the log normal distribution for the specified mean and standard deviation"), [NTNORMDIST](https://www.ntrand.com/jp/ntnormdist/ "the standard normal distribution for the specified parameters"), [NTPOISSONDIST](https://www.ntrand.com/jp/ntpoissondist/ "the Poisson distribution for the specified parameters"), [NTTDIST](https://www.ntrand.com/jp/nttdist/ "the Student's t distribution"), [NTTRIANGULARDIST](https://www.ntrand.com/jp/nttriangulardist/ "the triangular distribution for the specified parameters"), [NTTRIANGULARINV](https://www.ntrand.com/jp/nttriangularinv/ "the inverse of the cumulative distribution function for a specified triangular distribution"), [NTTRIANGULARPARAM](https://www.ntrand.com/jp/nttriangularparam/ "parameters of the triangular distribution for the specified mean, standard deviation and skewness"), [NTTRUNCNORMDIST](https://www.ntrand.com/jp/nttruncnormdist/ "the truncated normal distribution for the specified parameters"), [NTTRUNCNORMINV](https://www.ntrand.com/jp/nttruncnorminv/ "the inverse of the cumulative distribution function for a specified truncated normal distribution"), [NTTRUNCNORMPARAM](https://www.ntrand.com/jp/nttruncnormparam/ "parameters of the triangular distribution for the specified support, mean and standard deviation"), [NTWEIBULLDIST](https://www.ntrand.com/jp/ntweibulldist/ "the Weibull distribution for the specified parameters"), [NTWEIBULLINV](https://www.ntrand.com/jp/ntweibullinv/ "the inverse of the cumulative distribution function for a specified Weibull distribution"), [NTWEIBULLPARAM](https://www.ntrand.com/jp/ntweibullparam/ "parameters of the Weibull distribution for the specified mean and standard deviation"))
 - NtRand3.xls -- ([NTCOR2COV](https://www.ntrand.com/jp/ntcor2cov/ "Converts standard deviation vector and correlation matrix to covariance matrix"), [NTCOV2COR](https://www.ntrand.com/jp/ntcov2cor/ "Converts covariance matrix to standard deviation vector and correlation matrix"), [NTMULTICORREL](https://www.ntrand.com/jp/ntmulticorrel/ "mean vector, standard deviation vector and covariance matrix"), [NTMULTICOVARP](https://www.ntrand.com/jp/ntmulticovarp/ "mean vector and covariance matrix"))
 
-### どうして複数のセルに数式をコピーすると全部同じ結果になるの？
+### どうして複数のセルに数式をコピーすると全部同じ結果になるの？{#why-i-always-see-the-same-result-even-if-i-input-formula-into-multiple-cell}
 
 NtRand に関して最も多く受けるのがこの種の質問です。これはNtRand ではなくExcel の問題です。
 
@@ -93,7 +93,7 @@ NtRand に関して最も多く受けるのがこの種の質問です。これ�
 
 詳しくはExcel のヘルプやハウツー本を探してみてください。さらに、["配列数式"](https://www.ntrand.com/jp/glossary/#local_arrayformula "配列数式") や ["Excel の仕様上の制限について (NtRand 32bit)"](https://www.ntrand.com/#local_MicrosoftExcel-specificLimitations "Excel の仕様上の制限について (NtRand 32bit)")を読むことをお勧めします。
 
-### モーメントマッチングってどんな効果があるの？
+### モーメントマッチングってどんな効果があるの？ {#enhancement-of-monte-carlo-by-moment-matching}
 
 モンテカルロ法の利用者にとって最大の悩みは計算量です。原始的なモンテカルロ法 (Crude Monte Carlo)の理論性能 (=計算誤差)は、シミュレーション回数を$n$ とすれば、次の数式により示されます。
 
@@ -541,7 +541,7 @@ $$
 
 こうしてみますと、わずか100回のモンテカルロシミュレーションであっても、[対称変量法](https://www.ntrand.com/jp/faq/#local_antitheticvariant "antithetic variant method")と[2次サンプリング法](https://www.ntrand.com/jp/faq/#local_quadraticresampling/ "quadratic resampling")を同時使用すれば劇的な改善効果があり、あたかも完璧な答えが出てしまいそうです。 これはある程度まで真理ですが間違った結論です。 実際、このような論理展開には頻繁に陥りがちなため、統計学上の名称さえついており、「**あわてものの誤り(Type I Error)**」と呼びます。 深遠な誤差論からの説明は本ソフトウェア解説の趣旨ではありませんので、その意味を簡単に申し上げれば、このようなモーメントマッチングによる急速な収束性改善が見られたからといって、真の解に必ず漸近することとは別問題ということです。 オプション計算であれVaR計算であれ用途を問わず、ある程度の計算試行は必要なのです。
 
-### 対数正規分布の平均、標準偏差について
+### 対数正規分布の平均、標準偏差について {#mean-and-standard-deviation-of-the-log-normal-distribution}
 
 [対数正規分布](https://www.ntrand.com/jp/log-normal-distribution/)は2つのパラメータ$M$と$S$を持ち、
 
@@ -599,7 +599,7 @@ $S =\sqrt{\ln\left(\frac{\text{E}^2[x]+\text{Stdev}^2[x]}{\text{E}^2[x]}\right)}
 となります。\
 詳しくは[サンプルシート](https://www.ntrand.com/files/NtRand1.zip)をご覧ください。
 
-### 切断○○分布の作り方
+### 切断○○分布の作り方 {#how-to-truncate-tail-of-distribution}
 
 もし○○分布の累積分布関数$F(x)$ とその逆関数$F^{-1}(u)$ が手元にあるならば、一様乱数u を用いて**"切断"○○分布**に従う乱数を生成できます。
 
@@ -617,17 +617,17 @@ $S =\sqrt{\ln\left(\frac{\text{E}^2[x]+\text{Stdev}^2[x]}{\text{E}^2[x]}\right)}
 
 こうして定義された$\Delta, s$ を用いて$x=F^{-1}(\Delta u+s)$ とすれば切断○○分布に従う乱数が得られます。　ダウンロード：[切断Weibull分布の例](https://www.ntrand.com/files/TruncatedWeibullRandom.zip)
 
-## NtRand の裏側パンドラの箱かも
+## NtRand の裏側パンドラの箱かも {#behind-ntrand-opened-the-pandoras-box}
 
-### CPU、OS、コンパイラにより計算結果が異なる場合があるようですが...？
+### CPU、OS、コンパイラにより計算結果が異なる場合があるようですが...？ {#different-computing-result-by-each-cpu-operating-system-and-compiler-came-out--}
 
 コンピュータ数値計算に無縁の方は驚かれるかもしれませんが、コンピュータの計算結果は使用するCPU、OS、コンパイラに依存しており、たとえ同一のプログラムであってもマシンによって結果が変わり得ます。例えば大規模な行列の三角分解といったケースでは、WindowsパソコンとUNIXワークスーテーションの間の結果はまず一致しません。その主な理由は、CPUチップ内部の浮動小数点演算ユニット (FPU)の動作モードとCPUチップ内部のROMにハードコーディングされたマイクロプログラム (micro program)にあります。これは本などでよく解説されている2進数の桁落ち桁丸め計算によるエラー、あるいは2進化10進数 (BCD、binary coded decimal)とは別の問題です。例としてC/C++言語で最も精度の高い double 型を用いたプログラムをWindowsパソコンの上で動かしたとします。double 型の仮数部の精度は多くのコンパイラ (Sun Pro CC、gcc、egcs、 HP CC、Visual C++、Intel C/C++)では64bitのはずです。ところが、 Intel x86 系の FPU の仮数部の精度は 24/53/64bit に「プログラムを使って」設定可能であり、その設定はOSやコンパイラレベルで普通は規定されています。さらに x86 系では Pentium4 / Xeon になって以降、128bit、つまり double 型2個を一度に処理するSIMD最適化(SSE II)ができます。これももちろん精度に影響します。また、CPUが異なればマイクロプログラムのアルゴリズムも異なり、解析解のない関数 (例えば三角関数や指数関数)の結果は異なって当然です。その結果、「Linux、Windows、さまざまな商用UNIXでバラバラの答えが出る」といったことが普通に起こるわけです。デリバティブのポジション評価にパソコンやワークステーションをお使いの金融ユーザーの皆さん、ご注意あれ。コンピュータは字義どおりの魔物 (daemon)の住む機械です。おそるべきことに、数値計算に携わる専門家の常識であっても、コンピュータメーカーの営業上の理由からかディスクローズされていない、あるいは積極的に知らされていない問題が数多くあり、数値計算はシステムエンジニアにとってさえ縁遠い世界なのです。この問題についてより詳しく研究されたい方には、[このペーパー (David Goldberg, "What Every Computer Scientist Should Know about Floating-Point Arithmetic")](http://perso.ens-lyon.fr/jean-michel.muller/goldberg.pdf)が有用な情報になるでしょう。
 
-### どうして乱数シードが2つあるの？
+### どうして乱数シードが2つあるの？{#why-are-two-seeds-of-random-numbers-required-}
 
 乱数の種数 (初期値)を64ビット分用意すべく、オリジナルの乱数アルゴリズムを拡張しました。なぜこのような拡張が必要なのかというと、実務においては再現性を伴うようなシミュレーション、すなわちバックテスティングやWhat-If分析の時に広大な初期値空間が必要になるからです。一般にはデータベースのキーフィールドを乱数の種数に関連付けてシミュレーションします。
 
-### 乱数シードの異なる乱数系列の独立性
+### 乱数シードの異なる乱数系列の独立性 {#independency-among-random-numbers-series-with-different-random-seeds}
 
 乱数シードを変更すると異なる乱数列が生成されます。どのような乱数シードを与えるべきか？この問いは極めて微妙で深遠なものです。\
 実際には適当に選択した整数（例えばシミュレーション番号）を与えるしかありません。しかし、乱数シードを気にする必要がない、あるいは Excel の RAND() 関数のように勝手に乱数シードが選ばれるようにしたいのであれば、「[Excel RAND() の振る舞いに似せて、ワークシートを再計算するたびに乱数を自動的に更新する方法](https://www.ntrand.com/jp/faq/#local_changerandomnumbers)」に記述してある方法があります。
