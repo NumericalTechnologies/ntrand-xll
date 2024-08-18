@@ -47,6 +47,9 @@ const config: Config = {
         },
         blog: {
           showReadingTime: true,
+          onUntruncatedBlogPosts: "ignore",
+          blogSidebarTitle: "All posts",
+          blogSidebarCount: "ALL",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
           feedOptions: {

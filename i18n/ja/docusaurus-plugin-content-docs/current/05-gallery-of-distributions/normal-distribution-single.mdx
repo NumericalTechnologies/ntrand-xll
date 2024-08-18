@@ -77,8 +77,8 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 ### その他のトピック
 
-- 左右対称ということから、この分布の[歪度](/docs/glossary#skewness/)（ゆがみ）は 0
-- 正規分布の[尖度](/docs/glossary#kurtosis/)（とがり具合）を 0 として、この分布より裾が厚い分布（[尖度](/docs/glossary#kurtosis/)が正）を "[Leptokurtic](/docs/glossary#leptokurtic)"な分布、裾が薄い分布（[尖度](/docs/glossary#kurtosis/)が負）を "[Platykurtic](/docs/glossary#leptokurtic)"な分布と呼ぶ
+- 左右対称ということから、この分布の[歪度](/docs/glossary#skewness)（ゆがみ）は 0
+- 正規分布の[尖度](/docs/glossary#kurtosis)（とがり具合）を 0 として、この分布より裾が厚い分布（[尖度](/docs/glossary#kurtosis)が正）を "[Leptokurtic](/docs/glossary#leptokurtic)"な分布、裾が薄い分布（[尖度](/docs/glossary#kurtosis)が負）を "[Platykurtic](/docs/glossary#leptokurtic)"な分布と呼ぶ
 - 多数の分布の極限が正規分布になるということと、多数の不確定要素の積み重ねが正規分布を生み出す（**中心極限定理**）という事実によって、この分布はどこにでも顔を出す。
 
 ## 分布の形状
@@ -212,26 +212,37 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 Excel での乱数生成法
 
-|
+<DataGridMdx
+  data={{
+    cells: [
+      [
+        { value: "データ", readOnly: true, className: "orange-cell" },
+        { value: "説明", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "分布のパラメータ M の値", readOnly: true },
+      ],
+      [
+        { value: "0.5", readOnly: true },
+        { value: "分布のパラメータ Sigma の値", readOnly: true },
+      ],
+      [
+        { value: "数式", readOnly: true, className: "orange-cell" },
+        { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
+      ],
+      [
+        { value: "=A3*NTRANDNORM(100)+A2", readOnly: true },
+        {
+          value:
+            "100個の正規乱数を Mersenne Twister アルゴリズムで生成します。",
+          readOnly: true,
+        },
+      ],
+    ],
+  }}
+/>
 
-|   |
-| 1 |
-| 2 |
-| 3 |
-| 4 |
-| 5\
-    |
-
-|
-
-| A | B |
-| データ | 説明 |
-| 0.5 | 分布のパラメータ M の値 |
-| 0.5 | 分布のパラメータ Sigma の値 |
-| 数式 | 説明（計算結果） |
-| =A3\*NTRANDNORM(100)+A2 | 100個の正規乱数を Mersenne Twister アルゴリズムで生成します。 |
-
-|
 
 メモ： この使用例の数式は、配列数式として入力する必要があります。使用例を新規ワークシートにコピーした後、A5:A104 のセル範囲 (配列数式が入力されているセルが左上になる) を選択します。F2 キーを押し、Ctrl キーと Shift キーを押しながら Enter キーを押します。この数式が配列数式として入力されていない場合、単一の値 2 のみが計算結果として返されます。
 
