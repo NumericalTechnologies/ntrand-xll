@@ -11,13 +11,13 @@ Numerical Technologies Random Generator for Excel (**NtRand**) とは、モン�
 
 ## なぜNtRand?
 
-リスク管理で使われるVaRなどの計算においては、大規模なモンテカルロシミュレーションがしばしば必要となります。 そうした際、システム組込みの乱数では十分な精度を確保できません。 物理乱数 を使う解決方法もありますが、追試で重要な再現性がない上に特殊なハードウェアが必要であるため、実用性に乏しいものです。Mersenne Twister は、そんな場合の現実的なソリューションを与えてくれる方法の一つであり、弊社のリスク管理システムPortfolioBrowser® / CreditBrowser® の中でも大規模に使用しております。
+リスク管理で使われるVaRなどの計算においては、大規模なモンテカルロシミュレーションがしばしば必要となります。 そうした際、システム組込みの乱数では十分な精度を確保できません。 物理乱数 を使う解決方法もありますが、追試で重要な再現性がない上に特殊なハードウェアが必要であるため、実用性に乏しいものです。Mersenne Twister は、そんな場合の現実的なソリューションを与えてくれる方法の一つであり、弊社のリスク管理システム[NtSaaS®](https://ntsaas.numtech.co.jp)の中でも大規模に使用しております。
 
 ## 特徴
 
 NtRand は非常に高速かつ高機能です。数十次元程度であれば実用レベルのモンテカルロVaR (Value at Risk) システムや、デリバティブのプライシングモデルを、パソコン上のExcel を使って構築可能です。 すなわち、大方の比較的小規模なVaR 管理ならばNtRand を用いれば実現できるはずです。デリバティブのプライシングやリスク管理の研究、高額なシステムの企画・発注の前の叩き台、あるいは論文ネタとして、ぜひご活用ください。
 
-- 超長周期（周期 $2^{19937}-1$ ）と高次元均等性（623次元）という目を見張る高品質な**[疑似乱数](/docs/glossary#pseudo-random-numbers)**生成を実現（[Mersenns Twiser 法](/docs/glossary#mersenne-twister-algorithm)）。Mersenne Twister 法の詳しい説明は[Mersenne Twister ホームページ](http://www.math.sci.hiroshima-u.ac.~m-mat/MT/emt.html)へどうぞ。
+- 超長周期（周期 $2^{19937}-1$ ）と高次元均等性（623次元）という目を見張る高品質な**[疑似乱数](/docs/glossary#pseudo-random-numbers)**生成を実現（[Mersenns Twiser 法](/docs/glossary#mersenne-twister-algorithm)）。Mersenne Twister 法の詳しい説明は[Mersenne Twister ホームページ](http://www.math.sci.hiroshima-u.ac.jp/m-mat/MT/emt.html)へどうぞ。
 - **Excel のアドイン**として提供されているため、導入はとっても簡単。Excel のメニューから登録したらすぐに使えます。
 - **簡単操作**による多変量相関正規乱数生成。**モンテカルロ法による VaR**（Value at Risk）の計算に力を発揮します。
 - **乱数生成アルゴリズム選択**の自由性。一様乱数は[Mersenns Twiser 法](/docs/glossary#mersenne-twister-algorithm)の他にも簡便で広く使われている**Numerical Recipes ran2()** 法が選択可能。さらに正規乱生成は[Box-Muller 法](/docs/glossary#box-muller-method)と[Moro の方法](/docs/glossary#inverse-function-method-moros-algorithm)が選べます。
