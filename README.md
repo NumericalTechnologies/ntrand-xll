@@ -1,47 +1,16 @@
-# Website
+# NtRand Documentation Site
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-### Installation
+## About NtRand
 
-```
-$ yarn
-```
+NtRand is a free Excel Add-In Random Number Generator based on the Mersenne Twister algorithm. It provides various probability distributions, statistic utility functions, and covers Monte Carlo VaR calculation.
+While this repository doesn't contain the NtRand source code, you can find NtRand releases on our GitHub Releases page.
 
-### Local Development
+## Contributing
 
-```
-$ yarn start
-```
+Contributions to improve the documentation are welcome. Please feel free to submit a Pull Request.
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## Contact
 
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
-
-```
-remove extra work in link
-%s/\[\(.\{-}\)](\(.\{-}\) ".\{-}")/[\1](\2)/g
-
-```
+If you have any questions or feedback, please open an issue in this repository.
