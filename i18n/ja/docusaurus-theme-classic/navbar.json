@@ -26,5 +26,9 @@
   "item.label.Overview": {
     "message": "概要",
     "description": "Navbar item with label Overview"
+  },
+  "item.label.Distribution Navigator": {
+    "message": "確率分布 Navi",
+    "description": "Navbar item with label Distribution Navigator"
   }
 }

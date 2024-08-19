@@ -95,10 +95,16 @@ const config: Config = {
       },
       items: [
         {
-          type: "docSidebar",
-          sidebarId: "documentationSidebar",
-          position: "left",
+          to: "/docs/overview",
+          label: "Overview",
+        },
+        {
+          to: "/docs/installation",
           label: "Documentation",
+        },
+        {
+          to: "/docs/gallery-of-distributions/distribution-navi",
+          label: "Distribution Navigator",
         },
         {
           // download link
