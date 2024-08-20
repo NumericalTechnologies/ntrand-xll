@@ -38,7 +38,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   where
 
   $$
-  \alpha=\frac{12}{(b-a)^3},;\beta=\frac{a+b}{2}
+  \alpha=\frac{12}{(b-a)^3},\beta=\frac{a+b}{2}
   $$
 
 - [Probability density function](/docs/glossary#probability-density-function)
@@ -113,7 +113,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   where
 
   $$
-  \alpha=\frac{12}{(b-a)^3},;\beta=\frac{a+b}{2}
+  \alpha=\frac{12}{(b-a)^3},\beta=\frac{a+b}{2}
   $$
 
 - How to compute this on Excel.
@@ -145,7 +145,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
         { value: "Vertical scale", readOnly: true },
       ],
       [
-        { value: "(A3+A4)/2", readOnly: true },
+        { value: "=(A3+A4)/2", readOnly: true },
         { value: "Mean of the distribution", readOnly: true },
       ],
       [
@@ -319,7 +319,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
   where
 
   $$
-  \alpha=\frac{12}{(b-a)^3},;\beta=\frac{a+b}{2}
+  \alpha=\frac{12}{(b-a)^3},\beta=\frac{a+b}{2}
   $$
 
 - How to generate random numbers on Excel.
@@ -344,7 +344,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
         { value: "Vertical scale", readOnly: true },
       ],
       [
-        { value: "(A2+A3)/2", readOnly: true },
+        { value: "=(A2+A3)/2", readOnly: true },
         { value: "Mean of the distribution", readOnly: true },
       ],
       [
@@ -357,7 +357,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
       ],
       [
         {
-          value: "=(3*A2/A4-(A3-A4)^3)^(1/3)+A3",
+          value: "=(3*NTRAND(100)/A2-(A3-A2)^3)^(1/3)+A3",
           readOnly: true,
         },
         {

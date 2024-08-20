@@ -6,21 +6,21 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 
 # NTLOGNORMSTDEV
 
-ワイブル分布の標準偏差を返します。
+対数正規分布の標準偏差を返します。
 
 ## 書式
 
 ```excel
-NTWEIBULLSTDEV(
-    Alpha,
-    Beta
+NTLOGNORMSTDEV(
+    M,
+    S
 )
 ```
 
 ### 引数
 
-- **_Alpha_** 分布のパラメータ $\alpha(>0)$ を指定します。
-- **_Beta_** 分布のパラメータ $\beta(>0)$ を指定します。
+- **_M_** 分布のパラメータ $M$ を指定します。
+- **_S_** 分布のパラメータ $S(>0)$ を指定します。
 
 ## 使用例
 
@@ -50,11 +50,11 @@ NTWEIBULLSTDEV(
         { value: "説明", readOnly: true, className: "orange-cell" },
       ],
       [
-        { value: 1.7, readOnly: true },
+        { value: 13.5, readOnly: true },
         { value: "パラメータ Alpha の値", readOnly: true },
       ],
       [
-        { value: 0.9, readOnly: true },
+        { value: 31, readOnly: true },
         { value: "パラメータ Beta の値", readOnly: true },
       ],
       [
@@ -62,7 +62,7 @@ NTWEIBULLSTDEV(
         { value: "説明（計算結果）", readOnly: true, className: "orange-cell" },
       ],
       [
-        { value: "=NTWEIBULLSTDEV(A2,A3)", readOnly: true },
+        { value: "=NTLOGNORMSTDEV(A2,A3)", readOnly: true },
         { value: "上のデータに対する分布の標準偏差", readOnly: true },
       ],
     ],
@@ -71,12 +71,12 @@ NTWEIBULLSTDEV(
 
 ## 参照
 
-- [NTRANDWEIBULL](../01-random-numbers/01-single-series/16-ntrandweibull.mdx)
-- [NTWEIBULLDIST](103-ntweibulldist.mdx)
-- [NTWEIBULLINV](104-ntweibullinv.mdx)
-- [NTWEIBULLKURT](105-ntweibullkurt.mdx)
-- [NTWEIBULLMEAN](106-ntweibullmean.mdx)
-- [NTWEIBULLMOM](107-ntweibullmom.mdx)
-- [NTWEIBULLPARAM](108-ntweibullparam.mdx)
-- [NTWEIBULLSKEW](109-ntweibullskew.mdx)
-- [ワイブル分布](../../05-gallery-of-distributions/weibull-distribution.mdx)
+- [NTRANDLOGNORM](../01-random-numbers/01-single-series/10-ntrandlognorm.mdx)
+- [NTLOGNORMDIST](063-ntlognormdist.mdx)
+- [NTLOGNORMINV](064-ntlognorminv.mdx)
+- [NTLOGNORMKURT](065-ntlognormkurt.mdx)
+- [NTLOGNORMMEAN](066-ntlognormmean.mdx)
+- [NTLOGNORMMOM](067-ntlognormmom.mdx)
+- [NTLOGNORMPARAM](068-ntlognormparam.mdx)
+- [NTLOGNORMSKEW](069-ntlognormskew.mdx)
+- [対数正規分布](../../05-gallery-of-distributions/log-normal-distribution.mdx)

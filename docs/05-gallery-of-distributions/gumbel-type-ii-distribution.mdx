@@ -161,10 +161,6 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
         { value: "Description", readOnly: true, className: "orange-cell" },
       ],
       [
-        { value: "1", readOnly: true },
-        { value: "Value for which you want the distribution", readOnly: true },
-      ],
-      [
         { value: "8", readOnly: true },
         { value: "Value of parameter A", readOnly: true },
       ],
@@ -181,10 +177,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
         },
       ],
       [
-        {
-          value: "=POWER(-LN(-NTRAND(100))/A3,1/A2)",
-          readOnly: true,
-        },
+        { value: "=POWER(-A2*LN(-NTRAND(100)/A3),1/A2)", readOnly: true },
         {
           value:
             "100 Gumbel (Type II) deviates based on Mersenne-Twister algorithm for which the parameters above",

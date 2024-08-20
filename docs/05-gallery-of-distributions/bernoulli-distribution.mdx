@@ -28,7 +28,7 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
 - [Cumulative distribution function](/docs/glossary#cumulative-distribution-function)
 
 $$
-  F(x)=\begin{cases} 1-p&(x=0)\\ 1&(x=1) \end{cases}
+  F(x)=\begin{cases}0&(x<0)\\1-p&(0< x< 1)\\1&(x\geq 1)\end{cases}
 $$
 
 - [Probability mass function](/docs/glossary#probability-mass-function)
@@ -47,11 +47,11 @@ $$
         { value: "Description", readOnly: true, className: "orange-cell" },
       ],
       [
-        { value: "1", readOnly: true },
+        { value: "0", readOnly: true },
         { value: "Value for which you want the distribution", readOnly: true },
       ],
       [
-        { value: "0.6", readOnly: true },
+        { value: "0.3", readOnly: true },
         { value: "Value of parameter p", readOnly: true },
       ],
       [
@@ -63,7 +63,7 @@ $$
         },
       ],
       [
-        { value: "=IF(A2=0,1-A3,1)", readOnly: true },
+        { value: "=IF(A2<0,0,IF(A2<1, 1-A3, 1))", readOnly: true },
         {
           value: "Cumulative distribution function for the terms above",
           readOnly: true,
@@ -220,11 +220,7 @@ $$
         { value: "Description", readOnly: true, className: "orange-cell" },
       ],
       [
-        { value: "1", readOnly: true },
-        { value: "Value for which you want the distribution", readOnly: true },
-      ],
-      [
-        { value: "0.6", readOnly: true },
+        { value: "0.3", readOnly: true },
         { value: "Value of parameter p", readOnly: true },
       ],
       [
@@ -236,7 +232,7 @@ $$
         },
       ],
       [
-        { value: "=IF(NTRAND(100)<1-A2,0,1)", readOnly: true },
+        { value: "=IF(NTRAND(100)<A2,0,1)", readOnly: true },
         {
           value:
             "100 Bernoulli deviates based on Mersenne-Twister algorithm for which the parameters above",

@@ -27,7 +27,7 @@ NTFSTDEV(
 The [standard deviation](/docs/glossary#standard-deviation) of the distribution is given as:
 
 $$
-\left(\frac{2N_2^2(N_1+N_2-2)}{N_1(N_2-2)^2(N_2-4)}\right)^{1/2}
+\frac{2N_2^2(N_1+N_2-2)}{N_1(N_2-2)^2(N_2-4)}\quad
 $$
 
 ## Example
@@ -77,7 +77,10 @@ $$
       ],
       [
         { value: "=NTFSTDEV(A2,A3)", readOnly: true },
-        { value: "Standard deviation of the distribution for the terms above" },
+        {
+          value: "Standard deviation of the distribution for the terms above",
+          readOnly: true,
+        },
       ],
     ],
   }}

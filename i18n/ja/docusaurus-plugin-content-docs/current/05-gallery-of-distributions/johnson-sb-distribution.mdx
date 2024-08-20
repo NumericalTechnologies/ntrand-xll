@@ -88,7 +88,10 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
             "=A4*EXP(-0.5*(A3+A4*LN(A7/(1-A7)))^2)/(SQRT(2*PI())*A5*A7*(1-A7))",
           readOnly: true,
         },
-        "上のデータに対する確率密度関数の値",
+        {
+          value: "上のデータに対する確率密度関数の値",
+          readOnly: true,
+        },
       ],
     ],
   }}
@@ -165,10 +168,6 @@ import DataGridMdx from "@site/src/components/DataGridMdx";
       [
         { value: "データ", readOnly: true, className: "orange-cell" },
         { value: "説明", readOnly: true, className: "orange-cell" },
-      ],
-      [
-        { value: 1, readOnly: true },
-        { value: "生成する乱数の数", readOnly: true },
       ],
       [
         { value: 0.5, readOnly: true },
