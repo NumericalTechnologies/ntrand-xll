@@ -39,15 +39,21 @@ $$
 
 - To generate uniform random numbers between a and b (a < b), use:
 
-  =(b-a)\*NTRAND(100)+a
+```excel
+  =(b-a)*NTRAND(100)+a
+```
 
 - To generate discrete random numbers in [m, n] (m and n are integer and m < n), use:
 
-  =INT(NTRAND(100)\*(n-m+1))+m
+```
+  =INT(NTRAND(100)*(n-m+1))+m
+```
 
-  For example, to model a dice (output is in [1,6]):
+For example, to model a dice (output is in [1,6]):
 
-  =INT(NTRAND(100)\*6)+1
+```
+  =INT(NTRAND(100)*6)+1
+```
 
 ## Example
 
