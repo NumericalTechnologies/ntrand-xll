@@ -199,6 +199,19 @@ const config: Config = {
       crossorigin: "anonymous",
     },
   ],
+  plugins: [
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            from: "/jp",
+            to: "/ja",
+          },
+        ],
+      },
+    ],
+  ],
 };
 
 export default config;
