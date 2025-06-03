@@ -1,8 +1,7 @@
 {
   "responseOverrides": {
     "404": {
-      "rewrite": "https://www.ntrand.com/",
-      "statusCode": 404
+      "rewrite": "/"
     }
   }
 }
