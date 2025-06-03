@@ -206,7 +206,7 @@ const config: Config = {
         redirects: [
           {
             from: "/jp",
-            to: "/ja",
+            to: "https://www.ntrand.com/ja/",
           },
         ],
       },
